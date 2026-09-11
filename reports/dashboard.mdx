@@ -11,16 +11,16 @@ The aiGust dashboard is the first screen you see when you open a client entity. 
 The dashboard is made up of four main areas:
 
 <CardGroup cols={2}>
-  <Card title="KPI Cards" icon="gauge-high">
+  <Card title="KPI Cards" icon="gauge-high" href="/concepts/kpis">
     Headline financial figures for the current period: Revenue, Gross Profit, Net Profit, Cash Balance, Accounts Receivable, and Accounts Payable. Each card shows the current value alongside a comparison to the prior period, with an arrow indicating direction.
   </Card>
-  <Card title="Trend Charts" icon="chart-line">
+  <Card title="Trend Charts" icon="chart-line" href="/concepts/financial-periods">
     Sparkline charts beneath each KPI card showing the last 12 months of data for that metric. Hover over any point to see the exact value for that month. The charts update automatically as new data syncs from the bookkeeping file.
   </Card>
-  <Card title="Alerts Panel" icon="bell">
+  <Card title="Alerts Panel" icon="bell" href="/insights/triggers-and-alerts">
     A sidebar listing active alerts triggered by aiGust's automated analysis engine. Alerts cover anomalies, overdue receivables, unusual transactions, and data quality issues. Each alert links directly to the relevant report or transaction.
   </Card>
-  <Card title="Period Selector" icon="calendar">
+  <Card title="Period Selector" icon="calendar" href="/concepts/financial-periods">
     The global period control for the dashboard. Changing it updates all KPI cards and chart highlights simultaneously. Defaults to the most recently completed full month.
   </Card>
 </CardGroup>

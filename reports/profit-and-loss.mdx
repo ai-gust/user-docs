@@ -19,16 +19,16 @@ The report covers only the income statement. Balance sheet movements are visible
 aiGust maps accounts from the connected bookkeeping file into a standard P&L hierarchy. The top-level structure looks like this:
 
 <CardGroup cols={2}>
-  <Card title="Revenue" icon="arrow-trend-up">
+  <Card title="Revenue" icon="arrow-trend-up" href="/reports/profit-and-loss">
     All trading income accounts. Broken down by income type if the chart of accounts supports it — for example, product revenue, service revenue, and other income appear as sub-groups under the Revenue total.
   </Card>
-  <Card title="Cost of Goods Sold" icon="boxes-stacked">
+  <Card title="Cost of Goods Sold" icon="boxes-stacked" href="/reports/profit-and-loss">
     Direct costs tied to revenue generation: materials, direct labour, subcontractors, freight-in. The difference between Revenue and COGS is **Gross Profit**.
   </Card>
-  <Card title="Operating Expenses" icon="receipt">
+  <Card title="Operating Expenses" icon="receipt" href="/reports/profit-and-loss">
     Overhead and indirect costs: wages and salaries, rent, utilities, marketing, professional fees, depreciation. The difference between Gross Profit and Operating Expenses is **Operating Profit (EBIT)**.
   </Card>
-  <Card title="Net Profit" icon="circle-check">
+  <Card title="Net Profit" icon="circle-check" href="/reports/profit-and-loss">
     The bottom line after interest income, interest expense, and income tax. This is the figure that flows into retained earnings on the balance sheet.
   </Card>
 </CardGroup>
