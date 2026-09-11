@@ -1,0 +1,60 @@
+---
+title: "Connect Expert/M to aiGust"
+sidebarTitle: "Expert/M"
+description: "Integrate Expert/M with aiGust to automatically import client bookkeeping data and power your financial reports and analysis."
+---
+
+Connecting Expert/M to aiGust lets your firm import client dossier data — chart of accounts, journal transactions, and period balances — directly into aiGust without manual exports. Once you enter your Expert/M credentials and map your dossiers to aiGust administrations, the sync runs automatically so your reports always reflect the current state of your bookkeeping files.
+
+<Note>
+  **Before you begin, confirm you have the following:**
+  - An active Expert/M installation or hosted environment with access to the dossiers you want to sync
+  - Your Expert/M **username** and **password** for an account with read access to financial data
+  - The Expert/M **server address** or connection URL if you are connecting to a hosted or networked instance
+  - An aiGust account with the **Firm Admin** role
+</Note>
+
+## Setting Up the Connection
+
+<Steps>
+  <Step title="Open the Connectors page in aiGust">
+    Log in to aiGust and go to **Settings → Connectors**. Click **Add connector** and select **Expert/M** from the list of available integrations.
+  </Step>
+
+  <Step title="Enter your Expert/M credentials">
+    Fill in the Expert/M connector form with the following details:
+    - **Server address** — the hostname or IP address of your Expert/M server (for a locally hosted environment, this is the address your Expert/M client uses to connect)
+    - **Username** — your Expert/M login username
+    - **Password** — your Expert/M login password
+
+    Click **Verify credentials**. aiGust connects to the Expert/M server and confirms that the account is valid and has sufficient read permissions. A green checkmark indicates a successful connection.
+
+    <Warning>
+      The Expert/M user account must have read access to financial data, including the general ledger and chart of accounts, for every dossier you plan to sync. Accounts with restricted data access may result in incomplete syncs.
+    </Warning>
+  </Step>
+
+  <Step title="Map dossiers to aiGust administrations">
+    After credentials are verified, aiGust loads the list of Expert/M dossiers accessible under the connected account. For each dossier you want to sync, select or create the corresponding administration in aiGust using the dropdown on the right.
+
+    <Tip>
+      If you have a large number of dossiers, map the most active client files first and add remaining dossiers in batches as needed.
+    </Tip>
+  </Step>
+
+  <Step title="Start the initial sync">
+    Click **Save and sync**. aiGust begins the initial full sync for each mapped dossier. The status indicator changes to **Syncing** while the first data pull is in progress. The initial sync retrieves the complete chart of accounts and all available transaction history, which may take a few minutes per dossier.
+  </Step>
+</Steps>
+
+## Verifying the Sync
+
+Once the initial sync completes, the status for each mapped dossier changes to **Up to date**. To confirm the data is correct:
+
+1. Open an administration in aiGust and go to **Financial data → Chart of accounts**. Verify that the account codes and names match those in the Expert/M dossier.
+2. Navigate to **Financial data → Transactions** and confirm that bookkeeping entries appear with the correct dates, amounts, and account references.
+3. If data appears incomplete, go to **Settings → Connectors**, select the Expert/M connector, and check the sync log for any error messages or access warnings.
+
+<Tip>
+  aiGust syncs Expert/M data automatically every four hours. To pull in the latest changes immediately after a period close or a large posting batch, go to **Settings → Connectors** and click **Sync now** next to the relevant administration.
+</Tip>

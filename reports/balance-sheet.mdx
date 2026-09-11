@@ -1,0 +1,121 @@
+---
+title: "Read and Analyse the Balance Sheet Report in aiGust"
+sidebarTitle: "Balance Sheet"
+description: "Understand how the aiGust balance sheet presents assets, liabilities, and equity, and how to identify movements and spot unusual account balances."
+---
+
+The balance sheet tells you what a business owns, what it owes, and what belongs to the owners — at a single point in time. In aiGust, the balance sheet is always presented as at the last day of the selected period, so when you change the period selector, you're shifting the snapshot date rather than viewing a range. Used alongside the P&L and cash flow reports, the balance sheet rounds out the picture of a client's financial position and is often where the most significant issues first surface.
+
+## What the Balance Sheet Shows
+
+The aiGust balance sheet follows the standard accounting equation: **Assets = Liabilities + Equity**. The report is divided into three sections:
+
+<CardGroup cols={3}>
+  <Card title="Assets" icon="building-columns">
+    What the business owns or is owed. Split into **Current Assets** (cash, receivables, inventory — items expected to convert within 12 months) and **Non-Current Assets** (property, plant and equipment, intangibles, long-term investments).
+  </Card>
+  <Card title="Liabilities" icon="file-invoice-dollar">
+    What the business owes to others. Split into **Current Liabilities** (payables, accruals, short-term debt, GST/VAT payable) and **Non-Current Liabilities** (long-term loans, deferred tax, lease liabilities).
+  </Card>
+  <Card title="Equity" icon="scale-balanced">
+    The residual interest of the owners. Includes **Share Capital**, **Retained Earnings** (accumulated profits less distributions), and any other equity reserves. Net profit from the P&L flows into Retained Earnings each period.
+  </Card>
+</CardGroup>
+
+The report balances when Total Assets equals Total Liabilities plus Total Equity. If the balance sheet does not balance in aiGust, a warning banner appears at the top of the report. This almost always indicates an unmapped account or a data sync issue — check **Settings → Sync Status** to investigate.
+
+---
+
+## How the Structure Maps to Accounting Conventions
+
+aiGust maps accounts from the bookkeeping file into the balance sheet hierarchy using the account type assigned in the chart of accounts. The mapping conventions are:
+
+| Bookkeeping Account Type | aiGust Balance Sheet Position |
+|--------------------------|-------------------------------|
+| Bank, Cash | Current Assets → Cash and Cash Equivalents |
+| Accounts Receivable | Current Assets → Trade Receivables |
+| Inventory | Current Assets → Inventory |
+| Fixed Assets | Non-Current Assets → Property, Plant & Equipment |
+| Accumulated Depreciation | Non-Current Assets (offset against PPE) |
+| Accounts Payable | Current Liabilities → Trade Payables |
+| Credit Card | Current Liabilities → Short-Term Borrowings |
+| GST / VAT Liability | Current Liabilities → Tax Liabilities |
+| Long-Term Loan | Non-Current Liabilities → Borrowings |
+| Share Capital | Equity → Share Capital |
+| Retained Earnings | Equity → Retained Earnings |
+
+<Note>
+  If a client's bookkeeper has used non-standard account types — for example, coding a term loan as a current liability — it will appear in the wrong position on the aiGust balance sheet. Use the **Account Mapping** view under the entity's settings to correct the classification without touching the source bookkeeping file.
+</Note>
+
+---
+
+## Reading Movements in Key Balance Sheet Positions
+
+Unlike the P&L, which covers a period of activity, the balance sheet is a point-in-time snapshot. To understand *movement*, you need to compare two dates. Enable the **vs Prior Period** comparison from the **Compare** menu to add a prior-period column alongside the current balances.
+
+<Steps>
+  <Step title="Review working capital movement">
+    Working capital is Current Assets minus Current Liabilities. Look at whether trade receivables and inventory have grown faster than trade payables. A widening gap often signals cash is being absorbed by the business even when the P&L looks healthy — a common finding in growing businesses.
+  </Step>
+  <Step title="Check loan balances">
+    Compare the closing loan balance to the prior period. A balance that hasn't moved despite scheduled repayments may indicate a refinance, a repayment holiday, or a missed coding entry. Cross-reference with the Financing section of the cash flow report.
+  </Step>
+  <Step title="Reconcile retained earnings">
+    The movement in Retained Earnings should equal net profit for the period less any distributions paid. If the movement doesn't reconcile, check whether dividend or drawing entries have been coded correctly and whether there are prior-period adjustments in the file.
+  </Step>
+  <Step title="Review asset movements">
+    Significant increases in non-current assets typically indicate capital expenditure. Significant decreases may indicate disposals or impairment. Cross-reference with the Investing section of the cash flow report to confirm the movements match.
+  </Step>
+</Steps>
+
+---
+
+## Spot-Checking for Unusual Balances
+
+A systematic spot-check catches errors that a superficial review misses. Work through the following checks on each balance sheet review:
+
+<Accordion title="Credit balances in asset accounts">
+  An asset account with a credit balance (shown as a negative number) is almost always wrong. Common causes: a payment has been coded to an asset account instead of a liability, or a receivable has been overpaid and the credit sits unapplied. Click the account to drill into the transactions.
+</Accordion>
+
+<Accordion title="Debit balances in liability accounts">
+  A liability account with a debit balance suggests an overpayment or a balance that should have been cleared. GST/VAT accounts with debit balances can indicate a refund has been lodged or that input credits exceed output tax — confirm which applies.
+</Accordion>
+
+<Accordion title="Stale receivables">
+  Large or long-outstanding amounts in trade receivables that haven't moved over several balance sheet periods are worth querying. They may represent genuinely collectible debts, bad debts that haven't been written off, or intercompany amounts that should be disclosed separately.
+</Accordion>
+
+<Accordion title="Suspense or clearing accounts">
+  Any balance in a suspense or clearing account at period end indicates unfinished bookkeeping. These should always be zero at a review date. Flag these to the client's bookkeeper for resolution before signing off on the period.
+</Accordion>
+
+<Accordion title="Director loan account movements">
+  In owner-managed businesses, the director loan account (often coded as a current liability or equity account) moves frequently. Large unexplained movements may represent undocumented drawings, personal expenses put through the business, or funds advanced by the owner. Always understand the direction and nature of the movement.
+</Accordion>
+
+---
+
+## Combining Balance Sheet Analysis with P&L Review
+
+The balance sheet and P&L are most powerful when read together. Use the following connections to build a complete picture:
+
+<CardGroup cols={2}>
+  <Card title="Revenue vs Receivables" icon="link">
+    If revenue has grown but receivables have grown faster, the business is selling more but collecting more slowly. Calculate debtor days (Receivables ÷ Revenue × Days) and compare to prior periods.
+  </Card>
+  <Card title="COGS vs Inventory" icon="link">
+    Rising inventory relative to COGS may indicate overbuying, slow-moving stock, or a deliberate build ahead of a busy season. Falling inventory relative to COGS may signal supply constraints.
+  </Card>
+  <Card title="Expenses vs Payables" icon="link">
+    If operating expenses have increased but payables haven't grown proportionally, the business is paying its creditors faster — which may be a deliberate choice or a sign of creditor pressure.
+  </Card>
+  <Card title="Net Profit vs Cash" icon="link">
+    The gap between net profit and the movement in the cash balance is explained by working capital changes, capital expenditure, and financing flows. The Cash Flow report in aiGust calculates this reconciliation automatically.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Before a client meeting, open both the P&L and balance sheet side by side in separate browser tabs. Start with the P&L to understand trading performance, then switch to the balance sheet to understand whether the business converted that performance into cash and a sound financial position.
+</Tip>

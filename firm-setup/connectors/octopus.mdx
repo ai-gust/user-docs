@@ -1,0 +1,57 @@
+---
+title: "Connect Octopus to aiGust"
+sidebarTitle: "Octopus"
+description: "Link your Octopus accounting software to aiGust to pull in client financial data and keep your reports automatically up to date."
+---
+
+Connecting Octopus to aiGust gives your firm a direct link between your Octopus bookkeeping environment and aiGust's reporting and analysis tools. Once the connection is established, aiGust syncs chart of accounts data, transactions, and balances from your selected Octopus dossiers automatically, keeping every report current without any manual intervention.
+
+<Note>
+  **Before you begin, confirm you have the following:**
+  - An active Octopus licence with access to the dossiers you want to sync
+  - Your Octopus **username** and **password** for the account that has access to those dossiers
+  - Sufficient rights in Octopus to allow third-party read access to financial data
+  - An aiGust account with the **Firm Admin** role
+</Note>
+
+## Setting Up the Connection
+
+<Steps>
+  <Step title="Open the Connectors page in aiGust">
+    Log in to aiGust and go to **Settings → Connectors**. Click **Add connector** and select **Octopus** from the list of available integrations.
+  </Step>
+
+  <Step title="Enter your Octopus credentials">
+    In the Octopus connector form, enter the **username** and **password** for your Octopus account. These are the same credentials you use to log in to the Octopus desktop application or portal.
+
+    Click **Verify credentials**. aiGust connects to the Octopus server and confirms that the account is valid and has the required access rights. A green checkmark confirms a successful connection.
+
+    <Warning>
+      The Octopus account you use must have read access to the financial data in every dossier you plan to sync. If you use a restricted user account, some dossiers may not appear in the selection list.
+    </Warning>
+  </Step>
+
+  <Step title="Select dossiers to sync">
+    After credentials are verified, aiGust displays the list of Octopus dossiers (client files) available under the connected account. Toggle on each dossier you want to sync into aiGust. For each dossier, select or create the corresponding administration in aiGust using the dropdown on the right.
+
+    <Tip>
+      You can add or remove dossiers at any time by returning to **Settings → Connectors** and clicking **Manage dossiers** on the Octopus connector.
+    </Tip>
+  </Step>
+
+  <Step title="Start the initial sync">
+    Click **Save and sync**. aiGust begins the initial full sync for each selected dossier. The status indicator changes to **Syncing** while the first data pull is in progress. The initial sync fetches the complete chart of accounts and all available transaction history, which may take a few minutes per dossier.
+  </Step>
+</Steps>
+
+## Verifying the Sync
+
+Once the initial sync completes, the status for each dossier changes to **Up to date**. To confirm the data has come through correctly:
+
+1. Open an administration in aiGust and navigate to **Financial data → Chart of accounts**. Verify that the account codes and names match those in the corresponding Octopus dossier.
+2. Go to **Financial data → Transactions** and check that bookkeeping entries appear with the correct dates, amounts, and account allocations.
+3. If data is incomplete or missing, open **Settings → Connectors**, select the Octopus connector, and review the sync log for any error messages.
+
+<Tip>
+  aiGust syncs Octopus data automatically every four hours. To refresh a specific dossier immediately after a period close or a large batch of postings, go to **Settings → Connectors** and click **Sync now** next to that administration.
+</Tip>

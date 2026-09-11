@@ -1,30 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
+  "projectType": "saas",
+  "projectName": "aiGust",
+  "projectDescription": "aiGust is a SaaS platform for accounting firms that delivers AI-powered financial analysis, reporting, benchmarking, and client meeting tools.",
   "theme": "almond",
-  "name": "aiGust",
-  "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
-  },
-  "favicon": "/favicon.svg",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@aigust.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Go to aiGust",
-      "href": "https://app.aigust.com"
-    }
-  },
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
   "navigation": {
     "tabs": [
       {
@@ -104,9 +85,25 @@
       }
     ]
   },
-  "footer": {
-    "socials": {
-      "linkedin": "https://linkedin.com/company/aigust"
-    }
-  }
+  "keyFeatures": [
+    "Financial reporting: P&L, balance sheet, cash flow, and dashboard views",
+    "AI-powered benchmarking against sector and company-type peers",
+    "Triggers and alerts for anomaly detection and proactive client notifications",
+    "Forecasts and prepayment analysis",
+    "Capital gain tax insights",
+    "HR reports",
+    "Structured client meeting flows with a built-in meeting editor",
+    "Multi-connector data sync (Exact Online, Yuki, Odoo, Octopus, Silverfin, Expert/M, Horus, Adsolut, Business Central, Excel import)",
+    "White-label branding and custom email templates",
+    "Role-based access control and external client access",
+    "Usage tracking and audit trail",
+    "KPI tracking with configurable financial periods and labels"
+  ],
+  "publicApiSurface": [
+    "Data connectors: Exact Online, Yuki, Odoo, Octopus, Silverfin, Expert/M, Horus, Adsolut, Business Central, Excel import",
+    "Financial report views: Profit & Loss, Balance Sheet, Cash Flow, Dashboard, Ratios",
+    "Insights: Benchmarking, Triggers & Alerts, Forecasts & Prepayments, Capital Gain Tax, HR Reports",
+    "Meeting module: Flows, Editor, Running a Meeting",
+    "Administration management: users, roles, external access, branding, audit trail"
+  ]
 }

@@ -1,0 +1,56 @@
+---
+title: "Connect Horus to aiGust"
+sidebarTitle: "Horus"
+description: "Connect your Horus accounting software to aiGust and sync client financial data to enable real-time reporting and analysis."
+---
+
+Connecting Horus to aiGust creates a live link between your Horus client records and aiGust's reporting environment. After you enter your Horus credentials and select the clients you want to sync, aiGust automatically pulls chart of accounts data, journal transactions, and period balances on a scheduled cycle — no manual exports required.
+
+<Note>
+  **Before you begin, confirm you have the following:**
+  - An active Horus account with access to the clients you want to sync
+  - Your Horus **username** and **password** for an account with read access to financial data across the relevant client records
+  - An aiGust account with the **Firm Admin** role
+</Note>
+
+## Setting Up the Connection
+
+<Steps>
+  <Step title="Open the Connectors page in aiGust">
+    Log in to aiGust and go to **Settings → Connectors**. Click **Add connector** and select **Horus** from the list of available integrations.
+  </Step>
+
+  <Step title="Enter your Horus credentials">
+    In the Horus connector form, enter your Horus **username** and **password**. These are the same credentials you use to log in to Horus directly.
+
+    Click **Verify credentials**. aiGust connects to Horus and confirms that the account is active and has the permissions needed to read financial data. A green checkmark confirms a successful connection.
+
+    <Warning>
+      The Horus account must have read access to the general ledger, chart of accounts, and period balances for every client you plan to sync. If the account has restricted access, some clients may not appear in the selection list or their sync may be incomplete.
+    </Warning>
+  </Step>
+
+  <Step title="Select clients to sync">
+    After credentials are verified, aiGust loads the list of Horus clients available under the connected account. Toggle on each client you want to sync into aiGust. For each client, select or create the corresponding administration in aiGust using the dropdown on the right.
+
+    <Tip>
+      You can adjust which clients are synced at any time by returning to **Settings → Connectors** and clicking **Manage clients** on the Horus connector.
+    </Tip>
+  </Step>
+
+  <Step title="Start the initial sync">
+    Click **Save and sync**. aiGust begins the initial full sync for each selected client. The status indicator changes to **Syncing** while the first data pull runs. The initial sync fetches the full chart of accounts and all available transaction history, which may take a few minutes per client depending on data volume.
+  </Step>
+</Steps>
+
+## Verifying the Connection
+
+Once the initial sync completes, the status for each client changes to **Up to date** with a timestamp. To confirm the data is correct:
+
+1. Open an administration in aiGust and go to **Financial data → Chart of accounts**. Verify that account codes and names match those in the corresponding Horus client record.
+2. Navigate to **Financial data → Transactions** and check that bookkeeping entries appear with the correct dates, amounts, and account references.
+3. If any data looks incomplete, go to **Settings → Connectors**, select the Horus connector, and review the sync log for error messages.
+
+<Tip>
+  aiGust syncs Horus data automatically every four hours. To pull in the latest changes immediately — for example, after a period close or after a client's bookkeeper finishes a batch of entries — go to **Settings → Connectors** and click **Sync now** next to the relevant administration.
+</Tip>

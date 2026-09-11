@@ -1,0 +1,59 @@
+---
+title: "Connect Adsolut to aiGust"
+sidebarTitle: "Adsolut"
+description: "Link Adsolut to aiGust to import client bookkeeping data and automatically generate financial reports, dashboards, and insights."
+---
+
+Connecting Adsolut to aiGust lets you pull client financial data directly from your Adsolut environment into aiGust's reporting and analysis platform. Once you provide your Adsolut credentials or API key and select the administrations to sync, aiGust handles all subsequent data updates automatically — no manual exports, no file transfers.
+
+<Note>
+  **Before you begin, confirm you have the following:**
+  - An active Adsolut account with access to the administrations you want to sync
+  - Your Adsolut **username** and **password**, or an **API key** if your Adsolut environment supports API access
+  - Sufficient access rights in Adsolut to read financial data (chart of accounts, journal entries, and balances) across the selected administrations
+  - An aiGust account with the **Firm Admin** role
+</Note>
+
+## Setting Up the Connection
+
+<Steps>
+  <Step title="Open the Connectors page in aiGust">
+    Log in to aiGust and go to **Settings → Connectors**. Click **Add connector** and select **Adsolut** from the list of available integrations.
+  </Step>
+
+  <Step title="Enter your Adsolut credentials">
+    In the Adsolut connector form, provide your connection details:
+    - If your Adsolut environment uses **API key** authentication, enter the API key in the designated field.
+    - If your environment uses **username and password** authentication, enter your Adsolut login credentials.
+
+    Click **Verify credentials**. aiGust connects to the Adsolut API and confirms that the credentials are valid and that the account has sufficient access to financial data. A green checkmark confirms a successful connection.
+
+    <Warning>
+      The Adsolut account or API key you use must have read access to the general ledger, chart of accounts, and period balances for every administration you want to sync. Insufficient permissions will cause partial or failed syncs.
+    </Warning>
+  </Step>
+
+  <Step title="Select administrations to sync">
+    After the credentials are verified, aiGust displays the list of Adsolut administrations available under the connected account. Toggle on each administration you want to import into aiGust. For each administration, select or create the corresponding administration in aiGust using the dropdown on the right.
+
+    <Tip>
+      If you manage a high volume of administrations, prioritise the most active client files first. You can return to **Settings → Connectors** at any time to add or remove administrations from the sync selection.
+    </Tip>
+  </Step>
+
+  <Step title="Start the initial sync">
+    Click **Save and sync**. aiGust begins the initial full sync for each selected administration. The status indicator changes to **Syncing** while the first data pull is in progress. The initial sync downloads the complete chart of accounts and full transaction history, which may take a few minutes per administration.
+  </Step>
+</Steps>
+
+## Verifying the Sync
+
+Once the initial sync finishes, the status for each administration changes to **Up to date** with a timestamp. To confirm the data is correct:
+
+1. Open an administration in aiGust and navigate to **Financial data → Chart of accounts**. Verify that account codes and names match those in the corresponding Adsolut administration.
+2. Go to **Financial data → Transactions** and check that journal entries appear with the correct dates, amounts, and account codes.
+3. If data is missing or incomplete, go to **Settings → Connectors**, select the Adsolut connector, and review the sync log for error messages or access warnings.
+
+<Tip>
+  aiGust syncs Adsolut data automatically every four hours. To refresh an administration immediately after a period close or a bulk import in Adsolut, go to **Settings → Connectors** and click **Sync now** next to that administration.
+</Tip>

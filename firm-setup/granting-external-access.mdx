@@ -1,0 +1,117 @@
+---
+title: "Grant Clients External Access to Their Reports in aiGust"
+sidebarTitle: "External Access"
+description: "Learn how to invite clients to view their own financial reports and dashboards in aiGust, and how to manage or revoke their access at any time."
+---
+
+External access lets you invite a client — or any external stakeholder — to log in to the aiGust client portal and view the reports and dashboards you have prepared for them. The client sees only their own administration's data. They cannot access other client files, workspace settings, or internal firm features. External access is read-only by default and is scoped entirely to the content you choose to share.
+
+## What external access means
+
+When you grant external access to a client, aiGust creates a restricted portal account linked to a specific administration. The client receives an invitation email with a secure sign-up link. After setting a password, they can log in to the portal at any time to view:
+
+- Financial dashboards and key performance indicators
+- Management reports and benchmarking summaries
+- Meeting agendas and action items shared with them
+
+Clients cannot import data, generate reports, edit settings, or view any information outside their own administration. Their access is entirely separate from your firm's internal workspace.
+
+<Note>
+  External access is available for all subscription plans, but the number of active external users per administration may be limited depending on your plan tier. Check **Settings → Subscription** for your current limits.
+</Note>
+
+## Generating and sending an external access invitation
+
+<Steps>
+  <Step title="Open the administration">
+    Navigate to the client administration you want to share and open it.
+  </Step>
+
+  <Step title="Go to External Access">
+    In the administration's top navigation bar, click **Settings**, then select **External Access**.
+  </Step>
+
+  <Step title="Click Invite external user">
+    Click **+ Invite external user** to open the invitation panel.
+  </Step>
+
+  <Step title="Enter the invitee's details">
+    Fill in the following fields:
+
+    | Field | Notes |
+    |---|---|
+    | **Email address** | The client's email — this becomes their login |
+    | **First and last name** | Used to personalise the invitation email and portal |
+    | **Access level** | Choose the content the client can see (see [Permissions](#permissions-available-for-external-users) below) |
+    | **Personalised message (optional)** | Add a short note that appears in the invitation email |
+
+  </Step>
+
+  <Step title="Send the invitation">
+    Click **Send invitation**. aiGust sends a branded email from your firm using your configured email template. The invitation link is valid for **7 days**. If it expires, open **External Access** in the administration and click **Resend** next to the pending invitation.
+  </Step>
+</Steps>
+
+<Tip>
+  Before sending an invitation for the first time, send a test email from **Settings → Branding & Emails** to confirm the invitation template looks correct with your firm's logo and colours. See [Branding & Emails](/firm-setup/branding-and-emails) for instructions.
+</Tip>
+
+## Permissions available for external users
+
+External users always have read-only access. You can control which sections of the administration they can see by selecting an access level when issuing the invitation, or by editing it afterward.
+
+<CardGroup cols={2}>
+  <Card title="Reports & dashboards" icon="chart-pie">
+    The client can view all published financial reports and interactive dashboards for their administration.
+  </Card>
+  <Card title="Benchmarking" icon="scale-balanced">
+    The client can view benchmark comparisons showing how their business performs relative to sector peers.
+  </Card>
+  <Card title="Meeting records" icon="calendar-check">
+    The client can view structured meeting agendas and the action items that have been shared with them.
+  </Card>
+  <Card title="Documents" icon="file">
+    The client can download documents and exported PDFs you have explicitly made available to them.
+  </Card>
+</CardGroup>
+
+You can enable or disable any combination of these sections independently. For example, you might share reports and dashboards but keep benchmarking data internal.
+
+### Editing permissions after invitation
+
+1. Open the administration and go to **Settings → External Access**.
+2. Find the external user in the list and click **Edit access**.
+3. Update the enabled sections and click **Save changes**. The change takes effect immediately — the client does not receive a notification.
+
+## Managing external users
+
+All external users for an administration are listed on the **Settings → External Access** page within that administration. For each user, the list shows:
+
+- Name and email address
+- Access level (which sections are enabled)
+- Status: **Active**, **Pending** (invited but not yet accepted), or **Revoked**
+- Date of last login
+
+## Revoking external access
+
+Revoke a client's access when the engagement ends, when the client requests removal, or whenever you need to immediately stop their access to the portal.
+
+<Steps>
+  <Step title="Open External Access">
+    Go to the administration's **Settings → External Access** page.
+  </Step>
+  <Step title="Locate the external user">
+    Find the user in the list. You can search by name or email address using the search bar above the table.
+  </Step>
+  <Step title="Revoke access">
+    Click the **⋯** menu next to the user and select **Revoke access**. Confirm in the dialogue that appears.
+  </Step>
+</Steps>
+
+Revocation is immediate. The client is signed out of any active session and their login credentials stop working. Their historical portal activity is retained in the administration's record for audit purposes.
+
+<Warning>
+  Revoking access does not notify the client automatically. If the client expects ongoing access to their reports, communicate the change directly before revoking to avoid confusion.
+</Warning>
+
+To restore access to a previously revoked user, click **Re-invite** next to their entry in the External Access list. A fresh invitation email is sent to their registered address.

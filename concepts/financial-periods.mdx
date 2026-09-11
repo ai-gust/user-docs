@@ -1,0 +1,95 @@
+---
+title: "Financial Periods and Date Ranges in aiGust"
+sidebarTitle: "Financial Periods"
+description: "Learn how financial periods work in aiGust, how to configure fiscal year settings, and how to compare data across different time ranges."
+---
+
+Financial periods are the time boundaries that tell aiGust which data to include in any given report, KPI calculation, or meeting preparation view. Getting the period configuration right — particularly the financial year start date — ensures that every figure aiGust surfaces aligns with the way your client's business actually measures performance, rather than defaulting to a generic calendar year.
+
+## What a Financial Period Is
+
+In aiGust, a financial period is any defined span of time used to scope financial data. Periods can take several forms:
+
+- **Fiscal year** — The twelve-month period that constitutes the client's official financial year. This is the primary period type used for annual reporting and year-on-year comparisons.
+- **Calendar month** — A standard month (January, February, etc.), used for monthly management accounts and short-term trend analysis.
+- **Quarter** — A three-month block aligned to either the fiscal year or the calendar year, depending on the administration's settings.
+- **Custom range** — Any start and end date you define manually, useful for ad-hoc analysis or mid-year review meetings.
+- **Year-to-date** — The period from the start of the current fiscal year to today's date, updated dynamically as each day passes.
+
+## Setting the Financial Year Start
+
+The financial year start date is the most important period setting in an administration. It defines where each annual period begins and ends throughout the platform.
+
+<Steps>
+  <Step title="Open Administration Settings">
+    Inside the administration, click **Settings** in the left-hand sidebar, then select **Financial Settings**.
+  </Step>
+  <Step title="Locate the Financial Year Start field">
+    Find the **Financial Year Start** field. It displays the current setting as a month and day — for example, *1 April* for a UK-standard tax year.
+  </Step>
+  <Step title="Change the start date">
+    Click the field and select the month and day on which this client's financial year begins. If the client's year runs from 1 July to 30 June, select **July 1**.
+  </Step>
+  <Step title="Save and confirm">
+    Click **Save Changes**. aiGust will ask you to confirm, as this change re-segments all historical period data. Click **Confirm** to proceed. The recalculation typically completes within a few minutes.
+  </Step>
+</Steps>
+
+<Note>
+  Changing the financial year start retroactively re-assigns all historical transactions to new period buckets. Any saved period-specific annotations or meeting notes remain attached to their original data points but may now sit in a differently labelled period.
+</Note>
+
+## Switching Between Periods
+
+The period selector is available on every data view in aiGust — dashboards, reports, and the meetings preparation screen.
+
+<Steps>
+  <Step title="Find the period selector">
+    Look for the date range control in the top-right area of any data view. It displays the currently active period, for example *FY 2024* or *January 2025*.
+  </Step>
+  <Step title="Choose a period type">
+    Click the selector to open the period picker. Choose from **Year**, **Quarter**, **Month**, or **Custom** using the tabs at the top of the picker.
+  </Step>
+  <Step title="Select the specific period">
+    For year, quarter, and month views, use the navigation arrows to move backward or forward through available periods. For custom ranges, enter a start date and end date.
+  </Step>
+  <Step title="Apply">
+    Click **Apply** (or simply click a period in the year/quarter/month tabs). The page data refreshes immediately to reflect the selected period.
+  </Step>
+</Steps>
+
+## Year-to-Date vs Full-Year Views
+
+These two views answer different questions and are both accessible from the period selector.
+
+<CardGroup cols={2}>
+  <Card title="Year-to-Date (YTD)" icon="calendar-days">
+    Shows data from the first day of the current financial year up to today. YTD figures are dynamic — they grow each day and are the most relevant view for live monitoring and client check-ins during the year.
+  </Card>
+  <Card title="Full Year" icon="calendar">
+    Shows data for a complete, closed financial year. Use this view for annual review meetings, year-end reporting, and multi-year comparisons. aiGust marks incomplete current-year data clearly so you never confuse a partial year with a closed one.
+  </Card>
+</CardGroup>
+
+<Tip>
+  When preparing for a mid-year client meeting, use the **YTD** view alongside the **Prior Year (Same Period)** comparison to show how the business is tracking at the same point last year. This combination gives clients an immediately intuitive read on performance trajectory.
+</Tip>
+
+## Period Comparisons
+
+aiGust supports structured period comparisons directly within the dashboard and reports.
+
+<Tabs>
+  <Tab title="Current Year vs Prior Year">
+    The most common comparison mode. Select **Prior Year** in the comparison dropdown to place the current financial year side by side with the preceding one. Both full-year and YTD views support this comparison. Variances are shown in absolute terms, percentage terms, and visually via trend indicators.
+  </Tab>
+  <Tab title="Current Period vs Prior Period">
+    For month-by-month monitoring, select **Prior Period** to compare, for example, March against February, or Q3 against Q2. This view highlights short-term momentum and helps identify emerging issues before they affect the annual figures.
+  </Tab>
+  <Tab title="Custom Period Comparison">
+    Define two arbitrary date ranges to compare. Navigate to any report, click the comparison control, and select **Custom**. Enter a primary range and a comparison range. aiGust renders both datasets in parallel. Use this for one-off analyses such as comparing the six months before and after a pricing change.
+  </Tab>
+  <Tab title="Budget vs Actual">
+    If a budget file has been imported for the current financial year, choose **Budget** as the comparison target to display actuals alongside planned figures. Variance columns highlight where performance diverges from plan. See the Budgets guide for details on importing a budget.
+  </Tab>
+</Tabs>

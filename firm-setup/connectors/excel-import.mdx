@@ -1,0 +1,118 @@
+---
+title: "Import Financial Data via Excel into aiGust"
+sidebarTitle: "Excel Import"
+description: "Use the aiGust Excel import template to manually load financial data when no direct connector is available for your accounting software."
+---
+
+The Excel import lets you bring financial data into aiGust for any accounting software that does not have a direct connector. You download the aiGust import template, fill in your client's chart of accounts data and transactions, and upload the completed file. aiGust validates the data, flags any issues, and loads the approved figures into the selected administration. This workflow is designed for occasional use — if a direct connector becomes available for your software, switching to the connector will save you significant time.
+
+## When to Use the Excel Import
+
+Use the Excel import when:
+
+- Your accounting software does not appear in the connector list under **Settings → Connectors**
+- A client uses a legacy or bespoke accounting system that does not have an API
+- You are migrating historical data from a previous system before switching to a connected package
+- You need to load a one-off data correction that cannot be made through the live connector
+
+<Note>
+  The Excel import does not establish a live connection between aiGust and your accounting software. Data imported via Excel is a static snapshot — it will not update automatically. You must upload a new file each time you want to refresh the figures in aiGust.
+</Note>
+
+## Downloading the Import Template
+
+aiGust provides a pre-formatted Excel template that ensures your data is structured correctly before upload.
+
+<Steps>
+  <Step title="Open the Excel import tool">
+    Log in to aiGust and go to **Settings → Connectors**. Click **Add connector** and select **Excel import** from the list. Alternatively, open an existing administration and go to **Financial data → Import → Excel import**.
+  </Step>
+
+  <Step title="Download the template">
+    Click **Download template**. aiGust downloads an `.xlsx` file named `aigust_import_template.xlsx`. Open the file in Microsoft Excel or any compatible spreadsheet application.
+  </Step>
+</Steps>
+
+## Filling in the Template
+
+The template contains two worksheets: **Chart of Accounts** and **Transactions**. Both worksheets must be filled in for a complete import.
+
+### Chart of Accounts worksheet
+
+| Column | Description | Format |
+|---|---|---|
+| `account_code` | Unique account identifier | Text, max 20 characters |
+| `account_name` | Descriptive name for the account | Text, max 100 characters |
+| `account_type` | Category of the account | One of: `asset`, `liability`, `equity`, `income`, `expense` |
+| `parent_code` | Account code of the parent account (optional) | Text, must match an existing `account_code` in this sheet |
+
+### Transactions worksheet
+
+| Column | Description | Format |
+|---|---|---|
+| `date` | Posting date of the transaction | `YYYY-MM-DD` |
+| `period` | Accounting period | `YYYY-MM` (for example, `2024-03`) |
+| `account_code` | Account code from the Chart of Accounts sheet | Must match an `account_code` in the Chart of Accounts worksheet |
+| `description` | Free-text description of the transaction | Text, max 255 characters |
+| `debit` | Debit amount | Numeric, two decimal places, no currency symbol |
+| `credit` | Credit amount | Numeric, two decimal places, no currency symbol |
+| `reference` | External reference number (optional) | Text, max 50 characters |
+
+<Warning>
+  Do not rename, reorder, or delete any column headers in the template. aiGust relies on exact column names to parse the file. Adding extra columns is allowed — aiGust ignores unrecognised columns during validation.
+</Warning>
+
+<Tip>
+  Enter amounts in the **debit** and **credit** columns as positive numbers. Do not use negative figures to represent credits in the debit column or vice versa. Each row should have a value in either `debit` or `credit`, but not both.
+</Tip>
+
+## Uploading the File
+
+<Steps>
+  <Step title="Save your completed template">
+    Save the completed template as an `.xlsx` file. Ensure both the **Chart of Accounts** and **Transactions** worksheets are filled in before uploading.
+  </Step>
+
+  <Step title="Upload the file in aiGust">
+    In aiGust, return to the Excel import screen (via **Settings → Connectors → Excel import** or **Financial data → Import → Excel import**). Select the target administration from the dropdown, then click **Upload file** and select your completed `.xlsx` file.
+  </Step>
+</Steps>
+
+## Validating and Confirming the Import
+
+After uploading, aiGust runs an automatic validation check on the file before importing any data.
+
+<Steps>
+  <Step title="Review validation results">
+    aiGust displays a validation summary showing the number of accounts and transactions detected, along with any errors or warnings. Common validation errors include:
+    - Missing required columns
+    - Invalid date format (must be `YYYY-MM-DD`)
+    - Transaction rows referencing an `account_code` not found in the Chart of Accounts worksheet
+    - Non-numeric values in the `debit` or `credit` columns
+  </Step>
+
+  <Step title="Fix any errors and re-upload if needed">
+    If validation finds errors, aiGust highlights the affected rows and describes the issue. Correct the errors in your Excel file, save it, and re-upload.
+
+    <Note>
+      Warnings (as opposed to errors) do not block the import. You can proceed with warnings, but review them carefully to ensure they represent expected data conditions rather than mistakes.
+    </Note>
+  </Step>
+
+  <Step title="Confirm the import">
+    Once validation passes, click **Confirm import**. aiGust loads the chart of accounts and transactions into the selected administration. A confirmation screen shows the total number of accounts and transactions imported, along with the date range covered.
+  </Step>
+</Steps>
+
+## Updating Data with a New Import
+
+Because Excel imports are static snapshots, you need to upload a new file whenever your source data changes.
+
+When you upload a new file for an administration that already has imported data, aiGust gives you two options:
+
+- **Replace all data** — aiGust removes the previously imported data and loads only the data in the new file. Use this option when you have corrected historical figures or are doing a full refresh.
+- **Merge by period** — aiGust replaces data only for the periods covered by the new file and leaves all other periods unchanged. Use this option when you are adding a new month of transactions without modifying historical data.
+
+<Tip>
+  Keep a copy of every import file you upload, named with the administration name and the date of the import (for example, `client_abc_2024-04-30.xlsx`). This gives you a clear audit trail if you ever need to trace a figure back to its source.
+</Tip>
