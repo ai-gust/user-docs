@@ -1,15 +1,119 @@
 ---
 title: "KPIs and KPI types"
-description: "What KPIs are in aiGust, where they come from and the different forms they take."
+description: "What KPIs are in aiGust, where they come from, and how the four KPI types (absolute value, horizontal delta, vertical value and vertical delta) help you read and benchmark them."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import { KpiTypeIcon } from "/snippets/kpi-type-icon.jsx";
 
-## To cover
+A KPI in aiGust is a financial or personnel figure for one administration, such as turnover, EBITDA, solvability or the number of employees. KPIs show up almost everywhere in aiGust. You use them to search administrations, set up triggers, build dashboards, compare with peer groups and add charts to meeting slides.
 
-- What we mean by KPIs
-- Where they come from
-- What you use them for
-- KPI types: absolute, horizontal delta, vertical value, vertical delta
-- The KPI selector in filters
-- KPI types in charts
+aiGust calculates every KPI for every financial year, year-to-date period, quarter and period of an administration. Each KPI can also be shown in up to four forms, called KPI types.
+
+## Where KPIs come from
+
+aiGust takes its KPIs from four sources:
+
+| Source | Examples | Available |
+|---|---|---|
+| **Standard financial reports:** profit and loss, balance sheet and cash flow | Turnover, gross margin, EBITDA, personnel costs, total assets | For every administration |
+| **Social balance sheet** | Number of employees, FTE | Only when [social data](/guide/personnel/data-sources) is available |
+| **Financial ratios,** derived from the other sources | Customer credit, supplier credit, liquidity, solvability, added value, turnover per FTE, added value per FTE | For every administration, as far as the underlying data allows |
+| **[aiGust labels](/guide/concepts/labels):** a selection of 61 profit and loss labels | Restaurant costs, energy costs, insurance | For every administration whose accounts are mapped to labels |
+
+For the definition of each ratio, see the [ratio reference](/guide/reports/ratios).
+
+The aiGust chart of accounts has many more labels, but only this selection of 61 profit and loss labels is available as KPIs. aiGust doesn't calculate KPIs for balance sheet labels.
+
+### Why you can't change the standard definitions
+
+The standard profit and loss, balance sheet and cash flow are the same for every administration, and you can't change their definitions. aiGust calculates the KPIs of all administrations in the background. Every administration must follow the same definitions, or its KPIs can't be compared with those of its peers.
+
+To report in your own format, use [custom reports](/configure/reporting/custom-reports-overview). They live next to the standard reports and don't change the standard KPIs.
+
+## KPI types
+
+Most KPIs can be shown in four forms. You switch between them with the KPI type selector, a row of four icons.
+
+<Frame caption="The KPI type selector (highlighted) on the administration dashboard. EBITDA is shown as a vertical value: a percentage of turnover, compared with the peer group.">
+  <img src="/images/concepts/kpi-types.jpg" alt="Administration dashboard with the KPI type selector highlighted and set to percent. The chart shows EBITDA as a percentage of turnover from 2023 to 2026, with a band for the peer group benchmark and a table with the values per year" />
+</Frame>
+
+| Icon | KPI type | What it shows | Example |
+|---|---|---|---|
+| <KpiTypeIcon type="currency" /> <KpiTypeIcon type="number" /> | Absolute value | The value itself, in euro, as a number or as a percentage | Turnover of €7.35M, or customer credit of 45 days |
+| <KpiTypeIcon type="horizontal" /> | Horizontal delta | The change compared with the previous year, in % | Turnover grew by 60% |
+| <KpiTypeIcon type="vertical" /> | Vertical value | The value as a share of a reference value | Gross margin is 20.5% of turnover |
+| <KpiTypeIcon type="vertical-delta" /> | Vertical delta | The change in the vertical value, in percentage points | Gross margin dropped from 45% to 40%: −5 pp |
+
+Not every KPI has all four types. A ratio like customer credit, for example, has no vertical value.
+
+### Absolute value
+
+The value of the KPI itself. The icon shows its unit:
+
+- <KpiTypeIcon type="currency" /> **An amount in euro,** such as turnover. This applies to most KPIs.
+- <KpiTypeIcon type="number" /> **A number,** such as customer credit in days or the number of employees.
+- <KpiTypeIcon type="percentage" /> **A percentage,** for KPIs that are percentages by nature.
+
+### Horizontal delta
+
+The relative change compared with the previous year:
+
+```
+horizontal delta = (this year − previous year) / |previous year| × 100%
+```
+
+The formula divides by the absolute value of the previous year, so the sign always shows the right direction, even for negative values. A loss that shrinks from −€100,000 to −€50,000 is an improvement, and gives a horizontal delta of +50%.
+
+If the previous year's value is 0 or missing, there's no horizontal delta.
+
+### Vertical value
+
+The KPI as a percentage of a reference value. Each standard report defines its own reference value:
+
+| Report | Reference value |
+|---|---|
+| Profit and loss | Turnover |
+| Balance sheet | Balance sheet total (total assets, or total equity and liabilities) |
+| Cash flow | None, so cash flow KPIs have no vertical value |
+
+Label KPIs, such as energy costs, also have a vertical value: their share of turnover. Ratios like customer credit or solvability don't have one.
+
+### Vertical delta
+
+The change in the vertical value compared with the previous year, in percentage points (pp). If gross margin drops from 45% of turnover to 40%, the vertical delta is −5 pp.
+
+A vertical delta is an absolute difference between two percentages, not a relative change. The same drop as a horizontal delta would be −11%.
+
+## Choose the right KPI type
+
+Which type tells you the most depends on the KPI and on your question:
+
+- **Costs and margins:** look at the vertical value rather than the absolute value. Personnel costs of €400,000 say little by themselves. Personnel costs of 35% of turnover can be compared across years and with other companies.
+- **Rising costs:** look at the vertical delta. It tells you whether a cost is growing faster than turnover. For example, are personnel costs rising compared with turnover, or does the company keep them in line?
+- **Growth:** look at the horizontal delta, for example for turnover.
+
+### KPI types in benchmarking
+
+The choice matters even more when you [benchmark](/guide/benchmarking/how-it-works) an administration against a peer group:
+
+- **Comparing absolute values of costs is rarely useful.** Peers differ in size, so benchmark personnel costs or margins as a vertical value.
+- **To see how margins moved in the sector, benchmark the vertical delta, not the vertical value.** The benchmark of the vertical delta shows whether most peers kept their margins stable, or whether margins dropped across the board.
+- **To see whether peers grew, benchmark the horizontal delta.** A benchmark of absolute turnover can't tell you whether most companies grew. A rising median turnover doesn't mean that most peers grew. Only the benchmark of the horizontal delta tells you that.
+
+## Where you use KPIs
+
+<CardGroup cols={2}>
+  <Card title="Advanced search" icon="magnifying-glass" href="/guide/getting-started/advanced-search">
+    Find administrations by KPI, for example all companies whose turnover grew by more than 10%.
+  </Card>
+  <Card title="Triggers and alerts" icon="bell" href="/guide/triggers/how-triggers-work">
+    Get alerts when a KPI meets a rule, across all your administrations.
+  </Card>
+  <Card title="Administration dashboard" icon="gauge" href="/guide/reports/dashboard">
+    Follow the most important KPIs of an administration at a glance.
+  </Card>
+  <Card title="Benchmarking" icon="chart-column" href="/guide/benchmarking/how-it-works">
+    Compare an administration's KPIs with those of a peer group.
+  </Card>
+</CardGroup>

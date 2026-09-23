@@ -19,6 +19,9 @@
 | financial year | boekjaar | book year, fiscal year |
 | financial period (plain "period" once the context is clear) | boekperiode | book period |
 | compliance connector (Silverfin, Adsolut fiscal files) | | |
+| solvability (matches the app) | solvabiliteit | solvency |
+| customer credit | klantenkrediet | days sales outstanding, DSO |
+| supplier credit | leverancierskrediet | days payable outstanding, DPO |
 
 - Quote UI labels exactly as they appear on screen, even where they differ from the terms above.
 
