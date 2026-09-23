@@ -1,14 +1,87 @@
 ---
 title: "Labels"
-description: "Labels are aiGust's standard chart of accounts, used to compare administrations."
+description: "Labels form the aiGust chart of accounts: one standard, detailed chart that every administration's accounts are mapped to, so costs can be identified and compared."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Every administration in aiGust has its own chart of accounts. Labels translate those accounts into one standard: the aiGust chart of accounts. Because every administration is mapped to the same labels, aiGust can recognise a cost like energy in any administration, and compare it across administrations.
 
-## To cover
+## What labels are
 
-- What labels are and why they are useful
-- Overview of the aiGust chart of accounts
-- Mapping accounts to labels
-- Understanding the suggested probabilities
-- How the mapping affects reporting
+A label is an account in the aiGust chart of accounts. Like a general ledger account, each label has a 6-digit code and a description, for example **610101 Energy** or **440000 Suppliers**.
+
+The aiGust chart of accounts follows the structure of the Belgian minimum standard chart of accounts (MAR/PCMN), but goes into more detail. It covers all account classes, so balance sheet accounts as well as costs and revenue.
+
+## Why labels exist
+
+The MAR only prescribes account numbers up to a few digits. Below that level, every accounting firm and every administration is free to create its own accounts. Accounts starting with 61, for example, are services and other goods: restaurant costs, IT, insurance, energy and many more. One administration books energy on 612025 *Utilities*, another on 613400 *Electricity*, and a third splits it over several accounts.
+
+That freedom makes administrations hard to compare. Labels solve this in two ways.
+
+### Identify costs
+
+Once an administration's accounts are mapped to labels, aiGust knows which bookings are energy costs, insurance or IT, whatever account they were booked on. That makes questions like these possible:
+
+- **How much did energy costs rise?** The [vertical value](/guide/concepts/kpis#vertical-value) of the energy label shows energy costs as a share of turnover, year by year.
+- **How does that compare with similar companies?** You can [benchmark](/guide/benchmarking/how-it-works) the energy label against a peer group, because every peer is mapped to the same label.
+- **Was something not booked?** A transport company can recover excise duties on fuel. With a label for that recovery, a [trigger](/guide/triggers/how-triggers-work) can warn you when an administration books none.
+
+### Bring charts of accounts into a standard format
+
+Labels also let you fix charts of accounts that don't follow the Belgian standard:
+
+- **Foreign charts of accounts,** for example an English subsidiary. Map its accounts to labels, and aiGust reports on it in the Belgian format.
+- **Belgian charts of accounts with errors,** for example an account booked in the wrong class.
+
+## How labels are assigned
+
+When an administration comes into aiGust, a machine-learning model suggests a label for each of its accounts. It looks at the account number and description, and shows how certain it is as a percentage.
+
+Each label has a filter that defines which part of the MAR it belongs to. The filter acts as a guardrail: the model only suggests labels whose filter matches the account. An account starting with 61, for example, never gets a revenue label starting with 7 as a suggestion.
+
+The suggestions are a starting point. Review them and confirm or correct them on the **Mapping** tab of the administration. See [Map accounts to labels](/guide/concepts/label-mapping).
+
+## How labels affect your reports
+
+The [standard reports](/guide/reports/overview) select accounts by their number. The revenue section of the profit and loss, for example, contains every account starting with 70.
+
+For each account, aiGust uses the first code available, in this order:
+
+1. **The code of the confirmed label,** once you've confirmed or changed the label of the account.
+2. **The compliance code:** the code from the administration's Silverfin mapping, if there is one. Many firms have already corrected accounts in Silverfin, for example foreign accounts or accounts with errors, and aiGust imports that mapping.
+3. **The account number from the bookkeeping.**
+
+### Confirmed and unconfirmed labels
+
+Whether a label is confirmed matters differently depending on the calculation:
+
+| Calculation | Uses |
+|---|---|
+| Report lines and the KPIs based on them, such as turnover or gross margin | The code of the confirmed label, or else the compliance code or account number. See the order above. |
+| Label KPIs, such as energy costs, in the administration and in [benchmarks](/guide/benchmarking/how-it-works) | Every account mapped to the label, whether the label is confirmed or not |
+
+Label KPIs therefore include unconfirmed suggestions. If aiGust wrongly suggested the energy label for an account, that account counts towards the administration's energy costs. It also counts towards the energy benchmark of every peer group the administration is part of. Checking the suggested labels keeps your own figures right, and the benchmarks reliable for everyone.
+
+<Warning>
+A confirmed label can move an account to a different section of the reports. If you map an energy account starting with 61 to a label starting with 60, energy costs move from services to cost of sales, and the gross margin changes. That's possible, but it's not what labels are for. Use it only to correct accounts that were booked in the wrong place.
+</Warning>
+
+## Labels as KPIs
+
+The aiGust chart of accounts has many labels, but only a selection of 61 profit and loss labels are available as [KPIs](/guide/concepts/kpis). You can use those labels in advanced search, triggers and benchmarking. Examples are restaurant costs, energy and insurance.
+
+## Sub-labels
+
+Some labels are split further into sub-labels. The label **Utilities**, for example, has the sub-labels **Energy** and **Water**. Many administrations book both on a single utilities account, but you usually want to follow energy costs separately. You can do that by [mapping per business partner](/guide/concepts/label-mapping#map-per-business-partner): the energy supplier's bookings go to **Energy**, the water company's to **Water**.
+
+A parent label's amount includes its sub-labels. The label **Insurance**, for example, covers all insurance costs, while its sub-labels, such as fire insurance and health insurance, can each be followed separately.
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="Map accounts to labels" icon="tags" href="/guide/concepts/label-mapping">
+    Review the suggested labels and correct them where needed.
+  </Card>
+  <Card title="KPIs and KPI types" icon="chart-line" href="/guide/concepts/kpis">
+    How label KPIs are used for search, triggers and benchmarking.
+  </Card>
+</CardGroup>

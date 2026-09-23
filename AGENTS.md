@@ -19,6 +19,7 @@
 | financial year | boekjaar | book year, fiscal year |
 | financial period (plain "period" once the context is clear) | boekperiode | book period |
 | compliance connector (Silverfin, Adsolut fiscal files) | | |
+| compliance code (account code from the Silverfin mapping) | | mapped GL account code |
 | solvability (matches the app) | solvabiliteit | solvency |
 | customer credit | klantenkrediet | days sales outstanding, DSO |
 | supplier credit | leverancierskrediet | days payable outstanding, DPO |
