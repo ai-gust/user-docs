@@ -1,15 +1,107 @@
 ---
 title: "Sectors and company types"
-description: "How aiGust classifies administrations by sector, subsector and company type."
+description: "How aiGust classifies each administration by sector, subsector and company type, and why that classification matters for benchmarking."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust classifies every administration in two ways: by **sector and subsector**, based on its NACE code, and by **company type**, such as operating company or holding. Both are there mainly to make [benchmarking](/guide/benchmarking/how-it-works) easier and more reliable. They help you find relevant peers without searching through NACE codes, and keep you from comparing companies that work in completely different ways.
 
-## To cover
+## Sectors and subsectors
 
-- Sectors and subsectors and why they matter
-- Link with NACE codes
-- How aiGust determines them
-- Company types
-- The sector verification popup
-- Changing after confirmation
+Sectors and subsectors are aiGust's own classification of economic activities. They group NACE codes into categories that make sense when you're looking for peers. The **Construction** sector, for example, has subsectors such as electricians, plumbers and roofers.
+
+When you create a peer group, you can select a sector or subsector, rather than looking up and combining the right NACE codes yourself.
+
+For the full list of sectors and subsectors, with the codes in each, see the [sector reference](/guide/concepts/sector-reference).
+
+### How aiGust determines the sector
+
+The sector follows from the administration's NACE code:
+
+1. **aiGust reads the company's NACE codes from the Crossroads Bank for Enterprises (KBO/BCE).** It updates its copy of that database every month. A company often has several NACE codes there.
+2. **aiGust selects one of them as the administration's NACE code,** based on a priority order.
+3. **The NACE code determines the sector and subsector.**
+
+An administration has exactly one NACE code in aiGust, and therefore one sector and one subsector. aiGust doesn't support combining two or three NACE codes.
+
+To move an administration to another sector or subsector, you choose a different NACE code. aiGust suggests the other NACE codes the company has in the KBO first.
+
+### Virtual codes
+
+For some activities, NACE codes aren't detailed enough to find good peers. aiGust therefore adds its own virtual codes:
+
+- **Medical specialisations:** a NACE code doesn't tell you whether a doctor is a cardiologist or a dermatologist. aiGust adds RIZIV codes, such as `RIZIV-10-S07` for ophthalmologists, based on the public data of the RIZIV/INAMI.
+- **Carpentry:** NACE code 43320 covers all carpentry. aiGust splits it into `43320_in` for interior carpentry and `43320_ex` for exterior carpentry.
+
+You choose a virtual code the same way as a NACE code.
+
+## Company types
+
+Company types aren't an official classification. aiGust uses them to make benchmarks more reliable: you don't want to compare a freelancer's management company with a large operating company, even if they're in the same sector.
+
+| Company type | Typical profile |
+|---|---|
+| **Operating company** | Carries out an economic activity itself, usually with staff, customers and suppliers |
+| **Holding** | Holds shares in other companies |
+| **Management company** | Provides management or freelance services, usually on behalf of one person |
+| **Investment company** | Invests in financial assets |
+| **Patrimonial company** | Holds and manages assets such as real estate |
+
+A machine-learning model determines the company type from the administration's figures. It looks at KPIs such as the number of FTE.
+
+## Verify and change the sector and company type
+
+aiGust's classification is a suggestion. As long as it isn't confirmed, the **Please verify the sector and company type** pop-up opens each time you open the administration's dashboard.
+
+- **Unconfirmed classifications can change.** aiGust may classify the administration differently later, for example after a KBO update or new figures.
+- **Confirmed classifications never change automatically.** Only a user can change them.
+
+You can reopen the pop-up at any time, from the administration's dashboard or from **Settings** › **Details**.
+
+<Frame caption="The verification pop-up shows the current economic activity with its sector and subsector, and the company type.">
+  <img src="/images/concepts/sector-verification.jpg" alt="Pop-up titled Please verify the sector and company type, showing economic activity RIZIV-10-S07 Ophtalmologist in sector Healthcare and subsector Specialist Medical Practice, and company type Operating Company, each with a confirm and an edit button" />
+</Frame>
+
+The pop-up has two parts:
+
+- **Economic activity:** the NACE code, or virtual code for medical specialists, with the sector and subsector it belongs to.
+- **Company type.**
+
+For each part:
+
+- **If it's correct,** click the check mark to confirm it.
+- **If it's wrong,** click the pencil to change it. See the steps below.
+
+### Change the economic activity
+
+<Steps>
+  <Step title="Open the edit mode">
+    In the **Economic activity** part of the pop-up, click the pencil.
+  </Step>
+  <Step title="Choose the right activity">
+    aiGust lists the company's other NACE codes from the KBO first, marked **KBO**. Select the one that fits best. If the right activity isn't listed, search by NACE code, sector or subsector.
+  </Step>
+  <Step title="Save">
+    Click the save button next to the search field. To go back without changing anything, click the undo button.
+  </Step>
+</Steps>
+
+<Frame caption="Choosing another economic activity. Codes the company has in the KBO are marked KBO.">
+  <img src="/images/concepts/sector-change.jpg" alt="Edit mode of the economic activity, listing RIZIV-10-S07 Ophtalmologist and 86220 Medical specialists activities, both marked KBO, with a search field for NACE code or sector and undo and save buttons" />
+</Frame>
+
+The sector and subsector follow automatically from the activity you choose.
+
+### Change the company type
+
+In the **Company type** part of the pop-up, click the pencil and select the right company type.
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="How benchmarking works" icon="chart-column" href="/guide/benchmarking/how-it-works">
+    Why comparing with the right peers matters.
+  </Card>
+  <Card title="Create peer groups" icon="users" href="/guide/benchmarking/peer-groups">
+    Use sectors and company types to define a peer group.
+  </Card>
+</CardGroup>
