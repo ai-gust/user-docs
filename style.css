@@ -1,0 +1,56 @@
+/* Note callouts in aiGust brand purple instead of Mintlify's default blue */
+
+[data-callout-type="note"] {
+  background-color: #f3f0fc !important;
+  border-color: #d9d1f4 !important;
+}
+
+[data-callout-type="note"] [data-component-part="callout-content"],
+[data-callout-type="note"] [data-component-part="callout-icon"] svg {
+  color: #45309e !important;
+}
+
+.dark [data-callout-type="note"] {
+  background-color: rgba(128, 107, 229, 0.15) !important;
+  border-color: rgba(128, 107, 229, 0.35) !important;
+}
+
+.dark [data-callout-type="note"] [data-component-part="callout-content"],
+.dark [data-callout-type="note"] [data-component-part="callout-icon"] svg {
+  color: #cdc4f6 !important;
+}
+
+/* Slightly rounded corners on all callouts (Mintlify default is 16px) */
+.callout {
+  border-radius: 6px !important;
+}
+
+/* Slightly rounded corners on image frames and images */
+[data-name="frame"] {
+  border-radius: 6px !important;
+}
+
+[data-name="frame"] > div,
+[data-name="frame"] img {
+  border-radius: 4px !important;
+}
+
+/* Slightly rounded corners on sidebar items (hover and selected) and the search field */
+#sidebar-content a,
+#search-bar-entry {
+  border-radius: 6px !important;
+}
+
+/* Slightly rounded corners on cards, previous/next buttons and the navbar button */
+.card,
+.pagination-next,
+.pagination-prev,
+[data-component-part^="pagination"],
+#navbar a[class*="bg-primary"] {
+  border-radius: 6px !important;
+}
+
+/* Wider text column: the Almond theme limits it to 36rem, too narrow for screenshots and tables */
+#content-area {
+  max-width: 44rem !important;
+}

@@ -3,9 +3,9 @@
   "theme": "almond",
   "name": "aiGust",
   "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
+    "primary": "#583DC6",
+    "light": "#A090EC",
+    "dark": "#583DC6"
   },
   "favicon": "/favicon.svg",
   "logo": {
@@ -13,91 +13,240 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@aigust.com"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Go to aiGust",
-      "href": "https://app.aigust.com"
+      "href": "https://app.ai-gust.io"
     }
   },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Set up your firm",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting started",
             "pages": [
-              "get-started/accountant-quickstart",
-              "get-started/firm-admin-quickstart"
+              "index",
+              "setup/welcome",
+              "setup/first-login",
+              "setup/onboarding-checklist"
             ]
           },
           {
-            "group": "Firm Setup & Administration",
+            "group": "Connect your data",
             "pages": [
-              "firm-setup/onboarding",
-              "firm-setup/connectors/how-sync-works",
-              "firm-setup/connectors/exact-online",
-              "firm-setup/connectors/yuki",
-              "firm-setup/connectors/odoo",
-              "firm-setup/connectors/octopus",
-              "firm-setup/connectors/silverfin",
-              "firm-setup/connectors/expert-m",
-              "firm-setup/connectors/horus",
-              "firm-setup/connectors/adsolut",
-              "firm-setup/connectors/business-central",
-              "firm-setup/connectors/excel-import",
-              "firm-setup/managing-administrations",
-              "firm-setup/branding-and-emails",
-              "firm-setup/users-roles-access",
-              "firm-setup/usage-and-audit-trail",
-              "firm-setup/granting-external-access",
-              "firm-setup/getting-support"
+              "setup/data/overview",
+              "setup/data/connector-status",
+              {
+                "group": "Bookkeeping data",
+                "pages": [
+                  "setup/data/bookkeeping/how-administrations-are-imported",
+                  "setup/data/bookkeeping/include-exclude-administrations",
+                  "setup/data/bookkeeping/on-premise-agent",
+                  "setup/data/bookkeeping/exact-online",
+                  "setup/data/bookkeeping/yuki",
+                  "setup/data/bookkeeping/odoo",
+                  "setup/data/bookkeeping/octopus",
+                  "setup/data/bookkeeping/silverfin",
+                  "setup/data/bookkeeping/horus",
+                  "setup/data/bookkeeping/business-central",
+                  "setup/data/bookkeeping/expert-m",
+                  "setup/data/bookkeeping/adsolut",
+                  "setup/data/bookkeeping/excel-import"
+                ]
+              },
+              {
+                "group": "Social data",
+                "pages": [
+                  "setup/data/social/overview",
+                  "setup/data/social/partena",
+                  "setup/data/social/silverfin"
+                ]
+              }
             ]
           },
           {
-            "group": "Core Concepts",
+            "group": "Users and access",
             "pages": [
-              "concepts/navigating-aigust",
-              "concepts/sectors-and-company-types",
-              "concepts/kpis",
-              "concepts/financial-periods",
-              "concepts/labels"
+              "setup/users/manage-users",
+              "setup/users/roles",
+              "setup/users/restrict-access",
+              "setup/users/administration-groups"
             ]
           },
           {
-            "group": "Financial Reports",
+            "group": "Client portal",
             "pages": [
-              "reports/view-options",
-              "reports/profit-and-loss",
-              "reports/balance-sheet",
-              "reports/cashflow",
-              "reports/dashboard",
-              "reports/other-ratios"
+              "setup/client-portal/overview",
+              "setup/client-portal/invite-client-users",
+              "setup/client-portal/control-what-clients-see",
+              "setup/client-portal/client-experience"
             ]
           },
           {
-            "group": "Insights & Analysis",
+            "group": "Branding and emails",
             "pages": [
-              "insights/benchmarking",
-              "insights/triggers-and-alerts",
-              "insights/forecasts-and-prepayments",
-              "insights/capital-gain-tax",
-              "insights/hr-reports"
+              "setup/branding/portal",
+              "setup/branding/email-templates",
+              "setup/branding/sender-address"
+            ]
+          },
+          {
+            "group": "Monitoring",
+            "pages": [
+              "setup/monitoring/usage-statistics",
+              "setup/monitoring/audit-trail"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "setup/support/report-a-bug",
+              "setup/support/follow-up-tickets",
+              "setup/support/platform-status"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Configure aiGust",
+        "groups": [
+          {
+            "group": "Reporting",
+            "pages": [
+              "configure/reporting/report-view-defaults",
+              "configure/reporting/default-dashboard",
+              "configure/reporting/custom-reports-overview",
+              "configure/reporting/build-custom-report",
+              "configure/reporting/report-definition-editor"
+            ]
+          },
+          {
+            "group": "Triggers",
+            "pages": [
+              "configure/triggers/built-in-triggers",
+              "configure/triggers/custom-triggers"
             ]
           },
           {
             "group": "Meetings",
             "pages": [
-              "meetings/basics",
-              "meetings/flows",
-              "meetings/running-a-meeting",
-              "meetings/editor"
+              "configure/meetings/meeting-flows",
+              "configure/meetings/meeting-types"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "User guide",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "guide/getting-started/log-in",
+              "guide/getting-started/personalise",
+              "guide/getting-started/navigation",
+              "guide/getting-started/advanced-search",
+              "guide/getting-started/first-steps"
+            ]
+          },
+          {
+            "group": "Key concepts",
+            "pages": [
+              "guide/concepts/financial-periods",
+              "guide/concepts/kpis",
+              "guide/concepts/sectors-and-company-types",
+              "guide/concepts/labels"
+            ]
+          },
+          {
+            "group": "Financial reports",
+            "pages": [
+              "guide/reports/dashboard",
+              "guide/reports/overview",
+              {
+                "group": "Report definitions",
+                "pages": [
+                  "guide/reports/definitions/profit-and-loss",
+                  "guide/reports/definitions/balance-sheet",
+                  "guide/reports/definitions/cash-flow"
+                ]
+              },
+              {
+                "group": "Financial table",
+                "pages": [
+                  "guide/reports/table/financial-table",
+                  "guide/reports/table/periods",
+                  "guide/reports/table/cell-details"
+                ]
+              },
+              {
+                "group": "Visual views",
+                "pages": [
+                  "guide/reports/visual/waterfall",
+                  "guide/reports/visual/balance-sheet-blocks"
+                ]
+              },
+              "guide/reports/ratios",
+              "guide/reports/custom-reports"
+            ]
+          },
+          {
+            "group": "Personnel reporting",
+            "pages": [
+              "guide/personnel/data-sources",
+              "guide/personnel/dashboard",
+              "guide/personnel/kpis-and-ratios",
+              "guide/personnel/social-periods"
+            ]
+          },
+          {
+            "group": "Benchmarking",
+            "pages": [
+              "guide/benchmarking/how-it-works",
+              "guide/benchmarking/peer-groups",
+              "guide/benchmarking/reading-benchmarks"
+            ]
+          },
+          {
+            "group": "Triggers and alerts",
+            "pages": [
+              "guide/triggers/how-triggers-work",
+              "guide/triggers/alerts"
+            ]
+          },
+          {
+            "group": "Forecasts and tax prepayments",
+            "pages": [
+              "guide/forecasts/how-forecasts-work",
+              "guide/forecasts/create-and-edit",
+              "guide/forecasts/use-forecasts",
+              "guide/forecasts/tax-prepayments"
+            ]
+          },
+          {
+            "group": "Capital gains tax",
+            "pages": [
+              "guide/capital-gains-tax/basics",
+              "guide/capital-gains-tax/calculate"
+            ]
+          },
+          {
+            "group": "Meetings",
+            "pages": [
+              "guide/meetings/basics",
+              "guide/meetings/start-and-run",
+              "guide/meetings/notes-and-summaries",
+              "guide/meetings/publish",
+              {
+                "group": "Meeting editor",
+                "pages": [
+                  "guide/meetings/editor",
+                  "guide/meetings/slide-layouts",
+                  "guide/meetings/widgets"
+                ]
+              }
             ]
           }
         ]
@@ -107,6 +256,14 @@
   "footer": {
     "socials": {
       "linkedin": "https://linkedin.com/company/aigust"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "Poppins"
+    },
+    "body": {
+      "family": "Inter"
     }
   }
 }

@@ -14,8 +14,13 @@
 
 ## Terminology
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+| Use (EN) | Dutch (NL) | Not |
+|---|---|---|
+| financial year | boekjaar | book year, fiscal year |
+| financial period (plain "period" once the context is clear) | boekperiode | book period |
+| compliance connector (Silverfin, Adsolut fiscal files) | | |
+
+- Quote UI labels exactly as they appear on screen, even where they differ from the terms above.
 
 ## Style preferences
 
