@@ -1,0 +1,92 @@
+---
+title: "Performance scores"
+description: "How the Performance vs benchmark and Administration score widgets sum up an administration's last financial year in one score."
+---
+
+Two widgets sum up how an administration performed in its last closed financial year, in a single score:
+
+| Widget | Compares the administration with |
+|---|---|
+| **Performance vs benchmark** | Its [default peer group](/guide/benchmarking/peer-groups#the-default-peer-group) |
+| **Administration score** | Fixed thresholds, without a peer group |
+
+Both widgets are on the [administration dashboard](/guide/dashboard/dashboard), and you can also add them to meeting slides.
+
+## How the score works
+
+Both scores work the same way:
+
+1. The administration starts with a score of 5 out of 10.
+2. aiGust looks at five KPIs: revenue growth, EBITDA margin, cash flow, liquidity and solvability.
+3. For each KPI, the score goes up by 1 if the result is good, stays the same if it's normal, and goes down by 1 if it's weak.
+
+The score, from 0 to 10, is shown as one of five levels:
+
+| Score | Level |
+|---|---|
+| 9–10 | **Excellent** |
+| 7–8 | **Good** |
+| 4–6 | **Normal** |
+| 2–3 | **Lagging** |
+| 0–1 | **Bad** |
+
+An administration that's normal on every KPI keeps its starting score of 5, and is **Normal**. It needs at least two KPIs more on the good side than on the weak side to reach **Good**.
+
+Click the information icon on the widget to see how the score was built up.
+
+## Performance vs benchmark
+
+**Performance vs benchmark** compares the administration's KPIs with its default peer group. For each KPI, it looks at where the administration sits compared with the [benchmark band](/guide/benchmarking/reading-benchmarks) from Q25 to Q75:
+
+| Position | Score |
+|---|---|
+| Better than the band: among the top performers | +1 |
+| Inside the band | 0 |
+| Worse than the band: among the underperformers | −1 |
+
+"Better" depends on the KPI: higher revenue growth is better, but for a cost, higher is worse.
+
+<Frame caption="The Performance vs benchmark widget.">
+  <img src="/images/benchmarking/performance-vs-benchmark.jpg" alt="Performance vs benchmark widget showing a gauge with the result Normal for 2025" />
+</Frame>
+
+| KPI | Question |
+|---|---|
+| **Revenue growth** | Did the company's revenue grow faster or slower than its peers'? |
+| **EBITDA margin** | Is its EBITDA in line with the benchmark? |
+| **Cash flow** | Is its cash flow stronger, weaker or in line with that of similar companies? |
+| **Liquidity** | How does its ability to meet short-term obligations compare with its peers'? |
+| **Solvability** | Is its balance between equity and debt healthier or riskier than its peers'? |
+
+<Frame caption="The score details: the five KPIs, each with the administration's value on the peer group's band.">
+  <img src="/images/benchmarking/performance-details.jpg" alt="Performance vs benchmark details explaining the five KPIs, with the result Normal on a scale from Excellent to Bad, and cards for Turnover growth, EBITDA, Solvability, Liquidity current ratio and Operational cash flow, each showing the value on the peer group's band" />
+</Frame>
+
+If the administration has no peer group, or benchmarking is disabled, this widget has no score. Use the **Administration score** instead.
+
+{/* TODO Bart: confirm what the widget shows without a peer group. */}
+
+## Administration score
+
+The **Administration score** looks at the administration on its own. Instead of comparing with peers, it checks each KPI against fixed thresholds:
+
+| KPI | Question | −1 | 0 | +1 |
+|---|---|---|---|---|
+| **Revenue growth** | Did revenue increase or decline? | Below −1% | −1% to +2% | Above +2% |
+| **EBITDA margin evolution** | Did the company keep a stable EBITDA margin relative to revenue? | Below −1 pp | −1 pp to +1 pp | Above +1 pp |
+| **Cash flow** | Did the business generate a positive cash flow? | Negative | Zero | Positive |
+| **Liquidity** (current ratio) | Can the company repay its short-term debts? | Below 0.75 | 0.75 to 1.25 | Above 1.25 |
+| **Solvability** | Does the company have a healthy balance between equity and debt? | Below 20% | 20% to 35% | Above 35% |
+
+Revenue growth needs to be above 2% to count as good: roughly, growth that beats inflation. EBITDA margin evolution is the [vertical delta](/guide/concepts/kpis#vertical-delta) of EBITDA, in percentage points (pp).
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="Read benchmarks" icon="chart-column" href="/guide/benchmarking/reading-benchmarks">
+    How the benchmark band is calculated and shown.
+  </Card>
+  <Card title="Administration dashboard" icon="gauge" href="/guide/dashboard/dashboard">
+    The other widgets on the dashboard.
+  </Card>
+</CardGroup>

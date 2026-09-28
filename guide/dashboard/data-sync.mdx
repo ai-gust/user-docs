@@ -1,0 +1,74 @@
+---
+title: "Data source and sync"
+description: "Check where an administration's data comes from and when it was last synced, start a sync yourself, or switch to another data source."
+---
+
+aiGust copies the data of each administration from your firm's bookkeeping or compliance software. The **Data source** widget on the [administration dashboard](/guide/dashboard/dashboard) shows where the data comes from, and whether it's up to date.
+
+## How often aiGust syncs
+
+aiGust syncs the data of all administrations every night. Changes you make in the bookkeeping during the day show up in aiGust the next morning. If you need them sooner, [start a sync](#start-a-sync) yourself.
+
+## Read the Data source widget
+
+<Frame caption="The Data source widget of an administration synced from Exact Online.">
+  <img src="/images/dashboard/data-source-widget.jpg" alt="Data source widget showing Exact Connector (Bookkeeping) with the message The data is up to date, the imported data Transactions, Business partners (164) and Trial balances, a Sync now button, and Last sync started 27/09/2026 20:00 and Last sync successful 27/09/2026 22:50." />
+</Frame>
+
+The widget shows:
+
+- **The connector** the data comes from, for example **Exact Connector**, and its type: **Bookkeeping** or **Compliance**.
+- **The status** of the data. See [Status messages](#status-messages).
+- **Which data is imported,** such as **Transactions**, **Business partners** and **Trial balances**. What's available depends on the type of connector. See [Bookkeeping and compliance connectors](#bookkeeping-and-compliance-connectors).
+- **Last sync started** and **Last sync successful.**
+
+### Bookkeeping and compliance connectors
+
+| Connector type | Examples | What aiGust gets |
+|---|---|---|
+| **Bookkeeping** | Exact Online, Adsolut | The financial figures, plus the details behind them: transactions, business partners and documents |
+| **Compliance** | Silverfin, Adsolut fiscal files | The financial figures only |
+
+With a compliance connector, you can't see the [transactions behind a figure](/guide/reports/table/cell-details#transactions), group a report by business partner, or open documents.
+
+### Status messages
+
+| Message | What it means | What to do |
+|---|---|---|
+| *The data is up to date.* | The last sync succeeded. | Nothing. |
+| *We are currently syncing your data.* | A sync is running. | Wait. The screens refresh when it's done. |
+| *Something went wrong while syncing your data. Please try again later.* | The last sync failed. The figures date from the last successful sync. | [Start a sync](#start-a-sync) later. |
+| *The current data still comes from …. Please wait until after sync to find the data from ….* | You [switched the data source](#switch-the-data-source), and the sync with the new source is running. Until then, you see the data of the old source. | Wait about 15 minutes. |
+| *We tried to switch from … to … but something went wrong. Please try again later.* | The switch to the new source failed. You still see the data of the old source. | Switch again later. |
+
+The dates at the bottom tell you more. If **Last sync started** is more recent than **Last sync successful**, the last sync is still running or has failed. The figures then date from the last successful sync.
+
+If a sync keeps failing, [report it to support](/setup/support/report-a-bug).
+
+## Start a sync
+
+Click **Sync now** to sync the administration right away, on top of the nightly sync. A sync usually takes 5 to 15 minutes. The screens refresh automatically when it's done.
+
+<Note>
+When a nightly sync fails, aiGust runs it again. While that repair runs, **Sync now** can be disabled for a few hours. Try again later.
+</Note>
+
+## Switch the data source
+
+Some administrations exist in more than one connector, for example in Exact Online for the bookkeeping and in Silverfin for the annual accounts. aiGust then uses one of them as the data source. To use another one:
+
+1. Click the connector at the top of the widget.
+2. Choose the other connector.
+
+<Frame caption="Choosing between the connectors in which the administration exists.">
+  <img src="/images/dashboard/data-source-switch.jpg" alt="Data source widget with the connector list open, showing Silverfin Connector (Compliance) and the selected Exact Connector (Bookkeeping)." />
+</Frame>
+
+It takes about 15 minutes before aiGust shows the data from the other source.
+
+The switch applies to everyone at your firm. It also changes which data is available: when you switch from a bookkeeping to a compliance connector, the transactions, business partners and documents are no longer available. See [Bookkeeping and compliance connectors](#bookkeeping-and-compliance-connectors).
+
+## Related pages
+
+- [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported), for your firm's admins
+- [Check connector status](/setup/data/connector-status), for the status of all connectors of your firm

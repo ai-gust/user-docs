@@ -116,7 +116,7 @@
             "group": "Reporting",
             "pages": [
               "configure/reporting/report-view-defaults",
-              "configure/reporting/default-dashboard",
+              "configure/reporting/kpi-dashboard-templates",
               "configure/reporting/custom-reports-overview",
               "configure/reporting/build-custom-report",
               "configure/reporting/report-definition-editor"
@@ -163,9 +163,16 @@
             ]
           },
           {
+            "group": "Administration dashboard",
+            "pages": [
+              "guide/dashboard/dashboard",
+              "guide/dashboard/scores",
+              "guide/dashboard/data-sync"
+            ]
+          },
+          {
             "group": "Financial reports",
             "pages": [
-              "guide/reports/dashboard",
               "guide/reports/overview",
               {
                 "group": "Report definitions",

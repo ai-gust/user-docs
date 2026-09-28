@@ -1,13 +1,68 @@
 ---
 title: "Administration dashboard"
-description: "Read and customise the KPI dashboard of an administration."
+description: "Read an administration's KPI dashboard and its widgets, and choose which dashboard it shows."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The dashboard is the first page you see when you open an administration. It gives you an overview of the administration's main KPIs, its alerts and its data.
 
-## To cover
+## KPI dashboard
 
-- KPI overview and charts
-- Customising the dashboard for this administration
-- Firm default (link)
-- Other widgets
+The main part of the dashboard is the KPI dashboard:
+
+- **KPI cards** at the top, for example turnover with its growth and its benchmark. Click a card to show that KPI in the chart below.
+- **A large chart** of the selected KPI, with the [benchmark](/guide/benchmarking/reading-benchmarks) of the administration's peer group.
+- **A table** below the chart with the values it plots.
+
+Use the [KPI type selector](/guide/concepts/kpis#kpi-types) above the chart to switch between absolute values, growth, and percentages of turnover or of the balance sheet total.
+
+The dashboard follows the **Data settings** at the top of the page: the [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date), financial year or year to date, the peer group and the [forecast](/guide/forecasts/use-forecasts).
+
+Each KPI card shows a main number, its change compared with last year, and a [benchmark](/guide/benchmarking/reading-benchmarks#benchmarks-in-kpi-cards). The benchmark can use a different KPI type than the main number, for example the growth of turnover below the absolute turnover.
+
+## Choose the KPI dashboard
+
+Which KPI cards you see depends on the dashboard the administration uses. Your firm can have several dashboard templates, for example one for construction companies. See [Firm-wide KPI dashboard templates](/configure/reporting/kpi-dashboard-templates).
+
+To choose another dashboard:
+
+1. Click **Edit KPI dashboard** at the top right. The **Dashboard configuration** panel opens.
+2. Under **Active dashboard**, choose the dashboard. The list shows the aiGust **Default dashboard** and your firm's templates (**Tenant**), with their sector if they have one.
+
+aiGust remembers the choice for this administration, for everyone at your firm. Until someone chooses, aiGust picks the most suitable dashboard, for example your firm's template for the administration's sector. See [Which dashboard an administration shows](/configure/reporting/kpi-dashboard-templates#which-dashboard-an-administration-shows).
+
+<Frame caption="Choosing the dashboard of an administration.">
+  <img src="/images/dashboard/choose-dashboard.jpg" alt="Dashboard configuration panel with the Active dashboard list open: Default dashboard with the aiGust badge, and Test, Test2 and Test kopie bouw with the Tenant badge. Test kopie bouw, linked to Construction, is selected. Next to the list are Copy and New buttons." />
+</Frame>
+
+### Customise the dashboard of one administration
+
+You can't change the aiGust **Default dashboard** or a firm-wide template from an administration. When one of them is active, the panel shows a warning: *The selected dashboard is not administration specific and can therefor not be updated here. To start customizing, make a copy first.*
+
+To customise the dashboard for this administration only:
+
+- Click **Copy** to start from the active dashboard, or
+- Click **New** to start from an empty one.
+
+You then set it up in the same way as a [firm-wide template](/configure/reporting/kpi-dashboard-templates#create-a-template). As soon as you save it, it becomes the administration's active dashboard. Everyone at your firm who opens the administration sees it. Other administrations and your firm-wide templates don't change.
+
+## Widgets
+
+Next to the KPI dashboard, the dashboard shows these widgets:
+
+| Widget | What it shows |
+|---|---|
+| **Active alerts** | The number of active alerts out of the triggers that apply to the administration. See [Triggers and alerts](/guide/triggers/how-triggers-work). |
+| **Up-to-date until** | The administration's up-to-date-until date. You can change it here, as under **Data settings**. |
+| **Performance vs benchmark** | A score for how the administration performed compared with its peer group. See [Performance scores](/guide/dashboard/scores). |
+| **Administration score** | A score for how the administration performed on its own. See [Performance scores](/guide/dashboard/scores). |
+| **Sector** | The administration's sector, subsector and company type. You can confirm or change them here. See [Sectors and company types](/guide/concepts/sectors-and-company-types). |
+| **Data source** | Where the administration's data comes from, and when it was last synced. You can start a sync or switch the source here. See [Data source and sync](/guide/dashboard/data-sync). |
+| **AI analysis** | *Beta.* Generates points to discuss with your client. |
+
+## Buttons at the top
+
+| Button | What it does |
+|---|---|
+| **Follow** | Marks the administration as one you manage, like starring an email. You can then show alerts for only the administrations you follow. |
+| **Client portal** | Shows the administration as your client sees it in the [client portal](/setup/client-portal/overview). |
+| **Edit KPI dashboard** | Chooses which dashboard, and so which KPIs, the administration shows. See [Choose the KPI dashboard](#choose-the-kpi-dashboard). |

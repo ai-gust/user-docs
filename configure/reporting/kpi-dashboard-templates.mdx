@@ -1,11 +1,82 @@
 ---
-title: "Default administration dashboard"
-description: "Define the KPI dashboard every administration starts from."
+title: "Firm-wide KPI dashboard templates"
+description: "Create KPI dashboard templates for your firm, choose the KPIs and benchmarks they show, and link them to a sector."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The KPI cards at the top of the [administration dashboard](/guide/dashboard/dashboard) come from a KPI dashboard template: a set of KPIs to show. aiGust provides a **Default dashboard**. As a key user, you can add templates of your own that everyone at your firm can use, for example one for construction companies with the KPIs that matter most in that sector.
 
-## To cover
+<Note>
+Only key users can manage firm-wide templates.
+</Note>
 
-- Configuring the dashboard on firm level
-- How it relates to per-administration customisation (link)
+## The templates overview
+
+Click **Dashboards** in the firm menu. For each template, the list shows:
+
+- **Name,** with a badge: **aiGust** for the default dashboard, **Tenant** for your firm's own templates.
+- **Sector,** if the template is linked to one.
+- **Created** and **Updated.**
+- **KPIs,** the KPIs the template shows.
+
+<Frame caption="The KPI dashboard templates of a firm.">
+  <img src="/images/dashboard/firm-dashboards.jpg" alt="Dashboards page with four dashboards: Default dashboard with the aiGust badge, and Test, Test2 and Test kopie bouw with the Tenant badge. Test kopie bouw is linked to the sector Construction. The KPIs column lists each dashboard's KPIs, such as Turnover, Ebitda and Liquidity - Quick ratio." />
+</Frame>
+
+## Create a template
+
+Click **Create**. In the **Dashboard configuration** panel:
+
+<Steps>
+  <Step title="Name the dashboard">
+    Enter a **Name**. Your colleagues see it when they choose the dashboard of an administration.
+  </Step>
+  <Step title="Link it to a sector, optionally">
+    Turn on **Is sector specific dashboard**, and choose the sector. Administrations in that sector then get this template automatically. See [Which dashboard an administration shows](#which-dashboard-an-administration-shows).
+  </Step>
+  <Step title="Add the KPIs">
+    Under **Selected KPIs**, click **Add column** for each KPI, and choose the KPI in the same way as in a [trigger](/configure/triggers/custom-triggers#trigger-criteria).
+  </Step>
+</Steps>
+
+<Frame caption="A dashboard for construction companies, with two KPIs.">
+  <img src="/images/dashboard/firm-dashboard-configuration.jpg" alt="Dashboard configuration panel with the name Test kopie bouw, Is sector specific dashboard turned on with the sector Construction, and two selected KPIs: P&L > Turnover and Financial Ratios > Liquidity - Current ratio, each with a KPI Value and a Benchmark type." />
+</Frame>
+
+To change the order of the KPIs, drag them, or use the arrows. Click the bin to remove a KPI.
+
+To edit or delete a template later, click the three dots at the end of its row in the overview.
+
+## Choose what each KPI card shows
+
+Click the arrow next to a KPI to open its settings:
+
+- **KPI:** the KPI itself. Click the pencil to choose another one.
+- **KPI Value:** the [KPI type](/guide/concepts/kpis#kpi-types) of the main number on the card. The card always shows the change compared with last year next to it.
+- **Benchmark:** the KPI type of the benchmark below the main number.
+
+<Frame caption="The settings of one KPI.">
+  <img src="/images/dashboard/kpi-settings.jpg" alt="The settings of Financial Ratios > Liquidity - Current ratio, with a KPI field and a pencil to change it, and a row of KPI type icons for KPI Value and for Benchmark." />
+</Frame>
+
+The main number and the benchmark don't need the same KPI type. For turnover, for example, show the absolute turnover as the main number, and benchmark the growth. The benchmark of the growth tells you whether most peers grew, which the benchmark of absolute turnover can't. See [KPI types in benchmarking](/guide/concepts/kpis#kpi-types-in-benchmarking).
+
+<Frame caption="Turnover as an amount, with the benchmark of its growth: the peers range from −5% to 60%.">
+  <img src="/images/dashboard/kpi-card-growth-benchmark.jpg" alt="KPI card Turnover 2025 with the value €7.35M and +60.0%, and below it a benchmark from -5% to 60% with the median as a square and the administration's growth as a dot." />
+</Frame>
+
+## Which dashboard an administration shows
+
+When someone chooses a dashboard for an administration, aiGust remembers it for that administration, for everyone at your firm. See [Choose the KPI dashboard](/guide/dashboard/dashboard#choose-the-kpi-dashboard).
+
+Until then, aiGust picks the most suitable dashboard, in this order:
+
+1. A dashboard made for that administration.
+2. A firm-wide template linked to the administration's sector. Only the sector counts, not the subsector.
+3. Another firm-wide template.
+4. The aiGust **Default dashboard**.
+
+<Warning>
+You can't set one template as your firm's default yet. If your firm has several templates without a sector, an administration without a chosen dashboard can show any of them. So keep the number of templates small, and link them to a sector where you can.
+</Warning>
+
+{/* TODO Bart: with several templates without a sector, which one wins at step 3? Probably the last one created, to be verified. */}
