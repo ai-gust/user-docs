@@ -1,13 +1,117 @@
 ---
 title: "Create custom triggers"
-description: "Define your own rules to raise alerts across administrations."
+description: "Define your own trigger with a base filter and trigger criteria, choose the columns of its table, and sync it."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+When the [built-in triggers](/configure/triggers/built-in-triggers) don't cover what your firm wants to follow, create a trigger of your own. For how triggers work, see [How triggers and alerts work](/guide/triggers/how-triggers-work).
 
-## To cover
+<Note>
+Only key users can create and manage triggers. Triggers always apply to the whole firm.
+</Note>
 
-- Setting up the base filter
-- Setting up the trigger filter (link to KPIs)
-- Syncing and resyncing (automatic every 24h or manual)
-- Customising the administration table columns
+## Create a trigger
+
+<Steps>
+  <Step title="Name and describe the trigger">
+    Click **Triggers & alerts** in the firm menu, and click **Create**. Enter a **Title** and a **Description**, and click **Confirm**.
+
+    The title appears everywhere the trigger does, including on the alert in an administration. Use the description to explain what the trigger looks for, and why, so your colleagues understand the alert. Use the **nl**, **en** and **fr** buttons to enter the title and description in each language.
+  </Step>
+  <Step title="Set the base filter">
+    On the **Trigger configuration** tab, optionally limit the trigger to the administrations it's relevant for. See [Base filter](#base-filter).
+  </Step>
+  <Step title="Set the trigger criteria">
+    Add at least one criterion that decides when the trigger fires. See [Trigger criteria](#trigger-criteria).
+  </Step>
+  <Step title="Choose the table columns">
+    Optionally, choose which KPIs the trigger's table shows. See [Table columns](#table-columns).
+  </Step>
+  <Step title="Save and sync">
+    Click **Save**. Then click the three dots at the top right, and choose **Sync**. aiGust checks all administrations and creates the alerts.
+  </Step>
+</Steps>
+
+<Frame caption="Create a trigger with a title and description in each language.">
+  <img src="/images/triggers/create-trigger.jpg" alt="Create trigger dialog over the triggers overview, with language buttons nl, en and fr, a Title field containing My new firm trigger, an empty Description field, and a Confirm button. The Create button at the top right is highlighted." />
+</Frame>
+
+A new trigger starts with empty filters. You can also start from a copy of a built-in trigger. See [Copy a built-in trigger](/configure/triggers/built-in-triggers#copy-a-built-in-trigger).
+
+## The trigger configuration
+
+The **Trigger configuration** tab has two sections: **Base filter** and **Trigger criteria**. You build both in the same way as the filters of a [peer group](/guide/benchmarking/peer-groups#filters). Click **Add a filter** to add a criterion, the pencil to change it, and the bin to remove it.
+
+Each section shows **Valid** when its filters are complete.
+
+Use **Reuse filter group** to start from a query saved in [advanced search](/guide/getting-started/advanced-search). Advanced search uses the same filters, and anyone at your firm can build and save queries there. That way, a colleague's saved query can become a trigger.
+
+At the top right:
+
+- **Table configuration** opens the table columns. See [Table columns](#table-columns).
+- **Reset** goes back to the last saved version of the trigger.
+- **Save** saves the trigger.
+
+<Frame caption="A trigger for operating companies whose turnover didn't grow.">
+  <img src="/images/triggers/trigger-configuration.jpg" alt="Trigger configuration tab of My new firm trigger. The base filter has Use a base filter turned on and a Company type filter with Operating Company selected. The trigger criteria have a P&L filter on Turnover, as horizontal delta for the financial year, with the operator ≤ and the value 0%. Both sections show Valid." />
+</Frame>
+
+### Base filter
+
+The base filter limits the trigger to the administrations it's relevant for, without selecting them one by one. It's optional: turn off **Use a base filter**, and the trigger applies to all administrations of your firm.
+
+Examples:
+
+- **A minimum turnover,** for example €25,000, to leave out dormant companies and companies winding down.
+- **Company type:** a trigger about margins or pricing makes sense for operating companies, not for management companies.
+- **Legal type,** for example only BV and NV.
+
+### Trigger criteria
+
+The trigger criteria decide when the trigger fires. You need at least one criterion. When you add a KPI, a wizard guides you:
+
+1. **Choose the report or KPI group:** profit and loss, balance sheet, cash flow, financial ratios, or personnel figures and ratios.
+2. **Drill down to the line,** for example from the profit and loss to indirect costs to personnel.
+
+Then set the criterion on its card:
+
+1. **Choose the [KPI type](/guide/concepts/kpis#kpi-types)** with the icons next to the KPI.
+2. **Choose Financial year or YTD.**
+3. **Choose the operator:** less than (**&lt;**), greater than (**>**), at most (**≤**), at least (**≥**), equal to (**=**), or between (**↔**).
+4. **Enter the value,** for example −10 for a horizontal delta of −10%.
+
+Criteria combine with AND: the trigger fires when an administration meets all of them.
+
+## Table columns
+
+The **Administrations** tab of a trigger shows a table of the administrations it applies to. By default, the table shows the KPIs used in the filters. To change the columns, click **Table configuration** on the **Trigger configuration** tab. In the **Column configurator**, you can:
+
+- **Add a KPI** with **Add**, in the same way as a criterion: choose the report, drill down to the line, and choose the KPI type and Financial year or YTD.
+- **Change the order** by dragging the handle to the left of a KPI.
+- **Remove all KPIs** with **Delete all**. The three dots next to a KPI hold more options.
+- **Reset** the columns to the last saved version.
+
+<Frame caption="The Column configurator, with Turnover as an amount and Direct costs as a percentage.">
+  <img src="/images/triggers/column-configurator.jpg" alt="Column configurator side panel with Reset, Delete all and Add buttons, listing Turnover with the euro KPI type and Direct costs with the percentage KPI type, both for the financial year, each with a drag handle and a three-dots menu." />
+</Frame>
+
+Each KPI appears as three columns in the table: **Previous book year**, **Last book year** and **Absolute delta**. The columns are saved as part of the trigger.
+
+## Sync a trigger
+
+aiGust checks every trigger automatically every 24 hours. Alerts appear when administrations start to meet the trigger, and disappear when they no longer do.
+
+To check a trigger right away, for example after changing its filters, click the three dots at the top right of the trigger, and choose **Sync**.
+
+## Rename, disable or delete a trigger
+
+Click the three dots on the trigger's tile in the overview, or at the top right when the trigger is open:
+
+- **Rename** changes the title and description.
+- **Disable** switches the trigger off for the whole firm. It no longer raises alerts, but you can enable it again later. Turn on **Include disabled** in the overview to see disabled triggers.
+- **Delete trigger** removes the trigger and its alerts for everyone at your firm.
+
+<Frame caption="The menu of a custom trigger.">
+  <img src="/images/triggers/custom-trigger-menu.jpg" alt="Three-dots menu of My new firm trigger, with the options Disable, Rename, Delete trigger and Sync." />
+</Frame>
+
+Built-in triggers can't be deleted, but you can [unsubscribe](/configure/triggers/built-in-triggers#unsubscribe-from-a-built-in-trigger) from them.

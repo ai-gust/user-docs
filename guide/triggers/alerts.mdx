@@ -1,12 +1,65 @@
 ---
 title: "Work with alerts"
-description: "See, snooze and disable alerts on an administration."
+description: "See which triggers apply to an administration and why an alert is active, and snooze or disable alerts that don't need action."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+An administration's dashboard shows which [triggers](/guide/triggers/how-triggers-work) apply to it, and which of them have raised an alert.
 
-## To cover
+## See the alerts of an administration
 
-- Where you see alerts and applicable triggers
-- Snoozing an alert
-- Disabling and re-enabling an alert
+The **Active alerts** card on the [administration dashboard](/guide/reports/dashboard) shows two numbers: the active alerts, out of the triggers that apply. *2 / 6* means 2 active alerts out of 6 applicable triggers.
+
+<Frame caption="The Active alerts card on the administration dashboard.">
+  <img src="/images/triggers/active-alerts-card.jpg" alt="Administration dashboard with the Active alerts card highlighted in the right column, showing 2 / 6." />
+</Frame>
+
+Click the card to open **Triggers & alerts** in a side panel. The **Alerts** tab shows the active alerts, and the number next to it is how many there are. Turn off **Only active** to see all applicable triggers, including those without an alert.
+
+For each trigger, you see:
+
+- **Its name,** and a badge that shows whether it's a built-in trigger (**aiGust**) or one of your firm's own (**Tenant**). An **alert** badge marks an active alert.
+- **Its description,** which explains what the trigger looks for and what to check.
+- **Each criterion,** with the administration's actual value next to the condition. That tells you why the alert is active, or why it isn't.
+
+<Frame caption="Two active alerts. The Operational cash flow of −€141,786 meets the condition ≤ €0.">
+  <img src="/images/triggers/alerts-side-panel.jpg" alt="Triggers & alerts side panel on the Alerts tab with Only active turned on. It shows Weak liquidity (<1) with a current ratio of 0.15 against the condition < 1.00, and Profit without cash generation with an EBITDA of 55.60% against > 5.00% and an operational cash flow of −€141,786 against ≤ €0." />
+</Frame>
+
+## Snooze or disable an alert
+
+Not every alert needs action. A profit with a negative cash flow is usually worth looking into, but for a management company that has just bought a car, it's easy to explain. Click the three dots on the alert, and choose:
+
+| Option | What it does | Use it when |
+|---|---|---|
+| **Snooze until...** | Hides the alert until the end of the period you choose. After that, it's shown again if the administration still meets the trigger. | The situation is explained for now, but you want to check again later, for example next financial year |
+| **Disable alert** | Hides the alert for this administration until you enable it again. | The trigger doesn't make sense for this administration |
+
+<Frame caption="The options of an alert.">
+  <img src="/images/triggers/alert-menu.jpg" alt="The three-dots menu of the Profit without cash generation alert, with the options Snooze until..., Disable alert and a greyed-out Enable alert." />
+</Frame>
+
+When you snooze an alert, you choose a financial year, quarter or month. The alert stays hidden until the last day of that period.
+
+<Frame caption="Choose the period until which the alert is snoozed.">
+  <img src="/images/triggers/snooze-dialog.jpg" alt="Snooze until... dialog with a period picker listing the year 2030, the quarter 2030 Q4, and the months 12/2030, 11/2030 and 10/2030 with their start and end dates." />
+</Frame>
+
+Snoozing and disabling apply to the administration, so everyone at your firm who opens it sees the same.
+
+To switch off a trigger for all administrations, a key user can disable it at firm level. See [Create custom triggers](/configure/triggers/custom-triggers#rename-disable-or-delete-a-trigger) and [Manage built-in triggers](/configure/triggers/built-in-triggers).
+
+## Enable an alert again
+
+The **Disabled triggers** tab of the side panel lists the disabled and snoozed alerts. A snoozed alert shows the date until which it's snoozed.
+
+To show an alert again, click the three dots on it and choose **Enable alert**. This works for disabled and snoozed alerts: it ends a snooze early.
+
+To see all administrations that snoozed or disabled a trigger, open the trigger and click the crossed-out bell. See [Open a trigger](/guide/triggers/how-triggers-work#open-a-trigger).
+
+<Frame caption="The Disabled triggers tab, with a disabled and a snoozed alert.">
+  <img src="/images/triggers/disabled-triggers-tab.jpg" alt="Disabled triggers tab of the Triggers & alerts side panel. Weak liquidity (<1) is disabled, and its menu shows Enable alert. Profit without cash generation is snoozed until 31/01." />
+</Frame>
+
+## Focus on the administrations you manage
+
+Click **Follow** on the dashboard of the administrations you manage. On the [triggers overview](/guide/triggers/how-triggers-work#the-triggers-overview), turn on **Following only** to see the alerts for just those administrations, rather than for the whole firm.

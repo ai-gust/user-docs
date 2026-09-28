@@ -1,13 +1,102 @@
 ---
 title: "How triggers and alerts work"
-description: "Triggers are rules that raise alerts across the administrations of your firm."
+description: "Triggers are rules that check all administrations of your firm and raise alerts, so you spot the clients who need attention."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A **trigger** is a rule that aiGust checks for every administration of your firm. When an administration meets the rule, aiGust raises an **alert** for it. That way you find the clients who need attention, without going through every administration yourself.
 
-## To cover
+For example: *all operating companies whose turnover grew last year, but whose EBITDA margin dropped*. They sold more, but earned less on it.
 
-- Base filter vs trigger rule
-- Firm-level overview: active alerts vs eligible administrations
-- Administration-level view
-- Overview of aiGust's built-in triggers
+## Base filter and trigger filter
+
+Every trigger has two parts:
+
+| Part | What it decides | Example |
+|---|---|---|
+| **Base filter** | Which administrations the trigger applies to. Optional. | Operating companies with a turnover of at least €25,000 |
+| **Trigger filter** | When the trigger fires for one of those administrations | Turnover growth above 0% and a drop in EBITDA margin |
+
+You build both in the same way as the filters of an [advanced search](/guide/getting-started/advanced-search) or a [peer group](/guide/benchmarking/peer-groups#filters). You can even turn a saved advanced search into a trigger. Each criterion is either a [KPI](/guide/concepts/kpis) in one of its four types with a condition, or a property of the administration, such as its legal type or company type.
+
+An administration that meets the base filter is **eligible** for the trigger. If it also meets the trigger filter, it has an **active alert**.
+
+## Built-in and custom triggers
+
+- **Built-in triggers:** aiGust provides a set of triggers, ready to use. Your key users can switch off the ones your firm doesn't need. See [Manage built-in triggers](/configure/triggers/built-in-triggers).
+- **Custom triggers:** your key users can add triggers of their own. See [Create custom triggers](/configure/triggers/custom-triggers).
+
+Triggers always apply to the whole firm. You can't create a trigger for a single administration, but you can snooze or disable an alert for one administration. See [Work with alerts](/guide/triggers/alerts).
+
+## When triggers are checked
+
+aiGust checks every trigger automatically every 24 hours. Alerts appear and disappear as the figures change. Key users can also run a check right away with **Sync**, for example right after creating a trigger.
+
+Most triggers look at the last closed financial year. Some look at the year-to-date figures instead, for example to spot a drop in turnover compared with the same months last year.
+
+## The triggers overview
+
+To see all triggers of your firm, click **Triggers & alerts** in the firm menu. Each trigger is shown as a tile:
+
+- **A badge** shows whether it's a built-in trigger (**aiGust**) or one of your firm's own (**Tenant**).
+- **A number and a bar** show how many administrations have an active alert, for example *5 / 17*.
+
+For each trigger, the bar shows:
+
+- **The full bar** is the number of eligible administrations.
+- **The filled part** is the number with an active alert.
+
+If a trigger applies to 900 administrations and 300 of them have an active alert, the bar is one third full.
+
+<Frame caption="The triggers overview. Low solvability (<25%) is greyed out because the firm has switched it off.">
+  <img src="/images/triggers/triggers-overview.jpg" alt="Triggers page with a tile per trigger. Each tile shows the trigger name, an aiGust or Tenant badge, the number of active alerts out of the eligible administrations, and a progress bar. The Low solvability tile is greyed out." />
+</Frame>
+
+Above the tiles, you can:
+
+- **Search** for a trigger.
+- Turn on **Include disabled** to also show the triggers your firm has switched off. They appear greyed out.
+- Turn on **Following only** to count only the administrations you [follow](/guide/triggers/alerts#focus-on-the-administrations-you-manage).
+- Switch between **Tiles** and a list.
+
+## Open a trigger
+
+Click a trigger to open it. The **Administrations** tab lists the administrations the trigger applies to. For each KPI of the trigger, the table shows three columns: **Previous book year**, **Last book year** and **Absolute delta**. When there are more KPIs than fit on the screen, use the arrows next to the KPI names to scroll.
+
+Administrations with an active alert have an **alert** badge. Click an administration to open its dashboard.
+
+<Frame caption="A trigger's Administrations tab, filtered on active alerts.">
+  <img src="/images/triggers/trigger-administrations.jpg" alt="The Weak liquidity (<1) trigger on the Administrations tab, with the Alert status filter set to Active. The table lists five administrations with an alert badge, each with the previous book year, last book year and absolute delta of Liquidity - Current ratio and Customer credit." />
+</Frame>
+
+Above the table, you can:
+
+- **Search** for an administration.
+- Filter on **Alert status**: **All**, **Active** or **Inactive**.
+- Turn on **Following only** to show only the administrations you follow.
+
+On the right, you see the number of administrations with an active alert, out of the eligible ones. The crossed-out bell next to it shows how many administrations ignore the trigger, because their alert is snoozed or disabled.
+
+Click the crossed-out bell to see those administrations. The **Snoozed** tab shows until when each alert is snoozed, and the **Disabled** tab lists the disabled alerts. Click the bin next to an administration to enable its alert again.
+
+<Frame caption="The administrations that ignore a trigger.">
+  <img src="/images/triggers/ignored-administrations.jpg" alt="Side panel Administrations which ignore this trigger, on the Snoozed tab. One administration is listed with Snoozed until 30/11/2030 and a bin icon to remove the snooze." />
+</Frame>
+
+For how to snooze or disable an alert, see [Work with alerts](/guide/triggers/alerts#snooze-or-disable-an-alert).
+
+The **Trigger configuration** tab shows the trigger's filters. Key users can edit them there. See [Create custom triggers](/configure/triggers/custom-triggers).
+
+<Note>
+aiGust doesn't send emails or notifications when an alert appears. Check the triggers overview, or the alerts on an administration's dashboard.
+</Note>
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="Work with alerts" icon="bell" href="/guide/triggers/alerts">
+    See, snooze and deactivate alerts on an administration.
+  </Card>
+  <Card title="Create custom triggers" icon="plus" href="/configure/triggers/custom-triggers">
+    Define your own rules. For key users.
+  </Card>
+</CardGroup>

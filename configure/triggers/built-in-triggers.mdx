@@ -1,11 +1,44 @@
 ---
 title: "Manage built-in triggers"
-description: "Enable or disable the triggers aiGust provides for your firm."
+description: "The triggers aiGust provides out of the box, and how to switch off the ones your firm doesn't need."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import BuiltInTriggers from "/snippets/triggers/built-in.mdx";
 
-## To cover
+aiGust provides a set of built-in [triggers](/guide/triggers/how-triggers-work), ready to use. Your firm is subscribed to them by default. As a key user, you decide which ones your firm keeps.
 
-- Enabling and disabling aiGust triggers
-- Hiding triggers you don't need
+<Note>
+Only key users can manage triggers.
+</Note>
+
+## The built-in triggers
+
+Each trigger below shows the administrations it applies to, and the conditions that raise an alert. An alert is only raised when all conditions are met. Most triggers look at the last closed financial year, and a few at the year-to-date figures.
+
+<BuiltInTriggers />
+
+## Unsubscribe from a built-in trigger
+
+If a built-in trigger isn't useful for your firm, unsubscribe from it:
+
+1. Click **Triggers & alerts** in the firm menu.
+2. Click the three dots on the trigger's tile, or at the top right when the trigger is open.
+3. Choose **Unsubscribe from trigger**.
+
+The trigger then raises no more alerts for anyone at your firm. It's hidden from the overview, unless you turn on **Include disabled**. Then it's shown greyed out, and you can choose **Subscribe to trigger** in the same menu to use it again.
+
+<Frame caption="The menu of a built-in trigger.">
+  <img src="/images/triggers/built-in-trigger-menu.jpg" alt="The Low solvability (<25%) trigger with its three-dots menu open, showing Unsubscribe from trigger, Copy trigger and Sync." />
+</Frame>
+
+## Copy a built-in trigger
+
+You can't change a built-in trigger, but you can copy it and adapt the copy. For example, to use a different turnover threshold. Choose **Copy trigger** in the same menu. A dialog opens with the title and description filled in, and *[Copy]* added to the title. Change them where needed, and confirm. The copy becomes a custom trigger of your firm, and you edit it like any other custom trigger. See [Create custom triggers](/configure/triggers/custom-triggers).
+
+If you use the copy instead of the original, unsubscribe from the original, so your colleagues don't get the same alert twice.
+
+Like a new trigger, the copy has no alerts yet. Choose **Sync** in its menu to calculate them, or wait for the automatic check.
+
+## Sync a built-in trigger
+
+aiGust checks built-in triggers automatically every 24 hours. To check one right away, choose **Sync** in the same menu.

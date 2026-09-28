@@ -1,0 +1,1048 @@
+{
+    "items": [
+        {
+            "title_en": "Weak liquidity (<1)",
+            "title_nl": "Beperkte liquiditeit (<1)",
+            "title_fr": "Liquidité faible (<1)",
+            "description_en": "The company doesn't have enough short-term means (cash, stock, unpaid invoices) to cover its short-term debts. This can be an early sign of payment trouble. Look at what's actually tied up in those current assets (too much stock, too many unpaid invoices, or simply too little cash) and whether this is a longstanding issue or a recent change.",
+            "description_fr": "L'entreprise n'a pas assez de moyens à court terme (trésorerie, stocks, factures en attente) pour payer ses dettes courantes. Cela peut annoncer des problèmes de paiement à court terme. Regardez ce qui compose ces actifs circulants (beaucoup de stock ou de factures impayées, ou simplement trop peu de liquidités) et si la situation est ancienne ou récente.",
+            "description_nl": "De onderneming heeft op korte termijn niet genoeg middelen (cash, voorraad, openstaande facturen) om haar lopende schulden te betalen. Dat kan wijzen op betalingsproblemen op korte termijn. Kijk naar wat er precies in die vlottende activa zit (staat er veel vast in voorraad of onbetaalde facturen, of is er gewoon te weinig cash) en of dit al langer speelt of pas recent verslechterd is.",
+            "enabled": true,
+            "base_filter": [],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "ratio_liquidity_current",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "1"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "ratio_liquidity_current",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "ratio_customercredit",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "active_currentassets_liquidassets",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "active_currentassets_receivables1min",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "cashflow_operational",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "1a735a1f-152d-4aee-98b9-88ff5407f32a",
+            "created": "2026-09-11T09:44:51.626474Z",
+            "updated": "2026-09-11T12:20:22.616158Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 9139,
+            "filtered_base_tenant_admin_size": 9139,
+            "active_trigger_alert_size": 2540,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Test",
+            "title_nl": "Test",
+            "title_fr": "Test",
+            "description_en": "",
+            "description_fr": "",
+            "description_nl": "",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_indirectcosts_personnel",
+                        "kpi_type": "rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0.02"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_directcosts",
+                        "kpi_type": "rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0.02"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_indirectcosts_personnel",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "5bb4a744-2f3f-4c11-94c7-fb611db96cee",
+            "created": "2026-09-28T10:31:18.391593Z",
+            "updated": "2026-09-28T10:34:35.202147Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 7083,
+            "filtered_base_tenant_admin_size": 7083,
+            "active_trigger_alert_size": 1900,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Significant revenue decline in the last fiscal year",
+            "title_nl": "Significante omzetdaling in het laatste boekjaar",
+            "title_fr": "Baisse significative du chiffre d'affaires au cours du dernier exercice",
+            "description_en": "In the past fiscal year, revenue has fallen by more than 5%. This may indicate loss of customers, a declining market, or a deliberate shift in focus. Check whether the decline is concentrated among certain customers or products, and whether it has been ongoing for several years.",
+            "description_fr": "Au cours de l'exercice écoulé, le chiffre d'affaires a diminué de plus de 5 %. Cela peut indiquer une perte de clients, un marché en recul, ou un changement de focus délibéré. Vérifiez si la baisse se concentre sur certains clients ou produits, et si elle persiste depuis plusieurs années.",
+            "description_nl": "In het afgelopen boekjaar is de omzet met meer dan 5% teruggevallen. Dit kan wijzen op verlies van klanten, een terugvallende markt, of een bewuste focuswijziging. Kijk of de daling zich concentreert bij bepaalde klanten of producten, en of ze zich al meerdere jaren doorzet.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "-0.05"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "6ed13d92-0d60-479b-b759-addcb2ccc5d5",
+            "created": "2026-09-11T14:29:00.331916Z",
+            "updated": "2026-09-11T14:30:05.340131Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 6778,
+            "filtered_base_tenant_admin_size": 6778,
+            "active_trigger_alert_size": 1735,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Minimum company director remuneration",
+            "title_nl": "Minimum bedrijfsleiderbezoldiging",
+            "title_fr": "Rémunération minimale du gérant d'entreprise",
+            "description_en": "The director's wage is below the minimum threshold required to qualify for the reduced corporate tax rate (20% instead of 25% on the first bracket of profit). This may represent a missed tax optimization opportunity. Discuss with the client whether adjusting the remuneration (salary, director's fee, or benefits) is feasible and worthwhile.",
+            "description_fr": "La rémunération du dirigeant est inférieure au seuil minimum requis pour bénéficier du taux réduit à l'impôt des sociétés (20% au lieu de 25% sur la première tranche de bénéfice). Cela peut représenter une optimisation fiscale manquée. Examinez avec le client si un ajustement de la rémunération (salaire, tantième ou avantages) est réalisable et avantageux.",
+            "description_nl": "De bezoldiging van de bedrijfsleider ligt onder de minimumdrempel om te genieten van het verlaagd tarief in de vennootschapsbelasting (20% i.p.v. 25% op de eerste schijf winst). Dit kan een gemiste fiscale optimalisatie betekenen. Bespreek met de klant of een aanpassing van de bezoldiging (loon, tantième of voordelen) haalbaar en interessant is.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "MANAGEMENT_COMPANY"
+                },
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "kbo_legal_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "in",
+                    "right_operand": "bv,nv"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_indirectcosts_directors",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "50000"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_indirectcosts_directors",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_ebitda",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "7234c011-6766-4777-a561-26063b89c291",
+            "created": "2026-09-13T09:20:31.279602Z",
+            "updated": "2026-09-16T14:12:51.284300Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 1422,
+            "filtered_base_tenant_admin_size": 1422,
+            "active_trigger_alert_size": 664,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Low solvability (<25%)",
+            "title_nl": "Lage solvabiliteit (<25%)",
+            "title_fr": "Solvabilité faible (<25%)",
+            "description_en": "Less than 25% of total assets is financed with equity, indicating limited buffer to absorb losses and heavy reliance on lenders. When analysing, check the debt composition (short vs. long term), the multi-year trend, and solvability relative to sector peers.",
+            "description_fr": "Moins de 25% du total du bilan est financé par des capitaux propres. Cela indique une marge limitée pour absorber des pertes et une forte dépendance vis-à-vis des créanciers. Lors de l'analyse, examinez la composition des dettes (court vs. long terme), l'évolution sur plusieurs exercices, et la solvabilité par rapport aux pairs sectoriels.",
+            "description_nl": "Minder dan 25% van het balanstotaal wordt gefinancierd met eigen vermogen. Dat wijst op een beperkte buffer om verliezen op te vangen en een sterke afhankelijkheid van kredietverstrekkers. Kijk bij analyse naar de samenstelling van het vreemd vermogen (kort vs. lang), de trend over meerdere jaren, en de solvabiliteit t.o.v. sectorgenoten.",
+            "enabled": true,
+            "base_filter": [],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "ratio_solvability",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0.25"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "ratio_solvability",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "passive_equity",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "passive_debts_shortterm",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "passive_total",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "7854826b-195e-48df-93b0-eafdcca8638c",
+            "created": "2026-09-11T08:48:20.817220Z",
+            "updated": "2026-09-11T08:59:15.552738Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 9139,
+            "filtered_base_tenant_admin_size": 9139,
+            "active_trigger_alert_size": 2495,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Significant turnover decline in the current fiscal year (YTD)",
+            "title_nl": "Significante omzetdaling in het huidige boekjaar (YTD)",
+            "title_fr": "Baisse significative du chiffre d'affaires au cours de l'exercice en cours  (YTD)",
+            "description_en": "The company has experienced a sharp decline in revenue from the start of the financial year until now compared to the same period last year",
+            "description_fr": "L'entreprise a connu depuis le début de l'exercice une forte baisse de chiffre d'affaires par rapport à la même période de l'année précédente",
+            "description_nl": "De onderneming kende van de start van het boekjaar tot nu een sterke terugval in omzet vergeleken met dezelfde periode vorig jaar",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookytd_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "-0.05"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "abs",
+                    "period_type": "bookytd_last"
+                }
+            ],
+            "id": "79c335fc-9333-44a0-bd28-6dfa3df668f2",
+            "created": "2026-09-11T14:42:09.746372Z",
+            "updated": "2026-09-13T10:06:40.767612Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 6783,
+            "filtered_base_tenant_admin_size": 6783,
+            "active_trigger_alert_size": 2532,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Growth with financing pressure",
+            "title_nl": "Groei met financieringsdruk",
+            "title_fr": "Croissance avec pression de financement ",
+            "description_en": "Revenue is growing strongly, but that growth is burning cash: the need for working capital is increasing and the operating cash flow is negative. The company is currently financing its growth from reserves or short-term credit. This is normal with rapid growth, but it requires timely consultation about financing (credit line, factoring) before the leverage is exhausted.",
+            "description_fr": "Le chiffre d'affaires croît fortement, mais cette croissance consomme de la trésorerie : le besoin en fonds de roulement augmente et le flux de trésorerie opérationnel est négatif. L'entreprise finance actuellement sa croissance à partir de ses réserves ou de crédits à court terme. Cela est normal en cas de croissance rapide, mais cela nécessite une consultation préalable concernant le financement (ligne de crédit, affacturage) avant que la marge de manœuvre ne soit épuisée.",
+            "description_nl": "De omzet groeit sterk, maar die groei vreet cash op: de behoefte aan werkkapitaal stijgt en de operationele cashflow is negatief. De onderneming financiert haar groei momenteel uit reserves of kortlopend krediet. Dit is op zich normaal bij snelle groei, maar vraagt tijdig overleg over financiering (kredietlijn, factoring) vooraleer de rek eruit is.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "0.1"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "ratio_networkingcapitalneed",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "0"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "cashflow_operational",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "delta_abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "ratio_networkingcapitalneed",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "cashflow_operational",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "8e91c4b6-a28e-4532-9ed2-dab0d82e0f24",
+            "created": "2026-09-11T14:33:18.329829Z",
+            "updated": "2026-09-11T14:36:03.095401Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 4913,
+            "filtered_base_tenant_admin_size": 4913,
+            "active_trigger_alert_size": 101,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Price pressure",
+            "title_nl": "Prijsdruk",
+            "title_fr": "Pression sur les prix",
+            "description_en": "The revenue has remained stable or increased, but the gross margin has dropped by more than 3 percentage points. This indicates more expensive purchasing, price pressure from customers, or a shift to a less profitable product or customer mix.",
+            "description_fr": "Le chiffre d'affaires est resté stable ou a augmenté, mais la marge brute a diminué de plus de 3 points de pourcentage. Cela indique des coûts d'achat plus élevés, une pression sur les prix de la part des clients, ou un déplacement vers un mix de produits ou de clients moins rentable.",
+            "description_nl": "De omzet is stabiel gebleven of gestegen, maar de brutomarge is met meer dan 3 procentpunt gedaald. Dit wijst op duurdere inkoop, prijsdruk vanuit klanten, of een verschuiving naar een minder winstgevende product- of klantenmix.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                },
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "0"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_grossmargin",
+                        "kpi_type": "delta_rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "-0.03"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_directcosts",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_grossmargin",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_ebitda",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "97f71ab1-80f4-47e4-a741-395dc889199b",
+            "created": "2026-09-11T14:08:41.721864Z",
+            "updated": "2026-09-11T14:19:39.361581Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 4913,
+            "filtered_base_tenant_admin_size": 4913,
+            "active_trigger_alert_size": 460,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Excess idle cash",
+            "title_nl": "Inactieve cash",
+            "title_fr": "Trésorerie excédentaire inactive",
+            "description_en": "There is more than 250,000 euros in cash in the account, combined with a high liquidity ratio. This capital probably yields little or nothing. This is a good time to discuss with the client: dividend distribution, reinvestment, or other ways to use the capital more efficiently.",
+            "description_fr": "Il y a plus de 250 000 euros en espèces sur le compte, combinés à un ratio de liquidité élevé. Ce capital ne rapporte probablement que peu ou pas d'intérêt. C'est un bon moment pour discuter avec le client : distribution de dividendes, réinvestissement, ou d'autres moyens d'utiliser le capital plus efficacement.",
+            "description_nl": "Er staat meer dan 250.000 euro cash op de rekening, gecombineerd met een hoge liquiditeitsratio. Dit kapitaal rendeert vermoedelijk weinig of niets. Dit is een goed moment om te bespreken met de klant: dividenduitkering, herinvestering, of andere manieren om het kapitaal efficiënter in te zetten.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "in",
+                    "right_operand": "OPERATING_COMPANY,MANAGEMENT_COMPANY"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "active_currentassets_liquidassets",
+                        "kpi_type": "abs",
+                        "period_type": "bookytd_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "250000"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "ratio_liquidity_current",
+                        "kpi_type": "abs",
+                        "period_type": "bookytd_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "2"
+                }
+            ],
+            "id": "986993b2-d75c-4271-8196-6e773dc61887",
+            "created": "2026-09-11T14:38:16.874520Z",
+            "updated": "2026-09-11T14:39:40.697445Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 8039,
+            "filtered_base_tenant_admin_size": 8039,
+            "active_trigger_alert_size": 0,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Indirect costs affect EBITDA margin",
+            "title_nl": "Indirecte kosten wegen op EBITDA marge",
+            "title_fr": "Les charges indirectes pèsent sur la marge d'EBITDA",
+            "description_en": "The turnover has remained stable or increased, as well as the gross margin, but the EBITDA margin has decreased by more than 5 percentage points. This means that indirect costs such as services and personnel weigh on the profitability of the organization.",
+            "description_fr": "Le chiffre d'affaires est resté stable ou a augmenté, tout comme la marge brute, mais la marge EBITDA a diminué de plus de 5 points de pourcentage. Cela signifie que les coûts indirects tels que les services et le personnel pèsent sur la rentabilité de l'organisation.",
+            "description_nl": "De omzet is stabiel gebleven of gestegen, alsook de bruto marge maar de EBITDA-marge is met meer dan 5 procentpunt gedaald. Dit wil zeggen dat indirecte kosten zoals diensten en personeel wegen op de winstgevendheid van de organisatie.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_grossmargin",
+                        "kpi_type": "delta_rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "-0.01"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "0"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_ebitda",
+                        "kpi_type": "delta_rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "-0.05"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "delta_abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_ebitda",
+                    "kpi_type": "delta_rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_directcosts",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "ab0f65ab-7046-4b6f-922a-18ee2e313123",
+            "created": "2026-05-27T22:05:16.942806Z",
+            "updated": "2026-09-11T14:16:46.914480Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 4913,
+            "filtered_base_tenant_admin_size": 4913,
+            "active_trigger_alert_size": 239,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Negative equity",
+            "title_nl": "Negatief eigen vermogen",
+            "title_fr": "Capitaux propres négatifs",
+            "description_en": "Equity is negative: accumulated losses exceed the capital contributed plus reserves. The company now has more liabilities than assets, which can trigger the statutory alarm-bell procedure. Look at how deeply negative, since when, and whether capital was recently injected or a further loss occurred.",
+            "description_fr": "Les capitaux propres sont négatifs : les pertes accumulées dépassent le capital apporté et les réserves. L'entreprise a alors plus de dettes que d'actifs, ce qui peut déclencher la procédure de sonnette d'alarme. Regardez l'ampleur du déficit, depuis quand, et si du capital a été récemment apporté ou une perte supplémentaire enregistrée.",
+            "description_nl": "Het eigen vermogen is negatief: de opgestapelde verliezen zijn groter dan het ingebrachte kapitaal en de reserves samen. De onderneming heeft dan meer schulden dan bezittingen en dit kan de alarmbelprocedure activeren. Kijk naar hoe diep negatief en sinds wanneer, en of er recent kapitaal is bijgestort of verlies is bijgekomen.",
+            "enabled": true,
+            "base_filter": [],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "passive_equity",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "passive_equity",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_net",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "passive_equity_profitandloss",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "passive_total",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "b030c5c9-c6e0-41f4-a567-653c1d211fa2",
+            "created": "2026-09-11T09:48:55.285486Z",
+            "updated": "2026-09-11T09:50:42.599141Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 9139,
+            "filtered_base_tenant_admin_size": 9139,
+            "active_trigger_alert_size": 779,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Operational loss",
+            "title_nl": "Operationeel verlies",
+            "title_fr": "Perte opérationnelle",
+            "description_en": "The company has revenue, but its core operations are losing money: operating costs exceed what's coming in, before depreciation, interest, and tax are even factored in. This isn't an accounting loss from one-off items — it points to a problem in day-to-day operations themselves. Look at which cost line is driving it (personnel, direct costs) and how long this has been going on.",
+            "description_fr": "L'entreprise génère du chiffre d'affaires, mais son activité de base est déficitaire : les coûts opérationnels dépassent les revenus, avant même amortissements, intérêts et impôts. Il ne s'agit pas d'une perte comptable due à des éléments exceptionnels, mais d'un problème dans le fonctionnement quotidien. Regardez quel poste de coût pèse le plus (personnel, coûts directs) et depuis combien de temps la situation dure.",
+            "description_nl": "De onderneming draait omzet, maar de kernactiviteit is verlieslatend: de operationele kosten overtreffen wat er binnenkomt, nog vóór afschrijvingen, intresten en belastingen. Dit is geen boekhoudkundig verlies door eenmalige factoren, maar wijst op een probleem met de dagelijkse werking zelf. Kijk naar welke kostenpost het zwaarst weegt (personeel, directe kosten) en of dit al langer speelt.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_ebitda",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "0"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_ebitda",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_directcosts_purchases",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_directcosts_subcontracting",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_indirectcosts_services",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_indirectcosts_personnel",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "b70e8251-5646-454d-9e35-5eea4550d5c2",
+            "created": "2026-09-11T12:50:42.557336Z",
+            "updated": "2026-09-11T13:55:08.146850Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 4913,
+            "filtered_base_tenant_admin_size": 4913,
+            "active_trigger_alert_size": 564,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Personnel cost growing faster than revenue",
+            "title_nl": "Personeelskosten groeien sneller dan omzet",
+            "title_fr": "Les charges de personnel augmentent plus vite que le chiffre d'affaires",
+            "description_en": "Revenue held steady or grew, but personnel cost as a percentage of revenue increased by more than 3 percentage points. Wage costs are weighing more heavily than the revenue trend would explain — due to hiring, wage indexation, or declining productivity per employee. Check whether this is driven by headcount growth or a higher cost per employee.",
+            "description_fr": "Le chiffre d'affaires est resté stable ou a augmenté, mais les charges de personnel en pourcentage du chiffre d'affaires ont progressé de plus de 3 points de pourcentage. La masse salariale pèse donc plus lourd que ne le justifierait l'évolution du chiffre d'affaires — en raison d'embauches, d'une indexation salariale, ou d'une baisse de productivité par employé. Vérifiez si cela provient d'une croissance des effectifs ou d'un coût plus élevé par employé.",
+            "description_nl": "De omzet bleef stabiel of steeg, maar de personeelskosten namen als percentage van de omzet met meer dan 3 procentpunt toe. De loonlast weegt dus zwaarder door dan de omzetevolutie zou verklaren — door aanwervingen, loonindexering, of een dalende productiviteit per medewerker. Ga na of dit komt door een groeiend personeelsbestand of door een hogere kost per medewerker.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "company_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "OPERATING_COMPANY"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "0"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_indirectcosts_personnel",
+                        "kpi_type": "delta_rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "0.03"
+                }
+            ],
+            "id": "c3062893-cf85-4635-9d6a-009d1fba62da",
+            "created": "2026-09-13T09:16:46.283857Z",
+            "updated": "2026-09-13T09:17:59.872153Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 4913,
+            "filtered_base_tenant_admin_size": 4913,
+            "active_trigger_alert_size": 158,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Conversion candidate: sole proprietorship to company",
+            "title_nl": "Kandidaat voor omzetting eenmanszaak naar vennootschap",
+            "title_fr": "Candidat pour la conversion d'une entreprise individuelle en société",
+            "description_en": "The profit is at a level where a company can be more tax advantageous than a sole proprietorship. This is an initial indication based on EBITDA. For a correct assessment, the actual taxable profit, social contributions, desired remuneration, and additional costs of a company must also be taken into account.",
+            "description_fr": "Le bénéfice se situe à un niveau où une société peut être fiscalement plus avantageuse qu'une entreprise individuelle. C'est une première indication basée sur l'EBITDA. Pour une évaluation correcte, les bénéfices imposables réels, les cotisations sociales, la rémunération souhaitée et les coûts supplémentaires d'une société doivent également être pris en compte.",
+            "description_nl": "De winst bevindt zich op een niveau waarop een vennootschap fiscaal voordeliger kan worden dan een eenmanszaak. Dit is een eerste indicatie op basis van EBITDA. Voor een correcte beoordeling moeten ook de werkelijke belastbare winst, sociale bijdragen, gewenste verloning en bijkomende kosten van een vennootschap worden meegenomen.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "kbo_legal_type",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "nat_pers"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_ebitda",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "75000"
+                }
+            ],
+            "id": "ca995382-3c81-4f8a-9dbb-b1adc0bc2f50",
+            "created": "2026-09-13T09:57:17.448419Z",
+            "updated": "2026-09-16T14:22:28.575938Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 1142,
+            "filtered_base_tenant_admin_size": 1142,
+            "active_trigger_alert_size": 83,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "",
+            "title_nl": "Omzetdaling",
+            "title_fr": "",
+            "description_en": "",
+            "description_fr": "",
+            "description_nl": "",
+            "enabled": true,
+            "base_filter": [],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "delta_abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lt",
+                    "right_operand": "0"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_turnover",
+                    "kpi_type": "delta_abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "result_net",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "ratio_solvability",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "fbb9a19e-6a5f-49a9-8767-4fdc0b803495",
+            "created": "2026-06-19T10:33:06.322500Z",
+            "updated": "2026-09-21T11:53:52.761806Z",
+            "tenant_id": "d3bab57b-1c49-4460-9b53-885dd2a9ab21",
+            "all_base_tenant_admin_size": 9139,
+            "filtered_base_tenant_admin_size": 9139,
+            "active_trigger_alert_size": 2677,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Profit without cash generation",
+            "title_nl": "Winst zonder cashgeneratie",
+            "title_fr": "Bénéfice sans génération de trésorerie",
+            "description_en": "The company is profitable on paper, but that profit isn't turning into cash. The money is often tied up in unpaid invoices, stock, or slow customer payments. Check the trend in customer credit and stock levels to see where the cash is getting stuck.",
+            "description_fr": "L'entreprise est bénéficiaire sur papier, mais ce bénéfice ne se traduit pas en liquidités. L'argent est souvent bloqué dans des factures impayées, des stocks, ou des paiements clients lents. Regardez l'évolution du crédit client et des stocks pour voir où l'argent reste coincé.",
+            "description_nl": "De onderneming draait winst op papier, maar die winst zet zich niet om in cash. Vaak zit het geld vast in openstaande facturen, voorraad, of trage betalingen van klanten. Kijk naar de evolutie van klantenkrediet en voorraad om te zien waar het geld blijft hangen.",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "25000"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "0"
+                }
+            ],
+            "trigger_filter": [
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_ebitda",
+                        "kpi_type": "rel",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gt",
+                    "right_operand": "0.05"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "cashflow_operational",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "lte",
+                    "right_operand": "0"
+                }
+            ],
+            "column_visibility_order": [
+                {
+                    "name": "result_ebitda",
+                    "kpi_type": "rel",
+                    "period_type": "bookyear_last"
+                },
+                {
+                    "name": "cashflow_operational",
+                    "kpi_type": "abs",
+                    "period_type": "bookyear_last"
+                }
+            ],
+            "id": "fcdf94a8-0f6e-49bc-9f36-6f0f1b435780",
+            "created": "2026-09-11T12:22:24.827091Z",
+            "updated": "2026-09-16T22:03:13.936404Z",
+            "subscribed": true,
+            "all_base_tenant_admin_size": 6778,
+            "filtered_base_tenant_admin_size": 6778,
+            "active_trigger_alert_size": 682,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        },
+        {
+            "title_en": "Snackbars met omzet >400k",
+            "title_nl": "Snackbars met omzet >400k",
+            "title_fr": "Snackbars met omzet >400k",
+            "description_en": "",
+            "description_fr": "",
+            "description_nl": "",
+            "enabled": true,
+            "base_filter": [
+                {
+                    "left_operand": {
+                        "type": "property",
+                        "selected_column": "sub_sector_id",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "eq",
+                    "right_operand": "b7331ca0-d86c-4012-86f4-a58364ca2ce3"
+                },
+                {
+                    "left_operand": {
+                        "type": "kpi",
+                        "selected_column": "result_turnover",
+                        "kpi_type": "abs",
+                        "period_type": "bookyear_last"
+                    },
+                    "operator": "gte",
+                    "right_operand": "400000"
+                }
+            ],
+            "trigger_filter": [],
+            "id": "0d92c939-6df8-40d7-b673-ca7141feb4b1",
+            "created": "2026-09-16T21:42:04.383110Z",
+            "updated": "2026-09-16T21:42:04.383117Z",
+            "tenant_id": "d3bab57b-1c49-4460-9b53-885dd2a9ab21",
+            "all_base_tenant_admin_size": 0,
+            "filtered_base_tenant_admin_size": 0,
+            "active_trigger_alert_size": 0,
+            "snoozed_admin_size": 0,
+            "disabled_admin_size": 0
+        }
+    ]
+}
