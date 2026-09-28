@@ -1,13 +1,38 @@
 ---
 title: "Standard reports overview"
-description: "The standard financial reports in aiGust and the views each one offers."
+description: "The standard financial reports in aiGust, the views each one offers, and why their definitions are the same for every administration."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Every administration in aiGust has three standard financial reports: the **profit and loss**, the **balance sheet** and the **cash flow**. You find them under **Reports** in the administration's menu.
 
-## To cover
+## Views per report
 
-- Which standard reports exist: profit and loss, balance sheet, cash flow
-- Where to find them in an administration
-- Matrix: which report has a financial table and which visual views
-- Standard definitions cannot be changed (custom reports: link)
+Each report has a financial table, and each also has a visual view:
+
+| Report | Financial table | Visual view |
+|---|---|---|
+| Profit and loss | Yes | [Waterfall chart](/guide/reports/visual/waterfall) |
+| Balance sheet | Yes | [Blocks with ratios](/guide/reports/visual/balance-sheet-blocks) |
+| Cash flow | Yes | [Waterfall chart](/guide/reports/visual/waterfall) |
+
+The [financial table](/guide/reports/table/financial-table) works the same way in every report: the same settings, the same drill-down to quarters and periods, and the same [cell details](/guide/reports/table/cell-details).
+
+## Standard definitions
+
+The standard reports are built on the Belgian minimum standard chart of accounts (MAR/PCMN), and refined with feedback from accounting firms. You can see each report's definition in aiGust.
+
+The definitions are the same for every administration, and you can't change them. aiGust calculates the [KPIs](/guide/concepts/kpis) of all administrations from these reports, and every line of the profit and loss and balance sheet is benchmarked. That only works if every administration follows the same definitions.
+
+To report in your own format, you'll be able to use [custom reports](/guide/reports/custom-reports). They live next to the standard reports and don't change them.
+
+For how each report is built up, see:
+
+- [Profit and loss definition](/guide/reports/definitions/profit-and-loss)
+- [Balance sheet definition](/guide/reports/definitions/balance-sheet)
+- [Cash flow definition](/guide/reports/definitions/cash-flow)
+
+## What decides which figures you see
+
+- **The [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date)** decides which periods are included.
+- **The [label mapping](/guide/concepts/labels#how-labels-affect-your-reports)** decides which report line an account lands on.
+- **The data source** decides how much detail is available. For administrations that only come from a [compliance connector](/guide/concepts/financial-periods#compliance-connectors), such as Silverfin, there are no transactions, and often no quarters or periods.

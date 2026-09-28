@@ -1,0 +1,659 @@
+{
+  "id": "9b0d3ac5-9469-4231-905a-6863e19faa5e",
+  "created": "2026-05-07T13:49:48.864980Z",
+  "updated": "2026-09-23T07:50:53.874652Z",
+  "type": "BALANCE_PASSIVE",
+  "definition": {
+    "summation_type": "cumsum",
+    "groups": [
+      {
+        "key": "passive_equity",
+        "name_nl": "Eigen vermogen",
+        "name_en": "Equity",
+        "name_fr": "Capitaux propres",
+        "groups": [
+          {
+            "key": "passive_equity_capital",
+            "name_nl": "Kapitaal",
+            "name_en": "Capital",
+            "name_fr": "Capital",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "10"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_contribution",
+            "name_nl": "Inbreng",
+            "name_en": "Contribution",
+            "name_fr": "Apport",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "11"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_revaluation",
+            "name_nl": "Herwaarderingen",
+            "name_en": "Revaluations",
+            "name_fr": "Révaluations",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "12"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_reserves",
+            "name_nl": "Reserves",
+            "name_en": "Reserves",
+            "name_fr": "Réserves",
+            "groups": [
+              {
+                "key": "passive_equity_reserves_unavailable",
+                "name_nl": "Onbeschikbare reserves",
+                "name_en": "Unavailable reserves",
+                "name_fr": "Réserves indisponibles",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "130",
+                      "131"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_equity_reserves_taxfree",
+                "name_nl": "Tax-vrije reserves",
+                "name_en": "Tax-free reserves",
+                "name_fr": "Réserves exonérées d'impôt",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "132"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_equity_reserves_available",
+                "name_nl": "Beschikbare reserves",
+                "name_en": "Available reserves",
+                "name_fr": "Réserves disponibles",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "133",
+                      "134",
+                      "135",
+                      "136",
+                      "137",
+                      "138",
+                      "139"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              }
+            ],
+            "reverse_sign": true,
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_profitandloss",
+            "name_nl": "Winst & verlies",
+            "name_en": "Profit & loss",
+            "name_fr": "Bénéfice/perte reporté(e)",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "14",
+                  "999"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_grants",
+            "name_nl": "Kapitaalsubsidies",
+            "name_en": "Capital subsidies",
+            "name_fr": "Subsides en capital",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "15"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "passive_equity_shareholderadvance",
+            "name_nl": "Voorschot aan aandeelhouders op de uitkering van het netto-actief",
+            "name_en": "Advance to shareholders on the distribution of net assets",
+            "name_fr": "Avance aux actionnaires sur la distribution des actifs nets",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "19"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount"
+          }
+        ],
+        "reverse_sign": true,
+        "defaultOpen": true,
+        "canFilter": true
+      },
+      {
+        "key": "passive_provisions",
+        "name_nl": "Voorzieningen & uitgestelde belastingen",
+        "name_en": "Provisions & deferred taxes",
+        "name_fr": "Provisions et impôts différés",
+        "groups": [
+          {
+            "key": "passive_provisions_risks",
+            "name_nl": "Voorzieningen voor risico's",
+            "name_en": "Provisions for liabilities",
+            "name_fr": "Provisions pour passifs",
+            "groups": [
+              {
+                "key": "passive_provisions_risks_pensions",
+                "name_nl": "Pensioenen",
+                "name_en": "Pensions",
+                "name_fr": "Pensions",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "160"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_provisions_risks_taxes",
+                "name_nl": "Belastingen",
+                "name_en": "Taxes",
+                "name_fr": "Impôts",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "161"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_provisions_risks_maintenance",
+                "name_nl": "Onderhoud",
+                "name_en": "Maintenance",
+                "name_fr": "Maintenance",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "162"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_provisions_risks_environmental",
+                "name_nl": "Milieu-gerelateerde risico's",
+                "name_en": "Environmental risks",
+                "name_fr": "Risques environnementaux",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "163"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_provisions_risks_other",
+                "name_nl": "Andere risico's",
+                "name_en": "Other risks",
+                "name_fr": "Autres risques",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "164",
+                      "165",
+                      "166",
+                      "167"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "passive_provisions_deferredtaxes",
+            "name_nl": "Uitgestelde belastingen",
+            "name_en": "Deferred taxes",
+            "name_fr": "Impôts différés",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "168",
+                  "169"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount"
+          }
+        ],
+        "reverse_sign": true,
+        "defaultOpen": true
+      },
+      {
+        "key": "passive_debts",
+        "name_nl": "Schulden",
+        "name_en": "Debts",
+        "name_fr": "Dettes",
+        "groups": [
+          {
+            "key": "passive_debts_longterm",
+            "name_nl": "Lange termijn schulden",
+            "name_en": "Long term debts",
+            "name_fr": "Dettes à long terme",
+            "groups": [
+              {
+                "key": "passive_debts_longterm_financial",
+                "name_nl": "Financiële schulden > 1y",
+                "name_en": "Financial debts > 1y",
+                "name_fr": "Dettes financières > 1an",
+                "groups": [
+                  {
+                    "key": "passive_debts_longterm_financial_subordinated",
+                    "name_nl": "Achtergestelde leningen",
+                    "name_en": "Subordinated loans",
+                    "name_fr": "Prêts subordonnés",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "170"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "passive_debts_longterm_financial_bonds",
+                    "name_nl": "Obligatieleningen",
+                    "name_en": "Bond loans",
+                    "name_fr": "Obligations",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "171"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "passive_debts_longterm_financial_leasing",
+                    "name_nl": "Leasing schulden",
+                    "name_en": "Leasing debts",
+                    "name_fr": "Dettes liées aux contrats de leasing",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "172"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "passive_debts_longterm_financial_banks",
+                    "name_nl": "Bank leningen",
+                    "name_en": "Bank loans",
+                    "name_fr": "Établissements de crédit",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "173"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "passive_debts_longterm_financial_other",
+                    "name_nl": "Andere schulden",
+                    "name_en": "Bank loans",
+                    "name_fr": "Autre dettes financières > 1 an",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "174"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "detail": "glaccount"
+                  }
+                ],
+                "reverse_sign": true
+              },
+              {
+                "key": "passive_debts_longterm_tradedebts",
+                "name_nl": "Handelsschulden > 1 jaar",
+                "name_en": "Trade debts > 1y",
+                "name_fr": "Dettes commerciales > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "175"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_longterm_prepayments",
+                "name_nl": "Vooruitbetaalde bestellingen",
+                "name_en": "Prepaid orders",
+                "name_fr": "Ordrers prépayés",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "176"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_longterm_other",
+                "name_nl": "Andere lange termijn schulden",
+                "name_en": "Other long term debts",
+                "name_fr": "Autres dettes à long terme",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "177",
+                      "178",
+                      "179"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              }
+            ],
+            "reverse_sign": true,
+            "canFilter": true
+          },
+          {
+            "key": "passive_debts_shortterm",
+            "name_nl": "Korte termijn schulden",
+            "name_en": "Short term debts",
+            "name_fr": "Dettes à court terme",
+            "groups": [
+              {
+                "key": "passive_debts_shortterm_longtermexpiring",
+                "name_nl": "Lange termijn schulden die vervallen binnen 1 jaar",
+                "name_en": "Long term debts expiring within 1y",
+                "name_fr": "Dettes à plus d'un an écheant dans l'année",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "42"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_financial",
+                "name_nl": "Financiële schulden < 1y",
+                "name_en": "Financial debts < 1y",
+                "name_fr": "Dettes financières < 1an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "43"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_trade",
+                "name_nl": "Handelsschulden",
+                "name_en": "Trade debts",
+                "name_fr": "Dettes commerciales",
+                "benchmark": "ratio_suppliercredit",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "44"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_prepayments",
+                "name_nl": "Ontvangen vooruitbetalingen",
+                "name_en": "Prepayments received",
+                "name_fr": "Acomptes reçus",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "46"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_taxes_vat",
+                "name_nl": "Verschuldigde BTW",
+                "name_en": "VAT payable",
+                "name_fr": "TVA à payer",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "451"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_taxes",
+                "name_nl": "Andere belastingen",
+                "name_en": "Other taxes",
+                "name_fr": "Dettes fiscales",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "450",
+                      "452"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "passive_debts_shortterm_taxes_renumeration",
+                "name_nl": "Verloningen en sociale zekerheid",
+                "name_en": "Remuneration & social security",
+                "name_fr": "Rénumération & sécurité sociale",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "453",
+                      "454",
+                      "455",
+                      "456",
+                      "457",
+                      "458",
+                      "459"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "passive_debts_shortterm_other",
+                "name_nl": "Andere schulden",
+                "name_en": "Other debts",
+                "name_fr": "Autres dettes",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "47",
+                      "48"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "passive_debts_accrued",
+            "name_nl": "Overlopende rekeningen",
+            "name_en": "Accrued accounts",
+            "name_fr": "Comptes de régularisation",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "492",
+                  "493",
+                  "494",
+                  "495",
+                  "496",
+                  "497",
+                  "498",
+                  "499"
+                ]
+              }
+            ],
+            "reverse_sign": true
+          }
+        ],
+        "reverse_sign": true,
+        "defaultOpen": true,
+        "canFilter": true
+      },
+      {
+        "key": "passive_total",
+        "name_nl": "Totaal passief",
+        "name_en": "Total liabilities",
+        "name_fr": "Total passif",
+        "label": "Total liabilities",
+        "formula_operands": [
+          "passive_equity",
+          "passive_provisions",
+          "passive_debts"
+        ],
+        "is_vertical_reference": true,
+        "canFilter": true
+      }
+    ]
+  }
+}

@@ -1,14 +1,78 @@
 ---
 title: "Read benchmarks"
-description: "Read benchmarks in charts, KPI cards and boxplots."
+description: "Select a peer group for an administration and read its benchmarks in charts, KPI cards and the Performance vs benchmark widget."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Once an administration has a peer group, aiGust shows benchmarks next to its own figures: in charts, in KPI cards and in the **Performance vs benchmark** widget.
 
-## To cover
+## Select the peer group
 
-- Charts
-- Showing and hiding benchmarks
-- KPI cards and boxplots
-- Switching peer group
-- Turning benchmarks off
+Open the administration, click **Data settings** at the top of the page and expand **Benchmark group**. The list shows the administration's default and custom [peer groups](/guide/benchmarking/peer-groups). Select the one to compare with. All charts and KPI cards then use that peer group.
+
+<Frame caption="Selecting the peer group under Data settings. Inactive peer groups are greyed out.">
+  <img src="/images/benchmarking/select-peer-group.jpg" alt="Administration dashboard with the Data settings panel open and the Benchmark group list highlighted, showing a selected custom peer group, two default peer groups, a greyed-out inactive peer group and the option Disable Benchmarking" />
+</Frame>
+
+- **Inactive peer groups,** for example with fewer than 10 peers, are greyed out and can't be selected.
+- **To hide all benchmarks,** for example when there's no relevant peer group, select **Disable Benchmarking**.
+
+The peer group you select becomes the administration's [default peer group](/guide/benchmarking/peer-groups#the-default-peer-group). Everyone who opens the administration sees the same peer group, and the **Performance vs benchmark** score uses it.
+
+## Benchmarks in charts
+
+Charts show the administration's own figures together with the benchmark of its peer group.
+
+<Frame caption="EBITDA as a percentage of turnover, with the band from Q25 to Q75 of the peer group behind it, and the table with the values below.">
+  <img src="/images/concepts/kpi-types.jpg" alt="Line chart of EBITDA as a percentage of turnover from 2023 to 2026 with a shaded benchmark band, and below it a table with rows Your company, Bench 75% quartile, Bench median, Bench 25% quartile and Sample size" />
+</Frame>
+
+- **Your own figures** are shown in your firm's main brand colour: as bars for absolute values, and as a line for percentages and margins.
+- **The benchmark** is shown in your firm's secondary brand colour, as a band from Q25 to Q75. The middle half of the peers falls inside the band.
+- **The median** is hidden by default, to keep the chart readable.
+
+### The table below the chart
+
+The table repeats the figures from the chart:
+
+| Row | What it shows |
+|---|---|
+| **Your company** | The administration's own value |
+| **Bench 75% quartile** | Q75: three quarters of the peers have a lower value |
+| **Bench median** | Q50: half of the peers have a lower value |
+| **Bench 25% quartile** | Q25: a quarter of the peers have a lower value |
+| **Sample size** | The number of peers the benchmark is based on, in ranges such as 10-25, 25-50 and 50+ |
+
+Click the eye icon next to a benchmark row to show or hide it in the chart. Showing the median adds it as a line. Hiding one of the quartiles removes the band.
+
+## Benchmarks in KPI cards
+
+The KPI cards on the [administration dashboard](/guide/dashboard/dashboard) can show the benchmark as a small boxplot.
+
+<Frame caption="A KPI card with its benchmark: the band, the median (square) and the administration's own value (dot).">
+  <img src="/images/benchmarking/kpi-card-boxplot.jpg" alt="KPI card Turnover 2025 with value 7.35 million euro and plus 60 percent, with below it a bar from 3M to 7M showing the benchmark band, a square for the median and a dot for the company's own value" />
+</Frame>
+
+- **The band** runs from Q25 to Q75 of the peer group.
+- **The square** marks the median.
+- **The dot** marks the administration's own value.
+
+The line doesn't run from the lowest to the highest peer. It covers the band, and extends to the administration's own value when that falls outside the band.
+
+The benchmark doesn't need the same KPI type as the main number. A card can show the absolute turnover, with the benchmark of the turnover growth below it. Your firm sets this per template. See [Firm-wide KPI dashboard templates](/configure/reporting/kpi-dashboard-templates#choose-what-each-kpi-card-shows).
+
+KPI cards follow the **Year-to-date view** setting under **Data settings**. With the setting off, cards always show the last closed financial year, never the open one.
+
+## Performance vs benchmark
+
+The **Performance vs benchmark** widget sums up in one score how the administration performed compared with its default peer group. See [Performance scores](/guide/dashboard/scores).
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="How benchmarking works" icon="scale-balanced" href="/guide/benchmarking/how-it-works">
+    Quartiles, privacy and choosing the right KPI type.
+  </Card>
+  <Card title="Create peer groups" icon="users" href="/guide/benchmarking/peer-groups">
+    Use aiGust's peer groups or define your own.
+  </Card>
+</CardGroup>

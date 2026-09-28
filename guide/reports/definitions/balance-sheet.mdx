@@ -3,9 +3,29 @@ title: "Balance sheet definition"
 description: "How the standard balance sheet is built."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import BalanceAssets from "/snippets/definitions/balance-assets.mdx";
+import BalanceLiabilities from "/snippets/definitions/balance-liabilities.mdx";
 
-## To cover
+The standard balance sheet follows the structure of the Belgian minimum standard chart of accounts (MAR/PCMN). It's the same for every administration, so its lines can be compared and benchmarked. See [Standard definitions](/guide/reports/overview#standard-definitions).
 
-- Structure and lines of the standard definition
-- How accounts and labels map to lines
+## Structure
+
+The balance sheet shows the balance of each account at the end of the period. Each line takes the accounts starting with the numbers shown. Total assets and total liabilities are always equal.
+
+### Assets
+
+<BalanceAssets />
+
+### Liabilities
+
+<BalanceLiabilities />
+
+## Column view
+
+By default, the balance sheet shows assets and liabilities one below the other. Under **Settings**, turn on **Column view** to show them side by side.
+
+<Frame caption="The balance sheet in column view: assets on the left, liabilities on the right.">
+  <img src="/images/reports/balance-sheet-column-view.jpg" alt="Balance sheet with the Settings menu open and Column view switched on; current assets and total assets on the left, equity, debts and total liabilities on the right, each with 2025 and the open year 2026 and the change between them" />
+</Frame>
+
+To see the balance sheet as blocks, together with its main ratios, see [Balance sheet visual](/guide/reports/visual/balance-sheet-blocks).

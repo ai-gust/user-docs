@@ -1,14 +1,163 @@
 ---
 title: "Create peer groups"
-description: "Define, calculate and review peer groups for an administration."
+description: "Use aiGust's default peer groups or define your own with KPI and property filters, check which of your administrations belong to them, and keep them calculated."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A [peer group](/guide/benchmarking/how-it-works#peer-groups) defines which companies an administration is compared with. You manage peer groups on the **Peer Groups** page of an administration. Open the administration and click **Peer Groups** in the menu.
 
-## To cover
+The page has two tabs:
 
-- Creating and defining a peer group
-- Calculation takes up to 20 minutes
-- Which of your administrations are in a peer group
-- Guidelines for good peer groups
-- Peer group suggestions
+- **Default peer groups:** the peer groups aiGust provides for the administration.
+- **Custom peer groups:** peer groups you define yourself.
+
+## Default peer groups
+
+aiGust always provides default peer groups, based on the administration's [subsector](/guide/concepts/sectors-and-company-types) and [company type](/guide/concepts/sectors-and-company-types#company-types):
+
+- **One for the subsector,** for example *Ground works and shell construction (Subsector)*.
+- **One for the subsector and company type,** for example *Ground works and shell construction - Operating Company*. This keeps a one-person management company from being compared with a company that has its own staff and customers.
+
+<Frame caption="The Default peer groups tab, with the status, number of peers and last calculation of each group.">
+  <img src="/images/benchmarking/default-peer-groups.jpg" alt="Peer Groups page on the Default peer groups tab, showing two groups for Ground works and shell construction, one for the subsector and one for operating companies, both Available with 50+ peers and last calculated on 24/09/2026" />
+</Frame>
+
+The default peer groups follow the administration's classification. If you change its sector, subsector or company type, you get different default peer groups.
+
+## Custom peer groups
+
+To compare an administration with a more specific group, for example only companies of a similar size, create a custom peer group.
+
+<Frame caption="The Custom peer groups tab. A peer group with fewer than 10 peers is inactive.">
+  <img src="/images/benchmarking/custom-peer-groups.jpg" alt="Peer Groups page on the Custom peer groups tab, showing an inactive group Bouwondernemingen > 3M omzet with fewer than 10 peers, an available group Bouwondernemingen omzet tss 2Mio en 10mio with 50+ peers, and a tile to add a custom peer group" />
+</Frame>
+
+### Create a custom peer group
+
+<Steps>
+  <Step title="Add a peer group">
+    On the **Custom peer groups** tab, click **Add custom peer group**. Enter a name, and optionally a description. Use the **nl**, **en** and **fr** buttons to enter the name in each language, or click **Auto generate** to let aiGust suggest them. Click **Confirm**.
+  </Step>
+  <Step title="Add filters">
+    On the **Filter definition** tab, click **Add a filter** and choose the kind of filter. See [Filters](#filters) below.
+  </Step>
+  <Step title="Set each filter">
+    Set the values for each filter, for example a subsector, or a turnover between €2M and €10M.
+  </Step>
+  <Step title="Calculate">
+    Calculate the peer group. aiGust adds the calculation to a queue. It usually takes 10 to 30 minutes before the peer group is ready.
+  </Step>
+</Steps>
+
+<Frame caption="Adding a custom peer group: a name in each language and an optional description.">
+  <img src="/images/benchmarking/add-peer-group.jpg" alt="Add custom peer group dialog with a Name field and language buttons nl, en and fr, a Description field, and the buttons Auto generate, Cancel and Confirm" />
+</Frame>
+
+To rename a peer group or change its description later, open it and click the three dots at the top right.
+
+{/* TODO Bart: exact label of the calculate button. */}
+
+### Filters
+
+You build a peer group's filters in the same way as those of an [advanced search](/guide/getting-started/advanced-search) or a [trigger](/configure/triggers/custom-triggers). There are two kinds.
+
+<Frame caption="Choosing a filter: financial KPIs or administration properties.">
+  <img src="/images/benchmarking/add-filter.jpg" alt="Add a filter dialog with Financials: P&L, Balance, Cash flow, Financial Ratios, Personnel and Label, and Administration properties: Only Belgian companies, Economic activity, Legal type, Province and Company type" />
+</Frame>
+
+| Kind | Filters |
+|---|---|
+| **Financials:** a KPI with a condition | **P&L**, **Balance**, **Cash flow**, **Financial Ratios**, **Personnel**, **Label** |
+| **Administration properties** | **Only Belgian companies**, **Economic activity** (sector, subsector or NACE code), **Legal type**, **Province** (based on the address), **Company type** |
+
+For a financial filter, you choose:
+
+- **The KPI,** for example **Turnover**.
+- **The [KPI type](/guide/concepts/kpis#kpi-types):** absolute value, horizontal delta, vertical value or vertical delta.
+- **Financial year or YTD:** whether the condition applies to the last closed financial year or to the year-to-date figures. The last closed financial year is based on today's date, not on the administration's [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date).
+- **The condition:** less than, greater than, at most, at least, equal to, or between two values.
+
+<Frame caption="A peer group with two filters: a subsector, and a turnover between €2M and €10M in the last financial year.">
+  <img src="/images/benchmarking/filter-definition.jpg" alt="Filter definition tab of the peer group Bouwondernemingen omzet tss 2Mio en 10mio, with an Economic activity filter set to subsector Ground works and shell construction, and a P&L filter on Turnover, absolute value, financial year, between 2,000,001 and 10,000,000 euro" />
+</Frame>
+
+Filters combine with AND: a peer must meet all of them. Within one filter, you can select several values, which combine with OR. For example:
+
+> Subsector *Road transport* **and** turnover between €1M and €7M **and** province *Limburg* or *West Flanders*
+
+### Suggestions
+
+aiGust can also suggest peer groups for the administration. An AI model looks for groups of companies similar to it. The suggestions appear on the **Custom peer groups** tab, under **We've generated some interesting AI-peergroups for you!**
+
+<Frame caption="A suggested peer group, next to a custom peer group.">
+  <img src="/images/benchmarking/suggestions.jpg" alt="Custom peer groups tab with the banner We've generated some interesting AI-peergroups for you, a custom peer group, and a suggested peer group Sector Construction companies with a description and the buttons Dismiss and Have a look" />
+</Frame>
+
+A suggestion is only a set of filters, until you turn it into a peer group:
+
+1. Click **Have a look** to see its filters, and which of your administrations match them.
+2. Click **Turn into peer group** to add it to your custom peer groups. Then calculate it.
+
+Click **Dismiss** to remove a suggestion you don't need.
+
+<Frame caption="Previewing a suggestion before turning it into a peer group.">
+  <img src="/images/benchmarking/suggestion-preview.jpg" alt="Preview of the suggestion Sector Construction companies with its description, the tabs Filters and My administrations, an Economic activity filter set to sector Construction, and the button Turn into peer group" />
+</Frame>
+
+## Check which of your administrations are in a peer group
+
+Open a peer group and go to the **My administrations** tab. It lists all administrations of your firm that match the peer group's filters.
+
+If the administration you're working on doesn't match the filters, the peer group shows **Admin not included** at the top.
+
+<Frame caption="The My administrations tab. The flag Admin not included at the top right shows that the current administration isn't part of this peer group.">
+  <img src="/images/benchmarking/my-administrations.jpg" alt="Peer group Bouwondernemingen omzet tss 2Mio en 10mio on the My administrations tab, listing one administration with its VAT number and turnover, with the flags Available, Valid selection 50+ and Admin not included at the top" />
+</Frame>
+
+## Status and calculation
+
+Each peer group shows its status:
+
+| Status | Meaning |
+|---|---|
+| **Available** | The peer group is calculated and you can use it. |
+| **Inactive** | The peer group can't be used, for example because it has fewer than 10 peers. |
+| Number of peers | The size of the peer group, in ranges such as &lt;10, 25-50 and 50+. |
+| **Last calculated** | When aiGust last calculated the benchmarks. |
+| **Last filter update** | When the filters were last changed (custom peer groups only). |
+
+aiGust recalculates all peer groups every night, so new figures and new companies are included automatically. You can also recalculate a peer group yourself, for example right after changing its filters.
+
+### The default peer group
+
+An administration can have several peer groups, but one of them is its default, marked with a star. The default peer group:
+
+- **is shown to everyone** who opens the administration, so your colleagues see the same benchmarks as you
+- **is used for the [Performance vs benchmark](/guide/dashboard/scores) score**
+
+When you select another peer group under **Data settings**, it becomes the new default.
+
+{/* TODO Bart: what does the red icon on a peer group card do? Are custom peer groups shared across all administrations of the firm, or tied to one administration? */}
+
+### The 10-peer minimum
+
+To protect the privacy of the companies in it, a peer group needs at least 10 peers. With fewer, it's inactive and you can't select it.
+
+The minimum also applies per year. A peer group can have 10 or more peers in the last financial year, but fewer in an earlier year, for example because fewer companies were in the aiGust database then. aiGust then only shows the benchmark for the years with enough peers.
+
+## Tips for a good peer group
+
+- **Keep a margin above 10 peers.** A peer group with 10 or 11 peers today can easily have fewer in earlier years, and then some years show no benchmark.
+- **Limit the size range.** Filter on turnover or on the number of employees, so very small and very large companies don't skew the benchmark.
+- **Separate company types.** Compare operating companies with operating companies, and management companies with management companies. The default peer groups already do this.
+- **Check whether the administration itself is in the group.** If you see **Admin not included**, the administration doesn't meet the filters. That's not wrong in itself, but check whether the peers are still comparable.
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="How benchmarking works" icon="scale-balanced" href="/guide/benchmarking/how-it-works">
+    Quartiles, privacy and choosing the right KPI type.
+  </Card>
+  <Card title="Read benchmarks" icon="chart-column" href="/guide/benchmarking/reading-benchmarks">
+    Select a peer group and read the benchmarks in charts and KPI cards.
+  </Card>
+</CardGroup>

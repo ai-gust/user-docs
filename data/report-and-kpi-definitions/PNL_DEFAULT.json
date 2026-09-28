@@ -1,0 +1,1016 @@
+{
+  "id": "d1007d0b-6974-467d-bee1-cc7b5d6ce166",
+  "created": "2026-05-07T13:49:48.866438Z",
+  "updated": "2026-05-07T13:49:48.866440Z",
+  "type": "PNL_DEFAULT",
+  "definition": {
+    "summation_type": "sum",
+    "groups": [
+      {
+        "key": "result_turnover",
+        "name_nl": "Omzet",
+        "name_en": "Turnover",
+        "name_fr": "Chiffre d'affaires",
+        "groups": [
+          {
+            "key": "result_turnover_sales",
+            "name_nl": "Verkoop",
+            "name_en": "Sales",
+            "name_fr": "Vente",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "70"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "business_partner",
+            "canFilter": true
+          },
+          {
+            "key": "result_turnover_wip",
+            "name_nl": "Werk in uitvoering",
+            "name_en": "Work in progress",
+            "name_fr": "Travaux en cours",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "71"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "business_partner",
+            "forecastAsZero": true,
+            "canFilter": true
+          }
+        ],
+        "is_vertical_reference": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_directcosts",
+        "name_nl": "Directe kosten",
+        "name_en": "Direct costs",
+        "name_fr": "Coûts directs",
+        "groups": [
+          {
+            "key": "result_directcosts_purchases",
+            "name_nl": "Aankopen",
+            "name_en": "Purchases",
+            "name_fr": "Achats",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "600",
+                  "601",
+                  "602",
+                  "604",
+                  "605",
+                  "606",
+                  "607",
+                  "608"
+                ]
+              }
+            ],
+            "detail": "business_partner",
+            "canFilter": true
+          },
+          {
+            "key": "result_directcosts_subcontracting",
+            "name_nl": "Onderaanneming",
+            "name_en": "Subcontracting",
+            "name_fr": "Sous-traitance",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "603"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_directcosts_inventorychanges",
+            "name_nl": "Voorraadwijzigingen",
+            "name_en": "Inventory changes",
+            "name_fr": "Changement d'inventaire",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "609"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "forecastAsZero": true,
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "-",
+        "canFilter": true
+      },
+      {
+        "key": "result_grossmargin",
+        "name_nl": "Bruto marge",
+        "name_en": "Gross margin",
+        "name_fr": "Marge brute",
+        "formula_operands": [
+          "result_turnover",
+          "result_directcosts"
+        ],
+        "canFilter": true
+      },
+      {
+        "key": "result_indirectcosts",
+        "name_nl": "Indirecte kosten",
+        "name_en": "Indirect costs",
+        "name_fr": "Coûts indirects",
+        "groups": [
+          {
+            "key": "result_indirectcosts_services",
+            "name_nl": "Diensten",
+            "name_en": "Services",
+            "name_fr": "Services",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "610",
+                  "611",
+                  "612",
+                  "613",
+                  "614",
+                  "615",
+                  "616",
+                  "619"
+                ]
+              }
+            ],
+            "detail": "label",
+            "canFilter": true
+          },
+          {
+            "key": "result_indirectcosts_directors",
+            "name_nl": "Bestuurders",
+            "name_en": "Directors",
+            "name_fr": "Dirigeants",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "618"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_indirectcosts_interim",
+            "name_nl": "Tijdelijke werknemers",
+            "name_en": "Interim workers",
+            "name_fr": "Employées intérimaires",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "617"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_indirectcosts_personnel",
+            "name_nl": "Personeel",
+            "name_en": "Personnel",
+            "name_fr": "Frais de personnel",
+            "groups": [
+              {
+                "key": "result_indirectcosts_personnel_salaries",
+                "name_nl": "Salarissen",
+                "name_en": "Salaries",
+                "name_fr": "Salaires",
+                "groups": [
+                  {
+                    "key": "result_indirectcosts_personnel_salaries_directors",
+                    "name_nl": "Directie",
+                    "name_en": "Directors",
+                    "name_fr": "Direction",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "6200",
+                          "6201"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount",
+                    "canFilter": true
+                  },
+                  {
+                    "key": "result_indirectcosts_personnel_salaries_staff",
+                    "name_nl": "Bedienden",
+                    "name_en": "Staff members",
+                    "name_fr": "Employés",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "6202"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount",
+                    "canFilter": true
+                  },
+                  {
+                    "key": "result_indirectcosts_personnel_salaries_labour",
+                    "name_nl": "Arbeiders",
+                    "name_en": "Labour workers",
+                    "name_fr": "Ouvriers",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "6203"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount",
+                    "canFilter": true
+                  },
+                  {
+                    "key": "result_indirectcosts_personnel_salaries_other",
+                    "name_nl": "Andere",
+                    "name_en": "Other",
+                    "name_fr": "Autres",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "6204",
+                          "6205",
+                          "6206",
+                          "6207",
+                          "6208",
+                          "6209"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount",
+                    "canFilter": true
+                  }
+                ],
+                "canFilter": true
+              },
+              {
+                "key": "result_indirectcosts_personnel_other",
+                "name_nl": "Andere",
+                "name_en": "Other",
+                "name_fr": "Autres",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "621",
+                      "622",
+                      "623",
+                      "624",
+                      "625",
+                      "626",
+                      "627",
+                      "628",
+                      "629"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              }
+            ],
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "-",
+        "canFilter": true
+      },
+      {
+        "key": "result_otherincome",
+        "name_nl": "Andere inkomsten",
+        "name_en": "Other income",
+        "name_fr": "Autres revenus",
+        "groups": [
+          {
+            "key": "result_otherincome_producedassets",
+            "name_nl": "Geproduceerde vaste activa",
+            "name_en": "Produced fixed assets",
+            "name_fr": "Production immobilisée",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "72"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_otherincome_grants",
+            "name_nl": "Subsidies",
+            "name_en": "Grants",
+            "name_fr": "Subventions",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "736",
+                  "737",
+                  "738",
+                  "739",
+                  "740"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_otherincome_otherrecurring",
+            "name_nl": "Andere recurrente inkomsten",
+            "name_en": "Other recurring income",
+            "name_fr": "Autres revenus récurrents",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "730",
+                  "731",
+                  "732",
+                  "733",
+                  "734",
+                  "735",
+                  "741",
+                  "742",
+                  "743",
+                  "744",
+                  "745",
+                  "746",
+                  "747",
+                  "748",
+                  "749"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "+",
+        "canFilter": true
+      },
+      {
+        "key": "result_othercosts",
+        "name_nl": "Andere kosten",
+        "name_en": "Other costs",
+        "name_fr": "Autre coûts",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "64"
+            ]
+          }
+        ],
+        "arithmic_operator": "-",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "result_ebitda",
+        "name_nl": "EBITDA",
+        "name_en": "Ebitda",
+        "name_fr": "Ebitda",
+        "formula_operands": [
+          "result_grossmargin",
+          "result_otherincome",
+          "result_indirectcosts",
+          "result_othercosts"
+        ],
+        "canFilter": true
+      },
+      {
+        "key": "result_depreciations",
+        "name_nl": "Afschrijvingen",
+        "name_en": "Depreciations",
+        "name_fr": "Amortissements",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "63"
+            ]
+          }
+        ],
+        "reverse_sign": false,
+        "arithmic_operator": "-",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "result_ebit",
+        "name_nl": "EBIT",
+        "name_en": "EBIT",
+        "name_fr": "EBIT",
+        "formula_operands": [
+          "result_ebitda",
+          "result_depreciations"
+        ],
+        "canFilter": true
+      },
+      {
+        "key": "result_financialincome",
+        "name_nl": "Financiële inkomsten",
+        "name_en": "Financial income",
+        "name_fr": "Revenu financier",
+        "groups": [
+          {
+            "key": "result_financialincome_recurring",
+            "name_nl": "Recurrente financiële inkomsten",
+            "name_en": "Recurring financial income",
+            "name_fr": "Revenus financiers récurrents",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "75"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_financialincome_nonrecurring",
+            "name_nl": "Niet-recurrente inkomsten",
+            "name_en": "Non-recurring financial income",
+            "name_fr": "Revenu financier non récurrent",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "761",
+                  "769"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "detail": "glaccount",
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "+",
+        "canFilter": true
+      },
+      {
+        "key": "result_financialcosts",
+        "name_nl": "Financiële kosten",
+        "name_en": "Financial charges",
+        "name_fr": "Charges financières",
+        "groups": [
+          {
+            "key": "result_financialcosts_recurring",
+            "name_nl": "Recurrente financiële kosten",
+            "name_en": "Recurring financial costs",
+            "name_fr": "Coûts financiers recurrents",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "65"
+                ]
+              }
+            ],
+            "reverse_sign": false,
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_financialcosts_nonrecurring",
+            "name_nl": "Niet-recurrente financiële kosten",
+            "name_en": "Non-recurring financial costs",
+            "name_fr": "Coûts financiers non recurrents",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "661",
+                  "669"
+                ]
+              },
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "669800",
+                  "669900"
+                ],
+                "negate": true
+              }
+            ],
+            "reverse_sign": false,
+            "detail": "glaccount",
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "-",
+        "canFilter": true
+      },
+      {
+        "key": "result_nonrecurringincome",
+        "name_nl": "Andere niet-recurrente inkomsten",
+        "name_en": "Other non-recurring income",
+        "name_fr": "Autres revenus non récurrents",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "760",
+              "762",
+              "763",
+              "764",
+              "765",
+              "766",
+              "767",
+              "768"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "arithmic_operator": "+",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "result_nonrecurringcosts",
+        "name_nl": "Andere niet-recurrente kosten",
+        "name_en": "Other non-recurring costs",
+        "name_fr": "Autres coûts non récurrents",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "660",
+              "662",
+              "663",
+              "664",
+              "665",
+              "666",
+              "667",
+              "668"
+            ]
+          }
+        ],
+        "reverse_sign": false,
+        "arithmic_operator": "-",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "result_privateportioncosts",
+        "name_nl": "Privé deel kosten",
+        "name_en": "Private portion costs",
+        "name_fr": "Quote-part privée des frais",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "669800"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "arithmic_operator": "+",
+        "detail": "glaccount"
+      },
+      {
+        "key": "result_disallowedexpenses",
+        "name_nl": "Verworpen uitgaven",
+        "name_en": "Disallowed expenses",
+        "name_fr": "Dépenses non déductibles",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "669900"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "arithmic_operator": "+",
+        "detail": "glaccount"
+      },
+      {
+        "key": "result_resultbeforetaxes",
+        "name_nl": "Resultaat voor belastingen",
+        "name_en": "Result before taxes",
+        "name_fr": "Résultat avant impôts",
+        "formula_operands": [
+          "result_ebit",
+          "result_financialincome",
+          "result_financialcosts",
+          "result_nonrecurringincome",
+          "result_nonrecurringcosts",
+          "result_privateportioncosts",
+          "result_disallowedexpenses"
+        ],
+        "canFilter": true
+      },
+      {
+        "key": "result_transferfromdeferredtaxes",
+        "name_nl": "Onttrekkingen aan de uitgestelde belastingen",
+        "name_en": "Release of deferred taxes",
+        "name_fr": "Reprise des impôts différés",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "780"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "arithmic_operator": "+",
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_transfertodeferredtaxes",
+        "name_nl": "Toevoegingen aan de uitgestelde belastingen",
+        "name_en": "Addition to deferred taxes",
+        "name_fr": "Dotation aux impôts différés",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "680"
+            ]
+          }
+        ],
+        "reverse_sign": false,
+        "arithmic_operator": "-",
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_taxes",
+        "name_nl": "Belastingen",
+        "name_en": "Taxes",
+        "name_fr": "Impôts",
+        "groups": [
+          {
+            "key": "result_taxes_owed",
+            "name_nl": "Verschuldigde belastingen",
+            "name_en": "Owed taxes",
+            "name_fr": "Impôts dus",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "67"
+                ]
+              }
+            ],
+            "reverse_sign": false,
+            "arithmic_operator": "+",
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "result_taxes_regularisation",
+            "name_nl": "Belastingsregularisatie",
+            "name_en": "Tax regularisation",
+            "name_fr": "Réguarisation fiscale",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "77"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "-",
+            "detail": "glaccount",
+            "canFilter": true
+          }
+        ],
+        "arithmic_operator": "-",
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_net",
+        "name_nl": "Netto resultaat",
+        "name_en": "Net result",
+        "name_fr": "Résultat net",
+        "highlighted": true,
+        "formula_operands": [
+          "result_resultbeforetaxes",
+          "result_transferfromdeferredtaxes",
+          "result_transfertodeferredtaxes",
+          "result_taxes"
+        ],
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_transfer_from_untaxedreserves",
+        "name_nl": "Ontrekking van belastingvrije reserves",
+        "name_en": "Transfer from untaxed reserves",
+        "name_fr": "Transfert des réserves non imposées",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "789"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "arithmic_operator": "+",
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_transfer_to_untaxedreserves",
+        "name_nl": "Overboeking naar belastingvrije reserves",
+        "name_en": "Transfer to untaxed reserves",
+        "name_fr": "Transfert aux réserves non imposées",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "689"
+            ]
+          }
+        ],
+        "reverse_sign": false,
+        "arithmic_operator": "-",
+        "excludeFromForecast": true
+      },
+      {
+        "key": "result_toassign",
+        "name_nl": "Toe te kennen resultaat",
+        "name_en": "Result to assign",
+        "name_fr": "Résultat à affecter",
+        "formula_operands": [
+          "result_net",
+          "result_transfer_from_untaxedreserves",
+          "result_transfer_to_untaxedreserves"
+        ],
+        "excludeFromForecast": true,
+        "canFilter": true
+      },
+      {
+        "key": "result_assignment",
+        "name_nl": "Resultaatverwerking",
+        "name_en": "Result processing",
+        "name_fr": "Affectation du résultat",
+        "groups": [
+          {
+            "key": "result_assignment_profitorlossbroughtforward",
+            "name_nl": "Toename/afname van overgedragen winst/verlies",
+            "name_en": "Mutation of carried forward profit or loss",
+            "name_fr": "Bénéfice reporté ou perte reportée",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "690",
+                  "693",
+                  "790",
+                  "793"
+                ]
+              }
+            ],
+            "reverse_sign": false,
+            "excludeFromForecast": true
+          },
+          {
+            "key": "result_assignment_withdrawalfromequity",
+            "name_nl": "Onttrekking aan het eigen vermogen",
+            "name_en": "Withdrawal from equity",
+            "name_fr": "Prélèvement sur les capitaux propres",
+            "groups": [
+              {
+                "key": "result_assignment_withdrawalfromequity_contribution",
+                "name_nl": "Aan de inbreng",
+                "name_en": "To contribution",
+                "name_fr": "Sur l'apport",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "791"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_withdrawalfromequity_reserves",
+                "name_nl": "Aan de reserves",
+                "name_en": "To reserves",
+                "name_fr": "Sur les réserves",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "792"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              }
+            ],
+            "excludeFromForecast": true
+          },
+          {
+            "key": "result_assignment_additiontoequity",
+            "name_nl": "Toevoeging aan het eigen vermogen",
+            "name_en": "Addition to equity",
+            "name_fr": "Affectation aux capitaux propres",
+            "groups": [
+              {
+                "key": "result_assignment_additiontoequity_contribution",
+                "name_nl": "Aan de inbreng",
+                "name_en": "To contribution",
+                "name_fr": "À l'apport",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "691"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_additiontoequity_legalreserve",
+                "name_nl": "Aan de wettelijke reserve",
+                "name_en": "To legal reserve",
+                "name_fr": "À la réserve légale",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "6920"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_additiontoequity_otherreserves",
+                "name_nl": "Aan de overige reserves",
+                "name_en": "To other reserves",
+                "name_fr": "Aux autres réserves",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "6921",
+                      "6922",
+                      "6923",
+                      "6924",
+                      "6925",
+                      "6926",
+                      "6927",
+                      "6928",
+                      "6929"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              }
+            ],
+            "excludeFromForecast": true
+          },
+          {
+            "key": "result_assignment_shareholdersinterventionloss",
+            "name_nl": "Tussenkomst van de vennoten in het verlies",
+            "name_en": "Shareholders' intervention in the loss",
+            "name_fr": "Intervention des associés dans la perte",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "794"
+                ]
+              }
+            ],
+            "excludeFromForecast": true
+          },
+          {
+            "key": "result_assignment_distributableprofit",
+            "name_nl": "Uit te keren winst",
+            "name_en": "Distributable profit",
+            "name_fr": "Bénéfice à distribuer",
+            "groups": [
+              {
+                "key": "result_assignment_dividend",
+                "name_nl": "Dividend",
+                "name_en": "Dividend",
+                "name_fr": "Dividende",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "694"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_tantieme",
+                "name_nl": "Tantième",
+                "name_en": "Directors' fees",
+                "name_fr": "Tantième",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "695"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_employees",
+                "name_nl": "Werknemers",
+                "name_en": "Employees",
+                "name_fr": "Employés",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "696"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              },
+              {
+                "key": "result_assignment_otherbeneficiaries",
+                "name_nl": "Andere rechthebbenden",
+                "name_en": "Other beneficiaries",
+                "name_fr": "Autres ayants droit",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "697"
+                    ]
+                  }
+                ],
+                "excludeFromForecast": true
+              }
+            ],
+            "excludeFromForecast": true
+          }
+        ],
+        "arithmic_operator": "-",
+        "excludeFromForecast": true
+      },
+      {
+        "key": "result_unprocessed",
+        "name_nl": "Onverwerkt resultaat",
+        "name_en": "Unprocessed result",
+        "name_fr": "Résultat non traité",
+        "formula_operands": [
+          "result_toassign",
+          "result_assignment"
+        ]
+      }
+    ]
+  }
+}

@@ -1,16 +1,153 @@
 ---
 title: "How benchmarking works"
-description: "Compare an administration with a group of peers to put its figures in perspective."
+description: "Compare an administration with a group of similar companies, understand quartiles, and learn which KPI type answers which question."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import { KpiTypeIcon } from "/snippets/kpi-type-icon.jsx";
 
-## To cover
+A figure on its own rarely tells you enough. An administration's turnover dropped by 2%: is that bad news? If similar companies dropped by 8% on average, the administration actually did well. Benchmarking puts an administration's figures in perspective by comparing them with a group of similar companies, its **peer group**.
 
-- Why benchmarking matters
-- Peer groups: searched across the entire aiGust database
-- Administration-level feature; multiple peer groups per administration
-- Q25 / Q50 / Q75 explained with a class results example
-- Why absolute-value benchmarks don't show growth trends
-- Different book years: book year vs YTD benchmarks
-- Privacy: statistics only, minimum 10 peers
+## Peer groups
+
+A peer group is a set of companies an administration is compared with, such as road transport companies with a turnover between €1M and €7M.
+
+- **Peers come from the entire aiGust database,** not just from your own firm's administrations. That gives you enough peers, even for a niche.
+- **Benchmarking works per administration.** You compare one administration with a peer group. aiGust doesn't provide sector overviews.
+- **An administration can use several peer groups,** for example aiGust's standard group for its subsector, and a group of your own that's limited to its province. You choose which one to show.
+
+To create and manage peer groups, see [Create peer groups](/guide/benchmarking/peer-groups).
+
+## Quartiles: what a benchmark shows
+
+aiGust never shows the figures of individual peers. It shows how their values are spread, using quartiles. A school class is the easiest way to see how that works.
+
+### Example: grades in a class
+
+Your child scores 62% on a maths test. They passed, but is that good enough? Schools often only give you the class average, which doesn't say much.
+
+<Frame>
+  <img src="/images/benchmarking/class-grades.jpg" alt="Grades of 21 pupils in random order, with one pupil scoring 62 highlighted and the question Passed but good enough?" />
+</Frame>
+
+Now rank all grades from lowest to highest, and mark three points:
+
+- **Q25, the first quartile:** a quarter of the class scored lower, three quarters scored higher.
+- **Q50, the median:** half the class scored lower, half scored higher.
+- **Q75, the third quartile:** three quarters of the class scored lower, a quarter scored higher.
+
+<Frame>
+  <img src="/images/benchmarking/class-ranked.jpg" alt="The same grades ranked from 38 to 90, with the band between Q25 and Q75 marked as mid-table, underperformers below Q25 and top pupils above Q75. The pupil with 62 sits just at Q25." />
+</Frame>
+
+The band between Q25 and Q75 holds the middle half of the class. Your child's 62% sits right at the bottom of that band: a pass, but at the low end of the class.
+
+### From a class to a peer group
+
+A benchmark works the same way. Take a logistics company with a turnover of €3M. aiGust compares it with road transport companies with a turnover between €1M and €7M. The turnover range keeps out single-truck operators and large carriers, which would skew the comparison.
+
+<Frame caption="aiGust finds the companies that match the peer group's criteria in its database.">
+  <img src="/images/benchmarking/peers-found.jpg" alt="A grid of companies in the aiGust database, with about 20 highlighted as peers, each showing its turnover growth, and the company being benchmarked showing 3%" />
+</Frame>
+
+For the KPI you're looking at, for example turnover growth, aiGust calculates the value for each peer, ranks the values and takes the quartiles.
+
+<Frame caption="Ranked by turnover growth, the company's 3% sits at Q25, the bottom of the band.">
+  <img src="/images/benchmarking/peers-ranked.jpg" alt="The peers ranked by turnover growth from minus 8% to 32%, with the band between Q25 and Q75 marked as mid-table and the company's 3% at Q25" />
+</Frame>
+
+## Privacy
+
+Benchmarks never reveal individual companies:
+
+- **aiGust only shows statistics:** the quartiles and the median, never the figures of a single peer.
+- **A peer group needs at least 10 peers.** With fewer, you can't use it. For a year with fewer than 10 peers, aiGust shows no benchmark.
+
+## Choose the right KPI type
+
+Every KPI can be benchmarked in each of its [KPI types](/guide/concepts/kpis#kpi-types). The type you look at determines which question the benchmark can answer. This is where it's easiest to draw the wrong conclusion.
+
+| Your question | Benchmark to use |
+|---|---|
+| Is the company large or small compared with its peers? | <KpiTypeIcon type="currency" /> Absolute value |
+| Did the company grow faster or slower than its peers? | <KpiTypeIcon type="horizontal" /> Horizontal delta |
+| Is its margin or cost level good compared with its peers? | <KpiTypeIcon type="vertical" /> Vertical value |
+| Were margins under pressure across the sector? | <KpiTypeIcon type="vertical-delta" /> Vertical delta |
+
+Medians can't be combined like ordinary figures. The two examples below show why.
+
+### Growth: use the horizontal delta
+
+Five peers, with their turnover in two years:
+
+| | Turnover 2022 | Turnover 2023 | Horizontal delta |
+|---|---|---|---|
+| Peer 1 | €1,000 | €900 | −10% |
+| Peer 2 | €1,000 | €800 | −20% |
+| Peer 3 | €200 | €150 | −25% |
+| Peer 4 | €100 | €200 | +100% |
+| Peer 5 | €100 | €900 | +800% |
+| **Median** | **€200** | **€800** | **−10%** |
+
+The median turnover rose from €200 to €800, which looks like growth of 300%. In reality, three of the five peers shrank, and the median growth is −10%. To say something about growth, always use the benchmark of the horizontal delta, never compare the benchmarks of absolute values between years.
+
+### Margins: use the benchmark of the margin itself
+
+Five peers, with their turnover, direct costs and margin:
+
+| | Turnover | Direct costs | Margin | Margin % of turnover |
+|---|---|---|---|---|
+| Peer 1 | €12,000 | €5,000 | €7,000 | 58.33% |
+| Peer 2 | €15,000 | €20,000 | −€5,000 | −33.33% |
+| Peer 3 | €15,000 | €17,500 | −€2,500 | −16.67% |
+| Peer 4 | €5,000 | €6,000 | −€1,000 | −20.00% |
+| Peer 5 | €7,000 | €7,000 | €0 | 0.00% |
+| **Median** | **€12,000** | **€7,000** | **−€1,000** | **−16.67%** |
+
+If you subtract the median direct costs from the median turnover, you get a margin of €5,000. The real median margin is −€1,000. The same goes for percentages: dividing one median by another doesn't give you the median percentage. Always look at the benchmark of the KPI you're interested in, in the right KPI type, rather than calculating it from other benchmarks.
+
+## Different financial years
+
+Not every company closes its financial year on 31 December. Most close at the end of March, June, September or December. aiGust therefore matches each peer's figures to the administration's periods before calculating the benchmark.
+
+### Financial year benchmarks
+
+The administration's financial year is the reference, called the benchmark period. For each peer, aiGust looks for a financial year that matches it:
+
+- **Only closed financial years count.**
+- **The financial year must overlap at least 50%** of the benchmark period.
+- **If several financial years qualify, aiGust takes the one with the largest overlap.** If two overlap equally, for example 6 months each, it takes the older one. That way, peers whose current financial year hasn't closed yet still count, and the peer group doesn't drop below 10.
+
+<Frame caption="Matching peers' financial years (BY) to the benchmark period.">
+  <img src="/images/benchmarking/financial-year-matching.jpg" alt="Diagram with a 12-month benchmark period and five peers: peer 1 has the same period; peer 2 overlaps 9 months, 75%; peer 3 overlaps 6 months with two years, and the oldest is used; peer 4 overlaps only 3 months, no match; peer 5 has a 15-month year overlapping 9 months, 75%" />
+</Frame>
+
+<Tip>
+**Example:** the administration's financial year runs from 1 January to 31 December 2025. A peer closes on 30 September. Its financial year from 1 October 2024 to 30 September 2025 overlaps 9 months with the benchmark period, or 75%, so aiGust uses that year for the 2025 benchmark.
+</Tip>
+
+A financial year that's longer than the benchmark period is scaled to the same length. For peer 5 in the diagram, with a financial year of 15 months, aiGust counts 12/15 of its figures. That keeps a longer year from inflating amounts such as turnover.
+
+### Year-to-date benchmarks
+
+For a [year-to-date](/guide/concepts/financial-periods#year-to-date-periods) benchmark, the benchmark period is the administration's YTD window, for example 1 January to 31 May. For each peer, aiGust tries to build a period that fully covers that window:
+
+- **It combines the peer's closed periods.** Open periods are never used.
+- **The combined periods must cover the whole window.** If they extend beyond it, for example with quarterly periods, aiGust pro-rates the figures to the window.
+- **If the periods don't cover the whole window,** the peer doesn't count for that benchmark.
+
+<Frame caption="Matching peers' periods to a year-to-date benchmark period. M = month, Q = quarter, H = half year.">
+  <img src="/images/benchmarking/ytd-matching.jpg" alt="Diagram with a year-to-date benchmark period and four peers: peer 1 with monthly periods overlaps 100%; peer 2 with quarterly periods overlaps 100% but needs pro-rating; peer 3's periods start too late, no full overlap; peer 4 has half-year periods and the second one isn't closed, no full overlap" />
+</Frame>
+
+Peers with only annual figures, which is common for compliance files, can rarely contribute to a year-to-date benchmark.
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card title="Create peer groups" icon="users" href="/guide/benchmarking/peer-groups">
+    Use aiGust's default peer groups or define your own.
+  </Card>
+  <Card title="Read benchmarks" icon="chart-column" href="/guide/benchmarking/reading-benchmarks">
+    Benchmarks in charts, KPI cards and the Performance vs benchmark widget.
+  </Card>
+</CardGroup>

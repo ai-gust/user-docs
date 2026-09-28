@@ -1,11 +1,24 @@
 ---
 title: "Cash flow definition"
-description: "How the standard cash flow statement is built."
+description: "How the standard cash flow statement is built from the profit and loss and the balance sheet."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import CashFlowStructure from "/snippets/definitions/cash-flow.mdx";
 
-## To cover
+The cash flow statement explains how an administration's cash changed during the financial year. It shows why a profit doesn't necessarily mean that cash grew by the same amount.
 
-- Structure and lines of the standard definition
-- How the cash flow is derived from the profit and loss and balance sheet
+The standard cash flow is the same for every administration. See [Standard definitions](/guide/reports/overview#standard-definitions).
+
+## Structure
+
+The cash flow is derived with the indirect method: from the profit and loss and the changes in the balance sheet. It starts from the cash flow from operating activities, corrects it for the change in working capital, and then adds the cash flows from investments and financing.
+
+Each line takes the accounts starting with the numbers shown. Lines marked with = are calculated from the lines above them. The first line, turnover, is only there as the reference value for percentages, and isn't shown in the chart.
+
+<CashFlowStructure />
+
+<Frame caption="The cash flow in table view.">
+  <img src="/images/reports/cash-flow-table.jpg" alt="Cash flow table from 2021 to the open year 2026 with the lines cash flow from operating activities, change in working capital needed, operational cash flow, cash out to investments, cash in through financing, cash flow and total change in liquid assets" />
+</Frame>
+
+To see how cash moved from the start to the end of the year, see the [cash flow waterfall](/guide/reports/visual/waterfall#read-the-cash-flow-waterfall).

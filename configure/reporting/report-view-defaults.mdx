@@ -1,12 +1,52 @@
 ---
 title: "Firm-wide report view settings"
-description: "Set the default layout of financial reports for everyone in your firm."
+description: "Set how financial reports look for everyone at your firm, let users override them, and adjust the sensitivity of the notifications."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Your firm can set how financial reports look by default. The settings apply to every user at your firm, and each user can override them for themselves.
 
-## To cover
+## Open the settings
 
-- Available settings: column order (last year left or right), compact notation, ...
-- How firm defaults relate to personal settings
-- Settings apply to all report types
+Go to your workspace and open the report settings.
+
+{/* TODO Bart: exact navigation path and screenshot of the firm-level settings. */}
+
+## Available settings
+
+The settings are grouped in a **Default report view**, which applies to every report:
+
+| Group | Setting | What it does |
+|---|---|---|
+| **Value formatting** | **Compact value notation** | Shows thousands as K and millions as M: 6K instead of 6,000. |
+| | **Hide empty rows** | Hides lines that are empty in every year shown. |
+| **Column definition** | **Column order** | Shows the most recent year last (on the right) or first (on the left). The National Bank of Belgium usually puts the most recent year first, and accountants differ in which they prefer. |
+| | **# Periods to show** | How many financial years the table shows at once. |
+| | **# Periods to display in quarter view** | How many quarters or periods the table shows at once. |
+
+A smaller number of periods helps on a laptop or when presenting. Readers can scroll to the other periods with the arrows above the table.
+
+### Different settings per report
+
+To use different settings for one report type, turn on **These settings deviate from the standard** for **P&L**, **Balance** or **Cashflow**, and set its own values.
+
+## Personal settings
+
+Each user can override the firm's settings for themselves:
+
+1. Click the user icon at the top right.
+2. On the **Report view settings** tab, turn on **Use your custom reporting view instead of the default settings**.
+3. Change the settings, and click **Save**.
+
+<Frame caption="Personal report view settings, with different settings for the cash flow.">
+  <img src="/images/reports/view-settings.jpg" alt="Settings dialog on the Report view settings tab, with the switch Use your custom reporting view instead of the default settings turned on; the Default report view has Compact value notation, Hide empty rows, Column order most recent last, 3 periods to show and 4 periods in quarter view; P&L, Balance and Cashflow each have a switch These settings deviate from the standard, turned on for Cashflow" />
+</Frame>
+
+The **Profile** tab holds the user's name and language. See [Personalise aiGust](/guide/getting-started/personalise).
+
+## Notification sensitivity
+
+With **Notifications** on in a report, aiGust colours the changes by how important they are. See [Notifications](/guide/reports/table/financial-table#notifications). The colour depends on how large the line is compared with the total, and on how large the change is.
+
+aiGust sets default sensitivities for these colours. You can override them for your firm in the workspace.
+
+{/* TODO Bart: where exactly, and what are the default thresholds? */}

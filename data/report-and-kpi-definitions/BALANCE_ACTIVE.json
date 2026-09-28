@@ -1,0 +1,547 @@
+{
+  "id": "d022e5e9-af07-4e71-badb-43fb17f027ae",
+  "created": "2026-05-07T13:49:48.864449Z",
+  "updated": "2026-09-23T07:47:32.089901Z",
+  "type": "BALANCE_ACTIVE",
+  "definition": {
+    "summation_type": "cumsum",
+    "groups": [
+      {
+        "key": "active_foundationcosts",
+        "name_nl": "Oprichtingskosten",
+        "name_en": "Foundation expenses",
+        "name_fr": "Frais d'établissement",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "20"
+            ]
+          }
+        ],
+        "reverse_sign": false,
+        "defaultOpen": true,
+        "detail": "glaccount"
+      },
+      {
+        "key": "active_fixedassets",
+        "name_nl": "Vaste activa",
+        "name_en": "Fixed assets",
+        "name_fr": "Actifs immobilisés",
+        "groups": [
+          {
+            "key": "active_fixedassets_intangible",
+            "name_nl": "Immateriële vaste activa",
+            "name_en": "Intangible fixed assets",
+            "name_fr": "Immobilisations incorporelles",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "21"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "active_fixedassets_material",
+            "name_nl": "Materiële vaste activa",
+            "name_en": "Material fixed assets",
+            "name_fr": "Immobilisations corporelles",
+            "groups": [
+              {
+                "key": "active_fixedassets_material_realestate",
+                "name_nl": "Vastgoed",
+                "name_en": "Real estate",
+                "name_fr": "Terrains et constructions",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "22"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_material_machinery",
+                "name_nl": "Machines & uitrusting",
+                "name_en": "Machinery & equipment",
+                "name_fr": "Installations, machines et outillage",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "23"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_material_rolling",
+                "name_nl": "Meubels en rollend materieel",
+                "name_en": "Furniture and rolling equipment",
+                "name_fr": "Mobilier et matériel roulant",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "24"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_material_leasing",
+                "name_nl": "In leasing",
+                "name_en": "In leasing",
+                "name_fr": "Immobilisations détenues en location-financement",
+                "groups": [
+                  {
+                    "key": "active_fixedassets_material_leasing_buildings",
+                    "name_nl": "Gronden en gebouwen",
+                    "name_en": "Terrains and buildings",
+                    "name_fr": "Terrains et constructions",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "250"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "key": "active_fixedassets_material_leasing_machinery",
+                    "name_nl": "Installaties & machines",
+                    "name_en": "Installation & machinery",
+                    "name_fr": "Installations, machines et outillage",
+                    "label": "Installation & machinery",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "251"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "active_fixedassets_material_leasing_rolling",
+                    "name_nl": "Meubilair & rollend materieel",
+                    "name_en": "Furniture & rolling equipment",
+                    "name_fr": "Mobilier et matériel roulant",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "252"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "active_fixedassets_material_leasing_other",
+                    "name_nl": "Andere",
+                    "name_en": "Other",
+                    "name_fr": "Autres",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "253",
+                          "254",
+                          "255",
+                          "256",
+                          "257",
+                          "258",
+                          "259"
+                        ]
+                      }
+                    ],
+                    "detail": "glaccount"
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_material_other",
+                "name_nl": "Andere vaste materiële activa",
+                "name_en": "Other fixed material assets",
+                "name_fr": "Autres immobilisations corporelles",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "26"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_material_underconstruction",
+                "name_nl": "Activa in aanbouw",
+                "name_en": "Assets under construction",
+                "name_fr": "Actifs en construction",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "27"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "active_fixedassets_financial",
+            "name_nl": "Financiële vaste activa",
+            "name_en": "Financial fixed assets",
+            "name_fr": "Immobilisations financiers",
+            "groups": [
+              {
+                "key": "active_fixedassets_financial_affiliations",
+                "name_nl": "Gelieerde bedrijven",
+                "name_en": "Affiliated companies",
+                "name_fr": "Participations dans des entreprises liées",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "280",
+                      "281"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_financial_participations",
+                "name_nl": "Participaties",
+                "name_en": "Participations",
+                "name_fr": "\t Participations dans des entreprises avec lesquelles il existe un lien de participation",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "282",
+                      "283"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_fixedassets_financial_other",
+                "name_nl": "Andere financiële vaste activa",
+                "name_en": "Other financial fixed assets",
+                "name_fr": "\t Autres actions et parts",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "284",
+                      "285",
+                      "286",
+                      "287",
+                      "288",
+                      "289"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              }
+            ],
+            "canFilter": true
+          }
+        ],
+        "defaultOpen": true,
+        "canFilter": true
+      },
+      {
+        "key": "active_currentassets",
+        "name_nl": "Vlottende activa",
+        "name_en": "Current assets",
+        "name_fr": "Actifs courants",
+        "groups": [
+          {
+            "key": "active_currentassets_receivables1plus",
+            "name_nl": "Vorderingen > 1 year",
+            "name_en": "Receivables > 1 year",
+            "name_fr": "Créances > 1 an",
+            "groups": [
+              {
+                "key": "active_currentassets_receivables1plus_accounts",
+                "name_nl": "Handelsvorderingen > 1 jaar",
+                "name_en": "Accounts receivable > 1 year",
+                "name_fr": "Créances clients > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "290"
+                    ]
+                  }
+                ],
+                "detail": "glaccount"
+              },
+              {
+                "key": "active_currentassets_receivables1plus_other",
+                "name_nl": "Andere vorderingen > 1 jaar",
+                "name_en": "Other receivable > 1 year",
+                "name_fr": "Autres créances > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "291",
+                      "292",
+                      "293",
+                      "294",
+                      "295",
+                      "296",
+                      "297",
+                      "298",
+                      "299"
+                    ]
+                  }
+                ],
+                "reverse_sign": false,
+                "detail": "glaccount"
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "active_currentassets_stock",
+            "name_nl": "Voorraden & werk in uitvoering",
+            "name_en": "Stock & work in progress",
+            "name_fr": "Stock & travaux en cours",
+            "groups": [
+              {
+                "key": "active_currentassets_stock_materials",
+                "name_nl": "Voorraad grondstoffen & vooruitbetalingen",
+                "name_en": "Stock of raw materials & prepaid expenses",
+                "name_fr": "Stock de matières premières & frais prépayés",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "30",
+                      "31",
+                      "32",
+                      "33",
+                      "34",
+                      "35",
+                      "36",
+                      "38",
+                      "39"
+                    ]
+                  }
+                ],
+                "detail": "glaccount"
+              },
+              {
+                "key": "active_currentassets_stock_wip",
+                "name_nl": "Werk in uitvoering",
+                "name_en": "Work in progress",
+                "name_fr": "Travaux en cours",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "37"
+                    ]
+                  }
+                ],
+                "detail": "glaccount"
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "active_currentassets_receivables1min",
+            "name_nl": "Vorderingen",
+            "name_en": "Accounts receivable",
+            "name_fr": "Créances < 1an",
+            "groups": [
+              {
+                "key": "active_currentassets_receivables1min_customers",
+                "name_nl": "Handelsvorderingen < 1 jaar",
+                "name_en": "Accounts receivable < 1 year",
+                "name_fr": "Créances clients < 1 an",
+                "benchmark": "ratio_customercredit",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "400",
+                      "401",
+                      "402",
+                      "403",
+                      "404",
+                      "405",
+                      "407",
+                      "408",
+                      "409"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_currentassets_receivables1min_prepaidsuppliers",
+                "name_nl": "Vooruitbetalingen leveranciers",
+                "name_en": "Prepaid suppliers",
+                "name_fr": "Acomptes versés ",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "406"
+                    ]
+                  }
+                ],
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_currentassets_receivables1min_vat",
+                "name_nl": "Te ontvangen BTW",
+                "name_en": "VAT receivable",
+                "name_fr": "TVA à recevoir",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "411"
+                    ]
+                  }
+                ],
+                "reverse_sign": false,
+                "detail": "glaccount",
+                "canFilter": true
+              },
+              {
+                "key": "active_currentassets_receivables1min_other",
+                "name_nl": "Andere vorderingen < 1 jaar",
+                "name_en": "Other receivables < 1 year",
+                "name_fr": "Autres créances < 1an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "410",
+                      "412",
+                      "413",
+                      "414",
+                      "415",
+                      "416",
+                      "417",
+                      "418",
+                      "419"
+                    ]
+                  }
+                ],
+                "reverse_sign": false,
+                "detail": "glaccount"
+              }
+            ],
+            "canFilter": true
+          },
+          {
+            "key": "active_currentassets_financialinvestments",
+            "name_nl": "Financiële investeringen",
+            "name_en": "Financial investments",
+            "name_fr": "iInvestments financiers",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "50",
+                  "51",
+                  "52",
+                  "53"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "active_currentassets_liquidassets",
+            "name_nl": "Liquide middelen",
+            "name_en": "Liquid assets",
+            "name_fr": "Valeurs disponbiles",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "54",
+                  "55",
+                  "56",
+                  "57",
+                  "58",
+                  "59"
+                ]
+              }
+            ],
+            "detail": "glaccount",
+            "canFilter": true
+          },
+          {
+            "key": "active_currentassets_accrued",
+            "name_nl": "Overlopende rekeningen",
+            "name_en": "Accrued accounts",
+            "name_fr": "Comptes de régularisation",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "490",
+                  "491"
+                ]
+              }
+            ]
+          }
+        ],
+        "defaultOpen": true,
+        "canFilter": true
+      },
+      {
+        "key": "active_total",
+        "name_nl": "Totaal actief",
+        "name_en": "Total assets",
+        "name_fr": "Total actif",
+        "formula_operands": [
+          "active_foundationcosts",
+          "active_fixedassets",
+          "active_currentassets"
+        ],
+        "is_vertical_reference": true,
+        "canFilter": true
+      }
+    ]
+  }
+}

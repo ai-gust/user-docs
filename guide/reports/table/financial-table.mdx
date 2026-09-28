@@ -1,15 +1,91 @@
 ---
 title: "Financial table"
-description: "Work with the financial table used by all financial reports."
+description: "Work with the financial table used by all financial reports: settings, detail level, notifications, sorting, labels and view settings."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The profit and loss, balance sheet and cash flow all show their figures in the same financial table. Each report has two tabs: **Table view**, described on this page, and **Graphical view**. See [Waterfall chart](/guide/reports/visual/waterfall) and [Balance sheet visual](/guide/reports/visual/balance-sheet-blocks).
 
-## To cover
+<Frame caption="The profit and loss in table view, with horizontal analysis and notifications on.">
+  <img src="/images/reports/profit-and-loss-table.jpg" alt="Profit and loss table with columns 2024, 2025 and the open year 2026, coloured badges with the change between years, expanded lines down to accounts such as 700000 Sales, and highlighted cells with comments" />
+</Frame>
 
-- Layout of the table
-- Horizontal and vertical analysis
-- Layout options (personal and firm defaults)
-- Detail level: account, label, business partner, and why this is useful
-- Sorting
-- How the up-to-date-until date affects the table
+## Settings
+
+Click **Settings** above the table to change what it shows.
+
+<Frame caption="The settings of the profit and loss.">
+  <img src="/images/reports/report-settings.jpg" alt="Settings menu with Year-to-date view, Show open periods, Horizontal analysis, Show contribution margin, Show absolute values, Show relative values, Group by and Notifications" />
+</Frame>
+
+| Setting | What it does |
+|---|---|
+| **Year-to-date view** | Shows the same stretch of time in every year, instead of full financial years. See [Years, quarters and periods](/guide/reports/table/periods). |
+| **Show open periods** | Adds a column for the open financial year. See [Years, quarters and periods](/guide/reports/table/periods). |
+| **Horizontal analysis** | Adds the growth or decline between two columns, as a badge. |
+| **Show contribution margin** | *Profit and loss only.* Splits the indirect costs into variable and fixed costs. See [Contribution margin](/guide/reports/definitions/profit-and-loss#contribution-margin). |
+| **Show absolute values** | Shows the amounts. |
+| **Show relative values** | Shows each line as a percentage of the reference value: turnover for the profit and loss, the balance sheet total for the balance sheet. Turn on both to see amounts and percentages together. |
+| **Column view** | *Balance sheet only.* Shows assets and liabilities side by side. See [Balance sheet definition](/guide/reports/definitions/balance-sheet). |
+| **Group by** | Chooses what the lowest level of the table shows. See [Detail level](#detail-level). |
+| **Notifications** | Colours the horizontal analysis by how important a change is. See [Notifications](#notifications). |
+
+## Work with rows
+
+Click the arrow next to a line to open or close the lines below it. The lowest level shows the individual accounts, business partners or labels.
+
+Click the three dots at the end of a row for more options for that row only:
+
+<Frame caption="The options of a row.">
+  <img src="/images/reports/row-menu.jpg" alt="Row menu with Show absolute values, Show relative values, Hybrid view, Open all, Close all, Group by business partner, Group by GL account and Group by label" />
+</Frame>
+
+- **Show absolute values**, **Show relative values** or **Hybrid view** (both) for that row.
+- **Open all** or **Close all** lines below it.
+- **Group by business partner**, **Group by GL account** or **Group by label** for the lines below it.
+
+## Detail level
+
+With **Group by** in the settings, or per row, you choose what the lowest level shows:
+
+- **GL account:** the accounts as booked in the administration's bookkeeping.
+- **Label:** the accounts translated to the [aiGust chart of accounts](/guide/concepts/labels).
+- **Business partner:** the customers or suppliers behind the figures.
+
+Grouping by business partner shows which customers or suppliers make up a section, for example the five suppliers behind most of your services and other goods. Most bookkeeping software doesn't offer that view.
+
+### Change the label of an account
+
+At account level, click the pencil next to an account to open **Manage label**. There you can check or change the [label](/guide/concepts/labels) of the account, without going to the Mapping tab.
+
+<Frame caption="Changing the label of an account from the report.">
+  <img src="/images/reports/manage-label.jpg" alt="Manage label dialog for account 700000 Sales, showing its label 700000 Sales with 100% certainty, and Cancel and Save buttons" />
+</Frame>
+
+## Notifications
+
+With **Notifications** on, aiGust colours the badges of the horizontal analysis to draw your attention to the changes that matter. The colours range from dark green through light green to orange and red. A white badge means the change isn't important.
+
+The colour depends on two things:
+
+- **How large the line is compared with the total.** A cost of 0.1% of turnover doesn't matter much, even if it doubles.
+- **How large the change is.** An increase of 100% matters more than one of 1%.
+
+Click a figure to see its notification on the **Details** tab of the [cell details](/guide/reports/table/cell-details#details). There you can acknowledge it, or mark it as a false alert.
+
+aiGust sets default sensitivities for the colours. Your firm can adjust them. See [Firm-wide report view settings](/configure/reporting/report-view-defaults).
+
+This colour coding is separate from [triggers and alerts](/guide/triggers/how-triggers-work).
+
+## Sort the table
+
+Click the three dots on a column header to sort by that column: **Sort descending** or **Sort ascending**. In aiGust, three dots always mean there's more you can do.
+
+<Frame caption="The options of a column: sorting, and drilling down into quarters or periods.">
+  <img src="/images/reports/column-menu.jpg" alt="Column menu of 2025 with Sort descending, Sort ascending, Show quarters and Show periods" />
+</Frame>
+
+Sorting only changes the order of the rows at the lowest level. The structure of the report stays the same: turnover stays at the top, and the gross margin stays below turnover and direct costs. The sorted column is highlighted in the header.
+
+## View settings
+
+A few settings change how every report looks, such as the column order and compact notation. Your firm sets the defaults, and you can override them for yourself. See [Firm-wide report view settings](/configure/reporting/report-view-defaults).

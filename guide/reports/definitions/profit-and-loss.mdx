@@ -1,14 +1,63 @@
 ---
 title: "Profit and loss definition"
-description: "How the standard profit and loss statement is built."
+description: "How the standard profit and loss is built, and how to split costs into fixed and variable to calculate a contribution margin."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import PnlStructure from "/snippets/definitions/pnl.mdx";
 
-## To cover
+The standard profit and loss follows the structure of the Belgian minimum standard chart of accounts (MAR/PCMN). It's the same for every administration, so its lines can be compared and benchmarked. See [Standard definitions](/guide/reports/overview#standard-definitions).
 
-- Structure and lines of the standard definition
-- How accounts and labels map to lines
-- Contribution margin: what it is and why you need it
-- Fixed vs variable costs
-- Changing fixed/variable on account level and its effect on the report
+## Structure
+
+The profit and loss adds up the bookings of each period. Each line takes the accounts starting with the numbers shown. Lines marked with = are calculated from the lines above them.
+
+<PnlStructure />
+
+Each line can be opened down to the individual accounts, business partners or labels. See [Financial table](/guide/reports/table/financial-table).
+
+## Contribution margin
+
+The gross margin shows turnover minus direct costs. Many companies also have indirect costs that grow with their activity, such as renting machinery or extra staff. The **contribution margin** takes those variable costs into account as well:
+
+- **Variable costs** rise and fall with activity.
+- **Fixed costs** stay the same, whatever the activity.
+- **The contribution margin** is the gross margin minus the variable indirect costs: what's left to cover the fixed costs and make a profit.
+
+### Show the contribution margin
+
+Under **Settings**, turn on **Show contribution margin**.
+
+<Note>
+The contribution margin only changes the part of the profit and loss between **Gross margin** and **EBITDA**. Instead of indirect costs, other income and other costs, you see:
+
+- **Variable costs,** **Variable other income** and **Variable other costs:** the variable part of services, directors, interim workers and personnel (61, 62), of grants and other recurring income (740–749), and of other costs (64).
+- **Contribution margin** = Gross margin − Variable costs + Variable other income − Variable other costs.
+- **Fixed costs,** **Fixed other income** and **Fixed other costs:** the fixed part of the same accounts. Produced fixed assets (72), grants (736–739) and other recurring income (730–735) always count as fixed.
+- **EBITDA** = Contribution margin − Fixed costs + Fixed other income − Fixed other costs. The result is the same as without the contribution margin.
+
+All other lines stay as in the [structure above](#structure).
+</Note>
+
+<Frame caption="The profit and loss with the contribution margin. Each account shows its variable percentage.">
+  <img src="/images/reports/contribution-margin.jpg" alt="Profit and loss in year-to-date view with the sections Variable costs, Contribution margin, Fixed costs, Fixed other income and Fixed other costs highlighted between Gross margin and EBITDA; accounts under variable services show badges such as 80% var and 70% var" />
+</Frame>
+
+The gross margin and EBITDA always stay the same. That keeps them comparable across administrations for benchmarking.
+
+### Set the fixed/variable split
+
+For each account, you set which percentage of its costs is variable. It doesn't have to be all or nothing: rent of machinery can be 80% variable and 20% fixed. Each account shows its percentage as a badge, for example **80% var**.
+
+To change it, click the badge. In **Split Fixed/Variable Costs**, move the slider to the variable percentage, and click **Confirm**.
+
+<Frame caption="Setting the variable part of an account.">
+  <img src="/images/reports/split-fixed-variable.jpg" alt="Split Fixed/Variable Costs dialog for account 610200 Rent machinery and equipment, with a slider set to 80% variable and a Confirm button" />
+</Frame>
+
+To change many accounts at once, use the **Mapping** tab of the administration, under **Settings** › **Mapping**: the same place as the [label mapping](/guide/concepts/label-mapping).
+
+{/* TODO Bart: screenshot of the fixed/variable split on the Mapping tab. */}
+
+<Note>
+The fixed/variable split only affects the profit and loss. It isn't used in KPIs, dashboards or benchmarks.
+</Note>

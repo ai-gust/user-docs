@@ -1,15 +1,89 @@
 ---
 title: "Cell details"
-description: "Drill into a figure to see transactions, documents, evolution and contributors."
+description: "Click a figure in a financial report to see the transactions behind it, its main contributors, its evolution, its notification and comments."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Click any figure in the financial table to open its details in a side panel. The top of the panel shows the line and the period, for example *Services, 2025YTD (01-05/2025)*, and an **Alerts** switch. The panel has these tabs:
 
-## To cover
+| Tab | What it shows |
+|---|---|
+| [**Transactions**](#transactions) | The bookings behind the figure |
+| [**Contributors**](#contributors) | Who or what makes up the figure |
+| [**Evolution**](#evolution) | The figure over the years, with its benchmark |
+| [**Details**](#details) | The notification for the change in the figure |
+| **Benchmark** | The figure compared with the peer group |
+| [**Comments**](#comments) | Comments by you and your colleagues |
 
-- Related transactions
-- Attached documents
-- Exporting transactions
-- Evolution chart with benchmarks
-- Contributors: by business partner, account or label
-- Comments
+A number on a tab shows how many items it has.
+
+{/* TODO Bart: what does the Alerts switch at the top do? What does the Benchmark tab show? */}
+
+## Transactions
+
+The **Transactions** tab lists the bookings behind the figure. For turnover in financial year 2025, for example, that's every booking on the 70 accounts in that year. Together they add up to the figure in the cell.
+
+<Frame caption="The transactions behind the services of January to May 2025.">
+  <img src="/images/reports/cell-transactions.jpg" alt="Side panel for Services 2025YTD on the Transactions tab, with a business partner filter, an Export Excel button, and a list of transactions with date, period, account, business partner, description, amount and an attachment icon" />
+</Frame>
+
+- **Filter** the list by business partner.
+- **Sort** by date, description or amount.
+- **Export** the list with **Export Excel**.
+- **Open the attached document,** such as the invoice, with the paperclip icon.
+
+To search through all transactions of an administration, use **Transactions** in the administration's menu.
+
+<Note>
+Administrations that only come from a [compliance connector](/guide/concepts/financial-periods#compliance-connectors), such as Silverfin, have no transactions in aiGust.
+</Note>
+
+## Contributors
+
+The **Contributors** tab shows who or what makes up the figure. Click services for January to May 2025, for example, and you see which suppliers account for most of those costs.
+
+<Frame caption="The main contributors to the services, with the biggest risers and fallers.">
+  <img src="/images/reports/cell-contributors.jpg" alt="Contributors tab with a donut chart of the top five business partners of 2025YTD, the Group by menu open with business partner, GL account and label, and below it tables of the most important risers and fallers compared with 2024YTD" />
+</Frame>
+
+- **Top business partners:** a chart and a table of the five biggest contributors. Click **Show more** to add more, or the eye icon to leave one out.
+- **Group by:** switch between business partner, GL account and label.
+- **Most important risers** and **Most important fallers:** the contributors that changed most compared with the previous period, in absolute amounts.
+
+The same view is available as the **Top contributors** widget on the customer and supplier report, and on meeting slides.
+
+## Evolution
+
+The **Evolution** tab shows the figure as a chart over the years, with the [benchmark](/guide/benchmarking/reading-benchmarks) of the administration's peer group. The chart follows the view you're in, financial year or year to date, and ends with the period you clicked. Use the [KPI type selector](/guide/concepts/kpis#kpi-types) to switch between amounts, growth and percentages.
+
+<Frame caption="The evolution of sales, January to May of each year, with the benchmark.">
+  <img src="/images/reports/cell-evolution.jpg" alt="Evolution tab showing sales from 2021YTD to 2025YTD as bars with a shaded benchmark band, and a table with the company's values, the benchmark quartiles and the sample size; the benchmark for 2021YTD is not available" />
+</Frame>
+
+Every line of the profit and loss and balance sheet is a KPI, so every line has its own benchmark. **Not available** means there were too few peers for that year.
+
+## Details
+
+The **Details** tab shows the [notification](/guide/reports/table/financial-table#notifications) for the figure: how much it changed compared with the previous period, as a chart and in words. You can switch between the amount and the percentage of the reference value.
+
+<Frame caption="The notification for sales: an increase of 69% compared with the same period a year earlier.">
+  <img src="/images/reports/cell-details-notification.jpg" alt="Details tab for Sales showing a chart from 2024YTD to 2025YTD with the change of plus 69%, the text Compared to the previous period the item Sales increased with 69.0% in absolute value, and the buttons Acknowledge and False alert" />
+</Frame>
+
+- **Acknowledge:** you've seen the change and it's in order.
+- **False alert:** the change isn't relevant.
+
+{/* TODO Bart: what exactly happens after Acknowledge or False alert? Does the colour disappear, for you or for everyone? */}
+
+## Comments
+
+You can comment on any figure. A comment belongs to that line and that period.
+
+- **Commented cells** are highlighted in your firm's brand colour, with a speech bubble. A parent line shows a small indicator when a line below it has a comment, since you can also comment on individual accounts.
+- **Comments are threads:** colleagues can add a reaction.
+- **Each comment has three settings:**
+  - **Note** or action point
+  - **Unresolved** or resolved
+  - **Internal** or public. Public comments are visible to your client in the [client portal](/setup/client-portal/overview). Internal comments are only visible to your firm.
+- **Show only unresolved comments** hides the comments that are resolved.
+
+{/* TODO Bart: screenshot of a comment thread without real names. */}

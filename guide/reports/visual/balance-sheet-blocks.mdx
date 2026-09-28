@@ -1,14 +1,49 @@
 ---
 title: "Balance sheet visual"
-description: "Read the balance sheet as blocks, together with its ratios."
+description: "Read the balance sheet as blocks, drill down into its sections and see how its main ratios are calculated."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The balance sheet's **Graphical view** tab shows it as blocks, so you see its structure at a glance.
 
-## To cover
+## Layout
 
-- What the blocks represent
-- Switching between years
-- Drilling down into sections
-- Detail level
-- Ratios shown in the visual (definitions: link to ratio reference)
+<Frame caption="The balance sheet as blocks, with the main ratios at the top.">
+  <img src="/images/reports/balance-sheet-visual.jpg" alt="Balance sheet visual with KPI cards for Liquidity current ratio, Liquidity quick ratio, Solvability, Net working capital and Working capital needs; below them, total assets split into fixed assets and current assets on the left, and total liabilities split into equity and debts on the right" />
+</Frame>
+
+- **Total assets** are on the left, split into fixed assets and current assets.
+- **Total liabilities** are on the right, split into equity and debts.
+
+Both sides are always equal in total.
+
+## Drill down
+
+Click a block to see what it's made of. Click current assets, for example, to see stock and work in progress, accounts receivable and liquid assets.
+
+<Frame caption="Current assets and liabilities, drilled down one level.">
+  <img src="/images/reports/balance-sheet-visual-drilldown.jpg" alt="Balance sheet visual drilled down: current assets split into stock and work in progress, accounts receivable and liquid assets; equity shown as reserves; debts split into long-term and short-term debts" />
+</Frame>
+
+- **Back** goes up one level.
+- **Reset** goes back to the top level.
+- **The arrows** at the top right switch between years.
+
+## Ratios
+
+KPI cards at the top show the main balance sheet ratios:
+
+- **Liquidity - Current ratio**
+- **Liquidity - Quick ratio**
+- **Solvability**
+- **Net working capital**
+- **Working capital needs**
+
+Click a card to see how the ratio is calculated for this administration. A panel shows the value, a short explanation and the formula with its components. The chart then shows the blocks used in the calculation.
+
+<Frame caption="The quick ratio: assets without stock divided by short-term debts and accounts payable.">
+  <img src="/images/reports/balance-sheet-ratio.jpg" alt="Balance sheet visual with the Liquidity quick ratio card selected; a panel shows the value 0.83, the range 0.75 to 1.25, an explanation, and the calculation of active without stock divided by short-term debts plus accounts payable; the chart shows both amounts as blocks" />
+</Frame>
+
+The range below the value is the normal range for that ratio, for example 0.75 to 1.25 for the liquidity ratios, or 20% to 35% for solvability. Below the range is weak, above it is strong. The [Administration score](/guide/dashboard/scores#administration-score) uses the same ranges.
+
+For the definitions of all ratios, see the [ratio reference](/guide/reports/ratios).

@@ -1,15 +1,66 @@
 ---
 title: "Years, quarters and periods"
-description: "Switch between book year, year-to-date, quarter and period views."
+description: "Switch the financial table between financial years, year to date, the open year, quarters and periods."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The financial table shows full financial years by default. You can also look at year-to-date figures, add the open financial year, or drill down into quarters and periods. For how aiGust builds these periods, see [Financial periods](/guide/concepts/financial-periods).
 
-## To cover
+## Financial year or year to date
 
-- Book year vs year-to-date
-- Show or hide the open period
-- Quarter and period view
-- Comparison with the same period last year
-- Going back to the year view
-- Why quarter or period view is sometimes unavailable
+- **Financial year view,** the default: each column is a full financial year.
+- **Year-to-date view:** each column is the same stretch of time in a different year. The columns are called 2024YTD, 2025YTD and so on. That lets you compare the open year so far with the same months in earlier years.
+
+<Frame caption="Year-to-date view: January to May of 2024, 2025 and 2026.">
+  <img src="/images/reports/ytd-view.jpg" alt="Profit and loss in year-to-date view with columns 2024YTD, 2025YTD and 2026YTD, each covering 01-05, with horizontal analysis between them" />
+</Frame>
+
+## Show the open financial year
+
+In the financial year view, **Show open periods** adds a column for the open financial year, up to the [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date). The column is marked **Open**. For an administration with a financial year ending on 31 December and an up-to-date-until date of 31 May 2026, that column covers 01-05/2026.
+
+## Where you set them
+
+You can switch both settings in two places:
+
+- **Under Settings,** above the table, as **Year-to-date view** and **Show open periods**.
+- **Under Data settings,** at the top of the page. These settings apply to every report and chart of the administration, so you always know which view you're looking at.
+
+## Quarters and periods
+
+To see a financial year in more detail, click the three dots on its column header and choose **Show quarters** or **Show periods**. The columns then show 2025 Q1, 2025 Q2 and so on, grouped under the financial year, as many as fit on the screen. Use the arrows above the table to scroll.
+
+<Frame caption="Financial year 2025 split into quarters.">
+  <img src="/images/reports/quarter-view.jpg" alt="Profit and loss with financial year 2025 split into the columns 2025 Q1 to 2025 Q4, each with its dates" />
+</Frame>
+
+### Move between years, or back to the year view
+
+In the quarter or period view, click the three dots next to the financial year above the quarters:
+
+- **Next year** or **Previous year** shows the quarters of another financial year.
+- **Go back to year view** returns to the financial year columns.
+
+<Frame caption="The options of the financial year above the quarters.">
+  <img src="/images/reports/quarter-view-year-menu.jpg" alt="Profit and loss in quarter view for 2025, with the menu of the 2025 header open, showing Next year, Go back to year view and Previous year" />
+</Frame>
+
+### Compare quarters
+
+With **Horizontal analysis** on, each quarter is compared with the same stretch of time one year earlier, not with the previous quarter. 2025 Q2 is compared with 2024 Q2, for example. The comparison column is shown in italics next to it. **N/A** means the line has no value in that period.
+
+<Frame caption="Quarters compared with the same quarter one year earlier.">
+  <img src="/images/reports/quarter-view-horizontal.jpg" alt="Profit and loss in quarter view with horizontal analysis, showing 2024 Q2 next to 2025 Q2, 2024 Q3 next to 2025 Q3 and 2024 Q4 next to 2025 Q4, with coloured badges for the change" />
+</Frame>
+
+aiGust matches by dates, not by quarter numbers. In a longer financial year, the last quarter can be Q5 or Q6. The Q4 of the next financial year is then compared with that Q5 or Q6, because it covers the same months.
+
+### Why quarters or periods are sometimes unavailable
+
+aiGust builds quarters and periods from the periods it receives from the data source. If an administration only has one period per financial year, the options are greyed out. aiGust doesn't spread a year's figures over quarters.
+
+This is common for administrations that only come from a [compliance connector](/guide/concepts/financial-periods#compliance-connectors), such as Silverfin or Adsolut fiscal files:
+
+- **Compliance files often have a single period per year,** because firms reconcile them only once a year.
+- **Some have unusual periods,** for example of 4 or 8 months, which don't form quarters.
+
+Administrations from bookkeeping software like Exact Online or Yuki usually have monthly periods, so quarters and periods are available.

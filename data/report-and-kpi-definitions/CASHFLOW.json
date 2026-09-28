@@ -1,0 +1,912 @@
+{
+  "id": "827a889d-ce54-40d6-82df-f754437c7469",
+  "created": "2026-06-26T11:43:48.865000Z",
+  "updated": "2026-09-22T15:23:43.722258Z",
+  "type": "CASHFLOW",
+  "definition": {
+    "summation_type": "sum",
+    "groups": [
+      {
+        "key": "result_turnover",
+        "name_nl": "Omzet",
+        "name_en": "Turnover",
+        "name_fr": "Chiffre d'affaires",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "70",
+              "71"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "is_vertical_reference": true,
+        "detail": "glaccount",
+        "hideInChart": true
+      },
+      {
+        "key": "result_corrected",
+        "name_nl": "Cashflow uit bedrijfsactiviteiten",
+        "name_en": "Cash flow from operating activities",
+        "name_fr": "Flux de trésorerie d'exploitation",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "70",
+              "71",
+              "72",
+              "73",
+              "74",
+              "750",
+              "751",
+              "752",
+              "754",
+              "755",
+              "756",
+              "757",
+              "758",
+              "759",
+              "76",
+              "77",
+              "60",
+              "61",
+              "62",
+              "64",
+              "65",
+              "66",
+              "67"
+            ]
+          }
+        ],
+        "reverse_sign": true,
+        "detail": "glaccount"
+      },
+      {
+        "key": "cashflow_wcneed",
+        "name_nl": "Veranderingen in benodigd werkkapitaal",
+        "name_en": "Change in working capital needed",
+        "name_fr": "Evolution du besoin en fonds de roulement",
+        "groups": [
+          {
+            "key": "cashflow_wcneed_stock",
+            "name_nl": "Voorraad & werken in uitvoeren",
+            "name_en": "Stock & WIP value",
+            "name_fr": "Stock et travaux en cours",
+            "groups": [
+              {
+                "key": "result_stock",
+                "name_nl": "Voorraadwaarde",
+                "name_en": "Stock value",
+                "name_fr": "Valeur des stocks",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "3"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              },
+              {
+                "key": "result_depreciations_devaluations_stock",
+                "name_nl": "Correcties voor waardeverminderingen",
+                "name_en": "Corrections for devaluations",
+                "name_fr": "Corrections pour dévaluations",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "631",
+                      "632"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              }
+            ],
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_wcneed_receivables",
+            "name_nl": "Vorderingen",
+            "name_en": "Receivables",
+            "name_fr": "Créances",
+            "label": "Receivables",
+            "groups": [
+              {
+                "key": "cashflow_wcneed_receivables_longterm",
+                "name_nl": "Vorderingen > 1 jaar",
+                "name_en": "Accounts receivable > 1 year",
+                "name_fr": "Créances > 1 an",
+                "groups": [
+                  {
+                    "key": "cashflow_wcneed_receivables_longterm_receivables",
+                    "name_nl": "Vorderingen > 1 jaar",
+                    "name_en": "Receivables > 1 year",
+                    "name_fr": "Créances > 1 an",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "29"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "cashflow_wcneed_receivables_longterm_advance_payments",
+                    "name_nl": "Ontvangen voorschotten",
+                    "name_en": "Advanced payments received",
+                    "name_fr": "Prépaiements reçus",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "176"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "result_depreciations_devaluations_receivables_longterm",
+                    "name_nl": "Correcties voor waardeverminderingen",
+                    "name_en": "Correction for devaluations",
+                    "name_fr": "Corrections de réductions de valeur",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "633"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  }
+                ]
+              },
+              {
+                "key": "cashflow_wcneed_receivables_shortterm",
+                "name_nl": "Vorderingen < 1 jaar",
+                "name_en": "Receivables < 1 year",
+                "name_fr": "Créances < 1 an",
+                "groups": [
+                  {
+                    "key": "cashflow_wcneed_receivables_shortterm_receivables",
+                    "name_nl": "Vorderingen < 1 jaar",
+                    "name_en": "Accounts receivable < 1 year",
+                    "name_fr": "Créances < 1 an",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "400",
+                          "401",
+                          "402",
+                          "403",
+                          "404",
+                          "405",
+                          "407",
+                          "408",
+                          "409"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "cashflow_wcneed_receivables_shortterm_advance_payments",
+                    "name_nl": "Ontvangen voorschotten",
+                    "name_en": "Advanced payments received",
+                    "name_fr": "Prépaiements reçus",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "46"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "result_depreciations_devaluations_receivables_shortterm",
+                    "name_nl": "Correcties voor waardeverminderingen",
+                    "name_en": "Correction for devaluations",
+                    "name_fr": "Correction pour dévaluations",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "634"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  }
+                ],
+                "reverse_sign": false,
+                "arithmic_operator": "+"
+              },
+              {
+                "key": "cashflow_wcneed_receivables_shortterm_other",
+                "name_nl": "Andere vorderingen",
+                "name_en": "Other receivables",
+                "name_fr": "Autres créances",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "410",
+                      "411",
+                      "412",
+                      "413",
+                      "414",
+                      "415",
+                      "417",
+                      "419"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "detail": "glaccount"
+              }
+            ],
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_wcneed_payables",
+            "name_nl": "Schulden",
+            "name_en": "Payables",
+            "name_fr": "Payables",
+            "groups": [
+              {
+                "key": "cashflow_wcneed_payables_longterm",
+                "name_nl": "Schulden > 1 jaar",
+                "name_en": "Payables > 1 year",
+                "name_fr": "Payables > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "175"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+"
+              },
+              {
+                "key": "cashflow_wcneed_payables_shortterm",
+                "name_nl": "Schulden < 1 jaar",
+                "name_en": "Payables < 1 year",
+                "name_fr": "Payables < 1 an",
+                "groups": [
+                  {
+                    "key": "cashflow_wcneed_payables_shortterm_payables",
+                    "name_nl": "Leveranciersschulden < 1 jaar",
+                    "name_en": "Accounts payable < 1 year",
+                    "name_fr": "Comptes fournisseurs < 1 an",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "44"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "cashflow_wcneed_payables_shortterm_advance_payments",
+                    "name_nl": "Ontvangen voorschotten",
+                    "name_en": "Advanced payments received",
+                    "name_fr": "Prépaiements reçus",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "406"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  },
+                  {
+                    "key": "cashflow_wcneed_payables_shortterm_others",
+                    "name_nl": "Andere schulden",
+                    "name_en": "Other payables",
+                    "name_fr": "Autres dettes",
+                    "filters": [
+                      {
+                        "dimension": "glaccount_code",
+                        "values": [
+                          "45"
+                        ]
+                      }
+                    ],
+                    "reverse_sign": true,
+                    "arithmic_operator": "+",
+                    "detail": "glaccount"
+                  }
+                ],
+                "arithmic_operator": "+"
+              }
+            ],
+            "arithmic_operator": "+"
+          },
+          {
+            "key": "cashflow_wcneed_acrued",
+            "name_nl": "Overlopende rekeningen",
+            "name_en": "Accrued accounts",
+            "name_fr": "Comptes accumulés",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "49"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          }
+        ],
+        "arithmic_operator": "+"
+      },
+      {
+        "key": "cashflow_operational",
+        "name_nl": "Operationele cash flow",
+        "name_en": "Operational cash flow",
+        "name_fr": "Flux de trésorerie opérationnel",
+        "formula_operands": [
+          "result_corrected",
+          "cashflow_wcneed"
+        ],
+        "hideInChart": true,
+        "canFilter": true
+      },
+      {
+        "key": "cashflow_investments",
+        "name_nl": "Investeringscashflow",
+        "name_en": "Cash out to investments",
+        "name_fr": "Flux de trésorerie d'investissement",
+        "groups": [
+          {
+            "key": "cashflow_investments_foundingcosts",
+            "name_nl": "Oprichtingskosten",
+            "name_en": "Foundation costs",
+            "name_fr": "Coûts d'établissement",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "20"
+                ]
+              },
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "9"
+                ],
+                "negate": true,
+                "endsWith": true
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_investments_immaterial",
+            "name_nl": "Investeringen in immateriële vaste activa",
+            "name_en": "Investments in immaterial fixed assets",
+            "name_fr": "Investissements en actifs immobilisés immatériels",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "21"
+                ]
+              },
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "9"
+                ],
+                "negate": true,
+                "endsWith": true
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_investments_material",
+            "name_nl": "Investeringen in vaste activa",
+            "name_en": "Investments in fixed assets",
+            "name_fr": "Investissements en actifs immobilisés",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "22",
+                  "23",
+                  "24",
+                  "25",
+                  "26",
+                  "27"
+                ]
+              },
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "9"
+                ],
+                "negate": true,
+                "endsWith": true
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_investments_financial",
+            "name_nl": "Financiële investeringen",
+            "name_en": "Financial investments",
+            "name_fr": "Investments financiers",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "28"
+                ]
+              },
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "9"
+                ],
+                "negate": true,
+                "endsWith": true
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_investments_devaluations",
+            "name_nl": "Correcties voor waardeverminderingen",
+            "name_en": "Corrections for dépreciations",
+            "name_fr": "Corrections pour dévaluations",
+            "groups": [
+              {
+                "key": "cashflow_investments_devaluations_63",
+                "name_nl": "Afschrijvingen geboekt op rekening 63",
+                "name_en": "Depreciations booked on account 63",
+                "name_fr": "Dépréciations comptabilisées sur le compte 63",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "630"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_investments_devaluations_2x9",
+                "name_nl": "Afschrijvingen geboekt op rekening 2xxx9",
+                "name_en": "Depreciations booked on account 2xxx9",
+                "name_fr": "Dépréciations comptabilisées sur le compte 2xxx9",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "20",
+                      "21",
+                      "22",
+                      "23",
+                      "24",
+                      "25",
+                      "26",
+                      "27",
+                      "28"
+                    ]
+                  },
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "9"
+                    ],
+                    "negate": false,
+                    "endsWith": true
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              }
+            ]
+          }
+        ],
+        "arithmic_operator": "+",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "cashflow_financing",
+        "name_nl": "Financieringscashflow",
+        "name_en": "Cash in through financing",
+        "name_fr": "Flux de trésorerie financiers",
+        "groups": [
+          {
+            "key": "cashflow_financing_equity",
+            "name_nl": "Eigen vermogen",
+            "name_en": "Equity capital",
+            "name_fr": "Capital propre",
+            "groups": [
+              {
+                "key": "cashflow_financing_equity_capital",
+                "name_nl": "Kapitaal",
+                "name_en": "Capital",
+                "name_fr": "Capital",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "10",
+                      "11",
+                      "791"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_equity_revaluations_surpluses",
+                "name_nl": "Herwaarderingen",
+                "name_en": "Revaluations",
+                "name_fr": "Révaluations",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "12"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_equity_reserves",
+                "name_nl": "Reserves",
+                "name_en": "Reserves",
+                "name_fr": "Réserves",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "13",
+                      "691",
+                      "692",
+                      "792"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_equity_capital_subsidies",
+                "name_nl": "Subsidies",
+                "name_en": "Grants",
+                "name_fr": "Subventions",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "15",
+                      "753"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_equity_tax_free_reserves",
+                "name_nl": "Correcties voor belastingvrije reserves",
+                "name_en": "Corrections for tax free reserves",
+                "name_fr": "Corrections pour les réserves exonérées d'impôt",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "689",
+                      "789"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_equity_profit_to_extract",
+                "name_nl": "Winst om te extraheren",
+                "name_en": "Profit to extract",
+                "name_fr": "Profit à extraire",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "47",
+                      "694",
+                      "695",
+                      "696",
+                      "697",
+                      "794"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              }
+            ],
+            "reverse_sign": false,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_financing_provisions",
+            "name_nl": "Provisies",
+            "name_en": "Provisions & taxes",
+            "name_fr": "Provisions & taxes",
+            "groups": [
+              {
+                "key": "cashflow_financing_provisions_capital",
+                "name_nl": "Uitgestelde belastingen",
+                "name_en": "Deferred taxes",
+                "name_fr": "Impôts différés",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "16",
+                      "780",
+                      "680"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_provisions_revaluations_surpluses",
+                "name_nl": "Risico's & voorzieningen",
+                "name_en": "Risks & provisions",
+                "name_fr": "Risks & provisions",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "635",
+                      "636",
+                      "637",
+                      "638"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              }
+            ],
+            "reverse_sign": false,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_financing_debts",
+            "name_nl": "Schulden & leningen",
+            "name_en": "Debts & loans",
+            "name_fr": "Dettes et prêts",
+            "groups": [
+              {
+                "key": "cashflow_financing_debts_financial_longterm",
+                "name_nl": "Financiële schulden > 1 jaar",
+                "name_en": "Financial debts > 1 year",
+                "name_fr": "Dettes financières > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "170",
+                      "171",
+                      "172",
+                      "173",
+                      "174"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_debts_other_longterm",
+                "name_nl": "Andere schulden > 1 jaar",
+                "name_en": "Other debts > 1 year",
+                "name_fr": "Autre dettes > 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "178",
+                      "179"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_debts_expiring_longterm",
+                "name_nl": "Schulden > 1 jaar die binnenkort vervallen",
+                "name_en": "Debts > 1 year expiring soon",
+                "name_fr": "Dettes > 1 an expirant bientôt",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "42"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_debts_financial_shortterm",
+                "name_nl": "Financiële schulden < 1 jaar",
+                "name_en": "Financial debts < 1 year",
+                "name_fr": "Dettes financières < 1 an",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "43"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              },
+              {
+                "key": "cashflow_financing_debts_other_shortterm",
+                "name_nl": "Andere schulden",
+                "name_en": "Other debts",
+                "name_fr": "Autres dettes",
+                "filters": [
+                  {
+                    "dimension": "glaccount_code",
+                    "values": [
+                      "48"
+                    ]
+                  }
+                ],
+                "reverse_sign": true,
+                "arithmic_operator": "+",
+                "detail": "glaccount"
+              }
+            ],
+            "reverse_sign": false,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          },
+          {
+            "key": "cashflow_financing_receivables_shortterm_other",
+            "name_nl": "Diverse vorderingen",
+            "name_en": "Other receivables",
+            "name_fr": "Autre créances",
+            "filters": [
+              {
+                "dimension": "glaccount_code",
+                "values": [
+                  "416",
+                  "418"
+                ]
+              }
+            ],
+            "reverse_sign": true,
+            "arithmic_operator": "+",
+            "detail": "glaccount"
+          }
+        ],
+        "arithmic_operator": "+",
+        "detail": "glaccount",
+        "canFilter": true
+      },
+      {
+        "key": "cashflow_free",
+        "name_nl": "Cash flow",
+        "name_en": "Cash flow",
+        "name_fr": "Flux",
+        "formula_operands": [
+          "cashflow_operational",
+          "cashflow_financing",
+          "cashflow_investments"
+        ],
+        "hideInChart": true,
+        "canFilter": true
+      },
+      {
+        "key": "cashflow_liquid_assets",
+        "name_nl": "Totale verandering in liquide middelen",
+        "name_en": "Total change in liquid assets",
+        "name_fr": "Changement total des valeurs disponibles",
+        "filters": [
+          {
+            "dimension": "glaccount_code",
+            "values": [
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58"
+            ]
+          }
+        ],
+        "detail": "glaccount",
+        "hideInChart": true
+      }
+    ]
+  }
+}
