@@ -1,15 +1,40 @@
 ---
 title: "How forecasts work"
-description: "What a forecast is, which periods it covers and how aiGust calculates it."
+description: "What a forecast is in aiGust, which period it covers, and how aiGust calculates the automatic forecast."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A forecast estimates how an administration's profit and loss will end the current financial year. You use it to discuss the expected result with your client, and to estimate the tax prepayments.
 
-## To cover
+## What a forecast covers
 
-- What a forecast is and why you use it
-- Link with tax prepayments
-- Periods you can forecast
-- Scenarios
-- Forecast strategy per line
-- Trend detection and extrapolation
+- **The profit and loss,** from the period after the [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date) to the end of the current financial year.
+- **One administration.** You create forecasts per administration.
+
+The actual figures up to the up-to-date-until date stay as they are. The forecast fills in the rest of the year. For example, with figures up to date until 31/08/2026 and a financial year that ends on 31/12/2026, the forecast covers 09/2026 to 12/2026.
+
+## How aiGust calculates the forecast
+
+aiGust proposes a forecast automatically, account by account. For each account, it compares the last 12 months with the 12 months before that: how much the account grew, how much it varies, and whether it dropped to zero.
+
+Depending on what it finds, it fills in the remaining periods with one of four methods:
+
+| Method | What it does |
+|---|---|
+| **Set to zero** | Sets the remaining periods to zero, for an account that has dropped to zero. |
+| **Extend** | Repeats the last value for each remaining period. |
+| **copy** | Copies the same periods of last year. |
+| **copy + trend** | Copies the same periods of last year, with the account's growth applied. |
+
+In the forecast editor, each account shows the method aiGust chose. The automatic forecast is a starting point: you can change the method, or any figure. See [Create and edit a forecast](/guide/forecasts/create-and-edit).
+
+## Scenarios
+
+A forecast can have several scenarios, for example a normal case and a best case. The first scenario is called **Default**. When you use a forecast in the reports, you choose which scenario to show. See [Use forecasts in reports](/guide/forecasts/use-forecasts).
+
+## Forecasts and tax prepayments
+
+The forecast gives an estimate of the year's result. aiGust uses it to calculate the expected corporate tax, and to work out which tax prepayments your client should make. See [Tax prepayments](/guide/forecasts/tax-prepayments).
+
+<Note>
+Benchmarks are always calculated on actual figures, never on forecasts.
+</Note>

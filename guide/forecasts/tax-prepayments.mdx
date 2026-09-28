@@ -1,11 +1,62 @@
 ---
-title: "Tax prepayments and scenarios"
-description: "Estimate tax prepayments and create extra scenarios."
+title: "Tax prepayments"
+description: "Estimate the corporate tax from a forecast, see the prepayments already made, and work out which prepayments avoid a tax increase."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+In Belgium, companies that don't make enough tax prepayments during the year pay a tax increase on their corporate tax. Prepayments made early in the year also earn a bonus. aiGust uses the forecast to estimate the tax, and helps you decide which prepayments your client should still make.
 
-## To cover
+## Open the tax calculation
 
-- Estimating prepayments
-- Creating additional scenarios
+Open a forecast in the [forecast editor](/guide/forecasts/create-and-edit), and click the **Taxes** tab. The calculation starts from the forecast result of the financial year. You can change the values in the yellow cells.
+
+<Frame caption="The Taxes tab of a forecast.">
+  <img src="/images/forecasts/taxes-tab.jpg" alt="Taxes tab with the result before taxes, the corrections, the taxable result, the corporate tax at the default tax rate of 25%, the prepayments per quarter with their deadlines, bonus rates and status, the remaining amounts, and the net result." />
+</Frame>
+
+## Calculate the taxable result
+
+The calculation starts from the **Result before taxes** of the forecast. Then fill in the corrections:
+
+| Correction | Effect |
+|---|---|
+| **Disallowed expenses** | Added to the result |
+| **Carried forward losses** | Deducted from the result |
+| **Other corrections** | Added to the result. Click **New row** to add a correction, and give it a name. |
+
+aiGust then calculates the **Taxable result**.
+
+## Calculate the corporate tax
+
+aiGust applies the **Default tax rate** to the taxable result. Turn on **Can claim the reduced rate for corporate tax** if the company qualifies for the reduced rate.
+
+## Prepayments per quarter
+
+The prepayment section shows each prepayment of the year, with:
+
+- **The deadline,** and whether the prepayment is **open** or **closed**.
+- **The amount** prepaid.
+- **The bonus rate and bonus.** The earlier the prepayment, the higher the bonus.
+
+The **Estimated tax increase & bonuses** line shows the tax increase you'd pay without prepayments. The prepayments and their bonuses reduce it. **Remaining amounts** shows the tax still to pay, and the tax increase that remains.
+
+Turn on **Exemption from prepayments (small company - established less than 3 years ago)** if the company doesn't have to make prepayments.
+
+### Prepayments already made
+
+aiGust fills in the prepayments already made. It detects them from the bookings on the accounts starting with 67000. This only works for administrations with transactions, so not for administrations that only come from a compliance connector.
+
+Prepayment deadlines are fixed dates, and don't follow the financial periods. aiGust assigns each payment to the right prepayment. Now and then a payment ends up in the wrong quarter, so check the amounts and correct them if needed.
+
+### Plan the remaining prepayments
+
+Click the wand icon next to **Estimated tax increase & bonuses** to let aiGust suggest a prepayment. Based on the estimated tax and tax increase, it proposes an amount for the first prepayment whose deadline hasn't passed yet.
+
+You can change the amounts, or spread them over other quarters. The remaining tax increase updates immediately, so you can see the effect of each prepayment.
+
+## Net result
+
+At the bottom, aiGust calculates the expected **Net result**: the result before taxes, minus the taxes and the estimated tax increase.
+
+<Note>
+aiGust doesn't send reminders for prepayment deadlines, and has no overview of which administrations still need a prepayment decision.
+</Note>

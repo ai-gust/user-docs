@@ -1,15 +1,155 @@
 ---
 title: "Create and edit a forecast"
-description: "Create a forecast and adjust it on line, period or aggregate level."
+description: "Create a forecast, change it in the forecast editor on any level, and save scenarios."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Open the administration and click **Forecasts** in the menu. The page shows the administration's forecasts.
 
-## To cover
+## Create a forecast
 
-- Creating a new forecast
-- Changes high in the hierarchy and how they flow down
-- Changing the strategy per line
-- Changes per period
-- Changes on aggregated level
-- Saving
+1. Click **Create**.
+2. Check the **Period to forecast**. It runs from the period after the up-to-date-until date to the end of the financial year.
+3. Change the name if you want. aiGust proposes one, such as *Forecast end 2026 (september)*.
+4. Click **Let's go!**
+
+aiGust calculates the automatic forecast and opens it in the forecast editor.
+
+<Frame caption="Create a forecast for the rest of the financial year.">
+  <img src="/images/forecasts/create-forecast.jpg" alt="Let's create a forecast dialog, with Period to forecast 01/09/2026 - 31/12/2026, the name Forecast end 2026 (september), and a Let's go! button." />
+</Frame>
+
+## The forecasts overview
+
+Each forecast is shown as a tile, with:
+
+- **Scenarios,** with the number of scenarios and a badge for each one.
+- **Period,** the period the forecast covers.
+- **Created,** the date and time the forecast was created.
+
+aiGust compares the forecast period with the [up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date), which it treats as today. A forecast can get one of these badges:
+
+- **Overlapping:** the forecast is still useful, but actual figures are now available for some of its periods. For example, a forecast for 02/2026 to 12/2026, when the figures are up to date until 31/05/2026.
+- **Outdated:** the whole forecast period is in the past. For example, a forecast for 09/2025 to 12/2025, when the figures are up to date until 31/05/2026.
+
+Turn on **Hide outdated forecasts** to show only the forecasts you can still use. Switch between **Tiles** and a list at the top right.
+
+<Frame caption="Three forecasts of the same administration.">
+  <img src="/images/forecasts/forecasts-overview.jpg" alt="Forecasts page with three tiles: Forecast end 2026 (september) with the scenarios Default and Best case, Forecast end 2026 (june) marked Overlapping, and Forecast end 2025 marked Outdated. Each tile shows its period and creation date." />
+</Frame>
+
+Click a forecast to open it in the forecast editor.
+
+## The forecast editor
+
+The editor shows the profit and loss with these columns:
+
+| Column | Example | What it shows |
+|---|---|---|
+| **Last financial year** | 2025 | The actual figures of the previous financial year |
+| **Year to date** | 2026YTD | The actual figures of the current year so far |
+| **Forecast** | 2026 end | The forecast for the rest of the year. The yellow cells are the ones you can change. |
+| **Change** | △ | The change of the full year compared with last year |
+| **Full year** | 2026 | The actual figures plus the forecast |
+
+<Frame caption="The forecast editor.">
+  <img src="/images/forecasts/forecast-editor.jpg" alt="Edit forecast: Forecast end 2026 (september), with the Default scenario, the toggles Show previous values, Show delta and Show periods, and the P&L tab. The table shows the columns 2025, 2026YTD, 2026 end in yellow, the change and 2026, with accounts marked copy + trend or Set to zero." />
+</Frame>
+
+Click **Open/close all** to open or close all lines. At the lowest level, each account shows its forecast method, such as **copy + trend**. If your firm splits an account into a fixed and a variable part, for example 50/50, the account appears twice, marked **fixed** and **var**. **Show contribution margin** groups those parts into variable and fixed costs, as in the [profit and loss](/guide/reports/definitions/profit-and-loss#contribution-margin).
+
+### Show more detail
+
+Three toggles at the top add information:
+
+- **Show previous values** shows the figure of the same period last year below each figure.
+- **Show delta** adds the last 12 months and the 12 months before, with the change between them. aiGust uses this growth for the **copy + trend** method.
+- **Show periods** shows each period of the year in a separate column. You can then change the forecast period by period.
+
+<Frame caption="Show delta: the growth over the last 12 months, the basis of the automatic forecast.">
+  <img src="/images/forecasts/show-delta.jpg" alt="Forecast editor with Show delta on. Extra columns show 2025-12M (09/2024 - 08/2025), the change, and 2026-12M (09/2025 - 08/2026) for each line." />
+</Frame>
+
+<Frame caption="Show periods: one column per period.">
+  <img src="/images/forecasts/show-periods.jpg" alt="Forecast editor with Show periods on, showing a column for each month from 02/2026 to 12/2026. The months 09/2026 to 12/2026 are yellow and can be changed." />
+</Frame>
+
+## Change the forecast
+
+The editor recalculates everything immediately, like a large pivot table. aiGust always stores the forecast per account. A change on a higher level is translated to the accounts below it.
+
+### Type a new amount
+
+Click a yellow cell and type the new amount for the forecast period. Click the check mark to confirm.
+
+If you change a line on a higher level, for example turnover, aiGust spreads the change over the accounts below it and over the periods, in proportion to their current values.
+
+<Frame caption="Changing the forecast of the turnover.">
+  <img src="/images/forecasts/inline-edit.jpg" alt="The 2026 end cell of Turnover in edit mode, with the amount 2585111,6 and a check mark to confirm." />
+</Frame>
+
+### Change the values per period
+
+Click the pencil next to a figure to open **Edit values**. You see each period of last year next to the current year, and you can change the forecast periods. For an account with a trend, you can raise or lower the growth of each period with **−** and **+**. Click **Submit** to apply.
+
+<Frame caption="Edit values: the growth per period compared with last year.">
+  <img src="/images/forecasts/edit-values-trend.jpg" alt="Edit values dialog for 610200 Rent machinery and equipment, with last year and current year per month. The actual months 01/2026 to 08/2026 are fixed; the months 09/2026 to 12/2026 can be changed, each with a growth of +42.2% and − and + buttons." />
+</Frame>
+
+### Change the growth rate
+
+Click the change (△) of a line to open **Change growth rate**. Enter the growth compared with last year, or change it with **−** and **+**, and click **Confirm**.
+
+<Frame caption="Setting the growth rate of a line.">
+  <img src="/images/forecasts/change-growth-rate.jpg" alt="Change growth rate dialog with the value -7,34, − and + buttons, and a Confirm button." />
+</Frame>
+
+### Change the method of an account
+
+Click the three dots next to an account and choose another [method](/guide/forecasts/how-forecasts-work#how-aigust-calculates-the-forecast): **Set to zero**, **Extend**, **copy** or **copy + trend**. aiGust recalculates the account's forecast.
+
+<Frame caption="Choosing the forecast method of an account.">
+  <img src="/images/forecasts/forecast-methods.jpg" alt="The three-dots menu of account 601000 Waste processing, with the methods Set to zero, Extend, copy and copy + trend. The account shows its current method, copy + trend." />
+</Frame>
+
+### Forecast an account without history
+
+To forecast an account that has no figures yet, for example a new rent contract, click **Search GL account**. Search for the account, select it, and click **Next**. Enter the amounts per period in **Edit values**, and click **Submit**.
+
+<Frame caption="Search for the account to forecast.">
+  <img src="/images/forecasts/select-gl-account.jpg" alt="Select GL account dialog with the search term rent and a list of accounts, such as 610000 Rent land and buildings and 610200 Rent machinery and equipment, and a Next button." />
+</Frame>
+
+### Add a note
+
+Add a note to a figure to explain an assumption, for example why you expect turnover to drop. Click the note icon to the left of a yellow cell, type the note, and click **Save**. **Clear** removes it.
+
+The note is only shown on that cell in the forecast editor. It doesn't appear in the reports or the client portal.
+
+<Frame caption="A note on a forecast figure.">
+  <img src="/images/forecasts/cell-note.jpg" alt="A note field with the text This is an important note, and Clear and Save buttons, opened on a forecast figure." />
+</Frame>
+
+## Save and manage scenarios
+
+Your changes aren't saved automatically. Click the save icon at the top right, or use the three dots next to it:
+
+- **Save scenario** saves your changes in the current scenario.
+- **Save as new scenario** saves your changes as a new scenario. Enter a name, for example *Best case*, and click **Confirm**.
+- **Delete scenario** removes the current scenario.
+- **Edit name & description** renames the scenario.
+
+<Frame caption="The options of a scenario.">
+  <img src="/images/forecasts/scenario-menu.jpg" alt="Menu next to the save icon, with Save scenario, Save as new scenario, Delete scenario and Edit name & description." />
+</Frame>
+
+To switch to another scenario, choose it next to **Scenario** at the top of the editor.
+
+Click **+** next to it to start a new scenario from the automatic forecast. Your unsaved changes in the current scenario aren't kept, so save them first. To build on your changes instead, use **Save as new scenario**.
+
+<Frame caption="Switching between the scenarios of a forecast.">
+  <img src="/images/forecasts/scenario-select.jpg" alt="The Scenario selector open, with the scenarios Default and Best case, and a + button next to it." />
+</Frame>
+
+To remove the whole forecast with all its scenarios, click **Delete forecast** at the top right.
+
+Next, [use the forecast in the reports](/guide/forecasts/use-forecasts), or [calculate the tax prepayments](/guide/forecasts/tax-prepayments).
