@@ -1,0 +1,160 @@
+---
+title: "Meeting properties"
+description: "The language, time periods, forecast and other properties that apply to all slides of a meeting."
+---
+
+A meeting has a few properties that apply to all of its slides. You choose them when you create the meeting, and you can change them later.
+
+<Frame caption="The properties of a new meeting.">
+  <img src="/images/meetings/create-meeting.jpg" alt="Create a new meeting dialog with the title Operational flow 28/09/2026, the meeting flow Operational flow with the badges Annual and Tenant, the language en, the forecast Forecast End 2026 (June) marked Overlapping, a peer group, and Up-to-date until 08/2026, with Future 2026 end, Year-to-date 2026YTD and Last closed financial year 2025. A Submit button is at the bottom." />
+</Frame>
+
+| Property | What it decides |
+|---|---|
+| **Title** | The name of the meeting. aiGust proposes the flow's name and today's date. |
+| **Meeting flow** | The template the meeting starts from. You only choose it when you create the meeting. See [Meetings and meeting flows](/guide/meetings/basics). |
+| **Language** | English (**en**), French (**fr**) or Dutch (**nl**). See [Language](#language). |
+| **Up-to-date until** | The last period of the figures in the meeting. It decides what counts as past, present and future. See [The past, the present and the future](#the-past-the-present-and-the-future). |
+| **Forecast** | Optional. The forecast for the slides about the future. See [Forecast](#forecast). |
+| **Peer group** | The peer group for the benchmarks on the slides. In the meeting settings, it's called **Benchmark group**. See [Peer groups](/guide/benchmarking/peer-groups). |
+
+The properties are stored with the meeting. If you open it again next month, it still shows the figures up to the same date, even if newer figures are available.
+
+## Language
+
+Present in the language of your client. The language of the meeting decides:
+
+- **The titles and navigation names** the slides show.
+- **The texts aiGust writes** for the slides.
+
+### In the meeting flow
+
+Your key users set up every slide of a [meeting flow](/configure/meetings/meeting-flows) in all the languages your firm presents in: English, French and Dutch. For each slide, they fill in:
+
+- **The title and the navigation name,** in every language. Each of these fields exists in English, Dutch and French. When a field is empty in one language, the translate button fills it in from your language.
+- **The text,** only if they want to. Text is optional. If a slide has a text zone but no text, aiGust writes the text the first time you run the meeting.
+
+### In the meeting
+
+A meeting is a copy of its flow, with the titles in all three languages. It only shows the language you chose in the meeting settings.
+
+When you change the titles or the texts of a meeting, you only change them in that language: the language of your client. You don't have to fill in or change the other languages.
+
+<Warning>
+Choose the language before you change the titles and texts. Your changes don't follow when you switch to another language.
+</Warning>
+
+When you switch the language of a meeting, the titles, navigation names and texts of the old language stay as they are, but the meeting no longer shows them. It shows the values in the new language, as they were copied from the flow. For example, you created a meeting in English:
+
+1. The meeting shows the English titles, and aiGust writes the texts in English when you present it. The Dutch texts stay empty.
+2. You switch to Dutch. The meeting shows the Dutch titles from the flow, and empty texts.
+3. You present the meeting. aiGust writes new texts in Dutch. It doesn't translate the English texts, or look at them.
+
+## The past, the present and the future
+
+### Everything depends on the up-to-date-until date
+
+Each meeting has its own up-to-date-until date, stored with the meeting. One meeting can have figures up to date until 31/12/2024, another until 30/06/2025.
+
+When you open or present a meeting, aiGust uses that date instead of the up-to-date-until date that applies everywhere else. aiGust then behaves as if the figures were up to date until that date. See [The up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date).
+
+So a meeting stays the same presentation, also months later:
+
+- **The figures only change** if the underlying data changes, for example when a booking in that period is corrected. The reports then show the new figures.
+- **The texts never change.** aiGust doesn't rewrite a text that exists.
+
+### The three time periods
+
+A conversation with a client usually moves through three stages: how did last year go, where do we stand now, and what's coming. Each slide is set to one of these:
+
+| Stage | Time period | What the slide shows | Available |
+|---|---|---|---|
+| Past | **Last closed financial year** | The last closed financial year | Always |
+| Present | **Year-to-date** | The open financial year up to the up-to-date-until date | Unless the date is the last period of a financial year |
+| Future | **Future** | The whole open financial year: actual figures, completed with the forecast | Only with a forecast |
+
+The meeting settings show the periods each one covers.
+
+<Frame caption="The time periods of a meeting with figures up to date until 08/2026 and a forecast.">
+  <img src="/images/meetings/time-period.jpg" alt="Time period section with Data updated until 08/2026, the Available forecast Forecast End 2026 (September) from 01/09/26 to 31/12/26, and the periods Future 2026 end 01/09/2026 - 31/12/2026, Year-to-date 2026YTD 01/01/2026 - 31/08/2026, and Last closed financial year 2025 01/01/2025 - 31/12/2025." />
+</Frame>
+
+For example, a company's financial year runs from July to June, and you prepare the meeting with figures up to date until 31/08/2026:
+
+- **Last closed financial year** is the financial year that closed on 30/06/2026.
+- **Year-to-date** is July and August 2026.
+- **Future** is the financial year from July 2026 to June 2027: actual figures for July and August, and the forecast from September.
+
+#### Past
+
+- **Reports, cards and charts show financial years.**
+- **The open financial year is hidden** by default, so the slide focuses on the last closed financial year.
+- **With the reporting level set to quarters,** the slide shows quarters.
+
+#### Present
+
+- **Reports show year-to-date figures** by default.
+- **The open period is shown:** the year-to-date period of the open financial year. It's compared with the same periods in the previous years.
+- **No year-to-date at the end of a financial year.** When the up-to-date-until date is the last period of a financial year, that year is closed, and there's no year-to-date: it would be the whole financial year. aiGust shows *No year-to-date data available for the selected period*.
+
+<Frame caption="Up to date until the end of the financial year: no year-to-date.">
+  <img src="/images/meetings/time-period-no-ytd.jpg" alt="Time period section with Data updated until 12/2025, up to 31.12.2025, annotated End of book year? No YTD. Year-to-date shows the warning No year-to-date data available for the selected period, and Future shows No forecast is selected." />
+</Frame>
+
+#### Future
+
+- **A view of the whole open financial year.** aiGust takes the actual figures up to the up-to-date-until date, and completes the remaining months with the forecast.
+- **Only with a forecast.** Without one, aiGust shows *No forecast is selected*. See [Forecast](#forecast).
+
+<Frame caption="No forecast, no future.">
+  <img src="/images/meetings/time-period-no-forecast.jpg" alt="Time period section with Data updated until 08/2026 and Available forecast Select forecast, annotated No forecast - no future. Future shows the warning No forecast is selected." />
+</Frame>
+
+### Time periods in flows and meetings
+
+In a [meeting flow](/configure/meetings/meeting-flows), you can give a slide any time period. When you start a meeting, aiGust checks which time periods are available. It marks the slides with a time period that isn't available as hidden. For example, without a forecast, the slides about the future are hidden.
+
+### Sections and time periods
+
+The aiGust flow goes from the past to the present to the future, section by section. That's not a rule: you can mix time periods as you like.
+
+A section has a time period too. When a slide has a different time period than its section, the [meeting editor](/guide/meetings/editor#sections) shows a warning sign next to it. For example, a slide about the future in a section about the present. It isn't an error. It's a reminder to check that this is what you want.
+
+<Frame caption="A warning on a slide with a different time period than its section.">
+  <img src="/images/meetings/slide-period-warning.jpg" alt="Slides list with the section Past (2025). The slide Directors has a red warning sign, annotated Warning: slide doesn't follow time period settings of the chapter." />
+</Frame>
+
+You set the time period of each slide in the [meeting editor](/guide/meetings/editor#slide-settings).
+
+## Forecast
+
+A slide about the future needs a forecast. Choose one of the administration's forecasts when you create the meeting. Next to each forecast, aiGust shows whether it's outdated or overlapping, compared to the up-to-date-until date of the meeting. See [Forecasts](/guide/forecasts/how-forecasts-work).
+
+Choose a forecast without a gap. It has to start at the latest in the period right after the up-to-date-until date:
+
+- **A gap is a problem.** With figures up to date until 30/06 and a forecast that starts in August, July is missing.
+- **An overlap isn't.** When the forecast starts before the up-to-date-until date, aiGust uses the actual figures up to that date and the forecast after it. It doesn't count anything twice.
+
+Without a forecast, the slides about the future are hidden, and the widgets that need one aren't available, such as [Taxes](/guide/meetings/widgets/taxes).
+
+## Change the properties
+
+A meeting is never fixed. Before or after you present it, you can change its properties. On the **Meetings** page, click the three dots on the meeting and choose **Meeting details**, or click **Settings** in the [meeting editor](/guide/meetings/editor):
+
+- **Meeting details:** **Title**, **Language**, **Description** and **Type**. Turn on **Add slide that summarizes meeting notes** to add a slide with the notes at the end, and **Show administration logo** to show the client's logo on the slides. See [Your client's logo](/guide/meetings/customize#your-clients-logo).
+- **Time period:** **Data updated until**, and the **Available forecast**.
+- **Benchmark group:** the peer group.
+
+There's no save button. Close the panel: the slides update, and aiGust saves your changes a few seconds later. See [How your changes are saved](/guide/meetings/editor#how-your-changes-are-saved).
+
+<Frame caption="The settings of a meeting.">
+  <img src="/images/meetings/meeting-settings.jpg" alt="Meeting settings panel next to the meeting editor, with Meeting details (Title Operational flow 28/09/2026, Language nl/en/fr with en selected, Description, Type Annual, Add slide that summarizes meeting notes turned on, Show administration logo turned off), Time period (Data updated until 08/2026, up to 31.08.2026, Available forecast Forecast End 2026 (September) from 01/09/26 to 31/12/26, Future 2026 end 01/09/2026 - 31/12/2026, Year-to-date 2026YTD 01/01/2026 - 31/08/2026, Last closed financial year 2025 01/01/2025 - 31/12/2025), and Benchmark group Bouwondernemingen omzet tss 2Mio en 10mio." />
+</Frame>
+
+To change the date, click **Data updated until** and pick a year, a quarter and a month. The periods below it change with it.
+
+<Frame caption="Pick the last period of the figures.">
+  <img src="/images/meetings/data-updated-until.jpg" alt="Data updated until picker with the columns years (2026 selected), quarters (Q3 selected, Q4 greyed out) and months (8, 01-31/08/2026 selected), showing 08/2026 Up to 31.08.2026." />
+</Frame>
+
+When you change the date, the figures on the slides change with it, but the texts don't. Check them, or clear them so aiGust writes new ones.

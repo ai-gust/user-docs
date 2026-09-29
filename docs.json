@@ -87,9 +87,10 @@
           {
             "group": "Branding and emails",
             "pages": [
+              "setup/branding/branding-assets",
               "setup/branding/portal",
-              "setup/branding/email-templates",
-              "setup/branding/sender-address"
+              "setup/branding/mail-settings",
+              "setup/branding/email-templates"
             ]
           },
           {
@@ -167,7 +168,8 @@
             "pages": [
               "guide/dashboard/dashboard",
               "guide/dashboard/scores",
-              "guide/dashboard/data-sync"
+              "guide/dashboard/data-sync",
+              "guide/dashboard/administration-properties"
             ]
           },
           {
@@ -253,66 +255,68 @@
             "group": "Meetings",
             "pages": [
               "guide/meetings/basics",
-              "guide/meetings/start-and-run",
+              "guide/meetings/properties",
+              "guide/meetings/quickstart",
+              "guide/meetings/meetings-page",
               {
                 "group": "Meeting editor",
                 "pages": [
                   "guide/meetings/editor",
-                  "guide/meetings/slide-layouts"
+                  "guide/meetings/customize",
+                  "guide/meetings/slide-layouts",
+                  {
+                    "group": "Widgets",
+                    "pages": [
+                      "guide/meetings/widgets/overview",
+                      {
+                        "group": "Reports",
+                        "pages": [
+                          "guide/meetings/widgets/pl",
+                          "guide/meetings/widgets/pl-waterfall",
+                          "guide/meetings/widgets/cashflow",
+                          "guide/meetings/widgets/cashflow-waterfall",
+                          "guide/meetings/widgets/balance",
+                          "guide/meetings/widgets/balance-graph",
+                          "guide/meetings/widgets/taxes",
+                          "guide/meetings/widgets/capital-gain-tax"
+                        ]
+                      },
+                      {
+                        "group": "Charts",
+                        "pages": [
+                          "guide/meetings/widgets/kpi-chart",
+                          "guide/meetings/widgets/top-contributors",
+                          "guide/meetings/widgets/multi-kpi-chart",
+                          "guide/meetings/widgets/dashboard",
+                          "guide/meetings/widgets/fte-division",
+                          "guide/meetings/widgets/revenue-vs-personnel-cost-vs-fte"
+                        ]
+                      },
+                      {
+                        "group": "Scores",
+                        "pages": [
+                          "guide/meetings/widgets/score",
+                          "guide/meetings/widgets/kpi-card"
+                        ]
+                      },
+                      {
+                        "group": "Documents",
+                        "pages": [
+                          "guide/meetings/widgets/external-document"
+                        ]
+                      },
+                      {
+                        "group": "Other",
+                        "pages": [
+                          "guide/meetings/widgets/meeting-notes-overview",
+                          "guide/meetings/widgets/table-of-contents"
+                        ]
+                      }
+                    ]
+                  },
+                  "guide/meetings/notes-and-summaries"
                 ]
               },
-              {
-                "group": "Widgets",
-                "pages": [
-                  "guide/meetings/widgets/overview",
-                  "guide/meetings/widgets/text",
-                  {
-                    "group": "Reports",
-                    "pages": [
-                      "guide/meetings/widgets/pl",
-                      "guide/meetings/widgets/pl-waterfall",
-                      "guide/meetings/widgets/cashflow",
-                      "guide/meetings/widgets/cashflow-waterfall",
-                      "guide/meetings/widgets/balance",
-                      "guide/meetings/widgets/balance-graph",
-                      "guide/meetings/widgets/taxes",
-                      "guide/meetings/widgets/capital-gain-tax"
-                    ]
-                  },
-                  {
-                    "group": "Charts",
-                    "pages": [
-                      "guide/meetings/widgets/kpi-chart",
-                      "guide/meetings/widgets/top-contributors",
-                      "guide/meetings/widgets/multi-kpi-chart",
-                      "guide/meetings/widgets/dashboard",
-                      "guide/meetings/widgets/fte-division",
-                      "guide/meetings/widgets/revenue-vs-personnel-cost-vs-fte"
-                    ]
-                  },
-                  {
-                    "group": "Scores",
-                    "pages": [
-                      "guide/meetings/widgets/score",
-                      "guide/meetings/widgets/kpi-card"
-                    ]
-                  },
-                  {
-                    "group": "Documents",
-                    "pages": [
-                      "guide/meetings/widgets/external-document"
-                    ]
-                  },
-                  {
-                    "group": "Other",
-                    "pages": [
-                      "guide/meetings/widgets/meeting-notes-overview",
-                      "guide/meetings/widgets/table-of-contents"
-                    ]
-                  }
-                ]
-              },
-              "guide/meetings/notes-and-summaries",
               "guide/meetings/publish"
             ]
           }

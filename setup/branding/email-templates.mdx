@@ -1,12 +1,69 @@
 ---
-title: "Email types and templates"
-description: "Understand and customise the emails aiGust sends."
+title: "Email templates"
+description: "The emails aiGust sends, and how to write your own content for them with Jinja templates."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Some actions in aiGust send an email. You write the content of each email yourself, in each language. Only key users can change the templates. Click **Branding** in the firm menu, and open the **Mail templates** tab.
 
-## To cover
+<Frame caption="The template of the welcome email.">
+  <img src="/images/branding/mail-templates.jpg" alt="Mail templates tab with the templates Password reset email, Verification email, Welcome email and Client welcome email. Welcome email is selected, with the languages nl, en and fr, the Subject Welcome to aiGust, and the Template in HTML with two button macros highlighted. On the right, Available parameters (receiver, aigust_portal_url, password_update_link, password_update_link_expiration) and Referenced types (EmailUserParams with email, first_name and last_name)." />
+</Frame>
 
-- Overview of email types
-- Email branding
-- Customising templates, including welcome emails
+## The emails aiGust sends
+
+| Template | Sent when |
+|---|---|
+| **Password reset email** | A user asks to reset their password. |
+| **Verification email** | A user needs to confirm their email address. |
+| **Welcome email** | You add a colleague as a user. |
+| **Client welcome email** | You invite a client user to the client portal. |
+
+We may add more emails later.
+
+The header, footer and colours of the emails come from the mail settings. See [Mail settings](/setup/branding/mail-settings).
+
+## Edit a template
+
+1. Click the template at the top.
+2. Choose the language with **nl**, **en** or **fr**. Each language has its own template.
+3. Change the **Subject** and the **Template**.
+4. Click **Save**.
+
+To go back to aiGust's template, click **Clear customizations**. It wipes your changes, and aiGust's default template applies again.
+
+aiGust sends each email in the language of the recipient: the language chosen when the user was created. So when you change a template, change it in every language your users have.
+
+## Write a template
+
+A template is HTML. You make it personal with the [Jinja](https://jinja.palletsprojects.com/en/stable/templates/) templating language.
+
+### Parameters
+
+Write `{{ parameters.<name> }}` to fill in a value. **Available parameters**, to the right of the template, lists the parameters of the email, such as:
+
+- `receiver`: who receives the email, with their `email`, `first_name` and `last_name`, as listed under **Referenced types**.
+- `aigust_portal_url`: the web address of aiGust.
+- `password_update_link`: the link to set a password.
+
+For example, `{{ parameters.receiver.first_name }}` fills in the first name of the recipient.
+
+### Conditions
+
+With `{% if %}`, you only show something when a condition is true. The welcome email uses it to greet the recipient by their first name, if aiGust knows it:
+
+```jinja
+<h1>Hello {% if parameters.receiver.first_name %} {{ parameters.receiver.first_name }}{% else %},{% endif %}</h1>
+```
+
+### Buttons
+
+The `button` macro adds a button, with a label and a link. It uses the button colours of the [mail settings](/setup/branding/mail-settings).
+
+```jinja
+{{ button('Open aiGust', parameters.aigust_portal_url) }}
+{{ button('Set your password', parameters.password_update_link) }}
+```
+
+<Tip>
+Use the parameters for the links, such as `parameters.password_update_link`. A link you type yourself doesn't work for every user.
+</Tip>

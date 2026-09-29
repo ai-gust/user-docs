@@ -1,22 +1,20 @@
 ---
-title: "Slide layouts"
-description: "The layouts a meeting slide can have, and how to choose one that fits the widgets you want to show."
+title: "Manage the slide layout"
+description: "Choose the layout of a slide, change its title, text and navigation name, and fill its data zones with widgets."
 ---
 
 Every slide in a meeting has a layout. The layout divides the slide into zones: a text zone, data zones, or both. You can't place things freely, as in PowerPoint. It works more like a photo book: you choose a page layout, then fill in the zones.
 
-## Choose a layout
+## Choose the layout
 
 1. Open the slide in the [meeting editor](/guide/meetings/editor).
 2. Click **Layout & time period** above the canvas.
 3. Under **Layout**, choose a layout.
-4. Fill in the zones. See [Widgets](/guide/meetings/widgets/overview).
+4. Fill in the zones.
 
 <Frame caption="The eleven layouts. T marks the text zone.">
   <img src="/images/meetings/layouts.jpg" alt="Eleven slide layouts: only text; text with one data zone; one data zone; text with two data zones side by side; two data zones side by side; text with two data zones stacked; two data zones stacked; text with four data zones; four data zones; text with six data zones; six data zones." />
 </Frame>
-
-## The layouts
 
 The layouts come in pairs: with a text zone on the left, or without.
 
@@ -29,14 +27,55 @@ The layouts come in pairs: with a text zone on the left, or without.
 | Four | Text and four data zones | Four data zones |
 | Six | Text and six data zones | Six data zones |
 
-You can put any widget in any data zone: aiGust doesn't check whether it fits. With a text zone, the data zones are smaller, so fewer widgets look good in them.
-
 When you switch to a layout without a text zone, the text of the slide disappears.
 
-## Match the layout to the widget
+### Match the layout to the widget
 
-aiGust lets you place any widget in any zone, but not every widget works in every zone. A financial table, such as the full P&L, doesn't fit in a small card. A KPI card does.
+You can put any widget in any data zone: aiGust doesn't check whether it fits. But not every widget works in every zone. A financial table, such as the full P&L, doesn't fit in a small card. A KPI card does. With a text zone, the data zones are smaller, so fewer widgets look good in them.
 
 - **Use one data zone** for tables, such as the [P&L](/guide/meetings/widgets/pl) or the [Balance](/guide/meetings/widgets/balance), and for [external documents](/guide/meetings/widgets/external-document).
 - **Use four or six data zones** for [KPI cards](/guide/meetings/widgets/kpi-card) and [scores](/guide/meetings/widgets/score).
-- **Preview the slide** before the meeting. The canvas shows the real figures, so you see right away whether everything fits.
+- **Check the slide** before the meeting. The canvas shows the real figures, so you see right away whether everything fits.
+
+## Change the title, text and navigation
+
+Click the text zone on the canvas to open **Zone configuration**.
+
+<Frame caption="The configuration of a text zone.">
+  <img src="/images/meetings/text-zone.jpg" alt="Zone configuration panel with Navigation name, Title with the field Part of the title you want to highlight and the toggles Use slide title also as navigation label and Hide time period marker, and Text with a Description, Clear all, AI Suggest and a Highlighted toggle. On the canvas, the title Slide highlighted part title shows highlighted part in colour." />
+</Frame>
+
+You only change the language of the meeting. See [Language](/guide/meetings/properties#language).
+
+### Navigation name
+
+The label of the slide in the navigation bar at the top of the slides. Keep it short.
+
+### Title
+
+- **Title:** the title of the slide.
+- **Part of the title you want to highlight:** the words of the title to show in the accent colour. Repeat them exactly as in the title, for example *highlighted part*. They must be consecutive words.
+- **Use slide title also as navigation label:** uses the title as the navigation name.
+- **Hide time period marker:** hides the period above the title, such as *Last financial year 01/01/2025 → 31/12/2025*.
+
+Titles are never generated. A meeting takes them from its [meeting flow](/configure/meetings/meeting-flows).
+
+### Text
+
+The text explains the figures on the slide: what they mean, and what to discuss. It supports Markdown, such as bold text and bullet lists. Use **−** and **+** next to **Description** to change the text size.
+
+- **AI Suggest** lets aiGust write the text now. aiGust reads the widgets on the slide and their figures, and writes a text in the language of the meeting. This only works once the widgets show their data.
+- **Clear all** empties the text.
+- **Highlighted:** turn on **Show** to add a highlighted box below the text, for the key takeaways of the slide.
+
+If you leave the text empty, aiGust writes it the first time you present or preview the meeting. Once a text exists, written by aiGust or by you, aiGust never overwrites it.
+
+<Frame caption="A slide with a generated text and a highlighted box with two takeaways.">
+  <img src="/images/meetings/slide-score-example.jpg" alt="A presented slide titled How did your company perform?, with your company highlighted. The text discusses turnover, EBITDA, solvency, liquidity and cash flow, and a purple highlighted box below it lists two points to watch. On the right, the Administration score Excellent for 2025, with KPI cards for turnover, EBITDA, solvability, current ratio and operational cash flow." />
+</Frame>
+
+## Data widgets
+
+Click a data zone on the canvas to open **Zone configuration**. Under **Visual selection**, choose a widget, such as a report, a chart or a score, and set its options.
+
+See [Widgets](/guide/meetings/widgets/overview) for every widget and its options.
