@@ -1,17 +1,99 @@
 ---
 title: "Meeting flows"
-description: "Create and edit the meeting flows your accountants use with clients."
+description: "Create and edit the meeting flows your firm uses as templates for client meetings."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A meeting flow is a template for a client meeting: which slides a meeting has, in which order, and which widgets each slide shows. Your accountants choose a flow when they [create a meeting](/guide/meetings/start-and-run). With a few good flows, your firm runs its client meetings in the same way.
 
-## To cover
+<Note>
+Only key users can create and edit meeting flows.
+</Note>
 
-- What meeting flows are
-- The aiGust meeting flow
-- Creating a flow
-- Editing in flow mode: what differs from editing a meeting (link to the meeting editor reference)
-- Why you select an administration while editing a flow
-- Languages: nl / fr / en
-- AI texts on slides
-- How changes to a flow affect new and existing meetings
+## The meeting flows overview
+
+Click **Meeting flows** in the firm menu. The **Meeting flows** tab shows a tile per flow, with:
+
+- **A badge:** **aiGust** for the flow aiGust provides, **Tenant** for your firm's own.
+- **The name** in each language: **nl**, **en** and **fr**.
+- **Meetingtype** and **Company types:** which meetings and companies the flow is for. See [Which flow aiGust proposes](#which-flow-aigust-proposes).
+- **Last update.**
+
+Filter the tiles on meeting type or company type at the top.
+
+<Frame caption="The meeting flows of a firm.">
+  <img src="/images/meetings/meeting-flows.jpg" alt="Meeting flows page with the tabs Meeting flows (4) and Meeting types (3), filters on meeting type and company type, and four tiles: Annual review with the aiGust badge, two copies of Annual review and Operational flow with the Tenant badge. Each tile shows the name in nl, en and fr, the meeting type, the company types and the last update." />
+</Frame>
+
+## The aiGust meeting flow
+
+aiGust provides one meeting flow out of the box. It's a starting point, not the best flow for every firm. You can't change it, but you can copy it: click the three dots on its tile and choose **Duplicate**. The copy becomes your firm's own flow, and you adapt it.
+
+| Option | aiGust flow | Your firm's flows |
+|---|---|---|
+| **Edit** | | ✓ |
+| **Edit company types** | | ✓ |
+| **Edit meeting type** | | ✓ |
+| **Delete** | | ✓ |
+| **Duplicate** | ✓ | ✓ |
+| **Export** | ✓ | ✓ |
+| **Deactivate** | ✓ | ✓ |
+
+<Frame caption="The options of the aiGust flow.">
+  <img src="/images/meetings/flow-menu-aigust.jpg" alt="Three-dots menu of the aiGust flow with Duplicate, Export and Deactivate." />
+</Frame>
+
+- **Deactivate:** the flow is no longer available when accountants create a meeting. Use it for the aiGust flow once your firm has its own.
+- **Export** and **Import:** **Export** downloads the flow's definition as a JSON file, and **Import** at the top right of the page adds it again. Use it as a backup, for example before you make big changes. Only import files you exported from aiGust: an edited file that no longer follows aiGust's format can't be imported.
+
+<Frame caption="The options of one of your firm's flows.">
+  <img src="/images/meetings/flow-menu-tenant.jpg" alt="Three-dots menu of a Tenant flow with Edit, Edit company types, Edit meeting type, Delete, Duplicate, Export and Deactivate." />
+</Frame>
+
+## Create a flow
+
+There's no button to create an empty flow. To create one, duplicate an existing flow, for example the aiGust flow, and adapt the copy.
+
+## Edit a flow
+
+Click the three dots on a flow and choose **Edit**.
+
+### Choose a preview administration
+
+aiGust first asks which administration to use as a preview. A flow is only a definition: this text here, that chart there. The slides always show real figures, so aiGust needs an administration to show you how they look. The flow doesn't belong to that administration. You can change the preview administration later in the slide settings.
+
+<Frame caption="Choose the administration to preview the flow with.">
+  <img src="/images/meetings/preview-administration.jpg" alt="Choose an administration dialog with a Preview administration list of the firm's administrations and a search field." />
+</Frame>
+
+### Build the slides
+
+You build a flow in the same editor as a meeting. Add slides, group them into sections, choose a layout for each slide, and choose the widgets. See [Meeting editor](/guide/meetings/editor) and [Widgets](/guide/meetings/widgets/overview).
+
+Follow these rules:
+
+- **Fill in the titles and navigation names.** Titles aren't generated: every meeting takes them from the flow.
+- **Leave the text fields empty.** aiGust writes them for each meeting, based on the administration's figures. A text you write in the flow ends up in every meeting, whatever the figures say.
+- **Choose the widgets** for each zone.
+
+### Titles in three languages
+
+A meeting can be in English, French or Dutch, so fill in each title and navigation name in all three languages. Switch the language with **nl**, **en** and **fr** at the top of the field. The sparkle button next to a field translates it to the other languages for you.
+
+Check every language before you save. An empty field, or a text left from before, shows up in the meetings in that language.
+
+<Frame caption="A navigation name, with the language buttons and the translate button.">
+  <img src="/images/meetings/navigation-name-languages.jpg" alt="Navigation name field with the language buttons nl, en and fr at the top right, and a sparkle button next to the empty field." />
+</Frame>
+
+## Which flow aiGust proposes
+
+When an accountant creates a meeting, aiGust proposes the flow that fits the administration best. To make that work, link each flow to:
+
+- **One or more meeting types,** such as an annual review. Click the pencil next to **Meetingtype**, or choose **Edit meeting type** in the menu. See [Meeting types](/configure/meetings/meeting-types).
+- **One or more company types,** such as management company or operating company. Click the pencil next to **Company types**, or choose **Edit company types**. See [Sectors and company types](/guide/concepts/sectors-and-company-types).
+
+aiGust proposes the most specific flow: for an operating company, a flow made for operating companies. Accountants can always choose another flow.
+
+## Changes to a flow
+
+A meeting is a copy of its flow. When you change a flow, only new meetings get the changes. Meetings created before stay as they are. The other way round, accountants can change a meeting without changing the flow.

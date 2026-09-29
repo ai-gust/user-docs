@@ -1,12 +1,76 @@
 ---
-title: "Notes, action points and summaries"
-description: "Capture notes and action points and create a meeting summary."
+title: "Notes and action points"
+description: "Take notes before, during and after a meeting, decide which ones your client sees, and summarise them on a slide."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Each slide of a meeting has its own notes. Use them for your talking points before the meeting, for what you discuss during the meeting, and for follow-up afterwards.
 
-## To cover
+## Before and after the meeting
 
-- Notes vs action points
-- Public vs internal
-- Meeting summaries
+To see and add the notes of all slides, click **Notes** on the meeting's tile on the **Meetings** page, or choose **Open meeting notes** in its menu. **Meeting notes** opens, with a tab per section, such as **Intro** and **Past**, plus **General** and **Summary**. Under each slide, click **Add note**.
+
+<Frame caption="The notes of a meeting, per section and per slide.">
+  <img src="/images/meetings/meeting-notes.jpg" alt="Meeting notes panel for Operational flow 28/09/2026 with the tabs General, Intro, Past and Summary. The Past tab lists the slides Past, Score vs bench and several new slides, each with No notes yet and an Add note field." />
+</Frame>
+
+Besides the tabs per section:
+
+- **General** holds notes about the meeting as a whole, not about one slide.
+- **Summary** shows the AI summary, if the meeting has one. See [Summarise the notes](#summarise-the-notes).
+
+In the [meeting editor](/guide/meetings/editor), click **Notes** above the canvas for the notes of the selected slide.
+
+## During the meeting
+
+While you present, the notes are at hand, and you can add new ones live:
+
+- In **presenter mode,** the notes are in a separate window on your own screen. You see all notes, internal and public.
+- In **fullscreen mode,** the notes are on the same screen as the slides, so your client sees them too. You only see public notes, and every note you add is public.
+
+## Internal and public notes
+
+Each note is internal or public:
+
+| Type | Who sees it |
+|---|---|
+| **Internal** | Only you and your colleagues. Use it for things you don't want to show your client, such as a remark about a late payment. |
+| **Public** | Your client too, when you present and in the client portal. |
+
+## Work with a note
+
+Each note has a few buttons at the top right. You find them in the notes panel of the editor, and in presenter mode:
+
+| Button | What it does |
+|---|---|
+| **Note** | The type of the note: a regular note, or an action point. See [Action points](#action-points). |
+| **Unresolved** | Marks the note as resolved once you've dealt with it. |
+| **Public** | Switches the note between public and internal. |
+
+Click **Add a reaction** to reply to a note, for example when a colleague follows up.
+
+<Frame caption="A note with its type, status and visibility.">
+  <img src="/images/meetings/note-controls.jpg" alt="Meeting notes panel with a note by Bart Coelmont, the buttons Note, Unresolved and Public highlighted at the top right, the text this is a slide note, and Add a reaction below it." />
+</Frame>
+
+In fullscreen mode, you can't change these: every note you add there is a public note.
+
+When your client opens a [published meeting](/guide/meetings/publish), they only see the public notes.
+
+## Action points
+
+To flag a note as an action point, click **Note** on it. The button turns purple and shows **Action point**. Click it again to make it a regular note.
+
+Use action points for what you or your client will do after the meeting. It's a visual flag: aiGust doesn't follow up on it or send reminders.
+
+<Frame caption="A note flagged as an action point.">
+  <img src="/images/meetings/note-action-point.jpg" alt="A note by Bart Coelmont under the slide Turnover, with the buttons Action point, Unresolved and Public at the top right, the text test, and Add a reaction below it." />
+</Frame>
+
+## Summarise the notes
+
+To go over the notes at the end of the meeting, you have two options:
+
+| Option | What it shows |
+|---|---|
+| **A slide with the notes** | The notes as you wrote them. Add the [Meeting notes overview](/guide/meetings/widgets/meeting-notes-overview) widget to a slide, or turn on **Add slide that summarizes meeting notes** in the [meeting settings](/guide/meetings/start-and-run#change-the-meeting-settings). |
+| **An AI summary** | A summary written by aiGust. Click **AI summary** below the slides in the [meeting editor](/guide/meetings/editor#ai-summary). aiGust sends all notes to an AI model, and turns them into a summary. |

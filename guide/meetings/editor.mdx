@@ -1,16 +1,110 @@
 ---
 title: "Meeting editor"
-description: "Edit the slides, sections and navigation of a meeting."
+description: "Add, move and group slides, set the time period and layout of each slide, and fill in its zones."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The meeting editor is where you prepare a meeting. On the **Meetings** page, click the three dots on a meeting and choose **Manage slides**. A new meeting you create with **Add** opens here too.
 
-## To cover
+- **On the left,** the **Slides**: all slides of the meeting, grouped into sections.
+- **On the right,** the canvas: the selected slide, with the administration's real figures.
 
-- Opening the editor
-- Adding and removing slides and sections
-- Hiding and unhiding
-- Changing the order
-- Navigation bar and navigation titles
-- Link between navigation title and slide title
-- Editing a single meeting vs editing a meeting flow (link to flow mode)
+<Frame caption="The meeting editor.">
+  <img src="/images/meetings/editor.jpg" alt="Meeting editor for Operational flow 28/09/2026. On the left, the Slides list with the sections Intro, Past (2025) and Notes & conclusions, and slides such as Score vs bench, Turnover and Financial debts. At the top, the buttons Not published, Settings, Preview and Save. Above the canvas, 2025, By quarter, Notes and Layout & time period. The canvas shows a slide with the navigation bar, the period Last financial year 01/01/2025 to 31/12/2025, a title with a highlighted part, a text zone, and a turnover chart by quarter." />
+</Frame>
+
+Key users build [meeting flows](/configure/meetings/meeting-flows) in the same editor.
+
+## Buttons at the top right
+
+| Button | What it does |
+|---|---|
+| **Not published** | Shows whether your client can see the meeting. See [Publish a meeting](/guide/meetings/publish). |
+| **Settings** | Changes the settings of the whole meeting. See [Change the meeting settings](/guide/meetings/start-and-run#change-the-meeting-settings). |
+| **Preview** | Presents the meeting from the slide you're on. |
+| **Save** | Saves your changes. |
+| Undo and redo | Undoes or redoes your last change. |
+| Bug | *Key users only.* Takes a screenshot and logs a bug ticket, as everywhere in aiGust. See [Report a bug](/setup/support/report-a-bug). |
+| Close | Closes the editor. |
+
+Your changes aren't saved automatically. Click **Save** before you close the editor.
+
+## Work with slides
+
+In the **Slides** list:
+
+- **Add a slide** with **Add slide**.
+- **Change the order** by dragging a slide.
+- **Click the three dots** on a slide for more options:
+
+| Option | What it does |
+|---|---|
+| **Move up**, **Move down** | Moves the slide. Dragging works too. |
+| **Hide slide** | Hides the slide when you present, without deleting it. Use it for a slide that doesn't apply to this client. On a section slide, it hides the whole section. |
+| **Make section slide** | Turns the slide into a section slide, or back into a normal slide. See [Sections](#sections). |
+| **Duplicate slide** | Adds a copy of the slide. |
+| **Delete slide** | Removes the slide. |
+| **Open slide settings** | Opens **Slide properties**. See [Slide settings](#slide-settings). |
+
+<Frame caption="The options of a slide.">
+  <img src="/images/meetings/slide-menu.jpg" alt="Slides list with the three-dots menu of the slide Car costs open, showing Move up, Move down, Hide slide, Make section slide, Duplicate slide, Delete slide and Open slide settings." />
+</Frame>
+
+### Sections
+
+The slides are grouped into sections, such as **Intro**, **Past** and **Action points**. A section starts with a section slide, and the slides below it belong to it until the next section slide. To start a new section, choose **Make section slide** on its first slide.
+
+Each section has a number. A section can have a time period, shown as a badge next to its name, such as **2025**. When you present, each section is a numbered circle in the navigation bar, and the slides in it are small dots.
+
+### AI summary
+
+Click **AI summary** below the slides to add a summary slide. aiGust sends all notes of the meeting to an AI model, and turns them into a summary. See [Summarise the notes](/guide/meetings/notes-and-summaries#summarise-the-notes).
+
+### The intro slide
+
+The first slide introduces the meeting. It shows your firm's logo, the administration's name, the meeting title, and the sections with their periods. Click it to open **Intro slide settings**:
+
+- **Show logo:** show or hide the logo.
+- **Background:** **Default**, a **Color**, or a **Background image**, with a **Text color** that stays readable on it.
+
+<Frame caption="The intro slide.">
+  <img src="/images/meetings/intro-slide.jpg" alt="Intro slide with the De Witwassers logo, the administration Bouwwerken Michel, the title Operational flow 28/09/2026, and a timeline with the chapters Past and Notes & conclusions, each with the period 01/01/2025 to 31/12/2025." />
+</Frame>
+
+<Frame caption="The settings of the intro slide.">
+  <img src="/images/meetings/intro-slide-settings.jpg" alt="Intro slide settings panel with General settings (the Show logo toggle turned on) and Background (Default, Color and Background image, with Text color swatches, a Custom color button and an empty Image field)." />
+</Frame>
+
+## Slide settings
+
+Above the canvas, a bar holds the settings of the selected slide.
+
+<Frame caption="The settings of a slide.">
+  <img src="/images/meetings/slide-toolbar.jpg" alt="The bar above the canvas with 2025 (time period: past, present or future), By year (aggregation level: period, quarter or year), Notes (slide notes) and Layout & time period (title and layout)." />
+</Frame>
+
+| Setting | What it does |
+|---|---|
+| **Time period** | Whether the slide is about the past, the present or the future. See [Past, present and future](/guide/meetings/basics#past-present-and-future). |
+| **Reporting level** | Shows the figures by period, by quarter or by year. |
+| **Notes** | Opens the notes of the slide. See [Notes and action points](/guide/meetings/notes-and-summaries). |
+| **Layout & time period** | Opens **Slide properties**. |
+
+In **Slide properties**, you set:
+
+- **Navigation name:** the label of the slide in the navigation bar.
+- **Layout:** the zones of the slide. See [Slide layouts](/guide/meetings/slide-layouts).
+- **Time period:** **Future**, **Year-to-date** or **Last closed financial year**, with the dates each one covers.
+- **Reporting level:** by period, by quarter or by year.
+
+<Frame caption="Slide properties: navigation name, layout, time period and reporting level.">
+  <img src="/images/meetings/slide-properties.jpg" alt="Slide properties panel with the navigation name, eleven layouts with the text-and-two-widgets layout selected, the time period with Future 2026 end, Year-to-date 2026YTD and Last closed financial year 2025 selected, and Reporting level By quarter." />
+</Frame>
+
+## Fill in the zones
+
+To change what a slide shows, click a zone on the canvas. **Zone configuration** opens:
+
+- **Click a data zone** to choose a widget. See [Widgets](/guide/meetings/widgets/overview).
+- **Click the text zone** to change the title and the text. See [Text](/guide/meetings/widgets/text).
+
+The widgets on the canvas work like elsewhere in aiGust. You can switch the KPI type of a chart, or drill down into a quarter, also while you present.

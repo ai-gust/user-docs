@@ -1,13 +1,85 @@
 ---
-title: "Meeting basics"
-description: "What meetings are in aiGust and how past, present and future work."
+title: "How meetings work"
+description: "An overview of what meetings are in aiGust, how to start them from a meeting flow, and how a slidedeck can take your customer from past, over present to the future."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A meeting in aiGust is an interactive slideshow about single administration. You build it from the same reports, charts and KPIs you use elsewhere in aiGust, with the administration's live figures. Use it for the annual review or an intermediate review with your client.
 
-## To cover
+It works much like a presentation tool: you move between slides, and you take notes. But you don't copy charts into slides. Every slide shows aiGust's own visualisations, and you can still interact with them while you present.
 
-- What meetings are and why you use them
-- Meetings vs templates (flows)
-- Past / present / future and how they are determined
-- Link with forecasts
+## Meetings and meeting flows
+
+Every meeting starts from a **meeting flow**: a template that decides which slides a meeting has, in which order, and which widgets each slide shows. Meeting flows help your firm run its client meetings in the same way, for example:
+
+- an annual review for management companies
+- an intermediate review for operating companies
+
+aiGust provides one meeting flow out of the box. Your key users can copy and adapt it, or create flows of their own. See [Meeting flows](/configure/meetings/meeting-flows).
+
+When you create a meeting, you choose a flow. aiGust proposes the flow that fits the administration best, for example a flow made for operating companies. The meeting is a copy of the flow. You can add, remove and change slides without changing the flow, and later changes to the flow don't change your meeting.
+
+## The settings of a meeting
+
+A meeting has a few settings that apply to all of its slides:
+
+| Setting                   | What it decides                                                                                                                                                                                                                                                   |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Up-to-date-until date** | The last date of the figures in the meeting. Like everywhere in aiGust, it decides which financial year is closed, which is open, and what the year to date covers. See [The up-to-date-until date](/guide/concepts/financial-periods#the-up-to-date-until-date). |
+| **Peer group**            | The peer group for the benchmarks on the slides. In the meeting settings, it's called **Benchmark group**. See [Peer groups](/guide/benchmarking/peer-groups).                                                                                                    |
+| **Forecast**              | Optional. The forecast to show for the rest of the year. See [Forecasts](/guide/forecasts/how-forecasts-work).                                                                                                                                                    |
+| **Language**              | English (**en**), French (**fr**) or Dutch (**nl**). The generated texts are written in this language.                                                                                                                                                            |
+
+These settings are stored with the meeting, and you can change them later. See [Change the meeting settings](/guide/meetings/start-and-run#change-the-meeting-settings). If you open it again next month, it still shows the figures up to the same date, even if newer figures are available.
+
+## Past, present and future
+
+A conversation with a client usually moves through three stages: how did last year go, where do we stand now, and what's coming. Each slide is set to one of these:
+
+| Stage   | Time period                    | What the slide shows                                    |
+| ------- | ------------------------------ | ------------------------------------------------------- |
+| Past    | **Last closed financial year** | The last closed financial year                          |
+| Present | **Year-to-date**               | The open financial year up to the up-to-date-until date |
+| Future  | **Future**                     | The rest of the open financial year, from the forecast  |
+
+The up-to-date-until date of the meeting decides which year is which. For example, a company's financial year runs from July to June, and you prepare the meeting with figures up to date until 31/08/2026:
+
+- **Last closed financial year** is the financial year that closed on 30/06/2026.
+- **Year-to-date** is July and August 2026.
+- **Future** is September 2026 to June 2027.
+
+A slide about the future needs a forecast. Without one, widgets that need it aren't available.
+
+## Who can do what
+
+- **Everyone** at your firm with access to the administration can create, edit and present meetings.
+- **Key users** manage the meeting flows and meeting types.
+- **Your client** only sees the meetings you [publish](/guide/meetings/publish), and only the notes you mark as public.
+
+## Related pages
+
+<CardGroup cols={2}>
+  <Card
+    title="Create and present a meeting"
+    icon="play"
+    href="/guide/meetings/start-and-run"
+  >
+    Start a meeting from a flow, and present it.
+  </Card>
+  <Card title="Meeting editor" icon="pen" href="/guide/meetings/editor">
+    Add, move and change slides.
+  </Card>
+  <Card
+    title="Widgets"
+    icon="table-cells"
+    href="/guide/meetings/widgets/overview"
+  >
+    Everything you can show on a slide.
+  </Card>
+  <Card
+    title="Meeting flows"
+    icon="diagram-project"
+    href="/configure/meetings/meeting-flows"
+  >
+    Set up your firm's templates. For key users.
+  </Card>
+</CardGroup>

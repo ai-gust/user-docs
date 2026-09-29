@@ -1,11 +1,39 @@
 ---
 title: "Meeting types"
-description: "Use meeting types to decide which flows apply to which companies."
+description: "Use meeting types to group your meeting flows, so aiGust proposes the right flow for each meeting."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A meeting type is a category for your meetings, such as *annual review* or *intermediate review*. Using them is optional. aiGust doesn't provide any types: your firm creates its own.
 
-## To cover
+<Note>
+Only key users can manage meeting types.
+</Note>
 
-- What meeting types are
-- Linking flows to companies
+## Why use meeting types
+
+Link each [meeting flow](/configure/meetings/meeting-flows) to one or more meeting types, and to company types. When an accountant creates a meeting, aiGust then proposes the most specific flow. For example:
+
+| Meeting flow | Meeting type | Company type |
+|---|---|---|
+| Annual review, management company | Annual review | Management company |
+| Annual review, operating company | Annual review | Operating company |
+| Intermediate review | Intermediate review | Operating company |
+
+Accountants can always choose any other flow. The meeting type also shows on each meeting's tile on the **Meetings** page.
+
+## Create a meeting type
+
+1. Click **Meeting flows** in the firm menu, and go to the **Meeting types** tab.
+2. Click **Create**.
+3. Enter a **Name** and a **Description**. Use **nl**, **en** and **fr** to enter them in each language. The sparkle button translates the name for you.
+4. Click **Create**.
+
+<Frame caption="Create a meeting type in three languages.">
+  <img src="/images/meetings/create-meeting-type.jpg" alt="Create meeting type dialog with the language buttons nl, en and fr, a Name field with a sparkle button, a Description field, and Cancel and Create buttons." />
+</Frame>
+
+You can edit a meeting type later on the same tab. You can only delete a meeting type once no flow is linked to it anymore. Unlink it from its flows first.
+
+{/* TODO Bart: screenshot of the Meeting types tab. */}
+
+Then link the meeting type to your flows. See [Which flow aiGust proposes](/configure/meetings/meeting-flows#which-flow-aigust-proposes).

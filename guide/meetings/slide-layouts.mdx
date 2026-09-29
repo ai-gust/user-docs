@@ -1,13 +1,42 @@
 ---
 title: "Slide layouts"
-description: "The layouts you can use for a meeting slide."
+description: "The layouts a meeting slide can have, and how to choose one that fits the widgets you want to show."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Every slide in a meeting has a layout. The layout divides the slide into zones: a text zone, data zones, or both. You can't place things freely, as in PowerPoint. It works more like a photo book: you choose a page layout, then fill in the zones.
 
-## To cover
+## Choose a layout
 
-- What a layout is
-- Available layouts
-- Changing the layout of a slide
-- Flow-mode notes where relevant
+1. Open the slide in the [meeting editor](/guide/meetings/editor).
+2. Click **Layout & time period** above the canvas.
+3. Under **Layout**, choose a layout.
+4. Fill in the zones. See [Widgets](/guide/meetings/widgets/overview).
+
+<Frame caption="The eleven layouts. T marks the text zone.">
+  <img src="/images/meetings/layouts.jpg" alt="Eleven slide layouts: only text; text with one data zone; one data zone; text with two data zones side by side; two data zones side by side; text with two data zones stacked; two data zones stacked; text with four data zones; four data zones; text with six data zones; six data zones." />
+</Frame>
+
+## The layouts
+
+The layouts come in pairs: with a text zone on the left, or without.
+
+| Data zones | With text zone | Without text zone |
+|---|---|---|
+| None | Only text | |
+| One | Text and one data zone | One data zone |
+| Two, side by side | Text and two data zones | Two data zones |
+| Two, stacked | Text and two data zones | Two data zones |
+| Four | Text and four data zones | Four data zones |
+| Six | Text and six data zones | Six data zones |
+
+You can put any widget in any data zone: aiGust doesn't check whether it fits. With a text zone, the data zones are smaller, so fewer widgets look good in them.
+
+When you switch to a layout without a text zone, the text of the slide disappears.
+
+## Match the layout to the widget
+
+aiGust lets you place any widget in any zone, but not every widget works in every zone. A financial table, such as the full P&L, doesn't fit in a small card. A KPI card does.
+
+- **Use one data zone** for tables, such as the [P&L](/guide/meetings/widgets/pl) or the [Balance](/guide/meetings/widgets/balance), and for [external documents](/guide/meetings/widgets/external-document).
+- **Use four or six data zones** for [KPI cards](/guide/meetings/widgets/kpi-card) and [scores](/guide/meetings/widgets/score).
+- **Preview the slide** before the meeting. The canvas shows the real figures, so you see right away whether everything fits.

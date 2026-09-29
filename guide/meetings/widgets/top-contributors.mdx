@@ -1,0 +1,34 @@
+---
+title: "Top contributors & trends"
+description: "Show the largest customers or suppliers behind turnover or costs."
+---
+
+Shows which business partners, accounts or labels contribute most to a figure, and highlights the largest increases and decreases. For example: the top customers behind turnover, or the top suppliers behind costs, such as the purchases on accounts 60 and 61. It's a good way to talk about dependence on a few large customers or suppliers.
+
+This widget needs transactions, so it only works for administrations from a bookkeeping connector. See [Bookkeeping and compliance connectors](/guide/dashboard/data-sync#bookkeeping-and-compliance-connectors).
+
+## Options
+
+Under **Display options**:
+
+| Option | What it does |
+|---|---|
+| **Title** | The title of the widget, in **nl**, **en** and **fr**. |
+| **Filter GL Accounts** | The accounts to analyse. Type the start or the end of an account number, for example *60* for all accounts starting with 60, and click **+**. |
+| **Sentiment** | Whether an increase is **Positive** (green), as for revenue, **Negative** (red), as for costs, or **Neutral**. |
+| **Group by** | What to rank: **Business partner**, account or label. |
+| **Reverse sign** | **Always reverse**, **Auto** or **Never reverse**. See below. |
+
+aiGust stores credit amounts as negative and debit amounts as positive, so revenue is negative in the source data. To show revenue as a positive amount, reverse the sign. With **Auto**, aiGust decides based on the account number.
+
+The widget works on the transactions of the accounts you filter, added up per business partner, account or label.
+
+<Frame caption="The options of Top contributors & trends, set up for costs.">
+  <img src="/images/meetings/options-top-contributors.jpg" alt="Display options with the title Top contributors & trends, Filter GL Accounts with accounts 600 to 619, Sentiment Negative, Group by Business partner, and Reverse sign Never reverse." />
+</Frame>
+
+## Where it fits
+
+A medium or large zone.
+
+{/* TODO Bart: screenshot of this widget on a slide. */}
