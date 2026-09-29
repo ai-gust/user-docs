@@ -1,11 +1,77 @@
 ---
 title: "Personnel dashboard"
-description: "Read the personnel dashboard and its charts."
+description: "Read the personnel KPIs of an administration: productivity per FTE, the split of the staff, and how staff and personnel costs evolve compared with turnover."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+import { KpiTypeIcon } from "/snippets/kpi-type-icon.jsx";
 
-## To cover
+The personnel dashboard shows how productive an administration's staff is, and how the staff and its cost evolve compared with the business. Click **Reports** in the administration menu, and choose **Personnel**.
 
-- Dashboard layout
-- Each chart explained
+The dashboard needs personnel data. See [Personnel data sources](/guide/personnel/data-sources).
+
+<Frame caption="The personnel dashboard of an administration.">
+  <img src="/images/personnel/dashboard.jpg" alt="Personnel page for financial year 2025. At the top, five KPI cards: Turnover / FTE €742.689 (+37,8%), Added value / FTE €105.010 (+21,8%), Costs / FTE €64.639 (+6,8%, in red), EBITDA / FTE €39.747 (+60,4%) and Personnel costs 8,70% (−2,5). Below, FTE Division on 31/12/2025 with a ring chart and a table: Management 0%, Labour workers 91%, office workers 0%, Other 9%. Next to it, Revenue vs Personnel Cost vs FTE, with bars for the number of FTEs and lines for turnover and personnel costs from 2022 to 2025, and a table with the values. At the bottom, Personnel ratio evolution with the tabs Overview, Revenue/FTE, Added Value/FTE, EBITDA/FTE and Personnel Cost/FTE, showing four lines from 2021 to 2025 and a table with the values." />
+</Frame>
+
+## Choose the period
+
+At the top right, choose the year with the arrows, or click it to pick another. Click the button next to it to switch between:
+
+- **Financial year:** full financial years.
+- **Quarterly figures:** quarters. See [Quarters](/guide/concepts/financial-periods#quarters).
+- **Per period:** the financial periods of the administration.
+
+<Frame caption="Switch between financial years, quarters and periods.">
+  <img src="/images/personnel/period-menu.jpg" alt="Menu under the Financial year button with Financial year (selected), Quarterly figures and Per period, next to the year 2025 and two arrows." />
+</Frame>
+
+Social balance sheets rarely match the quarters or periods of an administration. See [Social periods and financial years](/guide/personnel/social-periods) for how aiGust makes them fit, and how precise the result is.
+
+## KPI cards
+
+The cards at the top show the main personnel KPIs of the chosen year, with their change compared with the previous year:
+
+| Card | What it shows |
+|---|---|
+| **Turnover / FTE** | Turnover per full-time employee. |
+| **Added value / FTE** | Added value per full-time employee. |
+| **Costs / FTE** | Personnel costs per full-time employee. |
+| **EBITDA / FTE** | EBITDA per full-time employee. |
+| **Personnel costs** | Personnel costs as a percentage of turnover. Its change is in percentage points. |
+
+A green badge means the change is good news, a red badge bad news. Rising costs per FTE, for example, show in red.
+
+For the formulas, see [Personnel KPIs and ratios](/guide/personnel/kpis-and-ratios).
+
+## FTE Division
+
+How the staff is divided between **Management**, **Labour workers**, office workers and **Other**, in FTE, on the closing date of the financial year. See [FTE Division](/guide/personnel/kpis-and-ratios#fte-division) for the codes of the social balance sheet behind it.
+
+{/* TODO Bart: the app says "Ooffice workers" (typo). I wrote "office workers" without bold until it's fixed. */}
+
+## Revenue vs Personnel Cost vs FTE
+
+Shows whether the staff and its cost grow in line with the business:
+
+- the bars show the number of FTEs, on the right axis;
+- the lines show turnover and personnel costs, on the left axis.
+
+The table below the chart shows the values. Click the eye next to a line to hide it from the chart, or to show it again.
+
+Use the [KPI type selector](/guide/concepts/kpis#kpi-types) above the chart to see the values as they are (<KpiTypeIcon type="currency" />) or as growth compared with the previous year (<KpiTypeIcon type="horizontal" />). The percentage views aren't available for this chart.
+
+## Personnel ratio evolution
+
+Shows how the ratios per FTE evolved over the years. **Overview** shows them all together. Click a tab to see one of them on its own: **Revenue/FTE**, **Added Value/FTE**, **EBITDA/FTE** or **Personnel Cost/FTE**.
+
+<Frame caption="One ratio on its own: turnover per FTE.">
+  <img src="/images/personnel/ratio-evolution.jpg" alt="Personnel ratio evolution with the Revenue/FTE tab selected, showing bars for 2021 to 2025, from €548.025,5 in 2021 to €742.689,0 in 2025, and a table row Your company with the values." />
+</Frame>
+
+Next to **Your company**, a single ratio also shows the benchmark of the administration's [peer group](/guide/benchmarking/peer-groups).
+
+{/* TODO Bart: the benchmark currently isn't shown because of a known issue. Check this paragraph (and add a screenshot with the benchmark) once it's fixed. */}
+
+## In a meeting
+
+Show the charts to your client with the [FTE Division](/guide/meetings/widgets/fte-division) and [Revenue vs Personnel Cost vs FTE](/guide/meetings/widgets/revenue-vs-personnel-cost-vs-fte) widgets.

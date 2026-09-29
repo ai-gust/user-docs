@@ -1,12 +1,36 @@
 ---
 title: "Personnel data sources"
-description: "Where personnel data comes from and what aiGust uses from it."
+description: "What the social balance sheet is, where aiGust gets it from, and what happens when an administration has no personnel data."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust's personnel KPIs come from the social balance sheet of an administration.
 
-## To cover
+## The social balance sheet
 
-- The social balance sheet
-- Silverfin vs Partena
-- Which fields aiGust imports and uses
+The social balance sheet is a report on a company's staff. The social secretariat, such as Partena, SD Worx or Acerta, usually provides it once a year. The accountant then attaches it to the annual accounts that go to the National Bank of Belgium.
+
+It contains, among other things:
+
+- the number of employees in FTE over the period, split into full-time and part-time;
+- the split between labour workers, office workers and management, at the end of the period;
+- the total number of hours worked;
+- other figures about the staff.
+
+For what aiGust calculates from it, see [Personnel KPIs and ratios](/guide/personnel/kpis-and-ratios).
+
+## Where aiGust gets it
+
+| Source | How it works | How up to date |
+|---|---|---|
+| **Silverfin** | Accountants usually enter the social balance sheet in Silverfin. From there, it goes into the annual accounts (XBRL) for the National Bank. aiGust imports it from Silverfin. | Once a year, and only once it's entered in Silverfin. |
+| **Partena** | aiGust has a partnership with Partena. With the Partena connector, you get a social balance sheet every month, from 2026 on. | Every month, so a much more accurate view. |
+
+Your firm sets up these sources. See [Social data overview](/setup/data/social/overview), [Silverfin social data](/setup/data/social/silverfin) and [Partena](/setup/data/social/partena).
+
+If an administration has data from both, aiGust uses Partena, because it's the most detailed.
+
+We're working on a third source: the social balance sheets from the National Bank of Belgium.
+
+## When an administration has no personnel data
+
+Without a social balance sheet, aiGust can't calculate anything per FTE. The [personnel dashboard](/guide/personnel/dashboard) and the ratios per FTE are then not available: they're disabled for that administration.

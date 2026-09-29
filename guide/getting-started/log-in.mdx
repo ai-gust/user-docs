@@ -1,13 +1,96 @@
 ---
-title: "Log in to aiGust"
-description: "Log in for the first time with a password or your Microsoft or Google account."
+title: "Sign in to aiGust"
+sidebarTitle: "Sign in"
+description: "Sign in for the first time with your Google or Microsoft account, or set a password for aiGust."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+You sign in to aiGust at [app.ai-gust.io](https://app.ai-gust.io). The easiest way is with the Google Workspace or Microsoft account of your firm. You can also set a separate password for aiGust.
 
-## To cover
+## The welcome email
 
-- The welcome email
-- Setting a password
-- Logging in with Microsoft or Google (email must match)
-- ai-gust.io
+When your firm adds you as a user, you get a welcome email. It has two buttons:
+
+- **Open aiGust** takes you to the sign-in page. Use it to sign in with Google or Microsoft.
+- **Wachtwoord instellen** (Set password) lets you set a password, if you don't sign in with Google or Microsoft. See [Sign in with a password](#sign-in-with-a-password).
+
+<Frame caption="The welcome email, here in Dutch and with the branding of the firm.">
+  <img src="/images/sign-in/welcome-email.jpg" alt="Welcome email with the header of the firm De Witwassers. It greets Balthazar, says the account is active and ready to use, and lists what aiGust offers: sector benchmarking, visual and interactive client meetings, forecasts and scenarios, follow-up of actions and decisions, and AI assistance. Below, an Open aiGust button, a line saying to click below to set a password if you don't use Single Sign-On (Microsoft or Google), and a Wachtwoord instellen button." />
+</Frame>
+
+The email comes in your language, with the header and footer of your firm. Key users set its content in the [email templates](/setup/branding/email-templates).
+
+## Sign in with Google or Microsoft
+
+1. Go to [app.ai-gust.io](https://app.ai-gust.io), or click **Open aiGust** in the welcome email.
+2. Click **Continue with Google** or **Continue with microsoft**.
+3. Sign in with your work account, as you usually do.
+
+You then stay signed in for up to 10 hours.
+
+<Frame caption="The sign-in page.">
+  <img src="/images/sign-in/sign-in.jpg" alt="Sign in page of aiGust, explaining that you log on with your corporate email address and will be redirected to the login page of your organization. Buttons Continue with Google and Continue with microsoft, then OR, a button Login with aiGust credentials, and a link Problems signing in?" />
+</Frame>
+
+The email address of your Google or Microsoft account has to be the same as the one your firm used to add you in aiGust. If it isn't, aiGust shows an error: "User … authenticated with identity provider google does not exist. Please contact your administrator." Ask the administrator of your firm to check your email address in aiGust.
+
+<Frame caption="The email address of your account isn't known in aiGust.">
+  <img src="/images/sign-in/user-does-not-exist.jpg" alt="Error page titled Oops... Something went wrong, with the message: User (email address blurred) authenticated with identity provider google does not exist. Please contact your administrator." />
+</Frame>
+
+The first time someone at your firm signs in with Microsoft, Microsoft may ask for consent for aiGust. Only an administrator of your Microsoft organisation can give it. See [First sign-in as administrator](/setup/first-login).
+
+## Sign in with a password
+
+If you don't use Google or Microsoft, set a password first:
+
+1. In the welcome email, click **Wachtwoord instellen**.
+2. On the page that opens, click **Stel nu je wachtwoord in** (Set your password now).
+3. Enter your new password, and confirm it.
+
+<Frame caption="Set your password, here in Dutch.">
+  <img src="/images/sign-in/set-password.jpg" alt="Page with the aiGust logo saying Welkom bij aiGust! Je bent er bijna! (Welcome to aiGust! You're almost there!) and a button Stel nu je wachtwoord in." />
+</Frame>
+
+The link in the welcome email is valid for 5 days. If it has expired, you land on a page with a button to send a new link. Click it, and you get an email to reset your password: follow the link in it to set your password.
+
+Your password needs:
+
+- at least 8 characters;
+- at least one letter, one digit and one uppercase letter.
+
+A password is valid for 180 days. After that, aiGust asks you to choose a new one when you sign in.
+
+aiGust then takes you back to the sign-in page. To sign in:
+
+1. Click **Login with aiGust credentials**.
+2. Enter your **Email** and **Password**.
+3. Click **Sign In**.
+
+Select **Remember me** to stay signed in on this device.
+
+<Frame caption="Sign in with your email address and password.">
+  <img src="/images/sign-in/credentials.jpg" alt="Sign in with aiGust credentials page, explaining that if you don't use Office 365 or Google Workspace, you can log on with a corporate email address and password, and that the first time you log in, you check the instructions in your mailbox or reset your password. Fields Email and Password, a Remember me checkbox, a Forgot Password? link, a Sign In button, then OR and a button Login with your corporate account (SSO), and a link Problems signing in?" />
+</Frame>
+
+To go back to Google or Microsoft, click **Login with your corporate account (SSO)**.
+
+## Forgot your password
+
+1. On the sign-in page, click **Login with aiGust credentials**, and then **Forgot Password?**.
+2. Enter your **Email**.
+3. Click **Request reset password link**.
+4. Open the email, and follow the link to set a new password.
+
+Don't see the email? Check your spam folder.
+
+<Frame caption="Request a link to reset your password.">
+  <img src="/images/sign-in/password-reset.jpg" alt="Password reset page asking for the email address of the account to reset the password for, with an Email field, a Request reset password link button, a note to check your spam folder if you don't see the email, and a Back to login link." />
+</Frame>
+
+## Problems signing in
+
+Click **Problems signing in?** on the sign-in page to email aiGust support at [support@ai-gust.io](mailto:support@ai-gust.io).
+
+## Two-factor authentication
+
+aiGust doesn't ask for a second code when you sign in with a password. If your firm wants two-factor authentication, sign in with Google or Microsoft: the security settings of your Google Workspace or Microsoft organisation then apply, including two-factor authentication.

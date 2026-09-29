@@ -1,19 +1,55 @@
 ---
 title: "aiGust documentation"
 sidebarTitle: "Introduction"
-description: "Documentation for accountancy firms using aiGust: set up your firm, configure aiGust and use it in your daily work."
+description: "Documentation for accountancy firms using aiGust: set up and configure your firm, and use aiGust in your daily work."
 ---
 
-<Note>This site is being rewritten. Most pages are drafts that list what they will cover.</Note>
+aiGust helps accountancy firms advise their clients. It brings together the financial and personnel data of all your clients, shows what's going on, and supports you from the first signal to the conversation with your client and the follow-up.
+
+<Frame caption="aiGust in four layers.">
+  <img className="block dark:hidden" src="/images/overview/aigust-layers-light.jpg" alt="Diagram of aiGust in four layers, from bottom to top. 1, Data framework: custom-built integration with social secretariats and accounting software, bringing financial data and personnel data to each firm (kantoor). 2, Advisory cycle: supporting advisory services within a firm, as a circle of data, context, signals, conversation (gesprek), actions and follow-up. 3, Clear insights: clear visualisations and tools for searching, comparing, reporting and presenting, with dashboards, slides, customer access, forecasts, benchmarks, alerts and reports. 4, Agentic AI layer: AI supports every step and provides proactive assistance." />
+  <img className="hidden dark:block" src="/images/overview/aigust-layers-dark.jpg" alt="Diagram of aiGust in four layers, from bottom to top. 1, Data framework: custom-built integration with social secretariats and accounting software, bringing financial data and personnel data to each firm (kantoor). 2, Advisory cycle: supporting advisory services within a firm, as a circle of data, context, signals, conversation (gesprek), actions and follow-up. 3, Clear insights: clear visualisations and tools for searching, comparing, reporting and presenting, with dashboards, slides, customer access, forecasts, benchmarks, alerts and reports. 4, Agentic AI layer: AI supports every step and provides proactive assistance." />
+</Frame>
+
+## 1. The data
+
+aiGust connects to your firm's accounting software and social secretariats. It imports the financial data and the personnel data of your clients, and keeps them up to date. See [Data sources overview](/setup/data/overview).
+
+## 2. The advisory cycle
+
+Around that data, aiGust supports the way your firm advises its clients:
+
+- **Data:** the figures of each client, translated to one chart of accounts with [labels](/guide/concepts/labels).
+- **Context:** the client's [sector and company type](/guide/concepts/sectors-and-company-types), and how it compares with its peers.
+- **Signals:** [triggers and alerts](/guide/triggers/how-triggers-work) tell you when something needs your attention.
+- **Conversation:** you discuss the figures with your client in a [meeting](/guide/meetings/basics).
+- **Actions:** you agree on what to do.
+- **Follow-up:** you follow up on those actions, and the cycle starts again with new data.
+
+{/* TODO Bart: where do actions and follow-up live in aiGust (meeting notes, a separate action list)? Link them once documented. */}
+
+## 3. Clear insights
+
+aiGust turns the data into views you can search, compare, report and present:
+
+- the [dashboard](/guide/dashboard/dashboard) and the [reports](/guide/reports/overview) of an administration;
+- [benchmarks](/guide/benchmarking/how-it-works) against a peer group;
+- [forecasts](/guide/forecasts/how-forecasts-work);
+- [alerts](/guide/triggers/alerts);
+- slides for your [meetings](/guide/meetings/basics);
+- the [client portal](/setup/client-portal/overview), where your clients see their own figures.
+
+## 4. AI at every step
+
+AI will support each step and assist you proactively. That's work in progress: we add AI to aiGust step by step, and announce each addition in the [announcements](/guide/getting-started/help#announcements).
+
+## Where to start
 
 Choose the part that matches your role.
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Set up your firm" icon="building" href="/setup/welcome">
-    For administrators and owners: connect your data, manage users and access, set up branding and the client portal.
-  </Card>
-  <Card title="Configure aiGust" icon="sliders" href="/configure/reporting/report-view-defaults">
-    For key users: define firm-wide report settings, custom reports, triggers and meeting flows.
+    For key users: connect your data, manage users and access, set up branding and the client portal, and define firm-wide report settings, custom reports, triggers and meeting flows.
   </Card>
   <Card title="User guide" icon="book-open" href="/guide/getting-started/log-in">
     For accountants: work with reports, benchmarks, alerts, forecasts and client meetings.

@@ -94,26 +94,6 @@
             ]
           },
           {
-            "group": "Monitoring",
-            "pages": [
-              "setup/monitoring/usage-statistics",
-              "setup/monitoring/audit-trail"
-            ]
-          },
-          {
-            "group": "Support",
-            "pages": [
-              "setup/support/report-a-bug",
-              "setup/support/follow-up-tickets",
-              "setup/support/platform-status"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Configure aiGust",
-        "groups": [
-          {
             "group": "Reporting",
             "pages": [
               "configure/reporting/report-view-defaults",
@@ -136,6 +116,21 @@
               "configure/meetings/meeting-flows",
               "configure/meetings/meeting-types"
             ]
+          },
+          {
+            "group": "Monitoring",
+            "pages": [
+              "setup/monitoring/usage-statistics",
+              "setup/monitoring/audit-trail"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "setup/support/report-a-bug",
+              "setup/support/follow-up-tickets",
+              "setup/support/platform-status"
+            ]
           }
         ]
       },
@@ -147,8 +142,8 @@
             "pages": [
               "guide/getting-started/log-in",
               "guide/getting-started/personalise",
+              "guide/getting-started/help",
               "guide/getting-started/navigation",
-              "guide/getting-started/advanced-search",
               "guide/getting-started/first-steps"
             ]
           },

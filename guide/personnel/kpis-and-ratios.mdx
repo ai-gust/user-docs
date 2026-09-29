@@ -1,11 +1,53 @@
 ---
-title: "Personnel KPIs and efficiency ratios"
-description: "Which values are used and how the personnel efficiency ratios are calculated."
+title: "Personnel KPIs and ratios"
+description: "Which figures aiGust takes from the social balance sheet, and how the ratios per FTE are calculated."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+The personnel KPIs combine two sources:
 
-## To cover
+- the [social balance sheet](/guide/personnel/data-sources), for the number of employees in FTE;
+- the [profit and loss](/guide/reports/definitions/profit-and-loss), for turnover, added value, EBITDA and personnel costs.
 
-- Values used from the social balance sheet
-- Formula per ratio, e.g. revenue per employee
+## FTE
+
+aiGust uses the average number of employees in FTE, code 1003 of the social balance sheet. That's the **Total nb of FTEs** on the [personnel dashboard](/guide/personnel/dashboard#revenue-vs-personnel-cost-vs-fte).
+
+## FTE Division
+
+The [FTE Division](/guide/personnel/dashboard#fte-division) uses the number of employees in FTE per category, on the closing date of the period:
+
+| Category | Code |
+|---|---|
+| **Management** | 1303 |
+| Office workers | 1343 |
+| **Labour workers** | 1323 |
+| **Other** | 1333 |
+
+Each category is shown as a share of the total of the four.
+
+## Ratios per FTE
+
+| Ratio | Formula |
+|---|---|
+| **Turnover / FTE** | (Turnover ÷ FTE) × (365 ÷ days in the period) |
+| **Added value / FTE** | (Added value ÷ FTE) × (365 ÷ days in the period) |
+| **EBITDA / FTE** | (EBITDA ÷ FTE) × (365 ÷ days in the period) |
+| **Costs / FTE** | (Personnel costs ÷ FTE) × (365 ÷ days in the period) |
+
+The factor 365 ÷ days in the period converts a period shorter or longer than a year to a full year. For a regular financial year of 365 days, it's 1.
+
+**Example:** in 2025, an administration had a turnover of € 7.352.621,59 and 9,90 FTE. Its turnover per FTE is € 7.352.621,59 ÷ 9,90 = € 742.689,05.
+
+## Personnel costs
+
+**Personnel costs** as a KPI card is the personnel costs as a percentage of turnover:
+
+```
+personnel costs % = personnel costs ÷ turnover × 100%
+```
+
+Its change compared with the previous year is in percentage points. See [Vertical delta](/guide/concepts/kpis#vertical-delta).
+
+## Where you find them
+
+The ratios per FTE are also part of the [ratios](/guide/reports/ratios), so you can use them in [triggers](/guide/triggers/how-triggers-work), [peer groups](/guide/benchmarking/peer-groups) and dashboards. They're only available for administrations with social data.

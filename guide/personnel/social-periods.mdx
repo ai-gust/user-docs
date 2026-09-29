@@ -1,11 +1,57 @@
 ---
 title: "Social periods and financial years"
-description: "How aiGust maps financial years to social periods and vice versa."
+sidebarTitle: "Social periods"
+description: "How aiGust fits social balance sheets of any length onto the financial years, quarters and periods of an administration."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Social balance sheets don't always cover the same stretch of time as the financial years of an administration. One covers a calendar year, another a single month, and some overlap. aiGust makes them fit in two steps:
 
-## To cover
+1. It spreads every social balance sheet over **months**.
+2. It combines those months into the **financial periods** of the administration, and from there into quarters, year-to-date figures and financial years.
 
-- Mapping rules
-- Examples
+## Three kinds of figures
+
+How aiGust spreads and combines a figure depends on what kind of figure it is:
+
+| Kind | Example | To months | From months to a financial period |
+|---|---|---|---|
+| **An average over the period** | The average number of employees in FTE | Every month gets the same value. | The average of the months. |
+| **A total over the period** | The number of hours worked | Divided evenly over the months. | The sum of the months. |
+| **A value at the end of the period** | The split between labour workers, office workers and management | Only the last month gets the value. | The value of the month in which the period ends. |
+
+## Overlapping social balance sheets
+
+When several social balance sheets cover the same month, aiGust uses the most detailed one. A monthly social balance sheet wins over a yearly one. If there are still several, aiGust uses the most recent one.
+
+## Missing months
+
+- **A gap between two months with figures:** aiGust fills it with the average of the months around it.
+- **Months before the first or after the last social balance sheet:** no figures.
+
+For averages and totals, a financial period only gets a value if aiGust has a value for every month in it. Otherwise, the personnel KPIs for that period stay empty.
+
+## Example
+
+An administration's financial year runs from 1 July 2025 to 30 June 2026. aiGust has:
+
+- a social balance sheet for the calendar year 2025: 10 FTE on average and 15,600 hours worked;
+- monthly social balance sheets from January to June 2026: 12 FTE and 1,500 hours worked each month.
+
+**Step 1, to months:**
+
+| Months | FTE | Hours worked | Source |
+|---|---|---|---|
+| July to December 2025 | 10 | 1,300 (15,600 ÷ 12) | The yearly social balance sheet of 2025 |
+| January to June 2026 | 12 | 1,500 | The monthly social balance sheets |
+
+**Step 2, to the financial year 2025–2026:**
+
+- **FTE:** the average of the 12 months: (6 × 10 + 6 × 12) ÷ 12 = 11.
+- **Hours worked:** the sum of the 12 months: 6 × 1,300 + 6 × 1,500 = 16,800.
+- **The split between labour workers and office workers:** the value of June 2026, the month in which the financial year ends.
+
+## How precise the figures are
+
+A figure is only as precise as the social balance sheets behind it. Monthly social balance sheets give you real figures for each month and each quarter. With only a yearly social balance sheet, every month gets the same average, so the quarters don't show how the staff changed within the year.
+
+That's why [Partena](/guide/personnel/data-sources#where-aigust-gets-it), with a social balance sheet every month, gives you a more accurate view than a yearly social balance sheet from Silverfin.
