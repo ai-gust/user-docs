@@ -1,14 +1,98 @@
 ---
-title: "Capital gains tax basics"
-description: "What the capital gains tax is and what the aiGust module helps you with."
+title: "The capital gains tax"
+sidebarTitle: "Basics"
+description: "What the Belgian capital gains tax on financial assets is, why shares in your clients' companies need a valuation on 31 December 2025, and how aiGust helps."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Since 1 January 2026, Belgium taxes the gains you realise when you sell financial assets. That includes the shares of a company that isn't listed on the stock exchange, so most companies in aiGust. aiGust calculates the valuation of those shares with the formula from the law, and lets you simulate the tax on a sale with your client.
 
-## To cover
+<Note>
+aiGust gives you an estimate to simulate with your client. It isn't tax advice, and it doesn't file anything with the tax authorities.
+</Note>
 
-- Goal of the module
-- The snapshot moment
-- Legal formula vs official valuation
-- Shareholder structure
-- Exemptions
+## What's taxed
+
+The tax applies to gains on financial assets, such as:
+
+- shares of companies that aren't listed on the stock exchange;
+- listed shares, ETFs and similar products;
+- cryptocurrency;
+- foreign currency, for example 10,000 USD;
+- gold, silver and other precious metals.
+
+## When you're taxed
+
+Usually, you're taxed when you realise the gain: when you sell the asset. When the asset changes hands in another way, for example through an inheritance or a gift, you're taxed at the moment of that transfer.
+
+## How the gain is calculated
+
+The gain is the value when you sell, minus the value when you bought:
+
+```
+gain = sale value − start value
+```
+
+For assets you already had before 2026, the start value is their value on 31 December 2025. See [The snapshot on 31 December 2025](#the-snapshot-on-31-december-2025).
+
+If you paid more for the asset than its value on 31 December 2025, you can use the real purchase price as the start value instead. That's only possible when you sell before 2031.
+
+## How much tax you pay
+
+How you're taxed depends on your share in the company when you sell.
+
+### A share below 20%
+
+With less than 20% of the shares, you pay 10% on the gain.
+
+You also get an exemption of 10,000 euros a year. For each year in the last five years you didn't use the exemption, it grows by 1,000 euros, up to 15,000 euros.
+
+The exemption counts for all your gains in a year together. So if you sell listed shares and shares of a company in the same year, you only get the exemption once.
+
+### A share of 20% or more
+
+With 20% or more of the shares, you pay tax in brackets. There's no exemption, but the first million is tax-free:
+
+| Gain | Tax rate |
+|---|---|
+| Up to 1 million euros | 0% |
+| 1 to 2.5 million euros | 1.25% |
+| 2.5 to 5 million euros | 2.5% |
+| 5 to 10 million euros | 5% |
+| More than 10 million euros | 10% |
+
+## Who reports the tax
+
+For listed shares and other assets at a bank or broker, the bank or broker usually withholds the tax. You can opt out and report the tax yourself.
+
+For other assets, such as the shares of your client's company, you report yourself what you have, what you sold and what gain you realised.
+
+## The snapshot on 31 December 2025
+
+The law came into force on 1 January 2026, so gains from before that date aren't taxed. That's why every asset gets a value on 31 December 2025, which becomes its start value:
+
+- **Listed shares and other assets at a bank or broker:** the bank or broker, or you, record their value on that date.
+- **Shares of a company that isn't listed:** you need a valuation. That's where aiGust helps.
+
+### Valuing a company that isn't listed
+
+You have two options:
+
+- **A valuation by an expert**, such as a company auditor. That costs several thousand euros.
+- **The formula from the law:**
+
+  ```
+  company value = 4 × EBITDA + equity
+  ```
+
+aiGust calculates the formula for you. It uses the figures of the last financial year that closed before 1 January 2026. For a financial year that runs until 31 December, that's 2025. If the financial year closes on 30 June, it's the financial year 2024–2025.
+
+The formula uses the **EBITDA** from the [profit and loss](/guide/reports/definitions/profit-and-loss) and the equity from the [balance sheet](/guide/reports/definitions/balance-sheet). You find it as the ratio **Valuation according to the legally provided formula**. See [Ratios](/guide/reports/ratios#valuation).
+
+## What aiGust does for you
+
+- It calculates the value of the company with the formula from the law, at the end of every financial year since 2025.
+- You add your own valuations, such as the one from an expert, or a simulated sale price.
+- You compare a start value with a sale value, and see the gain and the tax.
+- You try out other shares and exemptions, and show the simulation to your client in a meeting.
+
+See [Calculate the capital gains tax](/guide/capital-gains-tax/calculate).

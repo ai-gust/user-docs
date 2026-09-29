@@ -1,14 +1,148 @@
 ---
-title: "Calculate capital gains tax"
-description: "Define start and end valuations, run simulations and calculate the tax."
+title: "Calculate the capital gains tax"
+sidebarTitle: "Calculate"
+description: "Pick an acquisition value and a selling price, set the participation and the exemption, and simulate the capital gains tax on a sale."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust calculates the capital gains tax when your client sells their shares in the company. You pick the value at the start and the selling price. aiGust then shows the gain and the tax. For the rules behind it, see [The capital gains tax](/guide/capital-gains-tax/basics).
 
-## To cover
+Click **Reports** in the administration menu, and choose **Capital Gain Tax**.
 
-- Start and end valuation
-- Official formula
-- Simulations: creating and saving
-- Entering an official valuation
-- Tax calculation and what influences it
+<Frame caption="The capital gains tax of an administration.">
+  <img src="/images/capital-gains-tax/page.jpg" alt="Capital Gain Tax page with three sections. Value Evolution shows a chart with the Acquisition Value of 2,204,239.58 euros (31/12/2025, Legal Formula), a Change of 1,795,760.42 euros (+81.47%) and a Selling price of 4,000,000 euros (12/03/2026, Valuation), with a Valuation Overview button. Share Percentage shows a Starting Participation of 100% and the toggle Starting Participation = Ending Participation switched on. Tax Calculation shows the Realized Capital Gain, the trenches 0 to 1 million and 1 to 2.5 million euros, and an Estimated Tax to Pay of 9,947 euros." />
+</Frame>
+
+The page has three sections:
+
+| Section | What it shows |
+|---|---|
+| **Value Evolution** | The **Acquisition Value** on the left, the **Selling price** on the right, and the **Change** in between. |
+| **Share Percentage (%)** | The **Starting Participation** and the **Participation at Sale**: the part of the company your client owns. |
+| **Tax Calculation** | The gain on your client's part, the tax per rate, and the **Estimated Tax to Pay**. |
+
+## Choose the acquisition value and the selling price
+
+1. Under **Acquisition Value**, open the dropdown and choose the value at the start. Usually, that's the value on 31 December 2025, marked with a camera icon.
+2. Under **Selling price**, open the dropdown and choose the value of the sale. Or choose **Simulate a value**. See [Simulate a selling price](#simulate-a-selling-price).
+
+<Frame caption="Choose a valuation.">
+  <img src="/images/capital-gains-tax/valuation-dropdown.jpg" alt="The Selling price dropdown opened, with Simulate a value at the top, then 31/12/2026 Legal Formula, 12/03/2026 Valuation (selected), 01/01/2026 Valuation, and 31/12/2025 Legal Formula with a camera icon." />
+</Frame>
+
+Each valuation has a date and a type:
+
+| Type | What it is |
+|---|---|
+| **Legal Formula** | aiGust calculates it at the end of every financial year: 4 × EBITDA + equity. The one closest before 1 January 2026 has the camera icon: that's the photo moment. |
+| **Valuation** | A valuation you added yourself, for example from an expert, or a selling price you simulated and saved. |
+
+The acquisition value has to come before the sale. If you choose an acquisition value with a later date than the selling price, aiGust shows an error: "The chosen acquisition or start date is after the end date of the valuation. Please check the selected start and end valuation."
+
+<Frame caption="The acquisition value comes after the selling price.">
+  <img src="/images/capital-gains-tax/date-error.jpg" alt="Value Evolution with an Acquisition Value of 31/12/2026 Legal Formula and a Selling price of 01/01/2026 Valuation. Below the Share Percentage section, an orange error: The chosen acquisition or start date is after the end date of the valuation. Please check the selected start and end valuation." />
+</Frame>
+
+## Set the participation
+
+Your client doesn't always own the whole company, and their part can change over time. Say your client owned 100% in 2022. In 2026, an investor buys new shares, and your client's part drops to 60%. In 2028, your client sells their 60%.
+
+The gain is then the value of your client's part at the sale, minus the value of their part at the start:
+
+```
+gain = participation at sale × selling price − starting participation × acquisition value
+```
+
+In the example: 60% of the selling price, minus 100% of the value on 31 December 2025.
+
+Under **Share Percentage (%)**, set the parts with the sliders:
+
+- **Starting Participation:** the part your client owned at the acquisition value.
+- **Participation at Sale:** the part your client sells.
+
+By default, **Starting Participation = Ending Participation** is on, and both are the same. Turn it off to set a different **Participation at Sale**.
+
+aiGust calculates for one shareholder: your client. It doesn't list all the shareholders of the company.
+
+To keep a participation, click the save icon next to **Starting Participation** or **Participation at Sale**. aiGust saves it in the chosen valuation, as its share percentage.
+
+The **Participation at Sale** also decides how the gain is taxed:
+
+- **Below 20%:** the minority rate of 10%, with an exemption.
+- **20% or more:** in trenches, with the first million tax-free.
+
+See [How much tax you pay](/guide/capital-gains-tax/basics#how-much-tax-you-pay).
+
+<Frame caption="A participation of 40% at the start and 15% at the sale: a minority stake, taxed at 10%.">
+  <img src="/images/capital-gains-tax/minority-stake.jpg" alt="Capital Gain Tax page with a Starting Participation of 40% and a Participation at Sale of 15%, with the toggle off. Tax Calculation: Starting Value (Own Share) of 881,695.83 euros (40% of 2,204,239.58), Sale Value (Own Share) of 1,500,000 euros (15% of 10,000,000), Realized Capital Gain of 618,304.17 euros, Minority stake - taxed at 10% of 61,830.42 euros, an Exemption slider set to 10,000 euros, and a Tax of 51,830.42 euros." />
+</Frame>
+
+## Read the tax calculation
+
+**Tax Calculation** shows how aiGust gets to the tax:
+
+- **Starting Value (Own Share)** and **Sale Value (Own Share)**: the values of your client's part.
+- **Realized Capital Gain**: the difference.
+- The tax. With a participation of 20% or more, you see one line per trench, such as **Trench €1M - €2.5M**. Below 20%, you see **Minority stake - taxed at 10%** and the **Exemption**.
+- **Tax**, also shown in large as **Estimated Tax to Pay**.
+
+<Frame caption="A participation of 100%: the gain is taxed in trenches.">
+  <img src="/images/capital-gains-tax/simulate-value.jpg" alt="Capital Gain Tax page with Simulate a value chosen as the Selling price and 10,000,000 entered. Participation 100% at the start and the sale. Tax Calculation: Realized Capital Gain of 7,795,760.42 euros, Trench 0 to 1 million at 0%, Trench 1 to 2.5 million at 1.25% (18,750 euros), Trench 2.5 to 5 million at 2.5% (62,500 euros), Trench 5 to 10 million at 5% (139,788.02 euros), and a Tax of 221,038.02 euros." />
+</Frame>
+
+### The exemption
+
+With a minority stake, set the **Exemption** with the slider. It starts at 10,000 euros, and goes up to 15,000 euros.
+
+aiGust doesn't know how much of the exemption your client used this year, or in the past five years. Set it yourself:
+
+- Raise it by 1,000 euros for each year in the last five years your client didn't use the exemption.
+- Lower it if your client already used part of it this year, for example on a sale of listed shares.
+
+## Simulate a selling price
+
+To see what your client would pay for a given price:
+
+1. Under **Selling price**, open the dropdown and choose **Simulate a value**.
+2. Enter the price. The tax calculation updates right away.
+
+To keep the simulation, click the save icon next to the price. In **Save simulated value as valuation**, check the **Valuation Date**, the **Custom Value** and the **Share Percentage (%)**, and click **Confirm**. The simulation becomes a valuation, which you can choose again later, for example in a meeting.
+
+<Frame caption="Save a simulated selling price.">
+  <img src="/images/capital-gains-tax/save-simulated-value.jpg" alt="Save simulated value as valuation dialog, explaining you're about to save the simulated value as a new valuation and can still adjust the details. Fields Valuation Date (29-09-2026), Custom Value (10,000,000 euros), Share Percentage (%) set to 100%, and Report (Expertise) with a drop zone Select files to upload, Max. 50 MB. A Confirm button." />
+</Frame>
+
+## Manage your valuations
+
+Click **Valuation Overview** at the top of **Value Evolution**. **Available Valuations** lists all valuations of the administration, with their date, type, value and share percentage. The photo moment is marked **Photo Moment**.
+
+<Frame caption="The valuations of an administration.">
+  <img src="/images/capital-gains-tax/valuation-overview.jpg" alt="Available Valuations panel next to the Capital Gain Tax page, with an Add New Valuation button and a list: 31/12/2026 Legal Formula 1,984,165.26 euros, 12/03/2026 Valuation 4,000,000 euros, 01/01/2026 Valuation 2,000,000 euros, and 31/12/2025 Legal Formula 2,204,239.58 euros marked Photo Moment, each at 100%." />
+</Frame>
+
+### Add a valuation
+
+When an expert valued the company, or shares changed hands at a known price, add that valuation:
+
+1. Click **Add New Valuation**.
+2. Enter the **Valuation Date** and the **Custom Value**.
+3. Set the **Share Percentage (%)**.
+4. Optionally, add the report of the expert under **Report (Expertise)**, up to 50 MB.
+5. Click **Confirm**.
+
+You can then choose it as the acquisition value instead of the legal formula, or as the selling price.
+
+<Frame caption="Add a valuation, for example from an expert.">
+  <img src="/images/capital-gains-tax/add-valuation.jpg" alt="Add Official Valuation dialog, explaining that if an official valuation took place, for example during a share transfer, you can add it here, and that you can add multiple valuations. Fields Valuation Date, Custom Value (50,000,000 euros), Share Percentage (%) set to 60%, Report (Expertise) with a drop zone, and a Confirm button." />
+</Frame>
+
+### Edit or delete a valuation
+
+Click the three dots next to one of your own valuations, and choose **Edit Valuation** or **Delete Valuation**. You can't edit or delete a **Legal Formula** valuation.
+
+<Frame caption="Edit or delete a valuation.">
+  <img src="/images/capital-gains-tax/valuation-menu.jpg" alt="List of valuations with the three-dots menu of the 12/03/2026 Valuation opened, showing Edit Valuation and Delete Valuation." />
+</Frame>
+
+## In a meeting
+
+Show the calculation to your client with the [Capital Gain Tax](/guide/meetings/widgets/capital-gain-tax) widget. On a slide, it's split into tabs to save space. You can simulate during the meeting, and save the simulation.
