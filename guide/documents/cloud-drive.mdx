@@ -1,0 +1,59 @@
+---
+title: "Cloud drive"
+description: "Store an administration's documents, such as depreciation schedules, in folders, and open the administration's files in Silverfin."
+---
+
+The cloud drive of an administration works like Google Drive: create folders and subfolders, and upload files. Use it for documents from outside aiGust, such as depreciation schedules or meeting reports. You can then show them on a slide with the [External document](/guide/meetings/widgets/external-document) widget.
+
+Click **Documents** in the administration menu, and choose **Cloud drive**.
+
+<Frame caption="The cloud drive of an administration.">
+  <img src="/images/documents/cloud-drive.jpg" alt="Cloud drive page of Bouwwerken Michel, under Documents in the administration menu, with Search, New folder and Upload. Under External Documents, the folder afschrijvingen and the folders Silverfin and Silverfin Period marked External sync. Below, a drop zone Select files to upload, or drag and drop it here." />
+</Frame>
+
+## Who can see the files
+
+The files are private. Only users at your firm with access to the administration can open and download them. Client users don't see the cloud drive in the client portal. That's different from your firm's [branding assets](/setup/branding/branding-assets), which are publicly available. Don't store confidential documents as branding assets.
+
+## Upload files
+
+1. Open the folder you want to upload to.
+2. Click **Upload**, or drag and drop the files onto **Select files to upload** below the list.
+
+You can upload PDF, JPG, PNG and WebP files.
+
+Click the three dots on a file to **Download** or **Delete** it.
+
+## Create a folder
+
+1. Open the folder to add the new folder to.
+2. Click **New folder**.
+3. Enter a **Name**. To create several levels at once, separate them with a slash, for example `2025/depreciation`.
+4. Click **Create**.
+
+<Frame caption="Create a folder.">
+  <img src="/images/documents/new-folder.jpg" alt="New folder dialog explaining that you can create subfolders by naming them, that you separate multiple levels with a slash, and that folders are only visible to you, and only persist, once they have files in them. Below it, a Name field and a Create button." />
+</Frame>
+
+A new folder is only visible to you until you upload a file to it. A folder without files disappears.
+
+Click a folder to open it. The path above the list, such as **External Documents** > **afschrijvingen**, shows where you are. Click a part of it to go back.
+
+<Frame caption="The files in a folder.">
+  <img src="/images/documents/cloud-drive-folder.jpg" alt="The folder afschrijvingen in the cloud drive, with the path External Documents > afschrijvingen and two PDF files, liggend_bestand.pdf and voorbeeld_doc.pdf, with their size and update date." />
+</Frame>
+
+## Files from Silverfin
+
+If the administration is also in your firm's [Silverfin connector](/setup/data/bookkeeping/silverfin), the cloud drive has two extra folders, marked **External sync**:
+
+| Folder | What it holds |
+|---|---|
+| **Silverfin** | The permanent files of the administration in Silverfin. |
+| **Silverfin Period** | The files in Silverfin that belong to a specific period. |
+
+Files you already uploaded to Silverfin, you don't have to upload again.
+
+aiGust doesn't copy these files. When you use one on a slide, aiGust fetches it from Silverfin at that moment.
+
+You can only view and use these files in aiGust. You can't upload, download or delete them here: manage them in Silverfin.

@@ -246,8 +246,7 @@
           {
             "group": "Documents",
             "pages": [
-              "guide/documents/document-drive",
-              "guide/documents/silverfin-documents",
+              "guide/documents/cloud-drive",
               "guide/documents/pdf-reports"
             ]
           },
