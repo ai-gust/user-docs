@@ -1,0 +1,63 @@
+name: Build & deploy docs to Azure Blob Storage - PROD for all tags starting with 'v'
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  MINT_VERSION: "4.2.922"
+  STORAGE_ACCOUNT: stfrontenddocbjy3647eufa
+
+jobs:
+  build-and-deploy:
+    if: startsWith(github.ref, 'refs/tags')
+    runs-on: ubuntu-latest
+
+    environment:
+      name: prod
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Step 3: Check the docs and export them as a static site
+      - name: Check links and export static site
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+        run: |
+          npx --yes mint@${MINT_VERSION} broken-links
+          npx --yes mint@${MINT_VERSION} export --output docs.zip
+          mkdir dist
+          unzip -q docs.zip -d dist
+          # Remove the local preview helpers and sources that mint export ships in the zip
+          rm -rf dist/serve.js "dist/Start Docs.bat" "dist/Start Docs.command" dist/LICENSE dist/.mintignore dist/snippets
+
+      # Step 4: Logon to Azure
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID_PROD }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID_PROD }}
+
+      # Step 5: Upload to Azure Blob storage
+      - name: Upload to Azure Blob storage
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            # Step 1: Remove all existing blobs from the container
+            az storage blob delete-batch --account-name ${{ env.STORAGE_ACCOUNT }} --auth-mode login -s '$web'
+
+            # Step 2: Upload the new files
+            az storage blob upload-batch --account-name ${{ env.STORAGE_ACCOUNT }} --auth-mode login -d '$web' -s dist
