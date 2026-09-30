@@ -88,3 +88,12 @@
   font-weight: 400;
   opacity: 0.75;
 }
+
+/* Welcome page: hide the sidebar (the Welcome tab only has this one page), keep the table of contents on the right */
+body:has(#content[data-page-title="Welcome to aiGust"]) #sidebar-content {
+  display: none !important;
+}
+
+body:has(#content[data-page-title="Welcome to aiGust"]) #content-container {
+  margin-left: 0 !important;
+}

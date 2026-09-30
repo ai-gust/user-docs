@@ -22,12 +22,17 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Welcome",
+        "pages": [
+          "index"
+        ]
+      },
+      {
         "tab": "Set up your firm",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
-              "index",
               "setup/welcome",
               "setup/first-login",
               "setup/onboarding-checklist"
