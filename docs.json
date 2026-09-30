@@ -85,8 +85,7 @@
             "pages": [
               "setup/client-portal/overview",
               "setup/client-portal/invite-client-users",
-              "setup/client-portal/control-what-clients-see",
-              "setup/client-portal/client-experience"
+              "setup/client-portal/control-what-clients-see"
             ]
           },
           {
@@ -213,6 +212,12 @@
             ]
           },
           {
+            "group": "Customers and suppliers",
+            "pages": [
+              "guide/customers-suppliers/overview"
+            ]
+          },
+          {
             "group": "Benchmarking",
             "pages": [
               "guide/benchmarking/how-it-works",
@@ -318,6 +323,14 @@
               },
               "guide/meetings/publish"
             ]
+          },
+          {
+            "group": "Client portal",
+            "pages": [
+              "guide/client-portal/client-view",
+              "guide/client-portal/share",
+              "guide/client-portal/give-access"
+            ]
           }
         ]
       }
@@ -335,5 +348,11 @@
     "body": {
       "family": "Inter"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/setup/client-portal/client-experience",
+      "destination": "/guide/client-portal/client-view"
+    }
+  ]
 }

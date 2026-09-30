@@ -1,11 +1,41 @@
 ---
 title: "Audit trail"
-description: "See which administrations a user accessed, when and what they did."
+description: "See what a user at your firm or a client user did in aiGust, per day and per administration."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust keeps an audit log of what each user does: which administrations they opened, and what they created or changed there. Key users can read it for every user at your firm and every client user.
 
-## To cover
+aiGust keeps the audit log for at least 12 months.
 
-- Where to find the audit trail
-- What is logged
+## Open the audit log of a user
+
+- **A user at your firm:** click **Users** in the firm menu, choose **Employees**, and open the user. Open the **Audit log** tab.
+- **A client user:** click **Users** in the firm menu, choose **Clients**, and open the user. Open the **Audit log** tab. See [Audit log](/setup/client-portal/invite-client-users#audit-log).
+- **From the usage statistics:** click the history icon next to a user in any list. See [Usage statistics](/setup/monitoring/usage-statistics).
+
+Choose the period at the top right, for example **Last 30 days**.
+
+## What the audit log shows
+
+The log is grouped per day, newest first. Within a day, you see:
+
+- **Where** it happened: an administration, or your firm itself for firm-wide settings;
+- **What** the user did, such as **Created meeting** or **Mapped GL account**. Similar actions close together are grouped, with a counter that shows how often, such as **×13**. Saving a meeting, for example, happens automatically while you edit it, so it quickly adds up;
+- **When**, as the time of day.
+
+aiGust records every action and translates it into a readable description. The table below lists the ones you'll see most.
+
+<Frame caption="The audit log of a user at your firm.">
+  <img src="/images/monitoring/audit-log-employee.jpg" alt="User panel with a blurred name, marked Active, on the Audit log tab for the last 30 days. Per day, from 30/09/2026 back to 25/09/2026, entries per administration or for the firm, such as Updated tenant meeting flow ×2, Updated tenant user, Updated meeting ×3, Updated default configuration ×2, Updated configuration ×2, update_comment_thread ×3, Created comment thread, Updated meeting ×13, Created meeting, Updated administration, Mapped GL account and Analyzed result sheet ×3, each with a time. Administration names are blurred." />
+</Frame>
+
+| Action | What the user did |
+|---|---|
+| **Viewed meeting** | Opened a meeting. Mostly seen for client users. |
+| **Created meeting**, **Updated meeting** | Created or changed a meeting. |
+| **Created comment thread** | Added a comment. See [comments](/guide/reports/table/cell-details). |
+| **Updated administration** | Changed the settings of an administration. |
+| **Mapped GL account** | Changed the [label mapping](/guide/concepts/label-mapping) of an account. |
+| **Analyzed result sheet** | Opened the profit and loss. |
+| **Updated tenant meeting flow** | Changed one of your firm's [meeting flows](/configure/meetings/meeting-flows). |
+| **Updated tenant user** | Changed a user at your firm. |

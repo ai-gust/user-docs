@@ -1,0 +1,54 @@
+---
+title: "Give your client access"
+description: "Give someone at your client access to the client portal of an administration, or take it away again."
+---
+
+Give the people at your client access to the [client portal](/guide/client-portal/client-view) of their administration, for example the owner or the CFO. A client user only sees the administrations they have access to. Everyone at your firm with access to the administration can give access.
+
+Each client user has a role:
+
+- **External user (read only)** sees the client portal.
+- **External user (admin)** can also give others at their company access, if your firm allows it. See [Client roles](/setup/client-portal/invite-client-users#client-roles).
+
+## Give access
+
+1. Open the administration, and click **Settings** at the bottom of the administration menu.
+2. Open the **Client access** tab. It lists everyone with access to the client portal of this administration.
+3. Click **Grant Access**.
+4. Enter the **Email** of the person, and click **Next**.
+
+<Frame caption="The client users of an administration.">
+  <img src="/images/client-portal/grant-access.jpg" alt="Client access tab of the administration settings, with Access control, Revoke Access and Grant Access, and a list of client users with their name, blurred email and role. The Grant access dialog is open, asking for the email of the user you want to grant access to, with an empty Email field and a Next button." />
+</Frame>
+
+aiGust checks the email address:
+
+- **The client user already exists,** for example because they already have access to another administration. aiGust says so. Click **Next** to add this administration to the ones they can see.
+- **The email address can't be used,** for example because it belongs to a user at your firm. aiGust shows: "The provided email already exists but cannot be used as an external user."
+- **The email address is new.** Enter the **First name**, **Last name**, **Language** and **Role**. Choose whether to **Send a welcome mail**, and click **Next**. aiGust creates the client user, with access to this administration.
+
+<Frame caption="An email address you can add.">
+  <img src="/images/client-portal/grant-access-ok.jpg" alt="Grant access dialog with a blurred email address and a green message: Click next to grant the user access to this administration." />
+</Frame>
+
+<Frame caption="An email address that can't be used for a client user.">
+  <img src="/images/client-portal/grant-access-error.jpg" alt="Grant access dialog with a blurred email address in a red field and the error: The provided email already exists but cannot be used as an external user." />
+</Frame>
+
+<Frame caption="The details of a new client user.">
+  <img src="/images/client-portal/grant-access-new-user.jpg" alt="Grant access dialog, step 2, saying no existing user was found with the email address and to fill in the information below to create the user. Fields First name and Last name, both required, Language set to English, Role set to External user (read only), and the switch Send a welcome mail turned on. Buttons Back and Next." />
+</Frame>
+
+## Revoke access
+
+To take away someone's access to this administration, click the three dots next to them and choose **Revoke access**. To revoke several at once, select them and click **Revoke Access** at the top. The client user keeps access to their other administrations.
+
+## Edit a client user
+
+Choose **Edit client user** in the same menu to change their name, language or role.
+
+<Frame caption="Edit a client user, or revoke their access.">
+  <img src="/images/client-portal/client-access-menu.jpg" alt="Access control list with blurred email addresses and the three-dots menu of one client user opened, showing Edit client user and Revoke access." />
+</Frame>
+
+To give someone access to several administrations at once, a key user can add them from the list of all client users. See [Invite and manage client users](/setup/client-portal/invite-client-users).

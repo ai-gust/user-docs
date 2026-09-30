@@ -1,12 +1,96 @@
 ---
 title: "Invite and manage client users"
-description: "Create client users and grant or revoke their access."
+description: "Give client users access to the client portal, from an administration or for your whole firm, and manage their accounts."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+A client user is someone outside your firm, usually at your client, who uses the [client portal](/guide/client-portal/client-view). A client user only sees the administrations you give them access to. By default, that's none.
 
-## To cover
+You can give access in two ways:
 
-- Firm-level overview of external users
-- Granting and revoking access on administration level
-- Client roles
+- **From the list of all client users,** under **Users** > **Clients** in the firm menu, as described on this page. Use it to give someone access to several administrations or administration groups at once, and to manage all client users of your firm.
+- **From one administration,** on its **Client access** tab. See [Give your client access](/guide/client-portal/give-access).
+
+## Client roles
+
+Each client user has a role:
+
+| Role | What they can do |
+|---|---|
+| **External user (read only)** | See the client portal of the administrations they have access to. |
+| **External user (admin)** | The same, and give others access to those administrations on the **Users** tab of the client portal, if your firm turned that tab on. See [Should clients manage users?](/setup/client-portal/control-what-clients-see#should-clients-manage-users) |
+
+## Add a client user for your firm
+
+1. Click **Users** in the firm menu, and choose **Clients**.
+2. Click **Add**.
+3. **Client details:** enter the **First name**, **Last name**, **Email**, **Language** and **Role**, and click **Next**.
+4. **Link administration to client:** choose the **Access type**:
+   - **Administration groups**, to give access to all administrations in one or more [administration groups](/setup/users/administration-groups);
+   - **Administrations**, to pick single administrations.
+5. **Link administrations:** select the groups or administrations, and click **Next**.
+6. **Finish client set up:** choose whether to **Send a welcome email to the user**, and click **Submit**.
+
+<Frame caption="Step 1: the details of the client user.">
+  <img src="/images/client-portal/add-client-details.jpg" alt="Add new client dialog, step 1 of 4, Client details, with First name Dimitri, Last name De Tremmerie, Email dimi@ddt.ok, Language Nederlands and Role External user (read only), and a Next button. Behind it, the Access control list of client users, blurred." />
+</Frame>
+
+<Frame caption="Steps 2 and 3: the administrations the client user can see.">
+  <img src="/images/client-portal/add-client-administrations.jpg" alt="Add new client dialog, step 3 of 4, Link administrations, with De Wanbetalers selected and the Select administrations list open, showing Garage DDT, Eddy Merckx Cannibal Cycling, Bakkerij Het roggeverdoemeke, Eigen Kweek, Sarma Jeanine De Bolle, Delphine Boel and Machines & more." />
+</Frame>
+
+<Frame caption="Step 4: send the welcome email, or not.">
+  <img src="/images/client-portal/add-client-finish.jpg" alt="Add new client dialog, step 4 of 4, Finish client set up: We've got all the info we need, with the switch Send a welcome email to the user turned on. Buttons Back and Submit." />
+</Frame>
+
+### The welcome email
+
+The welcome email lets your client sign in, or set a password. It's the **Client welcome email** in your [email templates](/setup/branding/email-templates). See [Sign in to aiGust](/guide/getting-started/log-in).
+
+If you don't send it, tell your client yourself how to sign in. You can send it later with **Resend welcome email**.
+
+## Manage client users
+
+**Users** > **Clients** lists all client users of your firm, with their email address, role and whether they're active. Filter the list by **Status** or **User Role**, search it, or click **Export** to download it.
+
+<Frame caption="All client users of your firm.">
+  <img src="/images/client-portal/clients-list.jpg" alt="Access control page under Users > Clients in the firm menu, with Search, Add, the filters Status and User Role, and Export. The list shows client users with blurred names and email addresses, their role, External user (admin) or External user (read only), and a check mark under Active. The first user is greyed out, without a check mark." />
+</Frame>
+
+Click the three dots next to a client user:
+
+| Option | What it does |
+|---|---|
+| **Edit** | Opens the client user. See below. |
+| **Activate/deactivate** | Blocks or allows their access to the client portal. A deactivated user can't sign in, and is greyed out in the list. |
+| **Resend welcome email** | Sends the welcome email again, for example when the link expired. |
+| **Delete** | For now, the same as deactivating: the client user stays in the list, but can't sign in. |
+
+<Frame caption="The options of a client user.">
+  <img src="/images/client-portal/clients-menu.jpg" alt="Three-dots menu of a client user with Edit, Activate/deactivate, Resend welcome email and Delete." />
+</Frame>
+
+### Profile
+
+The **Profile** tab holds the name, email address, **Language** and **User Role** of the client user. Change what you need, and click **Save**.
+
+<Frame caption="The profile of a client user.">
+  <img src="/images/client-portal/user-profile.jpg" alt="Client user panel for Bart Test, marked Active, on the Profile tab: Personal details with First name, Last name, a blurred Email and Language Nederlands, Bèta tester with the switch Is a bèta tester, and Role with User Role External user (read only). Buttons Resend welcome email and Save." />
+</Frame>
+
+### Administration access
+
+The **Administration access** tab lists the **Administrations** and **Administration groups** the client user can see. Click **+** to add one, or **−** to remove it. The client user only sees what's on this list: all other administrations are blocked.
+
+<Frame caption="The administrations a client user can see.">
+  <img src="/images/client-portal/user-administration-access.jpg" alt="Client user panel for Bart Test on the Administration access tab, saying the administrations you add to this list are the only ones the user will see in aiGust and all other administrations will be blocked. Under Administrations, Bouwwerken Michel with a minus button, and under Administration groups, No administration groups selected, each with a plus button." />
+</Frame>
+
+### Audit log
+
+The **Audit log** tab shows what the client user did, per day and per administration, for example **Viewed meeting**. Choose the period at the top right.
+
+<Frame caption="What a client user did.">
+  <img src="/images/client-portal/user-audit-log.jpg" alt="Client user panel, with a blurred name, on the Audit log tab with the period Last 30 days. On 30/09/2026, one entry for a blurred administration: Viewed meeting ×4 at 09:58." />
+</Frame>
+
+For how actively your clients use the portal, see [Usage statistics](/setup/monitoring/usage-statistics).
