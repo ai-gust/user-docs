@@ -23,19 +23,127 @@ The log is grouped per day, newest first. Within a day, you see:
 - **What** the user did, such as **Created meeting** or **Mapped GL account**. Similar actions close together are grouped, with a counter that shows how often, such as **×13**. Saving a meeting, for example, happens automatically while you edit it, so it quickly adds up;
 - **When**, as the time of day.
 
-aiGust records every action and translates it into a readable description. The table below lists the ones you'll see most.
+aiGust records every action and translates it into a readable description. See [All actions](#all-actions) for the full list.
 
 <Frame caption="The audit log of a user at your firm.">
   <img src="/images/monitoring/audit-log-employee.jpg" alt="User panel with a blurred name, marked Active, on the Audit log tab for the last 30 days. Per day, from 30/09/2026 back to 25/09/2026, entries per administration or for the firm, such as Updated tenant meeting flow ×2, Updated tenant user, Updated meeting ×3, Updated default configuration ×2, Updated configuration ×2, update_comment_thread ×3, Created comment thread, Updated meeting ×13, Created meeting, Updated administration, Mapped GL account and Analyzed result sheet ×3, each with a time. Administration names are blurred." />
 </Frame>
 
+## All actions
+
+The actions you'll see most are **Viewed administration**, **Viewed meeting**, **Updated meeting** and **Mapped GL account**. Below is the full list, grouped by where in aiGust they happen.
+
+### Administrations
+
+| Action | What the user did |
+|---|---|
+| **Viewed administration** | Opened an administration. |
+| **Created administration** | Added an administration, for example from an [Excel import](/setup/data/bookkeeping/excel-import). |
+| **Updated administration** | Changed the [details](/guide/dashboard/administration-properties) of an administration. |
+| **Updated NACE code** | Changed the economic activity of an administration. See [Sectors and company types](/guide/concepts/sectors-and-company-types). |
+| **Followed administration** | [Followed](/guide/getting-started/navigation#follow-the-administrations-you-work-on) an administration. |
+| **Filtered administrations** | Filtered the list of administrations. |
+| **Searched administrations with KPI filters**, **Created administration filter group**, **Updated administration filter group**, **Deleted administration filter group** | Searched the list of administrations on KPIs, or saved, changed or deleted such a search. |
+| **Started administration sync** | Started a [sync](/guide/dashboard/data-sync#start-a-sync) of an administration. |
+| **Set administration connector priority** | [Switched the data source](/guide/dashboard/data-sync#switch-the-data-source) of an administration. |
+
+### Mapping and reports
+
+| Action | What the user did |
+|---|---|
+| **Mapped GL account** | Changed the [label mapping](/guide/concepts/label-mapping) of an account. |
+| **Updated fixed/variable mapping** | Changed the [fixed/variable split](/guide/reports/definitions/profit-and-loss#set-the-fixedvariable-split) of an account. |
+| **Analyzed result sheet** | Opened the profit and loss. |
+| **Created configuration**, **Updated configuration**, **Deleted configuration**, **Updated default configuration** | Changed how a report or dashboard of an administration looks. |
+| **Updated user configuration**, **Deleted user configuration** | Changed their own view settings. See [Personalise aiGust](/guide/getting-started/personalise). |
+
+### Comments
+
+| Action | What the user did |
+|---|---|
+| **Created comment thread**, **Added comment** | Started a [comment](/guide/reports/comments), or replied to one. |
+| **Updated comment thread**, **Updated comment** | Changed a comment. |
+| **Deleted comment thread**, **Deleted comment** | Deleted a comment. |
+| **Resolved thread** | [Resolved](/guide/reports/comments#resolve-a-comment) a comment. |
+
+### Meetings
+
 | Action | What the user did |
 |---|---|
 | **Viewed meeting** | Opened a meeting. Mostly seen for client users. |
-| **Created meeting**, **Updated meeting** | Created or changed a meeting. |
-| **Created comment thread** | Added a comment. See [comments](/guide/reports/comments). |
-| **Updated administration** | Changed the settings of an administration. |
-| **Mapped GL account** | Changed the [label mapping](/guide/concepts/label-mapping) of an account. |
-| **Analyzed result sheet** | Opened the profit and loss. |
-| **Updated tenant meeting flow** | Changed one of your firm's [meeting flows](/configure/meetings/meeting-flows). |
-| **Updated tenant user** | Changed a user at your firm. |
+| **Created meeting**, **Updated meeting**, **Deleted meeting** | Created, changed or deleted a meeting. Saving happens automatically while you edit, so **Updated meeting** quickly adds up. |
+| **Created discussion point**, **Updated discussion point** | Added or changed a [note](/guide/meetings/notes-and-summaries). |
+| **Toggled public visibility** | Made a note public or private. |
+| **Translated text** | Translated a text, such as a title in a meeting flow. |
+| **Created meeting flow**, **Updated meeting flow**, **Deleted meeting flow**, **Updated meeting flow visibility** | Changed a [meeting flow](/configure/meetings/meeting-flows). |
+| **Created tenant meeting flow**, **Updated tenant meeting flow**, **Updated tenant meeting flow visibility** | Changed one of your firm's meeting flows. |
+| **Created meeting type** | Added a [meeting type](/configure/meetings/meeting-types). |
+
+### Forecasts and capital gains tax
+
+| Action | What the user did |
+|---|---|
+| **Created forecast**, **Updated forecast**, **Deleted forecast** | Created, changed or deleted a [forecast](/guide/forecasts/how-forecasts-work). |
+| **Created forecast scenario**, **Updated forecast scenario**, **Deleted forecast scenario** | Created, changed or deleted a scenario of a forecast. |
+| **Created valuation**, **Updated valuation**, **Deleted valuation**, **Uploaded valuation document** | Changed a [valuation](/guide/capital-gains-tax/calculate) for the capital gains tax. |
+
+### Peer groups
+
+| Action | What the user did |
+|---|---|
+| **Created custom peer group**, **Updated peer group**, **Deleted custom peer group** | Created, changed or deleted a [peer group](/guide/benchmarking/peer-groups). |
+| **Validated peer group**, **Queued peer group recalculation** | Checked a peer group, or asked aiGust to calculate it again. |
+
+### Documents
+
+| Action | What the user did |
+|---|---|
+| **Uploaded external document**, **Checked existing documents** | Uploaded a document, for example to the [cloud drive](/guide/documents/cloud-drive). aiGust first checks whether it already exists. |
+| **Deleted external document**, **Deleted external documents** | Deleted one or more documents. |
+
+### Triggers and alerts
+
+| Action | What the user did |
+|---|---|
+| **Created trigger**, **Updated trigger**, **Deleted trigger** | Created, changed or deleted a [custom trigger](/configure/triggers/custom-triggers). |
+| **Updated trigger subscription** | Turned a [built-in trigger](/configure/triggers/built-in-triggers) on or off. |
+| **Synced tenant alerts for trigger** | Checked a trigger right away, instead of waiting for the daily check. |
+| **Updated alert status**, **Disabled alert** | Changed or [disabled](/guide/triggers/alerts#snooze-or-disable-an-alert) an alert. |
+| **Added snoozed administrations**, **Added disabled administrations**, **Enabled administrations** | Snoozed, disabled or enabled an alert for one or more administrations. |
+
+### Client portal and client users
+
+| Action | What the user did |
+|---|---|
+| **Created client user**, **Updated client user** | Added or changed a [client user](/setup/client-portal/invite-client-users). |
+| **Added administration to client users**, **Removed client users from administration** | [Gave or took away access](/guide/client-portal/give-access) to an administration. |
+| **Updated administration client portal settings**, **Deleted administration client portal settings** | Changed [what one client sees](/guide/client-portal/share), or went back to the firm's settings. |
+| **Updated tenant client portal settings** | Changed [what clients see](/setup/client-portal/control-what-clients-see) for the whole firm. |
+
+### Users at your firm
+
+| Action | What the user did |
+|---|---|
+| **Created tenant user**, **Updated tenant user**, **Disabled tenant user** | Added, changed or deactivated a [user at your firm](/setup/users/manage-users). |
+| **Granted administration access** | Gave a user access to administrations. See [Restrict administration access](/setup/users/restrict-access). |
+| **Updated user profile** | Changed their own [profile](/guide/getting-started/personalise). |
+
+### Your firm's settings
+
+| Action | What the user did |
+|---|---|
+| **Updated tenant**, **Updated tenant configuration** | Changed the settings of your firm, for example under **Workspace**. |
+| **Updated tenant theme**, **Uploaded tenant logo**, **Uploaded tenant branding file**, **Deleted tenant branding file** | Changed your firm's [branding](/setup/branding/portal). |
+| **Updated email template** | Changed an [email template](/setup/branding/email-templates). |
+| **Updated email settings**, **Sent test email** | Changed the [mail settings](/setup/branding/mail-settings), or sent a test email. |
+| **Added connector**, **Updated connector**, **Authenticated connector**, **Deleted connector** | Changed a [connector](/setup/data/overview). |
+| **Updated connector access lists** | Changed which administrations a connector imports. See [Include or exclude administrations](/setup/data/bookkeeping/include-exclude-administrations). |
+
+### AI
+
+| Action | What the user did |
+|---|---|
+| **Asked question** | Asked the AI a question. |
+| **Accepted suggestion**, **Dismissed suggestion** | Accepted or dismissed a suggestion from aiGust. |
+
+{/* TODO Bart: check these, they're educated guesses: the "configuration" actions (report or dashboard view?), Validated peer group, Added disabled administrations / Enabled administrations (alerts or connector?), Updated alert status, Asked question (where in aiGust?), Accepted/Dismissed suggestion (mapping, peer group or AI text?), Translated text. Left out on purpose: platform notification, system user and Created tenant actions, which only aiGust support does. */}

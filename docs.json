@@ -274,6 +274,7 @@
                   "guide/meetings/editor",
                   "guide/meetings/customize",
                   "guide/meetings/slide-layouts",
+                  "guide/meetings/titles-and-text",
                   {
                     "group": "Widgets",
                     "pages": [
