@@ -1,0 +1,83 @@
+---
+title: "Transactions"
+description: "See the bookings behind a figure, straight from a report, or search through all transactions of an administration with filters."
+---
+
+A transaction is one booking from the bookkeeping, such as an invoice on the account for restaurant costs. aiGust imports the transactions of each administration, so you can always see which bookings make up a figure.
+
+You see transactions in two ways:
+
+- **From a report or widget,** with the filters already set. This is what you'll use most. See [Transactions behind a figure](#transactions-behind-a-figure).
+- **On the Transactions page,** where you set the filters yourself. See [Search all transactions](#search-all-transactions).
+
+## Only for bookkeeping connectors
+
+Only a [bookkeeping connector](/guide/dashboard/data-sync#bookkeeping-and-compliance-connectors) delivers transactions. An administration from a compliance file, such as Silverfin, only has balances per account. You can't see its transactions, and **Transactions** isn't available in its menu.
+
+## Transactions behind a figure
+
+Wherever aiGust shows a figure, you can usually click it to see the transactions behind it:
+
+- **In the financial reports:** click a figure, and open the **Transactions** tab. See [Transactions](/guide/reports/table/cell-details#transactions).
+- **On the Customers and Suppliers pages:** click an amount. See [See the transactions](/guide/customers-suppliers/overview#see-the-transactions).
+- **In the Top contributors & trends widget** of a meeting. See [Top contributors & trends](/guide/meetings/widgets/top-contributors).
+
+It's the same list as on the **Transactions** page, with the filters already set for that figure: the accounts, the period and, where relevant, the business partner.
+
+## Search all transactions
+
+Click **Transactions** in the administration menu. The list stays empty until you set at least one filter: an administration easily has thousands of bookings.
+
+<Frame caption="The Transactions page before you set a filter.">
+  <img src="/images/transactions/empty.jpg" alt="Transactions page of Bouwwerken Michel, saying you need to define a filter prior to viewing the transactions. A Search based on description field at the top right, the filters From, To, Period, Label, GL account and Business partners, a clear and an apply button, and Export Excel. Below, the message Please set filters to search for transactions and click the apply button." />
+</Frame>
+
+<Steps>
+  <Step title="Set one or more filters">
+    | Filter | Shows the transactions |
+    |---|---|
+    | **From** and **To** | Between two dates. |
+    | **Period** | In one or more financial periods. |
+    | **Label** | On the accounts mapped to one or more [labels](/guide/concepts/labels). |
+    | **GL account** | On one or more accounts. |
+    | **Business partners** | With one or more customers or suppliers. |
+
+    The filters work together. Once you set one, the others only offer what still fits. Choose the account for energy costs, for example, and **Business partners** only lists your energy suppliers.
+  </Step>
+  <Step title="Click the check mark to apply them">
+    The button next to the filters applies them. The cross clears all filters.
+  </Step>
+</Steps>
+
+<Frame caption="The transactions on the restaurant account in two periods, with the Business partners filter open.">
+  <img src="/images/transactions/list.jpg" alt="Transactions page of Bouwwerken Michel with the filters 2 Periods and GL account 1 set, and the Business partners filter open, listing only Walter, Turner and Ruiz, with Clear, All and Apply. The list shows the columns Date, Period, Account, Business partner, Description, Amount and Label: bookings from November and December 2025 on account 614100, all with Walter, Turner and Ruiz, No description, amounts such as € 1.028,90, the label Restaurant with a check mark, and a paperclip icon." />
+</Frame>
+
+Then:
+
+- **Search** in the description with **Search based on description**.
+- **Sort** by date, description or amount.
+- **Export** the list with **Export Excel**.
+
+### Find options in a filter
+
+Some filters have many options, such as **GL account** with hundreds of accounts. Type in the search field at the top of the filter to find them.
+
+<Frame caption="Search in a filter, and show only what you selected.">
+  <img src="/images/transactions/filter-search.jpg" alt="GL account filter opened, with a search field and a button on its right to switch between starts with and contains, a 1 selected button that shows only the selected options, and the option 614100 - Restaurant checked. Buttons Clear, All and Apply." />
+</Frame>
+
+- **Contains or starts with:** by default, the search finds options that contain what you type. Type *resta* to find *614100 - Restaurant*. Click the button next to the search field to find only options that start with what you type instead. Type *6141* to find all accounts that start with 6141, and not the ones with 6141 somewhere in the middle.
+- **Only what you selected:** click **selected**, for example **1 selected**, to show only the options you ticked. You don't have to scroll through the whole list to check them.
+- **Clear** unticks everything, **All** ticks everything, and **Apply** confirms your choice.
+
+## Transaction details
+
+Click a transaction to open its **Transaction details**.
+
+<Frame caption="The details of one transaction.">
+  <img src="/images/transactions/details.jpg" alt="Transaction details panel with the tabs Details and Document. The Details tab shows No description, the amount € 215,00, GL account 614100 Restaurant with the label Restaurant and a check mark, Transaction date 2025-12-13, Book period 2025/12 and Business partner Walter, Turner and Ruiz with VAT number BE562995579371." />
+</Frame>
+
+- **Details:** the description, amount, account and its [label](/guide/concepts/label-mapping), the date, the financial period and the business partner.
+- **Document:** the attached document, such as the invoice. The paperclip icon in the list shows that a transaction has one.

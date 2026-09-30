@@ -1,12 +1,72 @@
 ---
 title: "First steps in a new administration"
-description: "What to check the first time you open an administration."
+sidebarTitle: "First steps"
+description: "What to check the first time you open an administration, so its figures, KPIs and benchmarks are right from the start."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust fills in most of a new administration by itself: its figures, its sector and company type, and a label for each account. Those are suggestions. Check them once, the first time you open the administration. Your reports, KPIs, benchmarks and meetings are then right from the start.
 
-## To cover
+It takes a few minutes for most administrations. The label mapping can take longer for a large chart of accounts.
 
-- Confirm sector and company type
-- Check the label mapping
-- Check the fixed/variable mapping, if relevant
+<Steps>
+  <Step title="Verify the sector and company type">
+    The first time you open the administration, the **Please verify the sector and company type** pop-up opens. Check the economic activity and the company type, change them if needed, and confirm. They decide which peers aiGust compares the administration with.
+
+    <Frame caption="The pop-up to verify the sector and company type.">
+      <img src="/images/concepts/sector-verification.jpg" alt="Pop-up titled Please verify the sector and company type, showing economic activity RIZIV-10-S07 Ophtalmologist in sector Healthcare and subsector Specialist Medical Practice, and company type Operating Company, each with a confirm and an edit button" />
+    </Frame>
+
+    See [Verify and change the sector and company type](/guide/concepts/sectors-and-company-types#verify-and-change-the-sector-and-company-type). To verify many administrations at once, use the [list of administrations](/guide/getting-started/navigation#verify-the-sector-and-company-type-of-many-administrations).
+  </Step>
+  <Step title="Check the data source">
+    On the dashboard, the **Data source** widget shows where the figures come from and when they were last synced. Check that it's the right source. A bookkeeping connector gives you more than a compliance file: monthly figures, business partners and transactions.
+
+    See [Data source and sync](/guide/dashboard/data-sync).
+  </Step>
+  <Step title="Check the label mapping">
+    Go to **Settings** › **Mapping**. The **Work to do!** banner shows how many accounts still need checking. Click **Resolve** to go through them one group at a time. Pay most attention to the **Uncertain cases** and the **Unlabeled** accounts. Wrong labels skew the label KPIs, such as energy costs, and the benchmarks.
+
+    <Frame caption="The Work to do! banner shows what's left to check.">
+      <img src="/images/concepts/mapping-work-to-do.jpg" alt="Mapping tab of the administration settings with the Work to do! banner: aiGust did an initial automatic mapping of the chart of accounts and asks you to review it. To check: 8 fairly certain, 1 uncertain cases and 5 unlabeled, with a Resolve button on the right." />
+    </Frame>
+
+    See [Map accounts to labels](/guide/concepts/label-mapping).
+  </Step>
+  <Step title="Split costs into fixed and variable, if you use the contribution margin">
+    To show a contribution margin in the profit and loss, set the variable part of each cost account on the same **Mapping** tab. Skip this step if you don't use it.
+
+    See [Contribution margin](/guide/reports/definitions/profit-and-loss#contribution-margin).
+  </Step>
+  <Step title="Choose a relevant peer group">
+    aiGust compares the administration with a default peer group: companies in the same subsector, or the same subsector and company type. Check whether those peers are really comparable. A small family business and a large group in the same subsector often aren't.
+
+    If they aren't, create a custom peer group, for example with a size range on turnover or employees. Keep a margin above the minimum of 10 peers. See [Tips for a good peer group](/guide/benchmarking/peer-groups#tips-for-a-good-peer-group).
+
+    Then click **Data settings** at the top of the page, and choose the peer group under **Benchmark group**. Everyone who opens the administration, and your client in the client portal, sees the same peer group. See [Select the peer group](/guide/benchmarking/reading-benchmarks#select-the-peer-group).
+  </Step>
+  <Step title="Follow the administration, if you work on it">
+    Click **Follow** at the top of the dashboard. You then find the administration quickly with **Following only**, in the list of administrations and in the alerts. See [Follow the administrations you work on](/guide/getting-started/navigation#follow-the-administrations-you-work-on).
+  </Step>
+  <Step title="Give your client access, if you want">
+    Add the people at your client who should see their figures and meetings in the client portal, on the **Client access** tab.
+
+    See [Give your client access](/guide/client-portal/give-access).
+  </Step>
+</Steps>
+
+## Then get to work
+
+<CardGroup cols={2}>
+  <Card title="Read the dashboard" icon="gauge" href="/guide/dashboard/dashboard">
+    The KPIs of the administration at a glance.
+  </Card>
+  <Card title="Open the financial reports" icon="table" href="/guide/reports/overview">
+    Profit and loss, balance sheet and cash flow, with the benchmarks.
+  </Card>
+  <Card title="Prepare a meeting" icon="presentation-screen" href="/guide/meetings/basics">
+    Turn the figures into a meeting with your client.
+  </Card>
+  <Card title="Make a forecast" icon="chart-line" href="/guide/forecasts/how-forecasts-work">
+    Look ahead with your client.
+  </Card>
+</CardGroup>

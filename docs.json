@@ -218,6 +218,12 @@
             ]
           },
           {
+            "group": "Transactions",
+            "pages": [
+              "guide/transactions/overview"
+            ]
+          },
+          {
             "group": "Benchmarking",
             "pages": [
               "guide/benchmarking/how-it-works",
