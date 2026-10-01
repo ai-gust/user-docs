@@ -1,13 +1,53 @@
 ---
 title: "How administrations are imported"
-description: "How aiGust detects administrations in your bookkeeping connectors and which data it copies."
+description: "How aiGust finds the administrations in your connectors, when it syncs them, and which connector it uses when an administration is in more than one."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+You don't create administrations in aiGust yourself. aiGust finds them in your firm's connectors, and creates them for you.
 
-## To cover
+## The first sync
 
-- How aiGust detects and imports administrations
-- Which data is copied into aiGust
-- What happens when an administration exists in multiple connectors
-- When data is synced: daily batch every 24h plus ad hoc
+The first sync runs during the night after you add a connector. It imports everything:
+
+1. aiGust looks up all active administrations in your software, and creates them in aiGust.
+2. It then imports all their data: the financial years, GL accounts, transactions, business partners, and so on.
+
+Expect the first administrations and figures in aiGust about 24 hours after you add the connector. Finding the administrations is part of the sync, so they don't appear right after you add the connector either.
+
+New administrations that you create later in your software appear in aiGust after the next nightly sync.
+
+### When an administration becomes inactive
+
+When an administration becomes inactive in your software, aiGust deactivates it too, after the next sync:
+
+- It no longer appears in the list of administrations or in search.
+- What your firm made in aiGust, such as meetings and comments, is kept.
+- Its figures, such as the transactions, are deleted. They're no longer used in the [benchmarks](/guide/benchmarking/how-it-works) either.
+
+## Every night
+
+After the first sync, aiGust syncs all connectors every night, every 24 hours. Changes made in the bookkeeping during the day show up in aiGust the next morning.
+
+Every night, aiGust syncs the administrations, financial years and periods in full. For the transactions, it depends on the software:
+
+| Software | Transactions aiGust syncs every night |
+|---|---|
+| Exact Online, Yuki, Horus, Octopus, Odoo | Only what changed since the last sync. |
+| Adsolut, Expert/M | Only what changed in the database since the last sync. |
+| Business Central, Silverfin | Everything, every time. |
+
+For Adsolut and Expert/M, the [agent](/setup/data/bookkeeping/on-premise-agent) sends the data at the times you schedule it.
+
+### Sync one administration right away
+
+Need the changes sooner, for example just before a meeting? Anyone at your firm can sync one administration right away with **Sync now** in the **Data source** widget on its dashboard. See [Data source and sync](/guide/dashboard/data-sync#start-a-sync).
+
+## An administration in more than one connector
+
+The same administration can be in more than one connector, for example in Exact Online for the bookkeeping and in Silverfin for the annual accounts. aiGust recognises it by its VAT number, and creates it only once.
+
+aiGust then uses one connector as the data source of that administration. A bookkeeping connector always comes first: aiGust only uses a compliance connector when there's no bookkeeping connector. Users can switch to another connector in the **Data source** widget of the administration. See [Switch the data source](/guide/dashboard/data-sync#switch-the-data-source).
+
+## Keep administrations out
+
+By default, aiGust imports all active administrations it finds. To import only some of them, or to skip some, use the **Black- & Whitelist**. See [Include or exclude administrations](/setup/data/bookkeeping/include-exclude-administrations).

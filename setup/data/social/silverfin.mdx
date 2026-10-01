@@ -1,12 +1,12 @@
 ---
 title: "Silverfin social data"
-description: "Import social balance sheet data from Silverfin."
+description: "How aiGust gets the social balance sheets from Silverfin, with the Silverfin connector you already have."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Accountants usually enter the social balance sheet in Silverfin, for the annual accounts. The [Silverfin connector](/setup/data/bookkeeping/silverfin) brings those social balance sheets into aiGust too. You don't need a separate connector.
 
-## To cover
+The social balance sheet comes once a year, and only once it's entered in Silverfin. For monthly figures, add a [Partena](/setup/data/social/partena) connector.
 
-- How it relates to the Silverfin bookkeeping connector
-- Setup
-- What is imported
+The social data is fetched separately from the figures. So this works even when aiGust uses a bookkeeping connector, such as Exact Online, for the figures of the administration.
+
+See [Personnel data sources](/guide/personnel/data-sources) for what aiGust does with it.

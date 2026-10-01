@@ -1,12 +1,30 @@
 ---
 title: "Odoo"
-description: "Connect Odoo to aiGust."
+description: "Connect Odoo to aiGust, in the Odoo cloud or on your own server, and choose which databases to sync."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+In Odoo, each company has its own database. With the Odoo connector, you tell aiGust where your Odoo runs, how to sign in, and which databases to sync.
 
-## To cover
+## Add the connector
 
-- Connection type: API
-- Prerequisites
-- Step-by-step setup
+1. Click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+2. Choose **Odoo**, and click **Next**.
+3. Give the connector a **Name**, and fill in the fields below.
+4. Click **Create connector**.
+
+| Field | What to fill in |
+|---|---|
+| **Host (URL without http)** | Where your Odoo runs. For the Odoo cloud, that's `odoo.com`, or something similar. If you host Odoo yourself, fill in the address or IP address of your server. |
+| **Port** | Usually `443`. |
+| **Username** | The Odoo user aiGust signs in with. |
+| **Password or API key** | The password or an API key of that user. |
+| **Databases** | The names of the databases to sync, one per company. Click **+** to add another one. |
+| **Detect databases** | Turn it on to let aiGust find the databases itself, instead of typing them. This only works when you host Odoo yourself, and your server allows it. |
+
+<Frame caption="The connection details of your Odoo.">
+  <img src="/images/data/odoo-config.jpg" alt="Enter configuration details dialog for an Odoo connector, with the Name Odoo connector and an explanation of host and port, databases, and username, password or API key. The fields Host (URL without http) odoo.com, Port 443, Username, Password or API key, and Databases with a plus button and a Detect databases switch. Buttons Back and Create connector." />
+</Frame>
+
+On the Odoo cloud, odoo.com, **Detect databases** doesn't work: Odoo doesn't allow it there. Type the names of the databases instead.
+
+The first administrations and figures appear in aiGust about 24 hours later. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).

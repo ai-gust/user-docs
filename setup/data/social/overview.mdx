@@ -1,13 +1,21 @@
 ---
 title: "Social data overview"
-description: "Where aiGust gets social (personnel) data and how it is linked to administrations."
+description: "Where aiGust gets the social balance sheets of your clients, for personnel reporting."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust's personnel KPIs come from the social balance sheet of an administration: the number of employees in FTE, the hours worked, and so on. See [Personnel data sources](/guide/personnel/data-sources).
 
-## To cover
+aiGust gets social balance sheets from two sources:
 
-- What social data is: the social balance sheet
-- Available sources today: Silverfin and Partena
-- How social data is linked to an administration
-- What is used in personnel reporting (link)
+| Source | What you set up | How up to date |
+|---|---|---|
+| **Silverfin** | Nothing extra: the [Silverfin connector](/setup/data/bookkeeping/silverfin) also brings the social balance sheets. See [Silverfin social data](/setup/data/social/silverfin). | Once a year, once it's entered in Silverfin. |
+| **Partena** | A Partena connector. See [Partena](/setup/data/social/partena). | Every month. |
+
+If an administration has data from both, aiGust uses Partena, because it's the most detailed.
+
+We're working on a third source: the social balance sheets from the National Bank of Belgium.
+
+aiGust links the social balance sheet to the administration by its VAT number.
+
+For all codes of the social balance sheet that aiGust imports, and the KPIs they become, see [Social balance codes](/setup/data/social/social-balance-codes).

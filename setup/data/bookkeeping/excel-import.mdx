@@ -1,13 +1,146 @@
 ---
 title: "Excel import"
-description: "Import bookkeeping data into aiGust from an Excel file."
+description: "Add an administration from Excel files when aiGust can't connect to its bookkeeping: create it, define its financial years, and upload the starting balances and transactions."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+When aiGust has no connector for an administration's bookkeeping, you can import it from Excel files. You create the administration in aiGust, and upload its data step by step.
 
-## To cover
+An Excel import always creates a new administration, from scratch. You can't add historic data from Excel to an administration that comes from a connector: aiGust can't combine financial years from two sources.
 
-- When to use Excel import
-- File format and template
-- Step-by-step import
-- Updating imported data
+<Note>
+Check your files carefully before you upload them. Today, you can't correct or delete data once it's imported.
+</Note>
+
+## The steps
+
+1. [Create the administration.](#step-1-create-the-administration)
+2. [Define the financial years and periods.](#step-2-define-the-financial-years)
+3. [Upload the starting balances.](#step-3-upload-the-starting-balances)
+4. [Upload the transactions.](#step-4-upload-the-transactions)
+
+Steps 2 to 4 are one wizard: **Financial periods and starting balances**.
+
+Each upload step has a template. Download it, and copy your data into the right columns. Your bookkeeping export probably won't match the template right away, so expect some work in Excel to convert it.
+
+## Step 1: Create the administration
+
+1. Click **Data sources** in the firm menu, and choose **Excel imports**.
+2. Click **Add new administration**.
+3. **Basic information:** fill in the **Name**, the **VAT Number** and the **Legal type**. Click **Next**.
+4. **About the company:** search and select the **Economic activity**, and choose the **Company type**. See [Sectors and company types](/guide/concepts/sectors-and-company-types). Click **Next**.
+5. **Address:** fill in the address of the company. Click **Next**.
+6. **Is this correct?:** check the details, and click **Submit**.
+
+<Frame caption="Step 1 of 4: the name, VAT number and legal type.">
+  <img src="/images/data/excel-add-basic.jpg" alt="Add administration dialog, step 1 of 4, Basic information, with the Name FC De Kampioenen, the VAT Number BE9988998782 and the Legal type PLC. A Next button." />
+</Frame>
+
+<Frame caption="Step 2 of 4: the economic activity and company type.">
+  <img src="/images/data/excel-add-company.jpg" alt="Add administration dialog, step 2 of 4, About the company, with the Economic activity 93121 Activities of football clubs, in the sector Sports and subsector Sports club, found by searching for Activities of football clubs, and the Company type Operating Company. Buttons Back and Next." />
+</Frame>
+
+<Frame caption="Step 3 of 4: the address.">
+  <img src="/images/data/excel-add-address.jpg" alt="Add administration dialog, step 3 of 4, Address, with the fields Address line 1, Address line 2, Postal code 1000, City Brussels and Country Belgium. Buttons Back and Next." />
+</Frame>
+
+<Frame caption="Step 4 of 4: check and submit.">
+  <img src="/images/data/excel-add-confirm.jpg" alt="Add administration dialog, step 4 of 4, Is this correct?, listing the Details (name FC De Kampioenen, VAT number BE9988998782, legal type PLC, company type Operating Company), the Economic activity (NACE code Activities of football clubs) and the Location (country BE, city Brussels, postal code 1000). Buttons Back and Submit." />
+</Frame>
+
+The administration now appears in the list of administrations, and on **Excel imports**.
+
+<Frame caption="The administrations imported from Excel.">
+  <img src="/images/data/excel-imports-list.jpg" alt="Excel imports page under Data sources in the firm menu, with an Add new administration button. The list shows FC De Kampioenen, BE9988998782, with an Excel icon as its Bookkeeping connector." />
+</Frame>
+
+## Step 2: Define the financial years
+
+Open the administration. It doesn't have any figures yet: you land on **Import data**, which shows what still needs to be done.
+
+<Frame caption="Import data: the steps to fill the administration.">
+  <img src="/images/data/excel-import-data.jpg" alt="Import data page of the administration FC De Kampioenen, explaining that you import data from Excel files in several steps. Three sections: Administration added, Financial periods and starting balances, open, with a button Financial periods and starting balances, and Transaction import." />
+</Frame>
+
+1. Click **Financial periods and starting balances**.
+2. Click **Add period** for each financial year you'll upload.
+3. For each financial year, fill in:
+   - **Period ID:** the ID of the financial year. aiGust proposes the year, such as *2025*. Use the ID your bookkeeping uses for that financial year, because your transactions will refer to it.
+   - **Period start date** and **Period end date.**
+   - **Booking periods:** how the financial year is split into periods: months, quarters or the whole year.
+4. Click **Next**.
+
+The financial years must follow each other, without gaps.
+
+<Frame caption="Two financial years, each split into quarters.">
+  <img src="/images/data/excel-periods.jpg" alt="Financial periods and starting balances dialog, step Define the periods for the data you will upload, asking for the start and end date of the financial periods and the intervals in which the transactions are booked. Two rows: Period ID 2025 from 01-01-2025 to 31-12-2025, and Period ID 2026 from 01-01-2026 to 31-12-2026, both with Booking periods Quarters and a bin icon. A calendar is open to pick 31 December 2026. Add period buttons above and below, and a Next button." />
+</Frame>
+
+## Step 3: Upload the starting balances
+
+aiGust needs the balance of each GL account at the start of the first financial year you upload. These are mainly the balance sheet accounts: at the start of a financial year, the P&L accounts are zero.
+
+For example: if you start with financial year 2023, give the balances on the first day of financial year 2023.
+
+1. Click **Download beginning balances template file**, and fill it in. The file needs these columns:
+
+   | Column | What to fill in |
+   |---|---|
+   | `first_day` | The first day of the first financial year you upload, for example `01/01/2024`. |
+   | `glaccount_code` | The number of the GL account, for example `400000`. |
+   | `glaccount_description` | The name of the GL account, for example *Customers*. |
+   | `amount_eur` | The balance in euro: debit positive, credit negative. |
+
+2. Drag the file to the dialog, or click **Select a file to upload**. Upload a clean file, with only these columns and your data.
+3. Link each column to the columns of your file, and choose the date format and number format your file uses.
+4. Click **Next**.
+
+Every date must match the date format. Otherwise, you can't continue. Check the amounts too: aiGust leaves an amount it can't read empty.
+
+{/* TODO Bart: exact labels of the column mapping, date format and number format fields (later). */}
+
+<Frame caption="The template for the starting balances.">
+  <img src="/images/data/excel-balances-template.jpg" alt="Spreadsheet with the columns first_day, glaccount_code, glaccount_description and amount_eur, and one row: 01/01/2024, 400000, Customers, 121697." />
+</Frame>
+
+<Frame caption="Upload the starting balances.">
+  <img src="/images/data/excel-beginning-balances.jpg" alt="Financial periods and starting balances dialog, step Beginning balances, asking for the beginning balances of each GL account in a clean Excel file with the required columns first_day, glaccount_code, glaccount_description and amount_eur. A drop zone Select a file to upload, max. 50 MB, and a button Download beginning balances template file. Buttons Back and Next." />
+</Frame>
+
+## Step 4: Upload the transactions
+
+The last step of the wizard is the transactions. Upload all transactions of the financial years you defined. Download the template to see the format.
+
+You can give the amount in one column, or split it into debit and credit:
+
+| Column | One amount | Debit and credit |
+|---|---|---|
+| `date` | The date of the transaction. | The same. |
+| `glaccount_code` | The number of the GL account. | The same. |
+| `glaccount_description` | The name of the GL account. | The same. |
+| `amount_eur` | The amount: debit positive, credit negative. So revenue is negative, and costs are positive. | — |
+| `amount_debit` and `amount_credit` | — | The debit and the credit amount. aiGust calculates the amount as debit minus credit. |
+| `business_partner` | Optional. The customer or supplier. | The same. |
+| `transaction_description` | Optional. The description of the transaction. | The same. |
+
+As with the starting balances, link the columns to your file, and choose the date and number format. Every date must match the date format. An amount aiGust can't read is imported as 0, so check your amounts before you upload.
+
+aiGust places each transaction in the right financial year and period by its date.
+
+{/* TODO Bart: screenshot of the transactions step (later). */}
+
+aiGust then prepares the data and calculates everything. Come back after 10 to 15 minutes: the figures are there.
+
+## Add data later
+
+To add a new financial year later:
+
+1. Define the new financial year, as in [step 2](#step-2-define-the-financial-years).
+2. Upload its transactions, as in [step 4](#step-4-upload-the-transactions). You don't need starting balances again.
+
+Upload all transactions of the period you add. If you upload in the middle of a financial year, make sure you don't miss any transactions.
+
+### Transactions you already uploaded
+
+aiGust only imports the transactions it doesn't have yet. So you can upload a file that partly overlaps with a previous upload.
+
+aiGust recognises a transaction by all its columns, except the amount. If you upload a transaction again with a corrected amount, aiGust sees it as the same transaction, and skips it. You can't correct an amount this way.

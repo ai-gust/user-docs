@@ -1,12 +1,53 @@
 ---
 title: "Include or exclude administrations"
-description: "Prevent specific administrations from appearing in aiGust with a blacklist or whitelist."
+description: "Choose which administrations aiGust syncs from your connectors, with a whitelist or a blacklist."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+By default, aiGust syncs all active administrations it finds in your connectors. To sync only some of them, or to skip some, use the **Black & whitelist**. Click **Data sources** in the firm menu, and choose **Black- & Whitelist**.
 
-## To cover
+| List | Means |
+|---|---|
+| **Whitelist** | aiGust syncs only these administrations, from all connectors. |
+| **Blacklist** | aiGust syncs all administrations, except these. |
 
-- Blacklist vs whitelist
-- How to configure it
-- What happens to administrations already imported
+The lists apply to all connectors of your firm.
+
+<Frame caption="No whitelist and no blacklist: aiGust syncs all administrations.">
+  <img src="/images/data/black-whitelist-empty.jpg" alt="Black & whitelist page, saying to use black- or whitelists to make sure aiGust only syncs the files you really want to sync. Whitelist: No whitelist, all administrations found in your linked connectors are accessible in aiGust, with an Add button. Blacklist: No blacklist, no administrations are blocked from syncing, with an Add button." />
+</Frame>
+
+## Use a whitelist
+
+Use a whitelist when aiGust should only show part of your clients, for example during a pilot with a few administrations.
+
+1. Under **Whitelist**, click **Add**.
+2. Add the administrations by their VAT number. That's the only way to add them.
+3. Check that the whitelist is **Enabled**.
+
+With the switch **Enabled**, you turn the whitelist on or off, without emptying it.
+
+<Frame caption="A whitelist with one administration, turned on.">
+  <img src="/images/data/whitelist.jpg" alt="Black & whitelist page with the Whitelist, holding 1 administration, turned on with the Enabled switch, saying administrations added to this list will be the only ones synced by aiGust, with an Add button. The list shows the VAT number BE3232322222 with a delete button. Below, the Blacklist: No blacklist." />
+</Frame>
+
+## Use a blacklist
+
+Use a blacklist to keep a few administrations out of aiGust, for example administrations you no longer work for, or that you don't want in aiGust at all.
+
+1. Under **Blacklist**, click **Add**.
+2. Add the administrations by their VAT number.
+
+To remove an administration from a list, click the bin icon next to it.
+
+## What happens to administrations already in aiGust
+
+When you blacklist an administration that's already in aiGust, or leave it off the whitelist:
+
+- It disappears right away from the list of administrations and from search.
+- Its figures are deleted after the next nightly sync.
+
+What your firm made in aiGust, such as meetings and comments, is kept. See [When an administration becomes inactive](/setup/data/bookkeeping/how-administrations-are-imported#when-an-administration-becomes-inactive).
+
+## Not the same as restricting access
+
+The **Black & whitelist** decides which administrations aiGust syncs, for your whole firm. To decide which of those administrations one user sees, restrict the access of that user. See [Restrict administration access](/setup/users/restrict-access).

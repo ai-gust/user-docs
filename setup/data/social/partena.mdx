@@ -1,12 +1,29 @@
 ---
 title: "Partena"
-description: "Connect Partena to aiGust to import social data."
+description: "Connect Partena to aiGust to get a social balance sheet every month."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Partena is a social secretariat. With the Partena connector, aiGust gets the social balance sheet of your clients every month. That's much more up to date than the yearly social balance sheet from Silverfin. See [Personnel data sources](/guide/personnel/data-sources).
 
-## To cover
+The Partena connector doesn't bring any bookkeeping data.
 
-- Prerequisites
-- Step-by-step setup
-- What is imported
+## Add the connector
+
+You connect Partena by signing in to Partena and giving aiGust access. You don't need to fill in anything else.
+
+1. Click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+2. Choose **Partena Professional**, and click **Next**.
+3. Give the connector a **Name**, and click **Create connector**.
+4. Click **Activate now**. Sign in to Partena, and give aiGust access.
+
+<Frame caption="Partena only needs a name.">
+  <img src="/images/data/partena-config.jpg" alt="Enter configuration details dialog for a Partena connector, with the Name Partena connector and the buttons Back and Create connector." />
+</Frame>
+
+You come back to aiGust, and get a notification whether the activation succeeded. See [Activate the connector](/setup/data/overview#activate-the-connector).
+
+aiGust gets the clients that the Partena account you sign in with has access to. In Partena, you can create a kind of super user with access to all your clients. Use that one.
+
+<Note>
+The access to Partena expires every 6 months. Someone then has to give access again on the **Activation** tab of the connector. aiGust doesn't warn you yet, so put it in your calendar. See [Activation](/setup/data/connector-status#activation).
+</Note>

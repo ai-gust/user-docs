@@ -1,12 +1,63 @@
 ---
 title: "Business Central"
-description: "Connect Microsoft Dynamics 365 Business Central to aiGust."
+description: "Connect Microsoft Dynamics 365 Business Central to aiGust with the details of an app registration in Microsoft."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+You connect Business Central with an app registration in your Microsoft organisation. aiGust signs in as that app, without a user, and only reads data. You set up its access in two places: in Microsoft Entra, then in each Business Central environment. You need an administrator of your Microsoft organisation and of Business Central for this.
 
-## To cover
+aiGust reads the company information, customers, vendors, GL accounts, accounting periods and GL entries of every company in the environment.
 
-- Connection type: API (online version)
-- Prerequisites
-- Step-by-step setup
+## Step 1: Register aiGust in Microsoft Entra
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and open **Microsoft Entra ID**.
+2. On **Overview**, copy the **Tenant ID**.
+3. Go to **App registrations**, and click **New registration**. Give it a name, for example *aiGust*, and register it.
+4. On the page of the new app, copy the **Application (client) ID**.
+5. Under **Certificates & secrets**, create a new client secret, and copy its value right away. Microsoft only shows it once.
+6. Under **API permissions**, add a permission: **Dynamics 365 Business Central** › **Application permissions** › **API.ReadWrite.All**. Then click **Grant admin consent**.
+
+Business Central has no read-only permission for apps. That's not a risk: what aiGust can do is limited by the permission set you assign in Business Central, in step 2.
+
+<Frame caption="The Tenant ID on the overview of Microsoft Entra ID.">
+  <img src="/images/data/entra-tenant-id.jpg" alt="Microsoft Azure portal, Overview of Microsoft Entra ID, with the Basic information of the organisation: Name, Tenant ID, marked in pink with a copy button, Primary domain and License, all values blurred. On the left, the Manage menu with Users, Groups, App registrations and more." />
+</Frame>
+
+<Frame caption="Register a new app.">
+  <img src="/images/data/entra-app-registrations.jpg" alt="Microsoft Azure portal, App registrations, with the New registration button marked in pink. Below, the tab Owned applications with two applications, their names and Application (client) IDs blurred, created on 1/16/2023 and 4/18/2023." />
+</Frame>
+
+## Step 2: Give the app access in Business Central
+
+Do this in each Business Central environment you want to connect:
+
+1. Open the **Microsoft Entra Applications** page.
+2. Add the **Client ID** of the app, set its **State** to **Enabled**, and grant consent.
+3. Assign a permission set:
+   - **D365 READ**: read access to everything. The simplest option, and the one we recommend.
+   - Or a read-only permission set of your own, if you want to give as little access as possible. It needs read access to Company Information, Customer, Vendor, G/L Account, Accounting Period and G/L Entry, and to Cust. Ledger Entry, Vendor Ledger Entry and their detailed entries. Without those, the sync fails.
+4. Leave the **Company** field of the permission set empty, so it applies to all companies. aiGust syncs every company in the environment, and a company without permissions gives an error.
+
+The app doesn't need a Business Central user licence, and it doesn't need the SUPER permission set.
+
+Microsoft explains these steps in [Using service-to-service authentication](https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/administration/automation-apis-using-s2s-authentication).
+
+## Step 3: Add the connector in aiGust
+
+1. Click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+2. Choose **Microsoft Dynamics 365 Business Central**, and click **Next**.
+3. Give the connector a **Name**, and fill in the fields below.
+4. Click **Create connector**.
+
+| Field | What to fill in |
+|---|---|
+| **Microsoft Tenant ID** | The ID of your Microsoft organisation. |
+| **Environment** | The name of your Business Central environment, for example *Production*. |
+| **Client ID** | The **Application (client) ID** of the app registration. |
+| **Client Secret** | The value of the client secret you created. |
+| **Scope** | Leave it as it is: `https://api.businesscentral.dynamics.com/.default`. |
+
+<Frame caption="The details of your Business Central.">
+  <img src="/images/data/business-central-config.jpg" alt="Enter configuration details dialog for a Business Central connector, with the Name Microsoft Business Central connector (2), the fields Microsoft Tenant ID, Environment, Client ID and Client Secret, and the Scope https://api.businesscentral.dynamics.com/.default. Buttons Back and Create connector." />
+</Frame>
+
+The first administrations and figures appear in aiGust about 24 hours later. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).

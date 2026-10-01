@@ -1,14 +1,34 @@
 ---
 title: "Silverfin"
-description: "Connect Silverfin to aiGust for bookkeeping and fiscal file data."
+description: "Connect Silverfin to aiGust for trial balances, social balance sheets and documents."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Silverfin is a compliance connector. Firms use Silverfin to close the financial year and prepare the tax return. Silverfin itself gets its data from bookkeeping software such as Exact Online or Yuki.
 
-## To cover
+## What aiGust gets from Silverfin
 
-- Connection type: API with OAuth
-- Prerequisites
-- Step-by-step setup
-- How Silverfin files become periods (link to financial periods)
-- Social data from Silverfin: link to the social data page
+- **Trial balances,** converted into the common aiGust format. aiGust gets no transactions and no business partners. See [Bookkeeping and compliance connectors](/guide/dashboard/data-sync#bookkeeping-and-compliance-connectors).
+- **Financial periods,** one per report in Silverfin. See [Compliance connectors](/guide/concepts/financial-periods#compliance-connectors).
+- **The social balance sheet,** for personnel reporting. See [Silverfin social data](/setup/data/social/silverfin).
+- **Documents** of the administration, in the cloud drive. See [Files from Silverfin](/guide/documents/cloud-drive#files-from-silverfin).
+
+Silverfin doesn't tell aiGust what changed. So aiGust syncs everything from Silverfin, every night.
+
+When an administration is in Silverfin and in a bookkeeping connector, aiGust uses the bookkeeping connector for the figures. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported#an-administration-in-more-than-one-connector).
+
+## Add the connector
+
+1. Sign in to Silverfin, and look at the address in your browser, for example `https://live.getsilverfin.com/f/5789/854412/ledgers/...`.
+2. In aiGust, click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+3. Choose **Silverfin**, and click **Next**.
+4. Give the connector a **Name**.
+5. Under **Your Silverfin domain & firm ID**, fill in the parts of that address: the domain, usually `live`, and the firm ID: the number after `/f/`, here `5789`. Click **Create connector**.
+6. Click **Activate now**. Sign in to Silverfin, and give aiGust access.
+
+<Frame caption="Fill in your Silverfin domain and firm ID.">
+  <img src="/images/data/silverfin-config.jpg" alt="Enter configuration details dialog for a Silverfin connector, with the Name Silverfin connector (2) and the instructions: log in to Silverfin, copy the URL you see in your browser, fill in the missing fields below, and don't forget to activate the connector in the next step. Under Your Silverfin domain & firm ID: https://, live, .getsilverfin.com/, an empty firm ID field and /... Buttons Back and Create connector." />
+</Frame>
+
+You come back to aiGust, and get a notification whether the activation succeeded. See [Activate the connector](/setup/data/overview#activate-the-connector).
+
+The first administrations and figures appear in aiGust about 24 hours later.

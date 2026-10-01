@@ -1,12 +1,63 @@
 ---
 title: "Exact Online"
-description: "Connect Exact Online to aiGust."
+description: "Connect Exact Online to aiGust: register aiGust as an app in the Exact Online App Center, and activate the connector."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust isn't listed in the Exact Online App Store yet. So you first register aiGust as an app of your own in the Exact App Center. That gives you a client ID and a client secret, which you then enter in aiGust.
 
-## To cover
+You need a login for the Exact Online App Store.
 
-- Connection type: API with OAuth
-- Prerequisites
-- Step-by-step setup
+## Step 1: Register aiGust in Exact Online
+
+1. Go to [www.exact.com/en/login](https://www.exact.com/en/login).
+2. In the **Exact Online App Store** box, click **Login**. This is the App Store, not the Exact Online you use for the bookkeeping.
+3. Once signed in, go to **Manage my apps** (in Dutch: **Mijn apps beheren**). You land on a red page with your apps.
+4. Click **Register a production app** (**Een app voor productie registreren**).
+5. Fill in the name of the app (**Naam van de app**), for example *aiGust*, and the **Redirect URI**: `https://app.ai-gust.io/callback/connectors/oauth`. aiGust also shows this address when you add the connector.
+6. Accept the terms, and click **Register** (**Registreren**).
+7. On the page of your new app, copy the **Client ID** and the **Client Secret**.
+
+<Frame caption="Sign in to the Exact Online App Store.">
+  <img src="/images/data/exact-login.jpg" alt="Exact login page Login bij Exact with the box Exact Online App Store, giving access to the Exact Online App Store to register and maintain apps or API keys, and its Inloggen button, marked in pink. Next to it, the boxes to log in to Exact Online and other products, the Customer portal, the Partner portal and the Medewerker portal." />
+</Frame>
+
+<Frame caption="Manage my apps, with the tile to register a production app.">
+  <img src="/images/data/exact-app-center.jpg" alt="Exact App Center page Mijn apps beheren (Manage my apps) on a red background, with five steps from registering an app to placing it in the App Center. Below, the tab Productie-apps with the tile Een app voor productie registreren (Register a production app) and an existing app aiGust." />
+</Frame>
+
+<Frame caption="Register aiGust as an app.">
+  <img src="/images/data/exact-register-app.jpg" alt="Exact dialog Een app voor productie registreren (Register a production app) with Naam van de app aiGust and Redirect URI https://app.ai-gust.io/callback/connectors/oauth, two checked boxes to accept the Exact Online terms and the terms of the Exact App Center, and a Registreren button." />
+</Frame>
+
+<Frame caption="Copy the client ID and client secret.">
+  <img src="/images/data/exact-app-details.jpg" alt="Exact page Mijn apps beheren / aiGust on the tab Ontwikkelen, with Autorisatiegegevens: Naam van de app aiGust, Redirect URI https://app.ai-gust.io/callback/connectors/oauth, and the fields Client ID, blurred, and Client Secret, both marked in pink, each with a copy button. Below, a Webhook Secret." />
+</Frame>
+
+## Step 2: Add the connector in aiGust
+
+1. Click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+2. Choose **Exact Online**, and click **Next**.
+3. Give the connector a **Name**, and paste the **Client ID** and **Client Secret**. Click **Create connector**.
+
+<Frame caption="Paste the client ID and client secret in aiGust.">
+  <img src="/images/data/exact-config.jpg" alt="Enter configuration details dialog for an Exact Online connector, with the Name Exact online connector (2), the instructions to register an app in the Exact Online store with the callback URL https://app.ai-gust.io/callback/connectors/oauth, and the fields Client ID and Client Secret. Buttons Back and Create connector." />
+</Frame>
+
+## Step 3: Activate the connector
+
+1. Click **Activate now**.
+2. You go to Exact Online. Sign in, if it asks you to.
+3. Approve the connection, so that aiGust can read your data.
+
+You come back to aiGust, and get a notification whether the activation succeeded. See [Activate the connector](/setup/data/overview#activate-the-connector).
+
+### Which administrations aiGust gets
+
+aiGust gets exactly the administrations that the Exact Online user who activates the connector has access to. Use a shared account of your firm, not the personal account of a colleague.
+
+That matters for the two ways firms usually work with Exact Online:
+
+- **Your firm does the bookkeeping, with its own Exact Online licence.** The administrations are in your firm's Exact Online. aiGust gets them if the user who activated has access.
+- **Your client does the bookkeeping, with their own Exact Online licence,** and gave your firm access. aiGust only gets the administration if the user who activated the connector also has access to it.
+
+The first administrations and figures appear in aiGust about 24 hours later. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).

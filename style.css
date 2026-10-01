@@ -97,3 +97,10 @@ body:has(#content[data-page-title="Welcome to aiGust"]) #sidebar-content {
 body:has(#content[data-page-title="Welcome to aiGust"]) #content-container {
   margin-left: 0 !important;
 }
+
+/* Column names and values in code (such as glaccount_description) stay on one line in tables */
+table :not(pre) > code {
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}

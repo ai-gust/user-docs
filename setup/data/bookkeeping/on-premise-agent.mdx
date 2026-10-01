@@ -1,13 +1,27 @@
 ---
 title: "Install the on-premise agent"
-description: "Install and maintain the aiGust agent for on-premise bookkeeping software."
+description: "Install the aiGust agent on a server, for bookkeeping software that runs at your firm instead of in the cloud."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+When your bookkeeping software runs on a server at your firm, aiGust can't reach it over the internet. A small program, the agent, then sends the data from your server to aiGust.
 
-## To cover
+Two connectors need the agent: [Adsolut](/setup/data/bookkeeping/adsolut) and [Expert/M](/setup/data/bookkeeping/expert-m). All other connectors connect from aiGust to your software over the internet.
 
-- Which connectors need the agent (Expert M, Adsolut)
-- System requirements
-- Installation
-- Updating and troubleshooting
+## Install the agent
+
+When you add a connector that needs the agent, the last step is **Download & install the agent**.
+
+1. Click **Download agent**.
+2. Install it on a server that always has access to the database of your bookkeeping software.
+3. Schedule the agent to run, for example every night. The server needs to be on at that time.
+4. Follow the instructions that come with the agent.
+
+There's no activation step: the connector works once the agent runs.
+
+<Frame caption="The last step: download the agent.">
+  <img src="/images/data/download-agent.jpg" alt="Download & install the agent dialog, explaining that aiGust uses a small software component called the agent to transfer data from your systems to aiGust, to download it and install it on a server that has continuous access to your accounting package's database, and to follow the attached instructions or contact support. A Download agent button." />
+</Frame>
+
+Need help with the installation? Contact [support@ai-gust.io](mailto:support@ai-gust.io).
+
+{/* TODO Bart: system requirements of the server, firewall/ports, how the agent is updated, and how to check that it runs. */}

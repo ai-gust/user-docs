@@ -47,7 +47,7 @@ To add many users at once, upload them from a CSV or Excel file.
 2. Click **Add in bulk**.
 3. Click **Download template** to get an Excel file with the right columns. Fill in one row per user.
 4. Drag your file to the dialog, or click **Select a file to upload**. The file can be up to 50 MB. Click **Next**.
-5. **Outcome of the bulk job** shows how many users aiGust added. Click the download icon to get the result as an Excel file, then click **Submit**.
+5. **Outcome of the bulk job** shows how many users aiGust added. Click the download icon to get an Excel file with who was added and who wasn't. Then click **Submit**.
 
 The file needs these columns:
 
@@ -58,11 +58,14 @@ The file needs these columns:
 | `email` | The email address. The same rules apply as when you [add one user](#add-a-user). |
 | `role` | `tenant:key_user` for an **Office key user**, or `tenant:full` for a **Standard office user**. |
 | `locale` | The language: `nl`, `fr` or `en`. |
+| `send_welcome_email` | Optional. `true` to send the [welcome email](#the-welcome-email), or `false`. Write it exactly like that, in lowercase. |
+
+Without `send_welcome_email`, or when it's empty, the user doesn't get a welcome email. Send it later with **Resend welcome email**.
 
 The dialog also lists `tenant:service_user` as a role. Don't use it.
 
 <Frame caption="Step 1: the columns and values the file needs.">
-  <img src="/images/users/bulk-upload-file.jpg" alt="Bulk upload users from a CSV/Excel file dialog, step Select a CSV/Excel file to upload, with a Download template button. Required columns: first_name, last_name, email, role and locale. Allowed values: role tenant:key_user, tenant:full and tenant:service_user; locale nl, fr and en. Below, a drop zone Select a file to upload, Max. 50 MB, or drag and drop it here, and a Next button." />
+  <img src="/images/users/bulk-upload-file.jpg" alt="Bulk upload users from a CSV/Excel file dialog, step Select a CSV/Excel file to upload, with a Download template button. Required columns: first_name, last_name, email, role and locale. Optional columns: send_welcome_email. Allowed values: role tenant:key_user, tenant:full and tenant:service_user; locale nl, fr and en; send_welcome_email true and false. Below, a drop zone Select a file to upload, Max. 50 MB, or drag and drop it here, and a Next button." />
 </Frame>
 
 <Frame caption="The template, filled in with two users.">
@@ -73,20 +76,18 @@ The dialog also lists `tenant:service_user` as a role. Don't use it.
   <img src="/images/users/bulk-upload-result.jpg" alt="Bulk upload users from a CSV/Excel file dialog, step Outcome of the bulk job, with a green box 2/2 ADDED and a download icon. Buttons Back and Submit." />
 </Frame>
 
-{/* TODO Bart: does the bulk upload send the welcome email to every new user? And what does the result file show for a row that failed (the reason)? */}
-
 <Note>
 You can't restrict administration access in the file. All users you upload have access to all administrations. To restrict it, open each user afterwards. See [Restrict administration access](/setup/users/restrict-access).
 </Note>
 
 ## Manage users
 
-**Users** > **Employees** lists all users at your firm, with their email address, role, administration access, whether they're beta testers, and whether they're active. Deactivated users are greyed out.
+**Users** > **Employees** lists all users at your firm, with their email address, role, administration access, and whether they're active. Deactivated users are greyed out.
 
-Search the list, or filter it by **Status**, **Bèta testers** or **User Role**. Click **Export** to download it.
+Search the list, or filter it by **Status** or **User Role**. Click **Export** to download it.
 
 <Frame caption="All users at your firm.">
-  <img src="/images/users/employees-list.jpg" alt="Employees page under Users > Employees in the firm menu, with Search, Add in bulk and Add, the filters Status, Bèta testers and User Role, and Export. The list shows users with their name, a blurred email address, their role, Standard office user or Office key user, and their Restricted Access, Restricted or Full access. One user is marked Beta tester. Most have a check mark under Active. Three users without one are greyed out." />
+  <img src="/images/users/employees-list.jpg" alt="Employees page under Users > Employees in the firm menu, with Search, Add in bulk and Add, the filters Status and User Role, and Export. The list shows users with their name, a blurred email address, their role, Standard office user or Office key user, and their Restricted Access, Restricted or Full access. Most have a check mark under Active. Three users without one are greyed out." />
 </Frame>
 
 The **Restricted Access** column shows **Restricted** for users who only see part of the administrations, and **Full access** for users who see all of them.
@@ -98,9 +99,9 @@ Click the three dots next to a user:
 | **Edit** | Opens the user. See below. |
 | **Activate/deactivate** | Blocks or allows their access to aiGust. A deactivated user can't sign in, and is greyed out in the list. |
 | **Resend welcome email** | Sends the welcome email again, for example when the link expired. |
-| **Delete** | Removes the user. |
+| **Delete** | For now, the same as deactivating: the user stays in the list, but can't sign in. |
 
-{/* TODO Bart: is Delete for employees the same as deactivating, like for client users, or is the user really removed? */}
+{/* TODO Bart: update Delete once the real delete is introduced. */}
 
 <Frame caption="The options of a user.">
   <img src="/images/users/user-menu.jpg" alt="Three-dots menu of a user with Edit, Activate/deactivate, Resend welcome email and Delete." />
@@ -110,16 +111,13 @@ When a colleague leaves your firm, deactivate their user. They can then no longe
 
 ### Profile
 
-The **Profile** tab holds the **Personal details**, **Bèta tester** and **Role** of the user. Change what you need, and click **Save**.
+The **Profile** tab holds the **Personal details** and **Role** of the user. Change what you need, and click **Save**.
 
 - **Personal details:** **First name**, **Last name**, **Email** and **Language**.
-- **Bèta tester:** turn on **Is a bèta tester** to let the user try new features before they're released to everyone.
 - **Role:** the **User Role**. See [Roles and permissions](/setup/users/roles).
 
-{/* TODO Bart: OK to mention the Bèta tester switch like this? Should key users turn it on themselves, or only after asking aiGust? */}
-
 <Frame caption="The profile of a user.">
-  <img src="/images/users/user-profile.jpg" alt="User panel for Xavier Theofiel Waterslaeghers, marked Active, on the Profile tab, next to the Administration access and Audit log tabs. Personal details with First name, Last name, Email and Language Nederlands; Bèta tester with the switch Is a bèta tester turned off; and Role with User Role Office key user. Buttons Resend welcome email and Save." />
+  <img src="/images/users/user-profile.jpg" alt="User panel for Xavier Theofiel Waterslaeghers, marked Active, on the Profile tab, next to the Administration access and Audit log tabs. Personal details with First name, Last name, Email and Language Nederlands, and Role with User Role Office key user. Buttons Resend welcome email and Save." />
 </Frame>
 
 ### Administration access

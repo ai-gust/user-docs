@@ -1,12 +1,102 @@
 ---
 title: "Administration groups"
-description: "Group administrations to manage access more easily, for example per branch office."
+description: "Combine administrations into groups, such as per office or for sensitive files, to manage who sees them more easily."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+An administration group is a set of administrations of your firm that belong together, for example the clients of one office.
 
-## To cover
+For now, groups make it easier to manage access. Instead of adding administrations to each user one by one, you add a group:
 
-- What an administration group is
-- Creating a group
-- Using groups in blacklists and whitelists
+- **Per office:** make a group per office, and allow the users of each office to see only their group.
+- **For sensitive files:** put the administrations few people may see in one group, and block that group for everyone else. When a new sensitive file comes in, you add it to the group, and it's blocked right away for all those users.
+
+See [Restrict administration access](/setup/users/restrict-access). You can also give a [client user](/setup/client-portal/invite-client-users) access to a whole group.
+
+An administration can be in more than one group.
+
+Only key users can create and change groups. Other users can see them.
+
+## The list of groups
+
+Click **Administrations** in the firm menu, and choose **Groups**. Each group shows its name, its description, and how many administrations it holds.
+
+<Frame caption="The administration groups of your firm.">
+  <img src="/images/users/groups-list.jpg" alt="Administration groups page under Administrations > Groups in the firm menu, saying that administration groups combine administrations into groups to more easily grant or deny users access, for example per branch. A Search field and an Add button. Five groups: Bethlehem, with the description Where Jezus was born, Gent, Hasselt with 3 administrations, Leuven with 4 and Nazareth with 3, each with a three-dots button." />
+</Frame>
+
+## Create a group
+
+1. Click **Administrations** in the firm menu, and choose **Groups**.
+2. Click **Add**.
+3. Fill in the **Name**, and optionally a **Description**. Click **Confirm**.
+
+<Frame caption="A new administration group.">
+  <img src="/images/users/group-add.jpg" alt="Add new administration group dialog with the empty fields Name and Description, and a Confirm button." />
+</Frame>
+
+## Add administrations to a group
+
+Click a group to open it. It shows its administrations in the same list as **Administrations** > **Overview**, with the same search and filters. See [Find an administration](/guide/getting-started/navigation#find-an-administration).
+
+<Frame caption="The administrations in the group Leuven.">
+  <img src="/images/users/group-detail.jpg" alt="Administration group: Leuven page with a badge showing 4, an Add button and a three-dots button. Below, Search, Export and the filters Following only, Sector, Company type, Verification status and Data source. The list shows Restaurant Bij Mij, Sarma Jeanine De Bolle, Garage DDT and Delphine Boel, each with their VAT number, sector and subsector, company type, bookkeeping connector and social connector." />
+</Frame>
+
+Click **Add**, and choose how to add administrations:
+
+- **Add administrations**, to select them one by one;
+- **In bulk**, to paste a list of VAT numbers.
+
+<Frame caption="Add administrations one by one, or in bulk.">
+  <img src="/images/users/group-add-administrations.jpg" alt="Add administrations dialog with two options: Add administrations, select individual administrations, and In bulk, bulk add by VAT. A Confirm button." />
+</Frame>
+
+### One by one
+
+In **Select administrations**, type the name of an administration, and select it. It's added to the list above. Repeat for the next one, and click **Confirm** when you have them all.
+
+<Frame caption="Select the administrations to add.">
+  <img src="/images/users/group-select-administrations.jpg" alt="Add administrations dialog with Eddy Merckx Cannibal Cycling selected, and the Select administrations list open with Garage DDT, De Wanbetalers, Bakkerij Het roggeverdoemeke, Eigen Kweek, Sarma Jeanine De Bolle and more. A Confirm button." />
+</Frame>
+
+### In bulk, by VAT number
+
+Use this when you have a list of your clients, for example from your practice management software.
+
+1. In **VAT-numbers**, paste the VAT numbers, one per line. aiGust shows the numbers it doesn't recognise as a VAT number under **Invalid VAT codes**. Correct or remove them.
+2. Click **Next**. aiGust shows the administrations it found. If some VAT numbers don't match an administration in aiGust, it says so.
+3. Click **Next** to add the administrations to the group.
+
+<Frame caption="Paste the VAT numbers, one per line.">
+  <img src="/images/users/group-bulk-vat.jpg" alt="Bulk add by VAT dialog asking to list the VAT numbers of the administrations to add, separated by a new line. VAT-numbers holds BE0990000004, BE0990000002 and the incomplete BE09900000, which is listed below under Invalid VAT codes. The Next button is disabled." />
+</Frame>
+
+<Frame caption="The administrations aiGust found.">
+  <img src="/images/users/group-bulk-vat-found.jpg" alt="Bulk add by VAT dialog saying the found administrations will be added to the group: 2 found, Bakkerij Het roggeverdoemeke and Apotheek De Gulden Spatel, and All vat numbers were found within aiGust. Buttons Cancel and Next." />
+</Frame>
+
+aiGust skips the VAT numbers it doesn't find in your administrations, and shows you which ones.
+
+## Remove an administration from a group
+
+Click the three dots next to the administration, and choose **Delete from group**. This only removes it from the group, not from aiGust.
+
+The same menu has the options of the [list of administrations](/guide/getting-started/navigation#more-options), and **Copy administration ID**.
+
+<Frame caption="The options of an administration in a group.">
+  <img src="/images/users/group-administration-menu.jpg" alt="Three-dots menu of an administration in a group with Follow, Copy administration ID, Copy VAT number, Edit economic activity and company type, Reset economic activity, and Delete from group." />
+</Frame>
+
+## Rename or delete a group
+
+Click the three dots of a group, on the list of groups or at the top right of the group:
+
+- **Rename**, to change its name;
+- **Edit**, to open the group and add or remove administrations, the same as clicking the group;
+- **Delete**, to delete the group. The administrations in it stay in aiGust.
+
+<Warning>
+You can't delete a group that's still in use: one that's on the **Allowed** or **Blocked** list of a user, or that a client user has access to. The delete then fails. aiGust doesn't show yet which users still have the group, so check the [administration access](/setup/users/restrict-access) of your users first, and remove the group there.
+</Warning>
+
+{/* TODO Bart: update the Warning once aiGust disables Delete or shows where a group is still in use. */}

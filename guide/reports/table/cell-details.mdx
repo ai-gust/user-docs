@@ -3,20 +3,29 @@ title: "Cell details"
 description: "Click a figure in a financial report to see the transactions behind it, its main contributors, its evolution, its notification and comments."
 ---
 
-Click any figure in the financial table to open its details in a side panel. The top of the panel shows the line and the period, for example *Services, 2025YTD (01-05/2025)*, and an **Alerts** switch. The panel has these tabs:
+Click any figure in the financial table to open its details in a side panel. The top of the panel shows the line and the period, for example *Services, 2025YTD (01-05/2025)*, and an **Alerts** switch, to turn the notifications for this line on or off. The panel has these tabs:
 
 | Tab | What it shows |
 |---|---|
 | [**Transactions**](#transactions) | The bookings behind the figure |
 | [**Contributors**](#contributors) | Who or what makes up the figure |
 | [**Evolution**](#evolution) | The figure over the years, with its benchmark |
-| [**Details**](#details) | The notification for the change in the figure |
-| **Benchmark** | The figure compared with the peer group |
+| [**Details**](#details) | The figure compared with the previous period, in euro and as a percentage of turnover, and its notification |
+| [**Benchmark**](#benchmark) | The figure compared with the peer group, and its notification |
 | [**Comments**](/guide/reports/comments) | Comments by you and your colleagues |
 
 A number on a tab shows how many items it has.
 
-{/* TODO Bart: what does the Alerts switch at the top do? What does the Benchmark tab show? */}
+### Notifications
+
+aiGust gives every line of the report two notification scores:
+
+- **Compared with the previous period:** how important the change is, in amount and in percentage. You see it on the **Details** tab, and as the colour of the badges in the report. See [Notifications](/guide/reports/table/financial-table#notifications).
+- **Compared with the peer group:** how far the figure is from the benchmark, for example when the company is a top performer or lags behind. You see it on the **Benchmark** tab.
+
+The colour goes from green through orange to red. Not every line is judged the same way: for some lines, the share of turnover matters most, for others the change in amount.
+
+Is a line not relevant for this administration? Turn off **Alerts** at the top of the panel. aiGust then no longer flags that line.
 
 ## Transactions
 
@@ -63,16 +72,50 @@ Every line of the profit and loss and balance sheet is a KPI, so every line has 
 
 ## Details
 
-The **Details** tab shows the [notification](/guide/reports/table/financial-table#notifications) for the figure: how much it changed compared with the previous period, as a chart and in words. You can switch between the amount and the percentage of the reference value.
+The **Details** tab compares the figure with the previous period, and shows its [notification](/guide/reports/table/financial-table#notifications).
 
-<Frame caption="The notification for sales: an increase of 69% compared with the same period a year earlier.">
-  <img src="/images/reports/cell-details-notification.jpg" alt="Details tab for Sales showing a chart from 2024YTD to 2025YTD with the change of plus 69%, the text Compared to the previous period the item Sales increased with 69.0% in absolute value, and the buttons Acknowledge and False alert" />
+What you can compare depends on the line. At the top, choose one of the measures:
+
+- **In €:** the amount, for example **Turnover in €**. Every line has it.
+- **As a percentage of turnover:** for example **Gross margin / Turnover as a percentage (%)**. Lines like the gross margin and the costs have it too. The change is then in percentage points.
+
+Each measure shows its change, such as ↗ 37,5%, and a notification badge with the number of alerts, in its colour: green with a thumb up when the change is good news, orange or red with an exclamation mark when it needs your attention.
+
+Below, a chart shows the previous period, the change and this period, with the values underneath. A sentence sums it up, for example: *Compared to the previous period, the item Gross margin dropped 3,4% (percentage points) compared to Turnover.*
+
+<Frame caption="The turnover in euro: an increase of 60% compared with the previous year.">
+  <img src="/images/reports/cell-details-turnover.jpg" alt="Cell details panel for Turnover 2025 on the Details tab, with the measure Turnover in € and its badges ↗ 60,0% and a green thumb up. A chart from €4,594,209 in 2024 to €7,352,622 in 2025, with the change +60,04% in green. The labels under the bars are blurred. Below, the text Compared to the previous period, the item Turnover increased with 60,0% in absolute value, and the buttons Acknowledge and False alert." />
 </Frame>
 
-- **Acknowledge:** you've seen the change and it's in order.
-- **False alert:** the change isn't relevant.
+<Frame caption="The gross margin as a percentage of turnover: a drop of 3.4 percentage points.">
+  <img src="/images/reports/cell-details-gross-margin.jpg" alt="Cell details panel for Gross margin 2025 on the Details tab, with two measures: Gross margin in €, ↗ 37,5% with a green thumb up, and Gross margin / Turnover as a percentage (%), selected, ↘ 3,4% with an orange exclamation mark. A chart from 23,9% in 2024 to 20,5% in 2025, with the change in red. The labels under the bars are blurred. Below, the text Compared to the previous period, the item Gross margin dropped 3,4% (percentage points) compared to Turnover, and the buttons Acknowledge and False alert." />
+</Frame>
 
-{/* TODO Bart: what exactly happens after Acknowledge or False alert? Does the colour disappear, for you or for everyone? */}
+- **Acknowledge:** you've seen the change. The change badge of this line, for this period, loses its colour in the report. You still see the change itself.
+- **False alert:** the change isn't an alert. It's no longer flagged, as if there was no alert.
+
+Both only apply to this line and this period.
+
+{/* TODO Bart: replace the two screenshots once the labels under the bars (blurred now) are fixed in the app. */}
+
+## Benchmark
+
+The **Benchmark** tab compares the figure with the [peer group](/guide/benchmarking/reading-benchmarks) of the administration. Under **Available benchmarks**, choose what to compare. What's available depends on the line:
+
+- **Turnover:** its growth, the **Percentage decrease/increase of Turnover compared to the previous period**. Turnover itself depends too much on the size of the company to compare.
+- **Lines like the gross margin:** the line as a percentage of turnover, and the change in that percentage compared with the previous period, in percentage points.
+
+On the left, you see the figure of the administration. On the right, the **Benchmark group**: the median as a yellow bar, with the band from the 25th to the 75th percentile (**Q25%** to **Q75%**).
+
+<Frame caption="The growth of turnover against the peer group.">
+  <img src="/images/reports/cell-benchmark-turnover.jpg" alt="Cell details panel for Turnover 2025 on the Benchmark tab, with the available benchmark Percentage decrease/increase of Turnover compared to the previous period and a green thumb up. On the left, My administration with 60,04%. On the right, the Benchmark group with a median of 12,0%, Q75% 41,0% and Q25% −5,0%. Below, the text Compared to the previous period, the item Turnover increased with 60,0% in absolute value. You are above the 75th percentile of the benchmark and are thus performing better than the majority of your peers. A line says that for this KPI, higher is considered better. Buttons Acknowledge and False alert." />
+</Frame>
+
+When the figure stands out from the peer group, the tab shows a notification, with a sentence such as *You are above the 75th percentile of the benchmark and are thus performing better than the majority of your peers.* It also tells you whether higher or lower is better for this KPI. As on **Details**, you can **Acknowledge** it or mark it as a **False alert**.
+
+<Frame caption="The gross margin as a percentage of turnover against the peer group.">
+  <img src="/images/reports/cell-benchmark-gross-margin.jpg" alt="Cell details panel for Gross margin 2025 on the Benchmark tab, with two available benchmarks: Gross margin / Turnover as a percentage (%), selected, and Gross margin / Turnover (%) this period compared to the previous period (in percentage points). On the left, My administration with 20,5%. On the right, the Benchmark group with a median of 30,0%, Q75% 46,0% and Q25% 17,0%." />
+</Frame>
 
 ## Comments
 

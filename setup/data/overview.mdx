@@ -1,12 +1,84 @@
 ---
 title: "Data sources overview"
-description: "The types of data aiGust imports and the connectors that deliver them."
+description: "How aiGust gets the data of your clients: the connectors it supports, and how to add one for your firm."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+aiGust gets the data of your clients from the software your firm already uses. You link that software to aiGust with a connector. Only key users can add connectors.
 
-## To cover
+You add connectors once, for your whole firm. Your firm can have as many as it needs: one per software package, or more, for example one per Yuki portal.
 
-- Bookkeeping data vs social data
-- Overview of supported sources per type
-- API connectors vs on-premise connectors (agent)
+## One format for all sources
+
+Each bookkeeping package stores its data in its own way. aiGust converts everything it imports into one common format. That's why the reports, KPIs, peer groups and meetings work the same way, whatever software an administration comes from.
+
+The main parts of that format:
+
+- **Financial years and financial periods.** See [Financial years and financial periods](/guide/concepts/financial-periods).
+- **GL accounts,** with their number and description.
+- **Transactions,** each on a GL account, and often linked to a business partner: a customer or a supplier. A transaction has one amount: positive or negative, not a separate debit and credit.
+- **Documents,** such as the invoice behind a transaction. aiGust doesn't copy them. It only knows which transactions have a document, and fetches the document from your software when you open it.
+
+## Supported connectors
+
+| Type | Connectors | What aiGust gets |
+|---|---|---|
+| **Bookkeeping** | [Exact Online](/setup/data/bookkeeping/exact-online), [Yuki](/setup/data/bookkeeping/yuki), [Odoo](/setup/data/bookkeeping/odoo), [Horus](/setup/data/bookkeeping/horus), [Octopus](/setup/data/bookkeeping/octopus), [Wolters Kluwer Adsolut](/setup/data/bookkeeping/adsolut), [Wolters Kluwer Expert/M](/setup/data/bookkeeping/expert-m), [Microsoft Business Central](/setup/data/bookkeeping/business-central) | The figures, with the transactions, business partners and documents behind them. |
+| **Compliance** | [Silverfin](/setup/data/bookkeeping/silverfin), [Adsolut fiscal files](/setup/data/bookkeeping/adsolut#fiscal-files), through the Adsolut connector | Trial balances only: no transactions, no business partners. Silverfin also delivers the social balance sheet. |
+| **Social** | [Partena](/setup/data/social/partena) | The social balance sheet, for [personnel reporting](/guide/personnel/data-sources). |
+
+Firms use compliance connectors to close the financial year and prepare the tax return. They're less detailed than bookkeeping connectors. When an administration is in both, aiGust uses the bookkeeping connector. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).
+
+No connector for your software? You can still [import an administration from Excel](/setup/data/bookkeeping/excel-import).
+
+We're working on a connection with the National Bank of Belgium, for the social balance sheets.
+
+All connectors connect from aiGust to your software over the internet, except Adsolut and Expert/M. Those need a small program on a server at your firm: the [agent](/setup/data/bookkeeping/on-premise-agent).
+
+## The list of connectors
+
+Click **Data sources** in the firm menu, and choose **Connectors**. You see all connectors of your firm, with their type, name and creation date.
+
+<Frame caption="The connectors of your firm.">
+  <img src="/images/data/connectors-list.jpg" alt="Connectors page under Data sources > Connectors in the firm menu, saying connectors allow you to connect aiGust to your accounting software, with an Add button and a List view switch. The list shows the Type, Name and Created date of eight connectors: Adsolut connector, Microsoft Business Central connector, Silverfin connector, Exact online connector, Expert M connector, YuKi connector, a second Adsolut connector and Horus connector, each with a three-dots button." />
+</Frame>
+
+The list doesn't show whether a connector works. Click a connector to open it, and check its health. See [Check connector status](/setup/data/connector-status).
+
+Click the three dots next to a connector to **Edit** it, which opens the same panel, or to **Delete** it. With **List**, you switch between a table and tiles.
+
+## Add a connector
+
+1. Click **Data sources** in the firm menu, and choose **Connectors**.
+2. Click **Add**.
+3. **Choose connector type:** click your software, and click **Next**.
+4. **Enter configuration details:** give the connector a **Name**. aiGust proposes one, such as *Octopus connector*. Change it if you like: the name is only to recognise the connector in aiGust. Fill in what your software needs, and click **Create connector**.
+5. For some software, a last step follows:
+   - **Activate the connector:** sign in to your software, and give aiGust access. See [below](#activate-the-connector).
+   - **Install the agent,** for Adsolut and Expert/M. See [Install the on-premise agent](/setup/data/bookkeeping/on-premise-agent).
+
+What to fill in and how to activate depends on the software. See the page of your connector.
+
+<Frame caption="Choose the software you want to connect.">
+  <img src="/images/data/choose-connector-type.jpg" alt="Choose connector type dialog, asking to select the type of connector to add. Tiles for Exact Online, Wolters Kluwer Adsolut, Silverfin, Yuki, Microsoft Dynamics 365 Business Central, Odoo, Wolters Kluwer Expert/M, Octopus, Horus software and Partena Professional. A Next button." />
+</Frame>
+
+### Activate the connector
+
+For Exact Online, Silverfin, Horus, Octopus and Partena, you give aiGust access from within that software:
+
+1. Click **Activate now**.
+2. Sign in to your software, if it asks you to.
+3. Accept the terms, and give aiGust access.
+4. You're sent back to aiGust. You get a notification that tells you whether the activation succeeded.
+
+aiGust sees exactly what the account you sign in with sees. If that account has no access to an administration, aiGust doesn't get it either. So sign in with an account that has access to all administrations you want in aiGust. Use a shared account of your firm rather than the personal account of a colleague: when that colleague leaves, the connector keeps working.
+
+<Frame caption="The last step: activate the connector in your software.">
+  <img src="/images/data/activate-connector.jpg" alt="Activate the connector dialog explaining how to (re)activate the connector: click the button below, log in if prompted, accept the terms and grant aiGust access to your resources, after which you're normally redirected back to aiGust and see the connector status page, and get a notification whether the activation was successful. An Activate now button." />
+</Frame>
+
+## After you add a connector
+
+aiGust doesn't import anything right away. The first sync runs during the night: expect the first administrations and their figures in aiGust about 24 hours after you add the connector. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).
+
+To keep some administrations out of aiGust, set up the [Black- & Whitelist](/setup/data/bookkeeping/include-exclude-administrations) before that first sync.

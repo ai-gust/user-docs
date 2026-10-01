@@ -1,13 +1,31 @@
 ---
 title: "Adsolut"
-description: "Connect Adsolut to aiGust through the on-premise agent."
+description: "Connect Wolters Kluwer Adsolut to aiGust."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Wolters Kluwer Adsolut is a bookkeeping connector that works with the [agent](/setup/data/bookkeeping/on-premise-agent): aiGust gets the figures with the transactions, business partners and documents behind them. Every night, aiGust syncs only what changed in Adsolut since the last sync.
 
-## To cover
+## Add the connector
 
-- Connection type: on-premise via agent
-- Prerequisites (link to agent installation)
-- Step-by-step setup
-- Adsolut fiscal files and periods
+1. Click **Data sources** in the firm menu, choose **Connectors**, and click **Add**.
+2. Choose **Wolters Kluwer Adsolut**, and click **Next**.
+3. Give the connector a **Name**, and click **Create connector**.
+
+<Frame caption="Adsolut only needs a name.">
+  <img src="/images/data/adsolut-config.jpg" alt="Enter configuration details dialog for an Adsolut connector, with the Name Adsolut connector (3) and the buttons Back and Create connector." />
+</Frame>
+
+4. **Download & install the agent:** click **Download agent**, and install it on a server with access to the Adsolut database. See [Install the on-premise agent](/setup/data/bookkeeping/on-premise-agent).
+
+There's no activation step: the connector works once the agent runs.
+
+The first administrations and figures appear in aiGust about 24 hours later. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).
+
+## Fiscal files
+
+Adsolut also has fiscal files (**fiscaal dossier**): the module where your firm closes the financial year and prepares the corporate tax return. The balances of a financial year are exported from the bookkeeping to the fiscal file.
+
+You don't need a separate connector for them: the Adsolut connector brings the fiscal files too. aiGust treats them as a compliance source, with balances only. See [Bookkeeping and compliance connectors](/guide/dashboard/data-sync#bookkeeping-and-compliance-connectors).
+
+- **An administration in the bookkeeping and in the fiscal files:** that's the case for every administration you keep the books of. aiGust uses the bookkeeping.
+- **An administration only in the fiscal files:** aiGust uses the fiscal file. You get its balances, without transactions or business partners.

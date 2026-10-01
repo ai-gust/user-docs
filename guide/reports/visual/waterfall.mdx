@@ -1,6 +1,6 @@
 ---
 title: "Waterfall chart"
-description: "Read the profit and loss and the cash flow as a waterfall chart, drill down into its sections, and switch between years."
+description: "Read the profit and loss and the cash flow as a waterfall chart, drill down into its sections, switch between years, and change the display settings."
 ---
 
 The profit and loss and the cash flow both have a **Graphical view** tab. It shows the report as a waterfall: step by step, how you get from the first line to the last, and where the biggest effects are.
@@ -54,9 +54,27 @@ At account level, the chart shows the largest accounts. Click **More** to show m
 
 Individual figures have the same [cell details](/guide/reports/table/cell-details) as in the table: transactions, contributors, evolution and [comments](/guide/reports/comments).
 
-## Switch years and settings
+## Switch years and change the display
 
-- **Switch years** with the arrows at the top right. The waterfall always shows one year at a time.
-- **Display settings** next to the year changes what the rows show.
+Switch years with the arrows at the top right. The waterfall always shows one year at a time.
 
-{/* TODO Bart: which options are under Display settings? */}
+**Display settings**, next to the year, has these options:
+
+| Setting | What it does |
+|---|---|
+| **Year-to-date view** | Shows the year so far, compared with the same stretch of time in other years, instead of the full financial year. See [Years, quarters and periods](/guide/reports/table/periods). |
+| **Show open periods** | Includes the open financial year, so you can show the current year. See [Years, quarters and periods](/guide/reports/table/periods). |
+| **Diff view** | Shows every bar from zero, instead of from where the previous one ended. See [Diff view](#diff-view). |
+| **Group by** | Chooses what you see when you drill down to the lowest level, for example **GL account**. See [Detail level](/guide/reports/table/financial-table#detail-level). |
+
+<Frame caption="The display settings of the cash flow waterfall.">
+  <img src="/images/reports/waterfall-display-settings.jpg" alt="Cash flow waterfall of Bouwwerken Michel for the open year 2026, with the Display settings menu open: Year-to-date view off, Show open periods on, Diff view off, and Group by GL account. The bars form a waterfall, each starting where the previous one ended, from cash at 31/12/2025 to cash at 31/08/2026." />
+</Frame>
+
+### Diff view
+
+In a normal waterfall, each bar starts where the previous one ended. With **Diff view**, every bar starts at zero. What adds goes to the right, what subtracts goes to the left. That makes it easier to compare the size of the additions and subtractions with each other.
+
+<Frame caption="The same cash flow with Diff view on: every bar starts at zero.">
+  <img src="/images/reports/waterfall-diff-view.jpg" alt="Cash flow waterfall of Bouwwerken Michel with Diff view on. The cash at 31/12/2025, €264,376.41, and at 31/08/2026, €217,614.43, are purple bars from zero. The cash flow from operating activities, €246,497.18, is a green bar to the right of zero. The change in working capital needed, −€277,373.77, cash out to investments, −€1,905.46, and cash in through financing, −€13,979.93, are red bars to the left of zero." />
+</Frame>
