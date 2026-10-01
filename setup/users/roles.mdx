@@ -1,11 +1,43 @@
 ---
 title: "Roles and permissions"
-description: "What each role allows a user to do in aiGust."
+description: "The difference between an office key user and a standard office user, and what each role can do in aiGust."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Each user at your firm has a role. The role decides what the user can do in aiGust. You choose it when you [add the user](/setup/users/manage-users#add-a-user), and change it on the **Profile** of the user.
 
-## To cover
+| Role | In the bulk upload | Who |
+|---|---|---|
+| **Office key user** | `tenant:key_user` | The people who set up and manage aiGust for your firm. Usually one or a few. |
+| **Standard office user** | `tenant:full` | Everyone else at your firm: the accountants and advisors who work with the administrations of your clients. |
 
-- Overview of existing roles
-- Permissions per role (create users, create connectors, ...)
+The list also shows **Tenant service user**. Don't use it: it's not meant for the people at your firm.
+
+{/* TODO Bart: remove the Tenant service user lines once the role is removed from the app. */}
+
+## What both roles can do
+
+Both roles work with all features for the administrations they have access to: the dashboard, reports, forecasts, meetings, the client portal, and so on. In the firm menu, both see **Administrations**, **Triggers & alerts**, **Data sources** > **Excel imports** and **Users** > **Clients**. See [Find your way around](/guide/getting-started/navigation#the-firm-menu).
+
+The role doesn't decide which administrations a user sees. That's the administration access of the user. See [Restrict administration access](/setup/users/restrict-access).
+
+## What only key users can do
+
+Key users also manage aiGust for the whole firm:
+
+| Key users can | Where |
+|---|---|
+| Add and manage the users at your firm | **Users** > **Employees**. See [Add and manage users](/setup/users/manage-users). |
+| Link your bookkeeping and social software, and choose which administrations aiGust imports | **Data sources** > **Connectors** and **Black- & Whitelist**. See [Data sources](/setup/data/overview). |
+| Set the colours, logos and emails of your firm | **Branding**. See [Light mode and dark mode](/setup/branding/portal) and [Email templates](/setup/branding/email-templates). |
+| Manage the KPI dashboards | **Dashboards**. See [KPI dashboard templates](/configure/reporting/kpi-dashboard-templates). |
+| Manage the meeting flows | **Meeting flows**. See [Meeting flows](/configure/meetings/meeting-flows). |
+| Add triggers | **Triggers & alerts**. See [Custom triggers](/configure/triggers/custom-triggers). |
+| Follow how your firm uses aiGust | **Usage aiGust**. See [Usage statistics](/setup/monitoring/usage-statistics). |
+| Change firm-wide settings, such as the client portal | **Workspace**. See [Control what clients see](/setup/client-portal/control-what-clients-see). |
+| Report a bug or ask for a feature | The bug icon in the top bar. See [Report a bug](/setup/support/report-a-bug). |
+
+{/* TODO Bart: anything else only key users can do (for example on the administration level: settings, mapping, connectors of one administration)? */}
+
+## Client roles
+
+The people at your clients don't get one of these roles. They're client users, with the role **External user (read only)** or **External user (admin)**. See [Invite and manage client users](/setup/client-portal/invite-client-users#client-roles).

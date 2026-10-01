@@ -1,11 +1,67 @@
 ---
 title: "Restrict administration access"
-description: "Limit which administrations a user can see with a blacklist or whitelist."
+description: "Limit which administrations a user at your firm can see, with a list of allowed and a list of blocked administrations."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+By default, a user at your firm sees all administrations of your firm. You can limit that per user, for example for a student who only works on a few clients, or to keep the administrations of one office apart.
 
-## To cover
+A user with restricted access only sees the administrations they're allowed to see, everywhere in aiGust: in the list of administrations, in the alerts, and in search.
 
-- Default: users see all administrations
-- Blacklist vs whitelist per user
+{/* TODO Bart: is "everywhere" right? Check alerts, usage statistics and the audit trail for a restricted user. */}
+
+## Allowed and blocked
+
+Each user has two lists:
+
+| List | Means |
+|---|---|
+| **Allowed** | The user sees only these administrations. All others are blocked. |
+| **Blocked** | The user sees all administrations, except these. |
+
+You can use both together. aiGust first takes the allowed administrations, then removes the blocked ones. For example: 10 administrations are allowed, and 2 of them are also blocked. The user then sees 8 administrations.
+
+An empty **Allowed** list means no limit: the user sees all administrations, except the blocked ones.
+
+{/* TODO Bart: confirm that an empty Allowed list means "all administrations", and not "none". */}
+
+In both lists, you can add single **Administrations** or whole **Administration groups**. A group is easier to keep up to date: when you add an administration to the group, every user with that group gets it too. See [Administration groups](/setup/users/administration-groups).
+
+## Restrict a user's access
+
+You restrict access on a user that already exists. Add the user first, then:
+
+1. Click **Users** in the firm menu, and choose **Employees**.
+2. Click the three dots next to the user, and choose **Edit**.
+3. Open the **Administration access** tab.
+4. Choose **Allowed** or **Blocked**.
+5. Click **+** next to **Administrations** or **Administration groups**.
+6. In **Customize access**, choose the **Access type**: **Administration groups** or **Administrations**. Click **Next**.
+7. Select the groups or administrations. Click **Next**.
+
+To remove one from the list, click **−** next to it.
+
+<Frame caption="The administrations a user is allowed to see.">
+  <img src="/images/users/user-administration-access.jpg" alt="User panel for Xavier Theofiel Waterslaeghers, marked Active, on the Administration access tab, with Allowed selected next to Blocked. A line says the administrations you add to this list are the only ones the user will see in aiGust, and all other administrations will be blocked. Under Administrations, Eigen Kweek and Garage DDT, each with a minus button. Under Administration groups, No administration groups selected. Both sections have a plus button." />
+</Frame>
+
+<Frame caption="Choose whether to add administration groups or single administrations.">
+  <img src="/images/users/customize-access-type.jpg" alt="Customize access dialog with Access type: Administration groups, find and select access groups to grant access, selected, and Administrations, select single administrations to grant access. A Next button." />
+</Frame>
+
+<Frame caption="Select the administrations.">
+  <img src="/images/users/customize-access-select.jpg" alt="Customize access dialog with Garage DDT and Sarma Jeanine De Bolle selected, each with a cross to remove it, and the Select administrations list below. A Next button." />
+</Frame>
+
+On **Users** > **Employees**, the **Restricted Access** column shows **Restricted** for users with a limit.
+
+<Note>
+You can't restrict access when you [add users in bulk](/setup/users/manage-users#add-users-in-bulk). Set it for each user, one by one, after the upload.
+</Note>
+
+## Not the same as the Black- & Whitelist
+
+Under **Data sources**, the firm menu also has a **Black- & Whitelist**. That one decides which administrations aiGust imports from your connectors, for the whole firm. The access of a user decides which of the imported administrations that user sees. See [Include or exclude administrations](/setup/data/bookkeeping/include-exclude-administrations).
+
+## Client users
+
+Client users work the other way around: by default, they see no administrations at all. You give them access to the ones they need. See [Invite and manage client users](/setup/client-portal/invite-client-users).

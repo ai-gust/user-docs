@@ -1,12 +1,131 @@
 ---
 title: "Add and manage users"
-description: "Create and manage accounts for the employees of your firm."
+description: "Add the employees of your firm as users, one by one or in bulk, and manage their accounts."
 ---
 
-<Note>This page is a draft. The list below shows what it will cover.</Note>
+Everyone at your firm who works in aiGust needs a user. Only key users can add and manage users. Click **Users** in the firm menu, and choose **Employees**.
 
-## To cover
+This page is about the users at your firm. For the people at your clients, see [Invite and manage client users](/setup/client-portal/invite-client-users).
 
-- Creating a user
-- Welcome email
-- Deactivating a user
+## Add a user
+
+1. Click **Users** in the firm menu, and choose **Employees**.
+2. Click **Add**.
+3. **User details:** fill in the fields below, and click **Next**.
+4. **Finish user set up:** choose whether to **Send a welcome email to the user**, and click **Submit**.
+
+| Field | What to fill in |
+|---|---|
+| **First name** and **Last name** | The name of your colleague. |
+| **Email** | Their work email address. If they sign in with Google or Microsoft, this must be exactly the email address of their Google or Microsoft account, including the domain. Otherwise, they can't sign in. |
+| **Language** | The language of aiGust and of the welcome email. It's set to your own language. Change it if your colleague works in another language. |
+| **Role** | **Office key user** or **Standard office user**. There's no default: you always choose. See [Roles and permissions](/setup/users/roles). |
+
+<Frame caption="Step 1: the details of the user.">
+  <img src="/images/users/add-user-details.jpg" alt="Add new user dialog, step 1 of 2, User details, with First name Dimitri, Last name De Tremmerie, Email dimi@ddt.ok and Language English. The Role list is open, with Office key user, Standard office user and Tenant service user. A Next button." />
+</Frame>
+
+<Frame caption="Step 2: send the welcome email, or not.">
+  <img src="/images/users/add-user-finish.jpg" alt="Add new user dialog, step 2 of 2, Finish user set up: We've got all the info we need, with the switch Send a welcome email to the user turned on. Buttons Back and Submit." />
+</Frame>
+
+The new user has access to all administrations of your firm. To limit that, open the user after you added them. See [Restrict administration access](/setup/users/restrict-access).
+
+### The welcome email
+
+**Send a welcome email to the user** is turned on by default. The email lets your colleague sign in with Google or Microsoft, or set a password. See [Sign in to aiGust](/guide/getting-started/log-in).
+
+Before you add your colleagues, check the text of the **Welcome email** in your [email templates](/setup/branding/email-templates). That's what they'll read first.
+
+If you don't send it, tell your colleague yourself how to sign in. You can send it later with **Resend welcome email**.
+
+## Add users in bulk
+
+To add many users at once, upload them from a CSV or Excel file.
+
+1. Click **Users** in the firm menu, and choose **Employees**.
+2. Click **Add in bulk**.
+3. Click **Download template** to get an Excel file with the right columns. Fill in one row per user.
+4. Drag your file to the dialog, or click **Select a file to upload**. The file can be up to 50 MB. Click **Next**.
+5. **Outcome of the bulk job** shows how many users aiGust added. Click the download icon to get the result as an Excel file, then click **Submit**.
+
+The file needs these columns:
+
+| Column | What to fill in |
+|---|---|
+| `first_name` | The first name. |
+| `last_name` | The last name. |
+| `email` | The email address. The same rules apply as when you [add one user](#add-a-user). |
+| `role` | `tenant:key_user` for an **Office key user**, or `tenant:full` for a **Standard office user**. |
+| `locale` | The language: `nl`, `fr` or `en`. |
+
+The dialog also lists `tenant:service_user` as a role. Don't use it.
+
+<Frame caption="Step 1: the columns and values the file needs.">
+  <img src="/images/users/bulk-upload-file.jpg" alt="Bulk upload users from a CSV/Excel file dialog, step Select a CSV/Excel file to upload, with a Download template button. Required columns: first_name, last_name, email, role and locale. Allowed values: role tenant:key_user, tenant:full and tenant:service_user; locale nl, fr and en. Below, a drop zone Select a file to upload, Max. 50 MB, or drag and drop it here, and a Next button." />
+</Frame>
+
+<Frame caption="The template, filled in with two users.">
+  <img src="/images/users/bulk-upload-template.jpg" alt="Spreadsheet with the columns email, first_name, last_name, role and locale. Two rows: bieke@crucke.com, Bieke, Crucke, tenant:full, nl, and oscar@crucke.com, Oscar, Crucke, tenant:key_user, nl." />
+</Frame>
+
+<Frame caption="Step 2: the outcome of the upload.">
+  <img src="/images/users/bulk-upload-result.jpg" alt="Bulk upload users from a CSV/Excel file dialog, step Outcome of the bulk job, with a green box 2/2 ADDED and a download icon. Buttons Back and Submit." />
+</Frame>
+
+{/* TODO Bart: does the bulk upload send the welcome email to every new user? And what does the result file show for a row that failed (the reason)? */}
+
+<Note>
+You can't restrict administration access in the file. All users you upload have access to all administrations. To restrict it, open each user afterwards. See [Restrict administration access](/setup/users/restrict-access).
+</Note>
+
+## Manage users
+
+**Users** > **Employees** lists all users at your firm, with their email address, role, administration access, whether they're beta testers, and whether they're active. Deactivated users are greyed out.
+
+Search the list, or filter it by **Status**, **Bèta testers** or **User Role**. Click **Export** to download it.
+
+<Frame caption="All users at your firm.">
+  <img src="/images/users/employees-list.jpg" alt="Employees page under Users > Employees in the firm menu, with Search, Add in bulk and Add, the filters Status, Bèta testers and User Role, and Export. The list shows users with their name, a blurred email address, their role, Standard office user or Office key user, and their Restricted Access, Restricted or Full access. One user is marked Beta tester. Most have a check mark under Active. Three users without one are greyed out." />
+</Frame>
+
+The **Restricted Access** column shows **Restricted** for users who only see part of the administrations, and **Full access** for users who see all of them.
+
+Click the three dots next to a user:
+
+| Option | What it does |
+|---|---|
+| **Edit** | Opens the user. See below. |
+| **Activate/deactivate** | Blocks or allows their access to aiGust. A deactivated user can't sign in, and is greyed out in the list. |
+| **Resend welcome email** | Sends the welcome email again, for example when the link expired. |
+| **Delete** | Removes the user. |
+
+{/* TODO Bart: is Delete for employees the same as deactivating, like for client users, or is the user really removed? */}
+
+<Frame caption="The options of a user.">
+  <img src="/images/users/user-menu.jpg" alt="Three-dots menu of a user with Edit, Activate/deactivate, Resend welcome email and Delete." />
+</Frame>
+
+When a colleague leaves your firm, deactivate their user. They can then no longer sign in, also not with Google or Microsoft.
+
+### Profile
+
+The **Profile** tab holds the **Personal details**, **Bèta tester** and **Role** of the user. Change what you need, and click **Save**.
+
+- **Personal details:** **First name**, **Last name**, **Email** and **Language**.
+- **Bèta tester:** turn on **Is a bèta tester** to let the user try new features before they're released to everyone.
+- **Role:** the **User Role**. See [Roles and permissions](/setup/users/roles).
+
+{/* TODO Bart: OK to mention the Bèta tester switch like this? Should key users turn it on themselves, or only after asking aiGust? */}
+
+<Frame caption="The profile of a user.">
+  <img src="/images/users/user-profile.jpg" alt="User panel for Xavier Theofiel Waterslaeghers, marked Active, on the Profile tab, next to the Administration access and Audit log tabs. Personal details with First name, Last name, Email and Language Nederlands; Bèta tester with the switch Is a bèta tester turned off; and Role with User Role Office key user. Buttons Resend welcome email and Save." />
+</Frame>
+
+### Administration access
+
+The **Administration access** tab sets which administrations the user can see. See [Restrict administration access](/setup/users/restrict-access).
+
+### Audit log
+
+The **Audit log** tab shows what the user did, per day and per administration. Choose the period at the top right. For the actions of all users together, see [Audit trail](/setup/monitoring/audit-trail).

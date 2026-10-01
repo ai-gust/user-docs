@@ -28,7 +28,7 @@
         ]
       },
       {
-        "tab": "Set up your firm",
+        "tab": "Key user guide",
         "groups": [
           {
             "group": "Getting started",
@@ -101,10 +101,7 @@
             "group": "Reporting",
             "pages": [
               "configure/reporting/report-view-defaults",
-              "configure/reporting/kpi-dashboard-templates",
-              "configure/reporting/custom-reports-overview",
-              "configure/reporting/build-custom-report",
-              "configure/reporting/report-definition-editor"
+              "configure/reporting/kpi-dashboard-templates"
             ]
           },
           {
