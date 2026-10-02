@@ -102,6 +102,7 @@
             "group": "Reporting",
             "pages": [
               "configure/reporting/report-view-defaults",
+              "configure/reporting/kpi-sensitivity",
               "configure/reporting/kpi-dashboard-templates"
             ]
           },

@@ -71,12 +71,17 @@ When someone chooses a dashboard for an administration, aiGust remembers it for 
 Until then, aiGust picks the most suitable dashboard, in this order:
 
 1. A dashboard made for that administration.
-2. A firm-wide template linked to the administration's sector. Only the sector counts, not the subsector.
-3. Another firm-wide template.
-4. The aiGust **Default dashboard**.
+2. A firm-wide template, the closest match first:
+   1. one linked to the administration's subsector;
+   2. one linked to its sector;
+   3. one without a sector;
+   4. any other firm-wide template.
+3. An aiGust dashboard, matched in the same way. Today, that's the **Default dashboard**.
+
+So a choice made for the administration always wins. Then come the administration's own dashboards, then your firm's templates, then aiGust's.
 
 <Warning>
-You can't set one template as your firm's default yet. If your firm has several templates without a sector, an administration without a chosen dashboard can show any of them. So keep the number of templates small, and link them to a sector where you can.
+If two dashboards match at the same step, there's no rule to decide between them. That happens with two dashboards made for the same administration, two templates for the same sector, or two templates without a sector. An administration without a chosen dashboard can then show either. So keep the number of templates small, link them to a sector where you can, and give each sector only one template.
 </Warning>
 
-{/* TODO Bart: with several templates without a sector, which one wins at step 3? Probably the last one created, to be verified. */}
+{/* TODO Bart: can a template be linked to a subsector in the Is sector specific dashboard picker, or only to a sector? The code matches the NACE subsector first. Also: the code mentions an "Activate" option in the dashboard dropdown that only lasts for the user's session, until the list reloads. Is that visible in the UI, and should we document it? */}

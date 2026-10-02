@@ -91,12 +91,16 @@ For example: if you start with financial year 2023, give the balances on the fir
    | `amount_eur` | The balance in euro: debit positive, credit negative. |
 
 2. Drag the file to the dialog, or click **Select a file to upload**. Upload a clean file, with only these columns and your data.
-3. Link each column to the columns of your file, and choose the date format and number format your file uses.
+3. Link the columns, and choose the formats:
+   - Under **Required columns**, every column needs a column of your file.
+   - Under **Optional columns**, you can leave a column on **None**.
+   - Choose the **Date format** your file uses, such as `dd/MM/yyyy` or `yyyy-MM-dd`.
+   - Choose the **Value format**: `1.234,56`, with a decimal comma, or `1,234.56`, with a decimal point.
+
+   The **Preview** below shows your data as aiGust reads it. If your column names aren't on the first row of your file, change the **Header position**.
 4. Click **Next**.
 
-Every date must match the date format. Otherwise, you can't continue. Check the amounts too: aiGust leaves an amount it can't read empty.
-
-{/* TODO Bart: exact labels of the column mapping, date format and number format fields (later). */}
+Every date must match the date format. Otherwise, the preview shows *Date format mismatch!* and you can't continue. Check the amounts too: aiGust leaves an amount it can't read empty.
 
 <Frame caption="The template for the starting balances.">
   <img src="/images/data/excel-balances-template.jpg" alt="Spreadsheet with the columns first_day, glaccount_code, glaccount_description and amount_eur, and one row: 01/01/2024, 400000, Customers, 121697." />
@@ -122,7 +126,7 @@ You can give the amount in one column, or split it into debit and credit:
 | `business_partner` | Optional. The customer or supplier. | The same. |
 | `transaction_description` | Optional. The description of the transaction. | The same. |
 
-As with the starting balances, link the columns to your file, and choose the date and number format. Every date must match the date format. An amount aiGust can't read is imported as 0, so check your amounts before you upload.
+As with the starting balances, link the columns to your file, and choose the **Date format** and **Value format**. Every date must match the date format. An amount aiGust can't read is imported as 0, so check your amounts before you upload.
 
 aiGust places each transaction in the right financial year and period by its date.
 

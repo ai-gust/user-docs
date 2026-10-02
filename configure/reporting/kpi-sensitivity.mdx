@@ -1,0 +1,87 @@
+---
+title: "KPI sensitivity"
+description: "Decide which KPIs matter for your firm, and which changes are big enough to colour a figure in the financial reports."
+---
+
+With **Notifications** on in a financial report, aiGust colours the changes that matter, from red to green. See [Notifications](/guide/reports/table/financial-table#notifications). You decide for your whole firm how sensitive those colours are.
+
+To open the settings, click **Workspace** at the bottom left of the screen, and open the **KPI sensitivity** tab. Your changes are saved right away: there's no **Save** button. On this screen, aiGust calls a coloured figure an *alert*. These alerts are separate from the alerts of [triggers](/guide/triggers/how-triggers-work).
+
+<Frame caption="The KPI sensitivity tab in the workspace.">
+  <img src="/images/reports/kpi-sensitivity.jpg" alt="Workspace page on the KPI sensitivity tab with three sections. Which KPIs Matter? has a slider and the fields Interesting 1,0%, Important 5,0% and Very Important 10,0%, an Always Trigger box with P&L > Ebitda, EBIT, Net result, Result to assign and Cash flow > Change in working capital needed, Operational cash flow, Cash out to investments and Cash in through financing, and an empty Never Trigger box, each with an Add Exception button. Deviation from Previous Period has a slider from -100% to 100% and the fields Very Bad -30,0%, Bad -12,5%, Fair -1,0%, Good 2,0% and Very Good 12,5%. Deviation from Benchmark explains the 25th to 75th percentile range, with an example: below the 25% quartile an alert, between the quartiles no alert, above the 75% quartile an alert." />
+</Frame>
+
+## How aiGust decides on the colour
+
+aiGust looks at two things for each figure:
+
+1. **How important the KPI is:** how large it is compared with its reference value. For a cost, that's usually the turnover. A cost of 0.05% of turnover doesn't matter much. A cost of 5% does.
+2. **How large the change is:** compared with the previous period, or with the peer group.
+
+aiGust multiplies the two. A big change in a small cost gets no colour, or a light one. The same change in your largest cost gets a strong one.
+
+## Which KPIs matter
+
+Under **Which KPIs Matter?**, you set from what size a KPI counts, as a percentage of its reference value:
+
+| Level | Default | Score |
+|---|---|---|
+| Below **Interesting** | | No colour |
+| **Interesting** | From 1% | 1 |
+| **Important** | From 5% | 2 |
+| **Very Important** | From 10% | 3 |
+
+Drag the points on the slider, or type the percentages in the fields.
+
+### Exceptions
+
+Some KPIs always matter, whatever their size. Others never do.
+
+- **Always Trigger:** these KPIs always count as very important. By default, that's EBITDA, EBIT, net result and result to assign, and the four cash flow totals.
+- **Never Trigger:** these KPIs never get a colour. By default, the list is empty.
+
+Click **Add Exception** to add a KPI to a list. Click the cross next to a KPI to remove it.
+
+## Deviation from previous period
+
+Under **Deviation from Previous Period**, you set how large a change compared with the previous period has to be:
+
+| Level | The change is | Score |
+|---|---|---|
+| **Very Good** | Above the **Very Good** percentage | +2 |
+| **Good** | Above the **Good** percentage | +1 |
+| | Between **Fair** and **Good** | No colour |
+| **Fair** | Below the **Fair** percentage | −1 |
+| **Bad** | Below the **Bad** percentage | −2 |
+| **Very Bad** | Below the **Very Bad** percentage | −3 |
+
+For a KPI where an increase is bad news, such as a cost, aiGust turns the sign around. A cost that rises by 20% counts as a drop of 20%.
+
+{/* TODO Bart: confirm the default percentages of the deviation. The screenshot shows Very Bad −30%, Bad −12.5%, Fair −1%, Good +2%, Very Good +12.5%; the frontend falls back to −12%, −30%, −89.3% and +30%, +45% (and to 22%, 39.5%, 70% for importance) when no configuration is loaded. */}
+
+## Deviation from benchmark
+
+Under **Deviation from Benchmark**, there's nothing to set. aiGust checks whether the figure falls between the 25th and the 75th percentile of the [peer group](/guide/benchmarking/how-it-works):
+
+- **Between the two:** no colour. The administration performs around average.
+- **Outside:** a colour, red on the bad side and green on the good side. How strong it is depends only on how important the KPI is.
+
+You see this colour on the **Benchmark** tab of the [cell details](/guide/reports/table/cell-details).
+
+## The result
+
+The importance score times the deviation score gives the colour:
+
+| Importance × deviation | Level |
+|---|---|
+| +3 or more | Great |
+| +1 or +2 | Good |
+| −1 or −2 | Minor |
+| −3 to −8 | Major |
+| −9 | Critical: a very important KPI with a very bad change |
+
+For example: an important KPI (2) with a bad change (−2) gives −4, a major alert. An interesting KPI (1) with the same change gives −2, a minor one.
+
+## For one administration
+
+The settings apply to every administration of your firm. You can't change them for one administration. You can only switch off the colours of one line: open the cell details of a figure, and turn off **Alerts** at the top of the panel. See [Notifications in the cell details](/guide/reports/table/cell-details#notifications).
