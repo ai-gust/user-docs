@@ -142,6 +142,7 @@
           {
             "group": "Getting started",
             "pages": [
+              "guide/welcome",
               "guide/getting-started/log-in",
               "guide/getting-started/personalise",
               "guide/getting-started/help",
