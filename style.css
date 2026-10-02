@@ -104,3 +104,8 @@ table :not(pre) > code {
   overflow-wrap: normal !important;
   word-break: normal !important;
 }
+
+/* Hide the page description under the title. It stays in the frontmatter for search results, link previews and cards. */
+#header > div.prose.text-lg {
+  display: none !important;
+}
