@@ -91,12 +91,32 @@ The same menu has the options of the [list of administrations](/guide/getting-st
 
 Click the three dots of a group, on the list of groups or at the top right of the group:
 
-- **Rename**, to change its name;
 - **Edit**, to open the group and add or remove administrations, the same as clicking the group;
+- **Rename**, to change its name;
+- **Used by**, to see which users have the group on their **Allowed** or **Blocked** list;
 - **Delete**, to delete the group. The administrations in it stay in aiGust.
 
-<Warning>
-You can't delete a group that's still in use: one that's on the **Allowed** or **Blocked** list of a user, or that a client user has access to. The delete then fails. aiGust doesn't show yet which users still have the group, so check the [administration access](/setup/users/restrict-access) of your users first, and remove the group there.
-</Warning>
+<Frame caption="The options of a group.">
+  <img src="/images/users/group-menu.jpg" alt="Administration groups page with the groups Bethlehem, Gent, Hasselt, Leuven and Nazareth. The three-dots menu of Bethlehem is open, with Edit, Rename, Used by and Delete." />
+</Frame>
 
-{/* TODO Bart: update the Warning once aiGust disables Delete or shows where a group is still in use. */}
+<Frame caption="Used by lists the users who have the group on their access lists.">
+  <img src="/images/users/group-used-by.jpg" alt="Used by panel with the text Users who have this group in their white or blacklist, listing one user, Firmin Crets, with a blurred email address." />
+</Frame>
+
+### Delete a group that's still in use
+
+When users still have the group on their **Allowed** or **Blocked** list, aiGust warns you before you delete it. Deleting the group removes it from the access lists of all those users. Their lists themselves stay, so their access stays restricted:
+
+- **On an Allowed list,** the user loses access to the administrations of the group, unless they're allowed in another way. If the group was the only thing on the list, the user no longer sees any administration.
+- **On a Blocked list,** the administrations of the group are no longer blocked, so the user sees them again.
+
+Client users only have an allowed list. A [client user](/setup/client-portal/invite-client-users) with access to the group loses access to its administrations in the client portal.
+
+See [Restrict administration access](/setup/users/restrict-access).
+
+To delete it anyway, turn on **Delete anyway**, and click **Confirm**. To check first who's affected, choose **Used by**.
+
+<Frame caption="The warning when the group is still in use.">
+  <img src="/images/users/group-delete.jpg" alt="Delete group dialog with an orange warning: This group is still used in a white or blacklist by some users. If you delete this group, it will also be removed from the different access lists. Below it, the Delete anyway toggle, turned off, the question Are you certain you want to delete this group?, and a greyed-out Confirm button." />
+</Frame>
