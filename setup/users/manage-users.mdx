@@ -99,15 +99,31 @@ Click the three dots next to a user:
 | **Edit** | Opens the user. See below. |
 | **Activate/deactivate** | Blocks or allows their access to aiGust. A deactivated user can't sign in, and is greyed out in the list. |
 | **Resend welcome email** | Sends the welcome email again, for example when the link expired. |
-| **Delete** | For now, the same as deactivating: the user stays in the list, but can't sign in. |
-
-{/* TODO Bart: update Delete once the real delete is introduced. */}
+| **Delete** | Deletes the user for good. See [Delete a user](#delete-a-user). |
 
 <Frame caption="The options of a user.">
   <img src="/images/users/user-menu.jpg" alt="Three-dots menu of a user with Edit, Activate/deactivate, Resend welcome email and Delete." />
 </Frame>
 
 When a colleague leaves your firm, deactivate their user. They can then no longer sign in, also not with Google or Microsoft.
+
+### Delete a user
+
+Deactivating is reversible: you can activate the user again later. Deleting is not.
+
+1. Click the three dots next to the user, and choose **Delete**.
+2. Read the warning. It explains what happens:
+   - Data that belongs to the user, such as their audit logs and personal settings, is deleted for good.
+   - Meetings, forecasts and other items the user created stay, but are no longer linked to the user.
+3. Turn on **I am sure**, and click **Confirm**.
+
+<Warning>
+Deleting a user also deletes their entries in the [audit trail](/setup/monitoring/audit-trail). If you need to keep track of what a former colleague did, deactivate their user instead.
+</Warning>
+
+<Frame caption="Turn on I am sure to confirm the delete.">
+  <img src="/images/users/delete-user.jpg" alt="Delete user dialog asking whether you're certain you want to delete the user, as this cannot be undone. A red banner says that data belonging to the user, such as audit logs and personal settings, will be permanently deleted, and that meetings, forecasts and other items the user created will remain but no longer be linked to the user. Below it, the I am sure toggle, turned off, and the buttons Cancel and Confirm, greyed out." />
+</Frame>
 
 ### Profile
 
