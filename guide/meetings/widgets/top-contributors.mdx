@@ -14,12 +14,12 @@ Under **Display options**:
 | Option | What it does |
 |---|---|
 | **Title** | The title of the widget, in **nl**, **en** and **fr**. |
-| **Filter GL Accounts** | The accounts to analyse. Type the start or the end of an account number, for example *60* for all accounts starting with 60, and click **+**. |
-| **Sentiment** | Whether an increase is **Positive** (green), as for revenue, **Negative** (red), as for costs, or **Neutral**. |
-| **Group by** | What to rank: **Business partner**, account or label. |
+| **Filter GL Accounts** | The accounts to analyse. By default, the cost accounts. Type the start or the end of an account number, for example *70* for all accounts starting with 70, and click **+**. |
+| **Sentiment** | Whether an increase is good news. **Positive** shows an increase in green, as for revenue. **Negative** shows it in red, as for costs. Or choose **Neutral**. |
+| **Group by** | What to rank: **Business partner** (the default), GL account or label. |
 | **Reverse sign** | **Always reverse**, **Auto** or **Never reverse**. See below. |
 
-aiGust stores credit amounts as negative and debit amounts as positive, so revenue is negative in the source data. To show revenue as a positive amount, reverse the sign. With **Auto**, aiGust decides based on the account number.
+aiGust stores credit amounts as negative and debit amounts as positive, so revenue is negative in the source data. When you filter on revenue accounts, set **Sentiment** to **Positive** and reverse the sign, so revenue shows as a positive amount. With **Auto**, aiGust decides based on the account number.
 
 The widget works on the transactions of the accounts you filter, added up per business partner, account or label.
 
@@ -31,4 +31,10 @@ The widget works on the transactions of the accounts you filter, added up per bu
 
 A medium or large zone.
 
-{/* TODO Bart: screenshot of this widget on a slide. */}
+<Frame caption="Top contributors & trends for costs, grouped by business partner.">
+  <img src="/images/meetings/slide-top-contributors-partners.jpg" alt="A slide for Current financial year with Top contributors & trends for 24/25YTD: a ring chart with a total of €244.49K (+30.5%, compared with €187.38K), and a list of the top 5 suppliers, such as Ramirez Ltd €24,389.87. Below it, Most important risers and Most important fallers per business partner, comparing 23/24YTD with 24/25YTD, with Show less and Show more buttons." />
+</Frame>
+
+<Frame caption="The same widget, grouped by GL account.">
+  <img src="/images/meetings/slide-top-contributors-accounts.jpg" alt="A slide for Last financial year with Top contributors & trends for 2025: a total of €6.13M (+63.9%), and the top 5 GL accounts, such as 603000 Subcontracting €3,296,179.82 and 604000 Purchase of goods for resale €2,342,293.16. Below it, Most important risers and Most important fallers per GL account, comparing 2024 with 2025." />
+</Frame>
