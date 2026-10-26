@@ -149,9 +149,9 @@
           {
             "group": "External data uploads",
             "pages": [
-              "integrate/overview",
-              "integrate/upload-api",
-              "integrate/reference"
+              "integrate/ext-upload-overview",
+              "integrate/ext-upload-api",
+              "integrate/ext-upload-reference"
             ]
           }
         ]
