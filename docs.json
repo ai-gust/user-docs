@@ -141,6 +141,12 @@
         "tab": "Integrator guide",
         "groups": [
           {
+            "group": "Introduction",
+            "pages": [
+              "integrate/welcome"
+            ]
+          },
+          {
             "group": "External data uploads",
             "pages": [
               "integrate/overview",
