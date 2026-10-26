@@ -1,0 +1,146 @@
+---
+title: "Upload files through the API"
+description: "Step by step: get an access token, create an upload, upload your files and submit the upload for processing."
+---
+
+This walkthrough covers the full upload flow. You need the credentials and URLs from your [onboarding](/integrate/overview#what-you-need-to-start).
+
+<Steps>
+  <Step title="Get an access token">
+    Standard OAuth2 **client credentials** grant:
+
+    ```bash
+    curl -X POST "{TOKEN_URL}" \
+      -H "Content-Type: application/x-www-form-urlencoded" \
+      -d "grant_type=client_credentials" \
+      -d "client_id={YOUR_CLIENT_ID}" \
+      -d "client_secret={YOUR_CLIENT_SECRET}"
+    ```
+
+    Response:
+
+    ```json
+    {
+      "access_token": "eyJhbGciOi...",
+      "expires_in": 300,
+      "token_type": "Bearer"
+    }
+    ```
+
+    Tokens are short-lived. Cache the token and reuse it until it expires — request a new one when a call returns `401 Unauthorized`.
+
+    All timestamps in our API (like `expires_at` above) are **ISO 8601, UTC**.
+  </Step>
+
+  <Step title="Create the upload">
+    Creating the upload reserves a batch and returns its upload URL:
+
+    ```bash
+    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/create" \
+      -H "Authorization: Bearer {ACCESS_TOKEN}"
+    ```
+
+    Optional query parameters:
+
+    | Parameter | Default | Effect |
+    |---|---|---|
+    | `administration_code` | — | Scope this upload to a single administration |
+    | `full_upload` | `false` | Send all data from scratch (not just changes) |
+
+    Response:
+
+    ```json
+    {
+      "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57",
+      "upload_url": "https://.../uploads/...?sig=...",
+      "expires_at": "2026-10-20T12:00:00+00:00"
+    }
+    ```
+
+    The upload URL:
+
+    | Property | Value |
+    |---|---|
+    | Scope | Your current upload batch only — nothing else is accessible |
+    | Permissions | Upload only — **no** read, list, or delete |
+    | Validity | **2 days** (the lifetime of an upload), renewed automatically while it is open |
+    | Protocol | Azure Data Lake Storage Gen2 (REST API) |
+
+    Calling `create` again with the same parameters returns the same URL while your upload is open. Calling it with **different** parameters returns `409 Conflict` — submit or cancel the open upload first.
+  </Step>
+
+  <Step title="Upload files">
+    The upload URL points to a directory. It is a directory URL plus a SAS query string:
+
+    ```
+    https://.../uploads/batch-123?sv=...&sig=...
+    └── directory URL ──────────┘└─ SAS query ──┘
+    ```
+
+    Build the file URL as `{DIRECTORY_URL}/{ENDPOINT_TYPE}/{FILENAME}?{SAS_QUERY}&<action parameters>` — the SAS query (everything after the `?` in the upload URL) always stays in the query string. Note the **endpoint-type subfolder** in the path (see [file conventions](/integrate/reference#file-conventions)):
+
+    ```bash
+    # 1. Create the file
+    curl -X PUT "{DIRECTORY_URL}/{ENDPOINT_TYPE}/{FILENAME}?{SAS_QUERY}&resource=file" \
+      -H "Content-Length: 0"
+
+    # 2. Append data (repeat in chunks for large files, tracking the offset)
+    curl -X PATCH "{DIRECTORY_URL}/{ENDPOINT_TYPE}/{FILENAME}?{SAS_QUERY}&action=append&position=0" \
+      -H "Content-Type: application/octet-stream" \
+      --data-binary @local-file.bin
+
+    # 3. Finalize the file
+    curl -X PATCH "{DIRECTORY_URL}/{ENDPOINT_TYPE}/{FILENAME}?{SAS_QUERY}&action=flush&position={TOTAL_BYTES_WRITTEN}" \
+      -H "Content-Length: 0"
+    ```
+
+    For large files, append in chunks: a single append call accepts up to **100 MB** (the Azure Data Lake limit). Track the offset yourself — each append continues where the previous one ended.
+
+    <Note>
+    The last call finalizes an individual **file**. `action=flush` is part of the storage protocol and unrelated to submitting the **upload** (next step).
+    </Note>
+
+    Or with the official Python SDK (`azure-storage-file-datalake`):
+
+    ```python
+    from azure.storage.filedatalake import DataLakeDirectoryClient
+
+    client = DataLakeDirectoryClient.from_directory_url(upload_url)
+
+    file_client = client.get_file_client("invoices/my-data.parquet")
+    file_client.create_file()
+    file_client.append_data(data=file_bytes, offset=0)
+    file_client.flush_data(len(file_bytes))
+    ```
+
+    | Language | Library |
+    |---|---|
+    | Python | [`azure-storage-file-datalake`](https://pypi.org/project/azure-storage-file-datalake/) |
+    | .NET | [`Azure.Storage.Files.DataLake`](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) |
+    | Java | [`azure-storage-file-datalake`](https://central.sonatype.com/artifact/com.azure/azure-storage-file-datalake) |
+    | JavaScript/TypeScript | [`@azure/storage-file-datalake`](https://www.npmjs.com/package/@azure/storage-file-datalake) |
+    | Go | [`azdatalake`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake) |
+    | Any | Plain HTTPS REST calls as shown above |
+  </Step>
+
+  <Step title="Submit the upload">
+    When your upload set is complete:
+
+    ```bash
+    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/submit" \
+      -H "Authorization: Bearer {ACCESS_TOKEN}"
+    ```
+
+    Add `?administration_code={code}` when submitting an administration-scoped upload.
+
+    ```json
+    { "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }
+    ```
+
+    Keep the `upload_id`. It identifies your upload when you contact us about it.
+
+    After submitting, call `create` again (step 2) to open a new batch before uploading again. While your submission is still being processed, a new `create` for an overlapping scope returns `409 Conflict` — retry once the upload disappears from the [upload list](/integrate/reference#list-open-uploads).
+  </Step>
+</Steps>
+
+Next: [manage open uploads, errors and conventions](/integrate/reference).

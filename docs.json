@@ -138,6 +138,19 @@
         ]
       },
       {
+        "tab": "Integrator guide",
+        "groups": [
+          {
+            "group": "External data uploads",
+            "pages": [
+              "integrate/overview",
+              "integrate/upload-api",
+              "integrate/reference"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "User guide",
         "groups": [
           {
