@@ -36,7 +36,7 @@ This walkthrough covers the full upload flow. You need the credentials and URLs 
     Creating the upload reserves a batch and returns its upload URL:
 
     ```bash
-    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/create" \
+    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads" \
       -H "Authorization: Bearer {ACCESS_TOKEN}"
     ```
 
@@ -127,7 +127,7 @@ This walkthrough covers the full upload flow. You need the credentials and URLs 
     When your upload set is complete:
 
     ```bash
-    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/submit" \
+    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/submit" \
       -H "Authorization: Bearer {ACCESS_TOKEN}"
     ```
 

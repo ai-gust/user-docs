@@ -8,7 +8,7 @@ The interactive [API reference](https://api.prod.ai-gust.io/api/redoc#tag/Connec
 ## List open uploads
 
 ```
-GET {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/list
+GET {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
@@ -37,7 +37,7 @@ Once processing finishes, the upload **disappears from the list**. Exception: an
 Discards the uploaded files and releases the upload, for example to restart with different parameters:
 
 ```
-POST {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/upload/cancel
+POST {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/cancel
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
