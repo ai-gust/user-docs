@@ -127,11 +127,11 @@ This walkthrough covers the full upload flow. You need the credentials and URLs 
     When your upload set is complete:
 
     ```bash
-    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/submit" \
+    curl -X POST "{API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/{UPLOAD_ID}/submit" \
       -H "Authorization: Bearer {ACCESS_TOKEN}"
     ```
 
-    Add `?administration_code={code}` when submitting an administration-scoped upload.
+    `{UPLOAD_ID}` is the `upload_id` from the create response (or the upload list).
 
     ```json
     { "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }

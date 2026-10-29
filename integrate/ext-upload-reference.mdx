@@ -32,16 +32,25 @@ Returns every upload that is not yet processed (`AWAITING_UPLOAD`, `PENDING` or 
 
 Once processing finishes, the upload **disappears from the list**. Exception: an upload whose processing **failed** stays visible with progress `FAILED` while its run is still open on our side — report it to us with its `upload_id`. Note that we are notified of failures automatically, so we may already be looking into it.
 
+## Get one upload
+
+```
+GET {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/{UPLOAD_ID}
+Authorization: Bearer {ACCESS_TOKEN}
+```
+
+Returns one open upload — the same object as in the list. Processed or cancelled uploads return `404` (`UPLOAD_NOT_FOUND`), just like they disappear from the list.
+
 ## Cancel an open upload
 
 Discards the uploaded files and releases the upload, for example to restart with different parameters:
 
 ```
-POST {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/cancel
+POST {API_BASE_URL}/tenants/{TENANT_ID}/connectors/{CONNECTOR_ID}/uploads/{UPLOAD_ID}/cancel
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
-Add `?administration_code={code}` to cancel an administration-scoped upload. Idempotent: cancelling when nothing is open is a no-op. Cancelling an upload that was already submitted returns `409 Conflict` (`UPLOAD_NOT_AWAITING`) — at that point the batch is being processed and can no longer be cancelled.
+Idempotent: cancelling an already-closed upload is a no-op; an unknown upload id returns `404` (`UPLOAD_NOT_FOUND`). Cancelling an upload that was already submitted returns `409 Conflict` (`UPLOAD_NOT_AWAITING`) — at that point the batch is being processed and can no longer be cancelled.
 
 ```json
 { "cancelled": true, "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }
@@ -90,6 +99,7 @@ Your credentials are valid but not authorized for this call. The provisioned cre
 
 - **Without a `code`**: the tenant or connector id is unknown to us.
 - `ADMINISTRATION_NOT_FOUND` — the `administration_code` does not exist on this connector.
+- `UPLOAD_NOT_FOUND` — the `upload_id` does not exist on this connector (or the upload is already processed, on the get-by-id endpoint).
 
 ### 400 — bad request
 
@@ -100,8 +110,7 @@ Your credentials are valid but not authorized for this call. The provisioned cre
 ### 409 — conflict
 
 - **Without a `code`** on `create`: an upload is already open for an overlapping scope — submit or cancel it first; the message describes the conflict.
-- **Without a `code`** on `submit`: no open upload for the scope — call `create` first.
-- `UPLOAD_NOT_AWAITING` — the upload for this scope exists but is no longer awaiting files (it was already submitted and is pending or running). The message includes the current state. Submitting or cancelling is only possible while an upload awaits files; request a new upload URL once processing has finished.
+- `UPLOAD_NOT_AWAITING` — the upload exists but is no longer awaiting files (it was already submitted and is pending, running or processed). The message includes the current state. Submitting or cancelling is only possible while an upload awaits files; request a new upload URL once processing has finished.
 - `OPEN_SYNC_EXISTS` — a sync is currently running or pending for this connector; a new upload can be opened once it finishes.
 - `ADMINISTRATIONS_LOCKED` — one or more administrations are locked by a running sync; retry shortly.
 
@@ -112,6 +121,7 @@ Something went wrong on our side (for example the upload storage is unreachable)
 | Code | HTTP | Endpoints |
 |---|---|---|
 | `ADMINISTRATION_NOT_FOUND` | 404 | create, submit |
+| `UPLOAD_NOT_FOUND` | 404 | get, submit, cancel |
 | `ADMINISTRATION_NOT_SYNCABLE` | 400 | create, submit |
 | `NO_SYNCABLE_ADMINISTRATIONS` | 400 | create, submit |
 | `OPEN_SYNC_EXISTS` | 409 | create, submit |
