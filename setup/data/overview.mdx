@@ -28,6 +28,7 @@ The main parts of that format:
 | **Bookkeeping** | [Exact Online](/setup/data/bookkeeping/exact-online), [Yuki](/setup/data/bookkeeping/yuki), [Odoo](/setup/data/bookkeeping/odoo), [Horus](/setup/data/bookkeeping/horus), [Octopus](/setup/data/bookkeeping/octopus), [Wolters Kluwer Adsolut](/setup/data/bookkeeping/adsolut), [Wolters Kluwer Expert/M](/setup/data/bookkeeping/expert-m), [Microsoft Business Central](/setup/data/bookkeeping/business-central) | The figures, with the transactions, business partners and documents behind them.                              |
 | **Compliance**  | [Silverfin](/setup/data/bookkeeping/silverfin), [Adsolut fiscal files](/setup/data/bookkeeping/adsolut#fiscal-files), through the Adsolut connector                                                                                                                                                                                                                                                                  | Trial balances only: no transactions, no business partners. Silverfin also delivers the social balance sheet. |
 | **Social**      | [Partena](/setup/data/social/partena)                                                                                                                                                                                                                                                                                                                                                                                | The social balance sheet, for [personnel reporting](/guide/personnel/data-sources).                           |
+| **Users**       | [AdminPulse](/setup/data/adminpulse) | The users of your firm, when you run the sync. |
 
 Firms use compliance connectors (like Silverfin) to close the financial year and prepare the tax return. They're less detailed than bookkeeping connectors. When an administration is in both, aiGust uses the bookkeeping connector. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).
 
@@ -37,12 +38,12 @@ Most of our connectors pull data from your software through API. Some platforms 
 
 ## Connector overview
 
-Click **Data sources** in the firm menu, and choose **Connectors**. You see all connectors of your firm, with their type, name and creation date.
+Click **Settings** in the main rail, and choose **Connectors**. You see all connectors of your firm, with their type, name and creation date.
 
 <Frame caption="The connectors of your firm.">
   <img
     src="/images/data/connectors-list.jpg"
-    alt="Connectors page under Data sources > Connectors in the firm menu, saying connectors allow you to connect aiGust to your accounting software, with an Add button and a List view switch. The list shows the Type, Name and Created date of eight connectors: Adsolut connector, Microsoft Business Central connector, Silverfin connector, Exact online connector, Expert M connector, YuKi connector, a second Adsolut connector and Horus connector, each with a three-dots button."
+    alt="Connectors page, saying connectors allow you to connect aiGust to your accounting software, with an Add button and a List switch. The list shows the Type, Name and Created date of ten connectors, including Adsolut, Microsoft Business Central, Silverfin, AdminPulse, Exact online, Expert M, YuKi and Horus, each with a three-dots button."
   />
 </Frame>
 
@@ -52,7 +53,7 @@ Click the three dots next to a connector to **Edit** it, which opens the same pa
 
 ## Add a connector
 
-1. Click **Data sources** in the firm menu, and choose **Connectors**.
+1. Click **Settings** in the main rail, and choose **Connectors**.
 2. Click **Add**.
 3. **Choose connector type:** click your software, and click **Next**.
 4. **Enter configuration details:**
@@ -96,4 +97,4 @@ aiGust sees exactly what the account you sign in with sees. If that account has 
 
 aiGust doesn't import anything right away. The first sync runs during the night: expect the first administrations and their figures in aiGust about 24 hours after you add the connector. See [How administrations are imported](/setup/data/bookkeeping/how-administrations-are-imported).
 
-To keep some administrations out of aiGust, set up the [Black- & Whitelist](/setup/data/bookkeeping/include-exclude-administrations) before that first sync.
+To keep some administrations out of aiGust, set up the [Black & whitelist](/setup/data/bookkeeping/include-exclude-administrations) before that first sync.

@@ -3,10 +3,10 @@ title: "Email templates"
 description: "The emails aiGust sends, and how to write your own content for them with Jinja templates."
 ---
 
-Some actions in aiGust send an email. You write the content of each email yourself, in each language. Only key users can change the templates. Click **Branding** in the firm menu, and open the **Mail templates** tab.
+Some actions in aiGust send an email. You write the content of each email yourself, in each language. Only key users can change the templates. Click **Settings** in the main rail, and choose **Mail content**.
 
 <Frame caption="The template of the welcome email.">
-  <img src="/images/branding/mail-templates.jpg" alt="Mail templates tab with the templates Password reset email, Verification email, Welcome email and Client welcome email. Welcome email is selected, with the languages nl, en and fr, the Subject Welcome to aiGust, and the Template in HTML with two button macros highlighted. On the right, Available parameters (receiver, aigust_portal_url, password_update_link, password_update_link_expiration) and Referenced types (EmailUserParams with email, first_name and last_name)." />
+  <img src="/images/branding/mail-templates.jpg" alt="Mail templates page with the templates Password reset email, Verification email, Welcome email and Client welcome email. Password reset email is selected, with the languages NL, EN and FR, the Subject Reset your password, and the Template in HTML with a button macro. On the right, Available parameters (receiver, aigust_portal_url, link, link_expiration) and Referenced types (EmailUserParams with email, first_name and last_name). At the bottom, Send test email to yourself, Clear customizations and Save." />
 </Frame>
 
 ## The emails aiGust sends
@@ -20,7 +20,7 @@ Some actions in aiGust send an email. You write the content of each email yourse
 
 We may add more emails later.
 
-The header, footer and colours of the emails come from the mail settings. See [Mail settings](/setup/branding/mail-settings).
+The header, footer and colours of the emails come from the mail layout. See [Mail layout](/setup/branding/mail-settings).
 
 ## Edit a template
 
@@ -28,6 +28,8 @@ The header, footer and colours of the emails come from the mail settings. See [M
 2. Choose the language with **nl**, **en** or **fr**. Each language has its own template.
 3. Change the **Subject** and the **Template**.
 4. Click **Save**.
+
+To check the result, click **Send test email to yourself**. aiGust sends you the saved template, in your own language. Save your changes first.
 
 To go back to aiGust's template, click **Clear customizations**. It wipes your changes, and aiGust's default template applies again.
 
