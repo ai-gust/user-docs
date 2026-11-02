@@ -138,25 +138,6 @@
         ]
       },
       {
-        "tab": "Integrator guide",
-        "groups": [
-          {
-            "group": "Introduction",
-            "pages": [
-              "integrate/welcome"
-            ]
-          },
-          {
-            "group": "External data uploads",
-            "pages": [
-              "integrate/ext-upload-overview",
-              "integrate/ext-upload-api",
-              "integrate/ext-upload-reference"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "User guide",
         "groups": [
           {
@@ -356,6 +337,25 @@
               "guide/client-portal/client-view",
               "guide/client-portal/share",
               "guide/client-portal/give-access"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrator guide",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "integrate/welcome"
+            ]
+          },
+          {
+            "group": "External data uploads",
+            "pages": [
+              "integrate/ext-upload-overview",
+              "integrate/ext-upload-api",
+              "integrate/ext-upload-reference"
             ]
           }
         ]
