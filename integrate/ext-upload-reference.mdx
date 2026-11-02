@@ -76,7 +76,7 @@ The old upload URL may still work after cancel, but you must stop using it. Uplo
 - **Submit within 2 days.** An upload that is never submitted is cancelled automatically roughly 2 days after creation and its files are deleted. Check `expires_at` for the upload URL's expiry.
 - **Submitting is final.** Finish uploading and finalizing all files before submit. The URL may still work afterwards, but you must stop using it. During processing, aiGust takes a separate copy of the batch; later uploads do not update that copy. Create a new upload for additional data.
 - **Automatic processing only covers connector-wide uploads.** If enabled for your connector, the daily schedule processes existing open connector-wide uploads. Uploads for a single administration must always be submitted manually. The schedule does not create uploads or retry previously submitted runs.
-- **Empty uploads are harmless.** An upload without files or with only empty files completes successfully without processing data. Empty batches, including full uploads, do not change existing administrations.
+- **Follow the agreed data format.** The uploader is responsible for the uploaded data. Empty uploads follow the normal processing flow and may fail; they are not automatically skipped or marked successful.
 
 ## Errors
 
