@@ -134,10 +134,12 @@ This walkthrough covers the full upload flow. You need the credentials and URLs 
     `{UPLOAD_ID}` is the `upload_id` from the create response (or the upload list).
 
     ```json
-    { "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }
+    { "run_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }
     ```
 
-    Keep the `upload_id`. It identifies your upload when you contact us about it.
+    The submit response returns `run_id`, the identifier of the processing run. It has the same value as the submitted `upload_id`: the upload becomes the run. The upload list and get-by-id endpoint continue to use `upload_id`.
+
+    Keep the `run_id`. It identifies the processing run when you contact us about it.
 
     After submitting, call `create` again (step 2) to open a new batch before uploading again. While your submission is still being processed, a new `create` for an overlapping scope returns `409 Conflict` — retry once the upload disappears from the [upload list](/integrate/ext-upload-reference#list-open-uploads).
   </Step>
