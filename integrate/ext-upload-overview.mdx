@@ -34,7 +34,9 @@ sequenceDiagram
     Note over API, Store: upload closed and processed
 ```
 
-Depending on the agreed setup, open uploads may also be processed automatically on a daily schedule. You can always submit manually as well.
+Depending on the agreed setup, open connector-wide uploads may also be processed automatically on a daily schedule. Uploads for a single administration must always be submitted manually. You can always submit connector-wide uploads manually as well.
+
+An empty upload completes successfully without processing data or changing existing administrations.
 
 Finish uploading all files before submitting. The upload URL may still work afterwards, but you must not use it again after submit or cancel. Create a new upload for further data.
 

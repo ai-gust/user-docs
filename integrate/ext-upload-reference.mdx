@@ -56,7 +56,7 @@ Idempotent: cancelling an already-closed upload is a no-op; an unknown upload id
 { "cancelled": true, "upload_id": "440d08a1-fcba-4627-8e5c-bd6456cdcf57" }
 ```
 
-Uploads that are never submitted are cancelled automatically 2 days after creation.
+Uploads that are never submitted are cancelled automatically roughly 2 days after creation.
 
 The old upload URL may still work after cancel, but you must stop using it. Uploading more files does not reopen the cancelled batch.
 
@@ -73,9 +73,10 @@ The old upload URL may still work after cancel, but you must stop using it. Uplo
 - **Parameters are locked while an upload is open.** Calling `create` with a different `administration_code` or `full_upload` than the open batch returns `409 Conflict` — submit or cancel the open upload first.
 - **Administrations must be active.** Creating an upload for an unknown or inactive administration fails (`404` / `400` — see [errors](#errors)). Deactivating an administration *after* opening its upload makes its **submit** fail the same way.
 - **New administrations require a connector-wide upload.** Administration discovery happens on connector-wide uploads (no `administration_code`). An administration-scoped upload can only target an *existing* administration — a brand-new code fails with `404`. To onboard a new administration, open a connector-wide upload first; afterwards it can be synced scoped.
-- **Submit within 2 days.** An upload that is never submitted is cancelled automatically 2 days after creation and its files are deleted. Check `expires_at` for the upload URL's expiry.
+- **Submit within 2 days.** An upload that is never submitted is cancelled automatically roughly 2 days after creation and its files are deleted. Check `expires_at` for the upload URL's expiry.
 - **Submitting is final.** Finish uploading and finalizing all files before submit. The URL may still work afterwards, but you must stop using it. During processing, aiGust takes a separate copy of the batch; later uploads do not update that copy. Create a new upload for additional data.
-- **Scheduled processing can briefly block you.** While a scheduled sync holds the administrations, `create`/`submit` return `409 Conflict` (`ADMINISTRATIONS_LOCKED` / `OPEN_SYNC_EXISTS`) — retry shortly after.
+- **Automatic processing only covers connector-wide uploads.** If enabled for your connector, the daily schedule processes existing open connector-wide uploads. Uploads for a single administration must always be submitted manually. The schedule does not create uploads or retry previously submitted runs.
+- **Empty uploads are harmless.** An upload without files or with only empty files completes successfully without processing data. Empty batches, including full uploads, do not change existing administrations.
 
 ## Errors
 
