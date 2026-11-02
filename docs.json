@@ -340,6 +340,25 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Integrator guide",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "integrate/welcome"
+            ]
+          },
+          {
+            "group": "External data uploads",
+            "pages": [
+              "integrate/ext-upload-overview",
+              "integrate/ext-upload-api",
+              "integrate/ext-upload-reference"
+            ]
+          }
+        ]
       }
     ]
   },
