@@ -141,6 +141,12 @@ This walkthrough covers the full upload flow. You need the credentials and URLs 
 
     Keep the `run_id`. It identifies the processing run when you contact us about it.
 
+    <Warning>
+    Finish uploading and finalizing all files before submitting. The URL may still accept files afterwards, but you must not use it again.
+
+    During processing, aiGust takes a separate copy of the batch. Later uploads do not update that copy and are not a way to add data to the submitted run. Use a new upload for additional data.
+    </Warning>
+
     After submitting, call `create` again (step 2) to open a new batch before uploading again. While your submission is still being processed, a new `create` for an overlapping scope returns `409 Conflict` — retry once the upload disappears from the [upload list](/integrate/ext-upload-reference#list-open-uploads).
   </Step>
 </Steps>

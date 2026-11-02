@@ -16,7 +16,7 @@ You never receive storage credentials or account keys. All storage access happen
 1. You request an access token with your client credentials.
 2. You create an upload. aiGust answers with an upload URL: a write-only location in Azure Data Lake Storage, valid for 2 days.
 3. You upload your files to that URL.
-4. You submit the upload. aiGust closes it (the URL stops working immediately) and processes your files.
+4. You submit the upload. aiGust closes the batch and starts processing your files.
 
 ```mermaid
 sequenceDiagram
@@ -35,6 +35,8 @@ sequenceDiagram
 ```
 
 Depending on the agreed setup, open uploads may also be processed automatically on a daily schedule. You can always submit manually as well.
+
+Finish uploading all files before submitting. The upload URL may still work afterwards, but you must not use it again after submit or cancel. Create a new upload for further data.
 
 ## Concepts
 
