@@ -352,6 +352,14 @@
             ]
           },
           {
+            "group": "API",
+            "pages": [
+              "integrate/authentication",
+              "integrate/api",
+              "integrate/provision-client-users"
+            ]
+          },
+          {
             "group": "External data uploads",
             "pages": [
               "integrate/ext-upload-overview",

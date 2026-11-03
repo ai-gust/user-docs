@@ -1,0 +1,175 @@
+---
+title: "Provision client users"
+description: "Give your clients access to aiGust from your own portal: create client users, choose which administrations they see, and send them to aiGust without a second sign-in."
+---
+
+Do your clients already sign in to a portal of yours? Then that portal can decide who gets access to aiGust, and to which administrations. Your software creates the [client users](/setup/client-portal/invite-client-users) in aiGust through the API, gives them access to their administrations, and deactivates them again when their access ends. Your clients then open the aiGust [client portal](/guide/client-portal/client-view) from your portal.
+
+You need an [access token](/integrate/authentication) for every call. In the examples, `{API}` stands for `https://api.prod.ai-gust.io/api/v01`, and `{TENANT_ID}` for the ID of the firm.
+
+The integration needs the role **Office key user**: only key users may manage client users. See [Create an integration](/integrate/authentication#create-an-integration).
+
+## How it works
+
+| When | What your software does |
+|---|---|
+| A client gets access | [Find the administrations](#find-an-administration), [create the client user](#create-a-client-user), and [give access](#give-access-to-administrations) to those administrations. Then tell your client the connection is ready. |
+| A client gets access to more administrations | [Find the administrations](#find-an-administration), and [give access](#give-access-to-administrations) to them. |
+| A client loses access to some administrations | [Find the administrations](#find-an-administration), and [take that access away](#take-access-away). |
+| A client loses all access | [Deactivate the client user](#deactivate-a-client-user). |
+
+Each client user signs in with their email address. Store the ID aiGust returns for each client user: you need it in the later calls.
+
+## Find an administration
+
+To give access, you need the aiGust ID of each administration. Search on its VAT number:
+
+```bash
+curl "{API}/tenants/{TENANT_ID}/administrations?search=BE0429092465" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}"
+```
+
+You normally get one result, or none when aiGust doesn't know the administration:
+
+```json
+{
+  "administrations": [
+    {
+      "id": "3216920a-a614-4ceb-a55f-19d864cc56de",
+      "name": "Example holidays nv",
+      "vat_number": "BE0429092465",
+      "active": true,
+      "selected_company_type": "OPERATING_COMPANY",
+      "tenant_id": "d3bab57b-1c49-4460-9b53-885dd2a9ab21"
+    }
+  ]
+}
+```
+
+To look up many VAT numbers in one call, see `POST /tenants/{tenant_id}/administrations/vat-numbers` in the [API reference](https://api.prod.ai-gust.io/api/redoc#tag/administration_crud).
+
+## Create a client user
+
+```bash
+curl -X POST "{API}/tenants/{TENANT_ID}/client-users" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "first_name": "Jan",
+    "last_name": "Peeters",
+    "email": "jan.peeters@example.com",
+    "role": "client:read_only",
+    "locale": "nl"
+  }'
+```
+
+| Field | Value |
+|---|---|
+| `email` | Required. The user signs in with it. |
+| `role` | `client:read_only` or `client:full`. See [Choose the role](#choose-the-role). |
+| `locale` | The user's language: `nl`, `en` or `fr`. Default `nl`. |
+| `send_welcome_email` | `true` to send the aiGust [welcome email](/setup/branding/email-templates). Default `false`: you usually tell your clients yourself. |
+
+The response holds the new client user, with its `id`:
+
+```json
+{
+  "id": "ca3ef610-7ae9-4a59-90ad-724f08944891",
+  "active": true,
+  "email": "jan.peeters@example.com",
+  "role": "client:read_only",
+  "level": "client",
+  "restricted_access": true,
+  "has_administrations_whitelist": true,
+  "accessible_administrations": []
+}
+```
+
+A new client user has access to no administrations yet: `accessible_administrations` is empty.
+
+### Choose the role
+
+| API role | Role in the portal | Can |
+|---|---|---|
+| `client:read_only` | **External user (read only)** | See the client portal of their administrations. |
+| `client:full` | **External user (admin)** | The same, and also see and create other client users for those administrations. |
+
+When your portal manages the access, use `client:read_only`. Otherwise your clients could also add users in aiGust, outside your portal. See [Should clients manage users?](/setup/client-portal/control-what-clients-see#should-clients-manage-users)
+
+## Give access to administrations
+
+Post the IDs of the administrations to the client user's access list:
+
+```bash
+curl -X POST "{API}/tenants/{TENANT_ID}/client-users/{USER_ID}/whitelist/administrations" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '[
+    "4fddaeff-8607-4455-8547-1cfcccd995d3",
+    "e628a67b-e77f-46de-aa59-ba9b238beb50"
+  ]'
+```
+
+aiGust ignores administrations that are already on the list. So you can send only the new ones, or the whole list again.
+
+## Take access away
+
+Send the IDs of the administrations to remove:
+
+```bash
+curl -X DELETE "{API}/tenants/{TENANT_ID}/client-users/{USER_ID}/whitelist" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '["4fddaeff-8607-4455-8547-1cfcccd995d3"]'
+```
+
+The endpoint ends in `/whitelist`, not `/whitelist/administrations`: it also removes [administration groups](/setup/users/administration-groups). For client users that your portal manages, give access per administration, not per group.
+
+## Deactivate a client user
+
+```bash
+curl -X DELETE "{API}/tenants/{TENANT_ID}/client-users/{USER_ID}" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}"
+```
+
+aiGust doesn't delete the client user, but deactivates them. They can no longer sign in.
+
+## See who has access to an administration
+
+```bash
+curl "{API}/tenants/{TENANT_ID}/administrations/{ADMINISTRATION_ID}/client-users" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}"
+```
+
+The same endpoint also gives and takes access from the side of the administration. See the [API reference](https://api.prod.ai-gust.io/api/redoc#tag/client_users).
+
+## Send your clients to aiGust
+
+Add a link or a tile to aiGust in your portal. When your clients sign in to your portal with Microsoft or Google, send them to the sign-in link of that provider:
+
+| Provider | Link |
+|---|---|
+| Microsoft (Entra ID) | `https://app.ai-gust.io/sso?idp=microsoft` |
+| Google | `https://app.ai-gust.io/sso?idp=google` |
+
+On development, use `https://app-dev.ai-gust.io/sso?idp=...`.
+
+aiGust sends your client straight to the sign-in of that provider. Because your client is already signed in there, they don't sign in a second time, and land on their own client user in aiGust. The email address of their Microsoft or Google account must be the email address of the client user.
+
+### Open a specific page
+
+Add parameters to the link to open a specific administration or meeting:
+
+| Parameter | What it does |
+|---|---|
+| `tenant_id` | The firm to open. When the user already belongs to a firm, that firm wins and aiGust ignores this parameter. |
+| `administration_id` | The administration to open. |
+| `administration_vat_number` | Another way to find the administration: aiGust looks it up by VAT number within `tenant_id`. It overrides `administration_id`. The redirect waits until the lookup is done. |
+| `meeting_id` | Opens the client meetings page instead of the client dashboard, on that meeting. |
+| `target_level` | The level to land on: `client`, `administration` or `tenant`. aiGust matches it loosely: case-insensitive, and on "contains", in that order. |
+
+For example, to open the dashboard of one administration in the client portal:
+
+```
+https://app.ai-gust.io/sso?idp=microsoft&tenant_id={TENANT_ID}&administration_vat_number=BE0429092465&target_level=client
+```
