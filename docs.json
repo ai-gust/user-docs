@@ -104,7 +104,8 @@
             "pages": [
               "configure/reporting/report-view-defaults",
               "configure/reporting/kpi-sensitivity",
-              "configure/reporting/kpi-dashboard-templates"
+              "configure/reporting/kpi-dashboard-templates",
+              "configure/reporting/management-report-library"
             ]
           },
           {
@@ -176,6 +177,21 @@
             "group": "Financial reports",
             "pages": [
               "guide/reports/overview",
+              {
+                "group": "Management reports",
+                "pages": [
+                  "guide/reports/management-reports/overview",
+                  {
+                    "group": "Editor",
+                    "root": "guide/reports/management-reports/editor",
+                    "pages": [
+                      "guide/reports/management-reports/sections",
+                      "guide/reports/management-reports/line-items",
+                      "guide/reports/management-reports/formulas"
+                    ]
+                  }
+                ]
+              },
               {
                 "group": "Report definitions",
                 "pages": [
@@ -289,6 +305,7 @@
                           "guide/meetings/widgets/cashflow-waterfall",
                           "guide/meetings/widgets/balance",
                           "guide/meetings/widgets/balance-graph",
+                          "guide/meetings/widgets/management-report",
                           "guide/meetings/widgets/taxes",
                           "guide/meetings/widgets/capital-gain-tax"
                         ]
@@ -385,6 +402,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/guide/reports/management-reports",
+      "destination": "/guide/reports/management-reports/overview"
+    },
     {
       "source": "/setup/client-portal/client-experience",
       "destination": "/guide/client-portal/client-view"

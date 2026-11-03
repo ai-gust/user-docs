@@ -1,0 +1,54 @@
+---
+title: "Management report"
+description: "Show one of the administration's management reports on a slide."
+---
+
+Shows a [management report](/guide/reports/management-reports/overview) of the administration, in the same way as the [P&L widget](/guide/meetings/widgets/pl) shows the profit and loss.
+
+## Add the widget
+
+1. Click a data zone of the slide. **Zone configuration** opens.
+2. Under **Widget**, choose **Reports**.
+3. Click **Management report**, and click **Apply**.
+4. Under **Widget configuration**, choose the **Report**.
+
+<Frame caption="Choose the management report to show.">
+  <img src="/images/meetings/widget-configuration.jpg" alt="Zone configuration with Currently the following widget is configured: Management report, select a management report, with a pencil to change it. Below it, Widget configuration, additional settings for the selected widget, with the Report list open: My new custom report, Demo Friday and Bart's best report marked Administration, and P&L default [COPY] marked Tenant." />
+</Frame>
+
+## Options
+
+| Option | What it does |
+|---|---|
+| **Report** | Which management report the slide shows. The list holds the administration's own reports, marked **Administration**, and the library reports linked to it, marked **Tenant**. |
+
+## In a meeting flow
+
+A [meeting flow](/configure/meetings/meeting-flows) isn't tied to one administration. Under **Widget configuration**, you choose how the report is picked:
+
+| **Choose the report on administration level** | What happens |
+|---|---|
+| On | The slide is a placeholder. In each meeting, the accountant chooses one of the administration's reports. |
+| Off | Choose a **Report** from your firm's [library](/configure/reporting/management-report-library), marked **Tenant**. Every meeting from the flow shows it, also for administrations the report isn't linked to. |
+
+<Frame caption="In a flow: choose a library report…">
+  <img src="/images/meetings/flow-management-report-tenant.jpg" alt="Zone configuration in a meeting flow with the Management report widget. Under Widget configuration, Choose the report on administration level is turned off, and the Report list is open with P&L default [COPY], marked Tenant." />
+</Frame>
+
+<Frame caption="…or let the accountant choose the report in each meeting.">
+  <img src="/images/meetings/flow-management-report-placeholder.jpg" alt="Zone configuration in a meeting flow with the Management report widget. Under Widget configuration, Choose the report on administration level is turned on, and there's no Report list." />
+</Frame>
+
+With the placeholder, the slide in the meeting says *Currently no report has been selected*. Click **Select a report** to choose one.
+
+<Frame caption="A placeholder slide in a meeting, before the accountant chooses the report.">
+  <img src="/images/meetings/slide-select-report.jpg" alt="The slide Custom report for Last financial year, 01/01/2025 to 31/12/2025, with the text Currently no report has been selected and a Select a report button." />
+</Frame>
+
+## Where it fits
+
+A large zone, like the other report widgets. The slide's time period and reporting level decide which columns it shows.
+
+<Frame caption="A management report on a slide, with the last two financial years.">
+  <img src="/images/meetings/slide-management-report.jpg" alt="The slide Custom report for Last financial year, 01/01/2025 to 31/12/2025, with the Hospitality report as a table for 2024 and 2025: Food revenue, Food costs, the highlighted Food margin of €510.346,70 and €645.552,91, Other direct costs, Gross margin, Indirect costs, Other income, Other costs, Ebitda, Depreciations, EBIT and Financial income." />
+</Frame>

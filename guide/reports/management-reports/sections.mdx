@@ -1,0 +1,42 @@
+---
+title: "Sections"
+description: "Organise a management report in sections that hold line items, formulas and other sections."
+---
+
+A section is the group in a [management report](/guide/reports/management-reports/overview) that holds other groups: line items, formulas or other sections. It doesn't hold GL accounts itself. For example, *Turnover* holds the line items *Sales* and *Work in progress*.
+
+A section shows with a boxes icon in the definition. Click the arrow at the end of its row to expand or collapse it.
+
+In the report, a section shows the total of everything beneath it: it adds up all its groups.
+
+## Add a section
+
+1. Click a group at the level where you want the section.
+2. Click **Add group**.
+3. Under **Group settings**, choose **Section**.
+4. Enter the **Name**, in each language: **NL**, **EN** and **FR**.
+
+See [Add a group](/guide/reports/management-reports/editor#add-a-group).
+
+## Add groups to a section
+
+A new section is still empty. Click the dashed **Add subgroup** placeholder under it to add its first group.
+
+<Frame caption="A new section at the top level, with the placeholder for its first subgroup.">
+  <img src="/images/management-reports/add-group.jpg" alt="The definition with a New group, marked in red, added at the top level under Turnover, and below it a dashed Add subgroup placeholder. On the right, Group settings with the types Section (selected), Formula and Line item, Delete group, an empty Name field with NL, EN and FR, Calculation with Operator plus and minus and Use as vertical reference value, and Formatting with Show this row in a distinct colour in the report and Open this section automatically. A red icon with the number 2 next to Source data." />
+</Frame>
+
+To add more groups, click a group inside the section, and click **Add group**. You can also drag a group into the section.
+
+A section inside another section can hold sections and line items. Formulas can only be at the top level. See [Formulas](/guide/reports/management-reports/formulas).
+
+## Settings of a top-level section
+
+A section at the top level of the report has more settings than one inside another section:
+
+| Setting | What it does |
+|---|---|
+| **Operator** | Plus or minus: whether a [formula](/guide/reports/management-reports/formulas) adds or subtracts the section. |
+| **Use as vertical reference value** | Makes the section the line that aiGust calculates all percentages against. See [Vertical reference](/guide/reports/management-reports/editor#vertical-reference). |
+| **Show this row in a distinct colour in the report** | Highlights the row in the report. |
+| **Open this section automatically** | Shows the section expanded when you open the report. |

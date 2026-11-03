@@ -9,12 +9,22 @@ This widget needs transactions, so it only works for administrations from a book
 
 ## Options
 
-Under **Display options**:
+Under **Widget configuration**, start with a quick select:
+
+| Quick select | What it fills in |
+|---|---|
+| **Top customers** | The options for the largest customers behind turnover. |
+| **Top suppliers** | The options for the largest suppliers behind costs: the title *Top suppliers & trends*, the accounts 600 to 619, **Sentiment** **Negative**, **Group by** **Business partner**, and **Never reverse**. |
+| **Custom** | Nothing: you set the options yourself. |
+
+{/* TODO Bart: which options does Top customers fill in (accounts 70?, Positive, Always reverse?)? Can you still change the options after a quick select, or only with Custom? */}
+
+The options:
 
 | Option | What it does |
 |---|---|
-| **Title** | The title of the widget, in **nl**, **en** and **fr**. |
-| **Filter GL Accounts** | The accounts to analyse. By default, the cost accounts. Type the start or the end of an account number, for example *70* for all accounts starting with 70, and click **+**. |
+| **Title** | The title of the widget, in **NL**, **EN** and **FR**. |
+| **Filter GL Accounts** | The accounts to analyse. By default, the cost accounts. Type the first digits of an account number, for example *70* for all accounts starting with 70, and click **+**. The buttons in the field switch to *ends with* or turn a filter into *not*, as in a [line item](/guide/reports/management-reports/line-items#starts-with-ends-with-not). |
 | **Sentiment** | Whether an increase is good news. **Positive** shows an increase in green, as for revenue. **Negative** shows it in red, as for costs. Or choose **Neutral**. |
 | **Group by** | What to rank: **Business partner** (the default), GL account or label. |
 | **Reverse sign** | **Always reverse**, **Auto** or **Never reverse**. See below. |
@@ -23,8 +33,8 @@ aiGust stores credit amounts as negative and debit amounts as positive, so reven
 
 The widget works on the transactions of the accounts you filter, added up per business partner, account or label.
 
-<Frame caption="The options of Top contributors & trends, set up for costs.">
-  <img src="/images/meetings/options-top-contributors.jpg" alt="Display options with the title Top contributors & trends, Filter GL Accounts with accounts 600 to 619, Sentiment Negative, Group by Business partner, and Reverse sign Never reverse." />
+<Frame caption="The quick select Top suppliers, with the options it fills in.">
+  <img src="/images/meetings/options-top-contributors.jpg" alt="Zone configuration with the widget Top contributors & trends configured. Under Widget configuration, the quick selects Top customers, Top suppliers (selected) and Custom. Title Top suppliers & trends with NL, EN and FR, Filter GL Accounts with accounts 600 to 619 and the field Insert glaccount pre- or suffix, Sentiment Negative, Group by Business partner, and Reverse sign Never reverse." />
 </Frame>
 
 ## Where it fits
