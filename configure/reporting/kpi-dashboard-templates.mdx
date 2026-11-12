@@ -11,7 +11,7 @@ Only key users can manage firm-wide templates.
 
 ## The templates overview
 
-Click **Dashboards** in the firm menu. For each template, the list shows:
+Click **Settings** in the main rail, and choose **KPI dashboards**. For each template, the list shows:
 
 - **Name,** with a badge: **aiGust** for the default dashboard, **Tenant** for your firm's own templates.
 - **Sector,** if the template is linked to one.
@@ -19,7 +19,7 @@ Click **Dashboards** in the firm menu. For each template, the list shows:
 - **KPIs,** the KPIs the template shows.
 
 <Frame caption="The KPI dashboard templates of a firm.">
-  <img src="/images/dashboard/firm-dashboards.jpg" alt="Dashboards page with four dashboards: Default dashboard with the aiGust badge, and Test, Test2 and Test kopie bouw with the Tenant badge. Test kopie bouw is linked to the sector Construction. The KPIs column lists each dashboard's KPIs, such as Turnover, Ebitda and Liquidity - Quick ratio." />
+  <img src="/images/dashboard/firm-dashboards.jpg" alt="Dashboards page, to define tenant-level KPI dashboards you can reuse across administrations, with a Create button and a List switch. Five dashboards: Default dashboard with the aiGust badge, and Test, Test2 and two Test kopie bouw with the Tenant badge. The Test kopie bouw dashboards are linked to the sector Construction. The KPIs column lists each dashboard's KPIs, such as Turnover, Ebitda and Liquidity - Quick ratio." />
 </Frame>
 
 ## Create a template
@@ -71,12 +71,14 @@ When someone chooses a dashboard for an administration, aiGust remembers it for 
 Until then, aiGust picks the most suitable dashboard, in this order:
 
 1. A dashboard made for that administration.
-2. A firm-wide template linked to the administration's sector. Only the sector counts, not the subsector.
-3. Another firm-wide template.
-4. The aiGust **Default dashboard**.
+2. A firm-wide template, the closest match first:
+   1. one linked to the administration's sector;
+   2. one without a sector;
+   3. any other firm-wide template.
+3. An aiGust dashboard, matched in the same way. Today, that's the **Default dashboard**.
+
+So a choice made for the administration always wins. Then come the administration's own dashboards, then your firm's templates, then aiGust's.
 
 <Warning>
-You can't set one template as your firm's default yet. If your firm has several templates without a sector, an administration without a chosen dashboard can show any of them. So keep the number of templates small, and link them to a sector where you can.
+If two dashboards match at the same step, there's no rule to decide between them. That happens with two dashboards made for the same administration, two templates for the same sector, or two templates without a sector. An administration without a chosen dashboard can then show either. So keep the number of templates small, link them to a sector where you can, and give each sector only one template.
 </Warning>
-
-{/* TODO Bart: with several templates without a sector, which one wins at step 3? Probably the last one created, to be verified. */}

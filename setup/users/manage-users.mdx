@@ -3,13 +3,15 @@ title: "Add and manage users"
 description: "Add the employees of your firm as users, one by one or in bulk, and manage their accounts."
 ---
 
-Everyone at your firm who works in aiGust needs a user. Only key users can add and manage users. Click **Users** in the firm menu, and choose **Employees**.
+Everyone at your firm who works in aiGust needs a user. Only key users can add and manage users. Click **Access** in the main rail, and choose **Internal users**.
+
+Does your firm use AdminPulse? Then you can also sync your users from there. See [AdminPulse](/setup/data/adminpulse).
 
 This page is about the users at your firm. For the people at your clients, see [Invite and manage client users](/setup/client-portal/invite-client-users).
 
 ## Add a user
 
-1. Click **Users** in the firm menu, and choose **Employees**.
+1. Click **Access** in the main rail, and choose **Internal users**.
 2. Click **Add**.
 3. **User details:** fill in the fields below, and click **Next**.
 4. **Finish user set up:** choose whether to **Send a welcome email to the user**, and click **Submit**.
@@ -43,7 +45,7 @@ If you don't send it, tell your colleague yourself how to sign in. You can send 
 
 To add many users at once, upload them from a CSV or Excel file.
 
-1. Click **Users** in the firm menu, and choose **Employees**.
+1. Click **Access** in the main rail, and choose **Internal users**.
 2. Click **Add in bulk**.
 3. Click **Download template** to get an Excel file with the right columns. Fill in one row per user.
 4. Drag your file to the dialog, or click **Select a file to upload**. The file can be up to 50 MB. Click **Next**.
@@ -82,15 +84,15 @@ You can't restrict administration access in the file. All users you upload have 
 
 ## Manage users
 
-**Users** > **Employees** lists all users at your firm, with their email address, role, administration access, and whether they're active. Deactivated users are greyed out.
+**Access** › **Internal users** lists all users at your firm, with their email address, role, administration access, and whether they're active. Deactivated users are greyed out.
 
-Search the list, or filter it by **Status** or **User Role**. Click **Export** to download it.
+Search the list, or filter it by **Status**, **Bèta testers** or **User Role**. Click **Export** to download it.
 
 <Frame caption="All users at your firm.">
-  <img src="/images/users/employees-list.jpg" alt="Employees page under Users > Employees in the firm menu, with Search, Add in bulk and Add, the filters Status and User Role, and Export. The list shows users with their name, a blurred email address, their role, Standard office user or Office key user, and their Restricted Access, Restricted or Full access. Most have a check mark under Active. Three users without one are greyed out." />
+  <img src="/images/users/employees-list.jpg" alt="Employees page, with Search, Add in bulk and Add, the filters Status, Bèta testers and User Role, and Export. The list shows users with their initials, a blurred name and email address, their role, Standard office user or Office key user, and their Restricted Access, Restricted or Full access. One user is marked Beta tester in the Beta column. Most have a check mark under Active. Two users without one are greyed out." />
 </Frame>
 
-The **Restricted Access** column shows **Restricted** for users who only see part of the administrations, and **Full access** for users who see all of them.
+The **Restricted Access** column shows **Restricted** for users who only see part of the administrations, and **Full access** for users who see all of them. The **Beta** column shows who's a beta tester: they get new features before everyone else. The aiGust team chooses the beta testers.
 
 Click the three dots next to a user:
 
@@ -99,15 +101,31 @@ Click the three dots next to a user:
 | **Edit** | Opens the user. See below. |
 | **Activate/deactivate** | Blocks or allows their access to aiGust. A deactivated user can't sign in, and is greyed out in the list. |
 | **Resend welcome email** | Sends the welcome email again, for example when the link expired. |
-| **Delete** | For now, the same as deactivating: the user stays in the list, but can't sign in. |
-
-{/* TODO Bart: update Delete once the real delete is introduced. */}
+| **Delete** | Deletes the user for good. See [Delete a user](#delete-a-user). |
 
 <Frame caption="The options of a user.">
   <img src="/images/users/user-menu.jpg" alt="Three-dots menu of a user with Edit, Activate/deactivate, Resend welcome email and Delete." />
 </Frame>
 
 When a colleague leaves your firm, deactivate their user. They can then no longer sign in, also not with Google or Microsoft.
+
+### Delete a user
+
+Deactivating is reversible: you can activate the user again later. Deleting is not.
+
+1. Click the three dots next to the user, and choose **Delete**.
+2. Read the warning. It explains what happens:
+   - Data that belongs to the user, such as their audit logs and personal settings, is deleted for good.
+   - Meetings, forecasts and other items the user created stay, but are no longer linked to the user.
+3. Turn on **I am sure**, and click **Confirm**.
+
+<Warning>
+Deleting a user also deletes their entries in the [audit trail](/setup/monitoring/audit-trail). If you need to keep track of what a former colleague did, deactivate their user instead.
+</Warning>
+
+<Frame caption="Turn on I am sure to confirm the delete.">
+  <img src="/images/users/delete-user.jpg" alt="Delete user dialog asking whether you're certain you want to delete the user, as this cannot be undone. A red banner says that data belonging to the user, such as audit logs and personal settings, will be permanently deleted, and that meetings, forecasts and other items the user created will remain but no longer be linked to the user. Below it, the I am sure toggle, turned off, and the buttons Cancel and Confirm, greyed out." />
+</Frame>
 
 ### Profile
 

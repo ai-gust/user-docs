@@ -1,0 +1,38 @@
+---
+title: "Formulas"
+description: "Calculate subtotals such as the gross margin or EBITDA in a management report by adding and subtracting top-level groups."
+---
+
+A formula is the group in a [management report](/guide/reports/management-reports/overview) that calculates a line from other groups. It adds or subtracts them. For example, *Gross margin* = *Turnover* – *Direct costs*.
+
+A formula shows with a Σ icon in the definition, and is highlighted.
+
+## Add a formula
+
+1. Click a group at the top level, and click **Add group**.
+2. Under **Group settings**, choose **Formula**.
+3. Enter the **Name**, in each language: **NL**, **EN** and **FR**.
+4. Under **Formula operands**, click **Add operand**, and choose a group.
+5. Repeat for each group in the formula. To remove one, click the bin next to it.
+
+A formula can only be at the top level of the report, and can only use top-level groups: the groups at the first level of the report. That includes other formulas: *EBIT* can start from *Gross margin*, for example.
+
+<Frame caption="Food margin adds Food revenue and subtracts Food costs.">
+  <img src="/images/management-reports/formula.jpg" alt="Group settings of the formula Food margin, with the types Section, Formula (selected) and Line item, and the Name Food margin. Under Formula operands, Food revenue with a plus and Food costs with a minus, each with a bin. Add operand is open, with the top-level groups Turnover, Direct costs, Gross margin, Indirect costs, Other income, Other costs, Ebitda and Depreciations. Next to Source data, an orange icon with the number 2." />
+</Frame>
+
+## Add or subtract
+
+You don't choose in the formula whether a group is added or subtracted. That comes from the **Operator** in the settings of the group itself: plus is added, minus is subtracted. So to subtract *Direct costs*, set its operator to minus. The operator then applies in every formula that uses the group.
+
+On the **Table** tab, the plus or minus in front of each row shows its operator. The [vertical reference](/guide/reports/management-reports/editor#vertical-reference) shows an empty circle instead.
+
+<Frame caption="The formula Food margin in the report: Food revenue minus Food costs, shown in a distinct colour.">
+  <img src="/images/management-reports/formula-table.jpg" alt="The Table tab of the Hospitality report with the columns 2025 and 2026, open until 01-07/2026. Food revenue, with a plus, is 848.830,20 euro in 2025, and Food costs, with a minus, 203.277,29 euro. The formula Food margin below them, highlighted in purple, is 645.552,91 euro. Further down, the row Other turnover with an empty circle, then Other direct costs, the formula Gross margin, Indirect costs, Other income, Other costs, the formula Ebitda, Depreciations, the formula EBIT, Financial income and Financial charges, each with a plus or a minus." />
+</Frame>
+
+The operator doesn't change how the group itself shows in the report. For that, line items have **Reverse sign**. See [Reverse the sign](/guide/reports/management-reports/line-items#reverse-the-sign).
+
+## Settings of a formula
+
+Like other top-level groups, a formula has the settings **Use as vertical reference value**, **Show this row in a distinct colour in the report** and **Open this section automatically**. See [Group settings](/guide/reports/management-reports/editor#group-settings).

@@ -69,7 +69,8 @@
                   "setup/data/social/silverfin",
                   "setup/data/social/social-balance-codes"
                 ]
-              }
+              },
+              "setup/data/adminpulse"
             ]
           },
           {
@@ -102,7 +103,9 @@
             "group": "Reporting",
             "pages": [
               "configure/reporting/report-view-defaults",
-              "configure/reporting/kpi-dashboard-templates"
+              "configure/reporting/kpi-sensitivity",
+              "configure/reporting/kpi-dashboard-templates",
+              "configure/reporting/management-report-library"
             ]
           },
           {
@@ -148,6 +151,7 @@
           {
             "group": "Getting started",
             "pages": [
+              "guide/welcome",
               "guide/getting-started/log-in",
               "guide/getting-started/personalise",
               "guide/getting-started/help",
@@ -179,6 +183,21 @@
             "group": "Financial reports",
             "pages": [
               "guide/reports/overview",
+              {
+                "group": "Management reports",
+                "pages": [
+                  "guide/reports/management-reports/overview",
+                  {
+                    "group": "Editor",
+                    "root": "guide/reports/management-reports/editor",
+                    "pages": [
+                      "guide/reports/management-reports/sections",
+                      "guide/reports/management-reports/line-items",
+                      "guide/reports/management-reports/formulas"
+                    ]
+                  }
+                ]
+              },
               {
                 "group": "Report definitions",
                 "pages": [
@@ -298,6 +317,7 @@
                           "guide/meetings/widgets/cashflow-waterfall",
                           "guide/meetings/widgets/balance",
                           "guide/meetings/widgets/balance-graph",
+                          "guide/meetings/widgets/management-report",
                           "guide/meetings/widgets/taxes",
                           "guide/meetings/widgets/capital-gain-tax"
                         ]
@@ -350,6 +370,33 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Integrator guide",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "integrate/welcome"
+            ]
+          },
+          {
+            "group": "API",
+            "pages": [
+              "integrate/authentication",
+              "integrate/api",
+              "integrate/provision-client-users"
+            ]
+          },
+          {
+            "group": "External data uploads",
+            "pages": [
+              "integrate/ext-upload-overview",
+              "integrate/ext-upload-api",
+              "integrate/ext-upload-reference"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -367,6 +414,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/guide/reports/management-reports",
+      "destination": "/guide/reports/management-reports/overview"
+    },
     {
       "source": "/setup/client-portal/client-experience",
       "destination": "/guide/client-portal/client-view"

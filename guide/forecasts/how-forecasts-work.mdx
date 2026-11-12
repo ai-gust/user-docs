@@ -21,9 +21,11 @@ Depending on what it finds, it fills in the remaining periods with one of four m
 | Method | What it does |
 |---|---|
 | **Set to zero** | Sets the remaining periods to zero, for an account that has dropped to zero. |
-| **Extend** | Repeats the last value for each remaining period. |
-| **copy** | Copies the same periods of last year. |
-| **copy + trend** | Copies the same periods of last year, with the account's growth applied. |
+| **Average last 12 months** | Uses the average monthly value of the last 12 months for each remaining period. |
+| **copy** | Copies the values of the same periods last year. |
+| **copy + trend** | Copies the values of the same periods last year, and applies the account's trend. |
+
+You can also choose a fifth method by hand: **Copy last value** repeats the value of the last month for each remaining period. aiGust never picks it automatically.
 
 In the forecast editor, each account shows the method aiGust chose. The automatic forecast is a starting point: you can change the method, or any figure. See [Create and edit a forecast](/guide/forecasts/create-and-edit).
 

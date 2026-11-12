@@ -1,0 +1,56 @@
+---
+title: "Use the aiGust API"
+description: "Where the API lives, how its URLs are built, and where to find the full reference."
+---
+
+With the aiGust API, your software does what a user does in the portal: read figures, list administrations, create client users, and more. Anything your [service user](/integrate/authentication) may do in the portal, it may do through the API.
+
+## The full reference
+
+The complete API is documented in the [API reference](https://api.prod.ai-gust.io/api/redoc) (ReDoc), with every endpoint, parameter and schema. This guide only explains the basics, and walks you through common [use cases](#use-cases).
+
+## Base URL
+
+| Environment | API base URL | Portal |
+|---|---|---|
+| Production | `https://api.prod.ai-gust.io/api/v01` | [app.ai-gust.io](https://app.ai-gust.io) |
+| Development | `https://api.dev.ai-gust.io/api/v01` | [app-dev.ai-gust.io](https://app-dev.ai-gust.io) |
+
+Build and test your integration on development, then switch to production. The examples in this guide use production.
+
+Almost every endpoint sits under a firm, which the API calls a **tenant**:
+
+```
+/tenants/{tenant_id}/...
+/tenants/{tenant_id}/administrations/{administration_id}/...
+```
+
+To find the ID of your firm, ask for the profile of your service user. The `tenant` in the response holds the `id`:
+
+```bash
+curl "https://api.prod.ai-gust.io/api/v01/settings/profile" \
+  -H "Authorization: Bearer {ACCESS_TOKEN}"
+```
+
+{/* TODO Bart: confirm that settings/profile works for a service user. The tenant ID isn't shown in the portal yet: update this once it is. */}
+
+## Before you start
+
+1. [Get a client ID and secret](/integrate/authentication#get-a-client-id-and-secret).
+2. [Request an access token](/integrate/authentication#request-an-access-token), and send it as a bearer token with every call.
+
+## Good to know
+
+- **Lists are paged.** List endpoints take `page_size`, and return a `next` value to fetch the next page.
+- **IDs are UUIDs** that aiGust creates, such as the ID of an administration. To find an administration by its VAT number, see [Find an administration](/integrate/provision-client-users#find-an-administration).
+- **Timestamps** are ISO 8601, in UTC.
+- **`401` and `403`:** see [What the service user may do](/integrate/authentication#what-the-service-user-may-do).
+
+## Use cases
+
+| Use case | Guide |
+|---|---|
+| Give your clients access to aiGust from your own portal, and manage which administrations they see | [Provision client users](/integrate/provision-client-users) |
+| Send bookkeeping or other data to aiGust in an agreed format | [External data uploads](/integrate/ext-upload-overview) |
+
+Want to do something else with the API? Contact us at [support@ai-gust.io](mailto:support@ai-gust.io).
