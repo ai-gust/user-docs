@@ -123,6 +123,12 @@
             ]
           },
           {
+            "group": "Follow-up",
+            "pages": [
+              "configure/follow-up/categories"
+            ]
+          },
+          {
             "group": "Monitoring",
             "pages": [
               "setup/monitoring/usage-statistics",
@@ -253,6 +259,12 @@
             "pages": [
               "guide/triggers/how-triggers-work",
               "guide/triggers/alerts"
+            ]
+          },
+          {
+            "group": "Follow-up",
+            "pages": [
+              "guide/follow-up/overview"
             ]
           },
           {

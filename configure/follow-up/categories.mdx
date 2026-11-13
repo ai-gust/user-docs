@@ -1,0 +1,71 @@
+---
+title: "Follow-up categories"
+description: "Group the follow-up items of every administration on the board, with categories your firm sets up itself."
+---
+
+A category is a column on the [follow-up board](/guide/follow-up/overview#the-board). Categories group what still needs to happen, such as *Ask the client* or *Discuss in the meeting*.
+
+<Note>
+Only key users can manage follow-up categories.
+</Note>
+
+Categories come in a **schema**: a named set of categories in a fixed order. aiGust provides a default schema, and your firm can build its own. One schema is active at a time. The active schema applies to every administration of your firm.
+
+
+## Open the settings
+
+Click **Settings** in the firm menu, and choose **Follow-up categories** under **Reporting**.
+
+The **Active for the firm** card at the top shows the active schema. The **Schemas** table below lists every schema with its **Name**, its **Categories** and its **Owner**: your firm or **aiGust**. The active schema carries an **Active** badge.
+
+<Frame caption="The follow-up categories of the firm.">
+  <img src="/images/follow-up/follow-up-categories.jpg" alt="Follow-up categories settings page. At the top the Active for the firm card with a dropdown showing the aiGust default schema. Below it the Schemas table with a New schema button and the columns Name, Categories and Owner: the aiGust default schema with an Active badge, owned by aiGust, with only a duplicate button, and the firm's own schema Client conversation, owned by De witwassers, with edit, duplicate and delete buttons." />
+</Frame>
+
+## Create a schema
+
+<Steps>
+  <Step title="Create the schema">
+    Click **New schema** and enter a **Name**. Use **nl**, **en** and **fr** to enter the name in each language.
+  </Step>
+  <Step title="Add the categories">
+    Under **Categories (board columns, in this order)**, click **Add category** for each category you need. Per category:
+
+    - Click the colour circle to pick a **Color**.
+    - Pick an **Icon**.
+    - Enter the **Label** in each language.
+
+    The badge under the row previews how the category looks on the board. Move a category with the arrows: the order here is the column order on the board. Remove one with the bin.
+  </Step>
+  <Step title="Save the schema">
+    Click **Save**. The button stays greyed out until the schema has a name and at least one category, and every category has a label.
+  </Step>
+</Steps>
+
+<Frame caption="Create a schema: the name in three languages, and the categories in board order.">
+  <img src="/images/follow-up/follow-up-category-schema-edit.jpg" alt="Side panel New schema. A Name field filled with Client conversation, with a translation button and the language buttons NL, EN and FR; EN is selected. Below it Categories (board columns, in this order): the categories Ask the client, For the meeting and After the meeting, each with a colour circle, an icon picker, a label field with translation and language buttons, up and down arrows and a bin, and a badge previewing the category. Below the rows an Add category button and the note that No category always exists as the first board column and cannot be removed. Cancel and Save buttons are at the bottom of the panel." />
+</Frame>
+
+<Note>
+**No category** always exists as the first board column. You can't change or remove it.
+</Note>
+
+## Edit, duplicate or delete a schema
+
+On the schema's row in the table:
+
+| Button | What it does |
+|---|---|
+| Pencil — **Edit schema** | Opens the same side panel as **New schema**, to change the name and the categories. Only for your firm's own schemas. |
+| Copy — **Duplicate schema** | Copies the schema as a new, inactive schema with ` (copy)` behind its name. Handy to start from the aiGust default. |
+| Bin — **Delete schema** | Deletes the schema after you confirm. Only for your firm's own schemas that aren't active. This cannot be undone. |
+
+## Switch the active schema
+
+Pick another schema on the **Active for the firm** card. Before aiGust switches, it asks where the items of each category go, in **Map categories to "{name}"**. For every category of the current schema, pick a category of the new one. Items you don't map move to **No category**.
+
+Click **Apply** to move all items in one go and activate the new schema.
+
+<Frame caption="Map the categories of the current schema to the new one.">
+  <img src="/images/follow-up/follow-up-category-mapping.jpg" alt="Dialog Map categories to the name of the new schema, with the subtitle From the name of the current schema, pick where the items of each category go, they are moved in one go. Per category of the current schema a row with its badge on the left, an arrow, and a dropdown on the right to pick the new category or No category. At the bottom Cancel and Apply buttons." />
+</Frame>
